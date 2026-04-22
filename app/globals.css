@@ -3,7 +3,7 @@
 @tailwind utilities;
 body {@apply bg-slate-50 text-slate-900 antialiased;}
 .container-shell {@apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;}
-.section-pad {@apply py-14 sm:py-18 lg:py-20;}
+.section-pad {@apply py-14 sm:py-16 lg:py-20;}
 .card {@apply rounded-3xl border border-slate-200 bg-white shadow-soft;}
 .muted {@apply text-slate-600;}
 .eyebrow {@apply text-xs font-semibold uppercase tracking-[0.2em] text-brand-700;}
