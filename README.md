@@ -1,69 +1,18 @@
-# Interactive-Pet-Marketplace
-Marketplace for AI Companions and Playmates
 # Smart Pets Marketplace
 
-Smart Pets Marketplace is a product aggregation and affiliate website focused on helping consumers compare interactive pets, AI pets, and robotic companion pets.
+Improved multi-page affiliate-style Next.js site for comparing interactive pets and AI & robotic pets.
 
-## Primary Categories
+## Run locally
+```bash
+npm install
+npm run dev
+```
 
-* Interactive Pets
-* AI & Robotic Pets
+Open `http://localhost:3000`.
 
-## Target Audience
+## Edit content
+Main editable content lives in:
+- `components/site-data.ts`
+- `components/*`
 
-* Seniors seeking companionship
-* Adult children buying for parents
-* Families looking for smart pet gifts
-* Consumers comparing premium robotic pet products
-
-## Website Goals
-
-* Present clear product comparisons
-* Improve affiliate conversion
-* Build SEO authority in smart pet categories
-* Create a trustworthy modern shopping experience
-
-## Product Card Standards
-
-Every product card should include:
-
-* Product image
-* Product name
-* One-line benefit statement
-* Best-for tag
-* CTA button
-
-## Design Direction
-
-* Clean white layout
-* Soft gray sections
-* Rounded cards
-* Large readable fonts
-* Senior-friendly spacing
-* Modern affiliate-site styling similar to premium review sites
-
-## Tone
-
-* Trustworthy
-* Modern
-* Helpful
-* Conversion-oriented
-
-## Core Pages
-
-* Homepage
-* Interactive Pets
-* AI & Robotic Pets
-* Best for Seniors
-* Compare Products
-* Reviews
-
-## Technology Stack
-
-* Next.js
-* Tailwind CSS
-* Vercel deployment
-
-## Affiliate Goal
-
-All product pages should support affiliate links and product comparison tables.
+Replace placeholder links with your affiliate URLs before launch.

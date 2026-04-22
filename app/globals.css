@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {@apply bg-slate-50 text-slate-900 antialiased;}
+.container-shell {@apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;}
+.section-pad {@apply py-14 sm:py-18 lg:py-20;}
+.card {@apply rounded-3xl border border-slate-200 bg-white shadow-soft;}
+.muted {@apply text-slate-600;}
+.eyebrow {@apply text-xs font-semibold uppercase tracking-[0.2em] text-brand-700;}
+.btn-primary {@apply inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-slate-800;}
+.btn-secondary {@apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-slate-400;}
+.gradient-tile {background: radial-gradient(circle at top left, rgba(255,255,255,0.9), transparent 35%), linear-gradient(135deg, #eef4ff 0%, #dbeafe 40%, #f8fafc 100%);}
