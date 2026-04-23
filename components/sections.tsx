@@ -24,7 +24,7 @@ export function ShopByNeed() {
 }
 export function FeaturedProducts({ filter }: { filter?: "Interactive" | "AI & Robotic" }) {
   const filtered = filter ? products.filter((p)=>p.type===filter) : products.slice(0,4);
-  return <section className="section-pad"><div className="container-shell"><SectionHeading eyebrow="Top picks" title="Featured products with a cleaner affiliate presentation." text="Use these cards as your main conversion blocks, then replace placeholder visuals and links with real products." /><div className="mt-10 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">{filtered.map((product)=><ProductCard key={product.slug} product={product} />)}</div></div></section>;
+  return <section className="section-pad"><div className="container-shell"><div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">{filtered.map((product)=><ProductCard key={product.slug} product={product} />)}</div></div></section>;
 }
 export function ComparePreview() {
   const top = products.slice(0,4);
