@@ -8,7 +8,7 @@ export function HeroSection() {
 }
 export function TwoCategoryCards() {
   const cards = [
-    { title:"Interactive Pets", text:"Soft, engaging companion pets with touch response, sounds, and comforting interaction.", href:"/interactive-pets" },
+    { title:"Plushy Companions", text:"Soft, engaging companion pets with touch response, sounds, and comforting interaction.", href:"/interactive-pets" },
     { title:"AI & Robotic Pets", text:"Advanced smart pets with movement, sensors, app features, and more lifelike behavior.", href:"/ai-robotic-pets" }
   ];
   return <section className="section-pad pt-0"><div className="container-shell"><SectionHeading eyebrow="Start here" title="Choose your shopping path in one click." text="Keep the homepage simple and let product complexity appear later." /><div className="mt-10 grid gap-6 md:grid-cols-2">{cards.map((card)=><div key={card.title} className="card p-8"><p className="eyebrow">{card.title}</p><h3 className="mt-4 text-2xl font-semibold text-slate-900">{card.title}</h3><p className="mt-3 max-w-lg text-slate-600">{card.text}</p><Link href={card.href} className="btn-primary mt-6">Explore {card.title}</Link></div>)}</div></div></section>;
@@ -20,7 +20,7 @@ export function ShopByNeed() {
     ["Best for Kids & Families", "Playful options built for novelty and everyday entertainment."],
     ["Best Premium Picks", "Higher-end robotic pets with more advanced movement and sensors."]
   ];
-  return <section className="section-pad bg-white"><div className="container-shell"><SectionHeading eyebrow="Shop by need" title="Help visitors self-identify fast." text="These buckets keep browsing easy for both seniors and adult children shopping for parents." /><div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">{items.map(([title, text])=><div key={title} className="rounded-3xl border border-slate-200 bg-slate-50 p-6"><h3 className="text-lg font-semibold text-slate-900">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{text}</p></div>)}</div></div></section>;
+  return <section className="section-pad bg-white"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{items.map(([title, text])=><div key={title} className="rounded-3xl border border-slate-200 bg-slate-50 p-6"><h3 className="text-lg font-semibold text-slate-900">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{text}</p></div>)}</div></div></section>;
 }
 export function FeaturedProducts({ filter }: { filter?: "Interactive" | "AI & Robotic" }) {
   const filtered = filter ? products.filter((p)=>p.type===filter) : products.slice(0,4);

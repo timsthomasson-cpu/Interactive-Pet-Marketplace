@@ -1,7 +1,7 @@
 # Smart Pets Marketplace Editing Rules
 
 Always preserve:
-- Interactive Pets
+- Plushy Companions
 - AI & Robotic Pets
 
 Keep edits:
