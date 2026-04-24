@@ -21,7 +21,17 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <div className="card flex flex-col overflow-hidden">
       <div className="p-4">
-        <PlaceholderVisual label={product.name} />
+        {product.imageUrl ? (
+          <div className="overflow-hidden rounded-3xl border border-coral-200 bg-cream-100">
+            <img
+              src={product.imageUrl}
+              alt={product.name}
+              className="block h-56 w-full object-cover"
+            />
+          </div>
+        ) : (
+          <PlaceholderVisual label={product.name} />
+        )}
       </div>
       <div className="flex flex-1 flex-col space-y-4 p-6 pt-1">
         <div className="flex flex-wrap items-center gap-2">

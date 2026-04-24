@@ -26,7 +26,7 @@ export const products: Product[] = [
     features: ["BarkBack voice response", "Heartbeat sensation", "Soft hypoallergenic fur"],
     highlight: "Award-winning senior companion",
     productUrl: "https://joyforall.com/products/companion-pet-pup",
-    imageUrl: "https://joyforall.com/cdn/shop/products/dog-pdp_1800x1800_56eefe18-c108-4941-9659-cf57fd3293de_620x.jpg"
+    imageUrl: "/images/products/Mr-Dog.png"
   },
   {
     slug: "joy-for-all-cat",
@@ -40,7 +40,7 @@ export const products: Product[] = [
     features: ["VibraPurr technology", "Motion sensors", "Multiple colors"],
     highlight: "Best for dementia comfort",
     productUrl: "https://joyforall.com/products/companion-cats",
-    imageUrl: "https://joyforall.com/cdn/shop/products/silver-with-white-mitts_1800x1800_e9e40c45-2c04-44d7-aadd-1ac329a2af87_620x.png"
+    imageUrl: "/images/products/Sweetie-Cat.png"
   },
   {
     slug: "chongker-matecat-pro",
@@ -53,7 +53,8 @@ export const products: Product[] = [
     rating: 4.4,
     features: ["Voice wake-up", "Blinking & ear movement", "Handcrafted fur"],
     highlight: "Most lifelike under $150",
-    productUrl: "https://chongker.com/products/matecat-pro-hyper-realistic-bionic-cat"
+    productUrl: "https://chongker.com/products/matecat-pro-hyper-realistic-bionic-cat",
+    imageUrl: "/images/products/Sweetie-Cat.png"
   },
   {
     slug: "elephant-metacat",
@@ -66,7 +67,8 @@ export const products: Product[] = [
     rating: 4.3,
     features: ["29 voice commands", "LED expressive eyes", "USB-C rechargeable"],
     highlight: "Best rechargeable option",
-    productUrl: "https://www.amazon.com/ELEPHANT-ROBOTICS-Companion-Animation-Interaction/dp/B0BY2H7W1C"
+    productUrl: "https://www.amazon.com/ELEPHANT-ROBOTICS-Companion-Animation-Interaction/dp/B0BY2H7W1C",
+    imageUrl: "/images/products/Sweetie-Cat.png"
   },
   {
     slug: "enabot-ebo-air-2-plus",

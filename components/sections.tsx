@@ -4,7 +4,7 @@ import { ProductCard } from "./product-card";
 import { CTAButtons, PlaceholderVisual, SectionHeading, Badge } from "./ui";
 
 export function HeroSection() {
-  return <section className="section-pad pt-6 overflow-hidden sm:pt-8 lg:pt-10 bg-gradient-to-br from-cream-100 via-brand-100 to-brand-200"><div className="container-shell"><div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]"><div><p className="eyebrow">Companionship, comfort, and comparison</p><h1 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">Find the right smart pet for comfort, companionship, and fun.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">Compare the best interactive pets and AI & robotic pets for seniors, families, gift buyers, and premium shoppers — without a cluttered buying experience.</p></div><div className="card p-5 bg-white"><PlaceholderVisual label="Premium homepage hero preview" /></div></div></div></section>;
+  return <section className="section-pad pt-6 overflow-hidden sm:pt-8 lg:pt-10 bg-gradient-to-br from-cream-100 via-brand-100 to-brand-200"><div className="container-shell"><div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]"><div><p className="eyebrow">Companionship, comfort, and comparison</p><h1 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">Find the right smart pet for comfort, companionship, and fun.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">Compare the best interactive pets and AI & robotic pets for seniors, families, gift buyers, and premium shoppers — without a cluttered buying experience.</p></div><div className="card p-5 bg-white"><div className="overflow-hidden rounded-3xl border border-coral-200 bg-cream-100"><img src="/images/products/Sweetie-Cat.png" alt="Sweetie the interactive companion cat" className="block h-full w-full object-cover" /></div></div></div></div></section>;
 }
 export function TwoCategoryCards() {
   const cards = [
@@ -24,7 +24,7 @@ export function ShopByNeed() {
 }
 export function FeaturedProducts({ filter }: { filter?: "Interactive" | "AI & Robotic" }) {
   const filtered = filter ? products.filter((p)=>p.type===filter) : products.slice(0,4);
-  return <section className="section-pad"><div className="container-shell"><div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">{filtered.map((product)=><ProductCard key={product.slug} product={product} />)}</div></div></section>;
+  return <section className="section-pad pt-10 sm:pt-12"><div className="container-shell"><div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">{filtered.map((product)=><ProductCard key={product.slug} product={product} />)}</div></div></section>;
 }
 export function ComparePreview() {
   const top = products.slice(0,4);
