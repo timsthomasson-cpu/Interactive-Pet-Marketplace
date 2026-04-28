@@ -1,0 +1,44 @@
+{
+  "_comment": "Web-researched details for products. Keys must match the slug (lowercase, hyphenated product name). The auto-generate script merges this with Documentation/Product Matrix.xlsx by slug. Products without an entry here will NOT appear on the site.",
+  "_lastUpdated": "2026-04-28",
+
+  "companion-pet-pup": {
+    "blurb": "A lifelike animatronic puppy with soft fur, BarkBack technology, and a soothing heartbeat. Designed with feedback from caregivers to bring comfort to older adults.",
+    "price": "$179.99",
+    "rating": 4.5,
+    "features": ["BarkBack voice response", "Heartbeat sensation", "Soft hypoallergenic fur"],
+    "highlight": "Award-winning senior companion"
+  },
+
+  "companion-pet-cat": {
+    "blurb": "An animatronic cat that purrs, meows, and rolls over for tummy scratches. Studies show it reduces feelings of loneliness and dementia-related agitation.",
+    "price": "$159.99",
+    "rating": 4.5,
+    "features": ["VibraPurr technology", "Motion sensors", "Multiple colors"],
+    "highlight": "Best for dementia comfort"
+  },
+
+  "matecat-pro": {
+    "blurb": "A hyper-realistic robotic cat with voice wake-up, blinking, purring, and tail movement. Responds to custom voice commands like \"Love U\" or \"Good night\".",
+    "price": "$119.00",
+    "rating": 4.4,
+    "features": ["Voice wake-up", "Blinking & ear movement", "Handcrafted fur"],
+    "highlight": "Most lifelike under $150"
+  },
+
+  "metacat": {
+    "blurb": "An AI-powered companion cat with LED-screen eyes, 29 voice commands, and Type-C charging. Up to 10 hours of playtime per charge.",
+    "price": "$159.00",
+    "rating": 4.3,
+    "features": ["29 voice commands", "LED expressive eyes", "USB-C rechargeable"],
+    "highlight": "Best rechargeable option"
+  },
+
+  "ebo-air-2-plus": {
+    "blurb": "A mobile AI robot companion with a 3K camera, two-way video, ChatGPT-powered chat mode, and auto-recharge. Patrols your home and engages with family.",
+    "price": "$349.00",
+    "rating": 4.2,
+    "features": ["3K camera + night vision", "AI chat (ChatGPT)", "Auto-recharge dock"],
+    "highlight": "Smartest family robot"
+  }
+}
