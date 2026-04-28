@@ -14,13 +14,13 @@ export function TwoCategoryCards() {
   return <section className="section-pad pt-0"><div className="container-shell"><SectionHeading eyebrow="Start here" title="Choose your shopping path in one click." text="Keep the homepage simple and let product complexity appear later." /><div className="mt-10 grid gap-6 md:grid-cols-2">{cards.map((card)=><div key={card.title} className="card p-8"><p className="eyebrow">{card.title}</p><h3 className="mt-4 text-2xl font-semibold text-slate-900">{card.title}</h3><p className="mt-3 max-w-lg text-slate-600">{card.text}</p><Link href={card.href} className="btn-primary mt-6">Explore {card.title}</Link></div>)}</div></div></section>;
 }
 export function ShopByNeed() {
-  const items = [
-    ["Best for Seniors", "Calming choices with simple interaction and lower learning curve."],
-    ["Best for Gifts", "Friendly, memorable picks with broad appeal and easy setup."],
-    ["Best for Kids & Families", "Playful options built for novelty and everyday entertainment."],
-    ["Best Premium Picks", "Higher-end robotic pets with more advanced movement and sensors."]
+  const items: [string, string, string][] = [
+    ["Best for Seniors", "Calming choices with simple interaction and lower learning curve.", "/best-for-seniors"],
+    ["Best for Gifts", "Friendly, memorable picks with broad appeal and easy setup.", "/best-for-gifts"],
+    ["Best for Kids & Families", "Playful options built for novelty and everyday entertainment.", "/kids-and-families"],
+    ["Best Premium Picks", "Higher-end robotic pets with more advanced movement and sensors.", "/premium-picks"]
   ];
-  return <section className="section-pad pt-4 bg-white sm:pt-6 lg:pt-8"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{items.map(([title, text])=><div key={title} className="rounded-3xl border border-trust-200 bg-trust-50 p-6"><h3 className="text-lg font-semibold text-trust-900">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{text}</p></div>)}</div></div></section>;
+  return <section className="section-pad pt-4 bg-white sm:pt-6 lg:pt-8"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{items.map(([title, text, href])=><Link key={title} href={href} className="block rounded-3xl border border-trust-200 bg-trust-50 p-6 transition hover:-translate-y-0.5 hover:border-trust-400 hover:shadow-soft"><h3 className="text-lg font-semibold text-trust-900">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{text}</p></Link>)}</div></div></section>;
 }
 export function FeaturedProducts({ filter }: { filter?: "Interactive" | "AI & Robotic" }) {
   const filtered = filter ? products.filter((p)=>p.type===filter) : products.slice(0,4);
@@ -37,7 +37,7 @@ export function TrustBlocks() {
     ["Easy for Families", "A simple way to add novelty, comfort, or companionship without ongoing care complexity."],
     ["Great Gift Option", "A thoughtful present for parents, grandparents, kids, and pet lovers who want something memorable."]
   ];
-  return <section className="section-pad"><div className="container-shell grid gap-6 lg:grid-cols-[0.95fr_1.05fr]"><div className="card p-8"><p className="eyebrow">For families shopping for seniors</p><h3 className="mt-4 text-3xl font-bold tracking-tight text-slate-900">A helpful resource for comfort-first buying decisions.</h3><p className="mt-4 text-lg leading-8 text-slate-600">Whether you want calm companionship, easy interaction, or a lower-maintenance pet alternative, this site is designed to guide shoppers with clarity and trust.</p><Link href="/best-for-seniors" className="btn-primary mt-6">Explore Best for Seniors</Link></div><div className="grid gap-4 sm:grid-cols-2">{items.map(([title,text])=><div key={title} className="rounded-3xl border border-coral-200 bg-white p-6 shadow-soft"><h4 className="text-lg font-semibold text-slate-900">{title}</h4><p className="mt-3 text-sm leading-7 text-slate-600">{text}</p></div>)}</div></div></section>;
+  return <section className="section-pad"><div className="container-shell grid gap-6 lg:grid-cols-[0.95fr_1.05fr]"><div className="card p-8"><p className="eyebrow">For families shopping for seniors</p><h3 className="mt-4 text-3xl font-bold tracking-tight text-slate-900">A helpful resource for comfort-first buying decisions.</h3><p className="mt-4 text-lg leading-8 text-slate-600">Whether you want calm companionship, easy interaction, or a lower-maintenance pet alternative, this site is designed to guide shoppers with clarity and trust.</p></div><div className="grid gap-4 sm:grid-cols-2">{items.map(([title,text])=><div key={title} className="rounded-3xl border border-coral-200 bg-white p-6 shadow-soft"><h4 className="text-lg font-semibold text-slate-900">{title}</h4><p className="mt-3 text-sm leading-7 text-slate-600">{text}</p></div>)}</div></div></section>;
 }
 export function ReviewMethod() {
   return <section className="section-pad bg-white"><div className="container-shell"><SectionHeading eyebrow="How we review" title="A premium review-site structure, adapted for smart pets." text="This section is designed to build trust before buyers click an affiliate link." /><div className="mt-10 grid gap-5 md:grid-cols-4">{["Ease of use","Interaction quality","Comfort and reassurance","Value for price"].map((item)=><div key={item} className="rounded-3xl border border-coral-200 p-6"><p className="font-semibold text-slate-900">{item}</p><p className="mt-2 text-sm text-slate-600">Keep this language simple, readable, and senior-friendly.</p></div>)}</div></div></section>;
