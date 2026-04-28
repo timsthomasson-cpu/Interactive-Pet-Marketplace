@@ -20,7 +20,7 @@ export function ShopByNeed() {
     ["Best for Kids & Families", "Playful options built for novelty and everyday entertainment."],
     ["Best Premium Picks", "Higher-end robotic pets with more advanced movement and sensors."]
   ];
-  return <section className="section-pad pt-4 bg-white sm:pt-6 lg:pt-8"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{items.map(([title, text])=><div key={title} className="rounded-3xl border border-coral-200 bg-cream-100 p-6"><h3 className="text-lg font-semibold text-brand-900">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{text}</p></div>)}</div></div></section>;
+  return <section className="section-pad pt-4 bg-white sm:pt-6 lg:pt-8"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{items.map(([title, text])=><div key={title} className="rounded-3xl border border-trust-200 bg-trust-50 p-6"><h3 className="text-lg font-semibold text-trust-900">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{text}</p></div>)}</div></div></section>;
 }
 export function FeaturedProducts({ filter }: { filter?: "Interactive" | "AI & Robotic" }) {
   const filtered = filter ? products.filter((p)=>p.type===filter) : products.slice(0,4);
