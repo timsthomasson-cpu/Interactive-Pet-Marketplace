@@ -64,7 +64,7 @@ export function ProductCard({ product }: { product: Product }) {
             <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">Price</p>
             <p className="text-lg font-bold text-slate-900">{product.price}</p>
           </div>
-          <Link href={product.productUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <Link href={product.productUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600">
             View Details
           </Link>
         </div>
