@@ -2,3 +2,10 @@ node_modules/
 .next/
 .env
 .vercel
+
+# Office lock files (created when Excel/Word has a file open)
+~$*
+
+# OS-generated files
+.DS_Store
+Thumbs.db
