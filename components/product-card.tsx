@@ -35,7 +35,11 @@ export function ProductCard({ product }: { product: Product }) {
       </div>
       <div className="flex flex-1 flex-col space-y-4 p-6 pt-1">
         <div className="flex flex-wrap items-center gap-2">
-          <Badge>{product.type}</Badge>
+          {product.type === "AI & Robotic" ? (
+            <span className="inline-flex rounded-full bg-trust-100 px-3 py-1 text-xs font-semibold text-trust-700">{product.type}</span>
+          ) : (
+            <Badge>{product.type}</Badge>
+          )}
           {product.bestFor.map((tag) => (
             <Badge key={tag}>Best for {tag}</Badge>
           ))}
