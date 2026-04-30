@@ -35,7 +35,7 @@ function toSlug(name) {
 function normalizeType(raw) {
   if (!raw) return "";
   const t = String(raw).trim().toLowerCase();
-  if (t.includes("ai") || t.includes("robotic")) return "AI & Robotic";
+  if (t.includes("ai") || t.includes("robotic") || t.includes("pocket")) return "AI & Robotic";
   if (t.includes("fluffy") || t.includes("interactive") || t.includes("plushy") || t.includes("companion")) return "Interactive";
   return raw.trim();
 }

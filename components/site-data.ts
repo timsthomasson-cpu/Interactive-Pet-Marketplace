@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
 //
-// Generated: 2026-04-30T22:55:51.395Z
+// Generated: 2026-04-30T23:13:23.602Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -94,7 +94,7 @@ export const products: Product[] = [
       "Families",
       "Children"
     ],
-    "blurb": "Self-balancing 4K guardian robot with V-SLAM mapping, Harman audio, Alexa built-in, and elderly fall alerts. Designed as a three-in-one home device for security, companionship, and entertainment.",
+    "blurb": "Self-balancing 4K guardian robot with V-SLAM mapping, Harman audio, Alexa built-in, and elderly fall alerts. A three-in-one home device for security, companionship, and entertainment.",
     "price": "$999.00",
     "rating": 4.4,
     "features": [
@@ -150,7 +150,7 @@ export const products: Product[] = [
       "Families",
       "Children"
     ],
-    "blurb": "Mobile companion robot with 2K camera, IR-cut night vision, customizable LED expressions, and 10 interactive pet actions. Ships in three colors and acts as both a security camera and a pet playmate.",
+    "blurb": "Mobile companion robot with 2K camera, IR-cut night vision, customizable LED expressions, and 10 interactive pet actions. Ships in three colors and acts as both security camera and pet playmate.",
     "price": "$199.00",
     "rating": 4.2,
     "features": [
@@ -524,6 +524,589 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "matecat-1-1",
+    "name": "MateCat 1.1",
+    "manufacturer": "Chongker",
+    "type": "Interactive",
+    "bestFor": [
+      "Seniors",
+      "Children"
+    ],
+    "blurb": "Companion robot cat designed for sensory comfort. Touch-responsive sensors trigger purrs, meows, and gentle movements. Studied through 200+ hours of real cat behavior simulation. Heartbeat feature provides a calming, realistic experience.",
+    "price": "$179.00",
+    "rating": 4.4,
+    "features": [
+      "Touch-sensitive zones",
+      "Realistic heartbeat",
+      "Sensory comfort design"
+    ],
+    "highlight": "Best for sensory needs",
+    "productUrl": "MateCat1.1 Robot Cat – Companion Toy for Sensory Comfort – Chongker",
+    "imageUrl": "/images/products/Chongker-Percy-Robot-Cat.jpg",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "percy-1-1-robotic-dog",
+    "name": "Percy 1.1 Robotic Dog",
+    "manufacturer": "Chongker",
+    "type": "Interactive",
+    "bestFor": [
+      "Seniors",
+      "Children"
+    ],
+    "blurb": "Handmade realistic robotic dog with weighted body for sensory comfort, touch sensors, and a calming heartbeat simulation. Crafted through 30+ steps for exceptional detail. Charges via USB-C with 8+ hours of battery.",
+    "price": "$129.00",
+    "rating": 4.3,
+    "features": [
+      "Weighted comfort design",
+      "Touch & heartbeat sensors",
+      "USB-C rechargeable"
+    ],
+    "highlight": "Best weighted comfort",
+    "productUrl": "Percy 1.1 Robotic Dog Companion Designed for Comfort – Chongker",
+    "imageUrl": "/images/products/Mr-Dog.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "percy-robot-cat",
+    "name": "Percy Robot Cat",
+    "manufacturer": "Chongker",
+    "type": "Interactive",
+    "bestFor": [
+      "Seniors",
+      "Children"
+    ],
+    "blurb": "Affordable handmade robotic cat with five touch-sensitive zones, purring, meowing, and a realistic heartbeat. Weighted plush body designed for emotional support and stress relief.",
+    "price": "$99.00",
+    "rating": 4.3,
+    "features": [
+      "5 touch zones",
+      "Heartbeat + purring",
+      "Weighted plush body"
+    ],
+    "highlight": "Most affordable robot cat",
+    "productUrl": "Percy Robot Cat – Voice,Purring & Heartbeat for Comfort – Chongker",
+    "imageUrl": "/images/products/Chongker-Percy-Robot-Cat.jpg",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "breathing-red-panda-plush",
+    "name": "Breathing Red Panda Plush",
+    "manufacturer": "Chongker",
+    "type": "Interactive",
+    "bestFor": [
+      "Seniors",
+      "Children"
+    ],
+    "blurb": "Lifelike red panda plush with realistic breathing simulation. A weighted, calming companion designed for stress relief, anxiety support, and quiet comfort. Hand-crafted for exceptional detail.",
+    "price": "$89.00",
+    "rating": 4.5,
+    "features": [
+      "Realistic breathing motion",
+      "Weighted plush body",
+      "Calming companion"
+    ],
+    "highlight": "Best for anxiety relief",
+    "productUrl": "Breathing Red Panda Plush – Lifelike Calming Toy Gift – Chongker",
+    "imageUrl": "/images/products/red_panda.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "wuffy-robot-puppy",
+    "name": "Wuffy Robot Puppy",
+    "manufacturer": "Wuffy",
+    "type": "Interactive",
+    "bestFor": [
+      "Children",
+      "Families"
+    ],
+    "blurb": "Affordable interactive robot puppy with touch sensors, simple voice command response, walking, barking, and tail wagging. Runs on AA batteries with no app or Wi-Fi setup needed — instant out-of-box play. A kid-friendly starter pet alternative.",
+    "price": "$19.99",
+    "rating": 3.8,
+    "features": [
+      "Touch & motion sensors",
+      "Walks, barks, wags",
+      "AA batteries — no app"
+    ],
+    "highlight": "Most affordable starter robot",
+    "productUrl": "Amazon.com: chinatera 2026 Wuffy Robot Dog Lifelike Toy Dog, Interactive Robot with Touch Sensing Voice Mimic Licking Motion Leash Remote Soft Fur for Kids Battery Powered (Style-G) : Toys & Games",
+    "imageUrl": "/images/products/wuffy.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "kamomo",
+    "name": "KAMOMO",
+    "manufacturer": "Ropet",
+    "type": "Interactive",
+    "bestFor": [
+      "Families"
+    ],
+    "blurb": "AI desk companion with a personality that grows through interaction. Multimodal AI processes face recognition, emotion detection, and gesture tracking. Constant 39°C body temperature delivers the warmth of a real pet. Customizable fur and accessories.",
+    "price": "$199.00",
+    "rating": 4.4,
+    "features": [
+      "AI-driven personality",
+      "Bionic body warmth",
+      "Customizable accessories"
+    ],
+    "highlight": "Most personal AI pet",
+    "productUrl": "https://ropetai.com/pages/about-ropet",
+    "imageUrl": "/images/products/interactive_pet_toys.png",
+    "flags": {
+      "gifts": true,
+      "premium": true,
+      "camera": true,
+      "internetAccess": true,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "border-collie",
+    "name": "Border Collie",
+    "manufacturer": "Perfect Petzzz",
+    "type": "Interactive",
+    "bestFor": [
+      "Children",
+      "Seniors"
+    ],
+    "blurb": "Handmade realistic Border Collie plush with movable internal joints for adjustable poses. Crafted through 30+ steps by 5 artisans. A quiet companion for those unable to keep a real pet.",
+    "price": "$89.00",
+    "rating": 4.6,
+    "features": [
+      "Adjustable internal joints",
+      "Lifelike Border Collie look",
+      "Handmade by artisans"
+    ],
+    "highlight": "Posable plush companion",
+    "productUrl": "Amazon.com: Perfect Petzzz Border Collie, Toys for Kids and Elderly, Realistic Dog Stuffed Animals, Battery-Operated Stuffed Dog, Companion Interactive Pets with Synthetic Fur : Toys & Games",
+    "imageUrl": "/images/products/Mr-Border-Collie.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "chocolate-lab",
+    "name": "Chocolate Lab",
+    "manufacturer": "Perfect Petzzz",
+    "type": "Interactive",
+    "bestFor": [
+      "Children",
+      "Seniors"
+    ],
+    "blurb": "Handmade realistic Chocolate Labrador plush with movable joints and lifelike fur. A quiet companion for dog lovers, perfect for those who've lost a pet or cannot have a real dog.",
+    "price": "$89.00",
+    "rating": 4.6,
+    "features": [
+      "Adjustable internal joints",
+      "Realistic Lab fur",
+      "Handmade by artisans"
+    ],
+    "highlight": "For Lab lovers",
+    "productUrl": "Amazon.com: Perfect Petzzz Original Petzzz Chocolate Lab, Realistic, Life-Like Stuffed Interactive Plush Toy, Electronic Pets, Companion Pet Dog with 100% Handcrafted Synthetic Fur : Toys & Games",
+    "imageUrl": "/images/products/Mr-Chocolate-Lab.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "shih-tzu",
+    "name": "Shih Tzu",
+    "manufacturer": "Perfect Petzzz",
+    "type": "Interactive",
+    "bestFor": [
+      "Children",
+      "Seniors"
+    ],
+    "blurb": "Handmade realistic Shih Tzu plush with soft fur and adjustable joints. A gentle, quiet companion that doesn't run around — perfect for seniors in care communities or anyone unable to keep a real dog.",
+    "price": "$89.00",
+    "rating": 4.5,
+    "features": [
+      "Adjustable internal joints",
+      "Soft Shih Tzu fur",
+      "Handmade by artisans"
+    ],
+    "highlight": "For Shih Tzu lovers",
+    "productUrl": "Amazon.com: Perfect Petzzz - Original Shih Tzu, Realistic, Lifelike Stuffed Interactive Pet Toy, Companion Dog with 100% Handcrafted Synthetic Fur : Pet Supplies",
+    "imageUrl": "/images/products/Mr-Shih-Tzu.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "beagle",
+    "name": "Beagle",
+    "manufacturer": "Perfect Petzzz",
+    "type": "Interactive",
+    "bestFor": [
+      "Children",
+      "Seniors"
+    ],
+    "blurb": "Handmade realistic Beagle plush with classic tri-color markings, adjustable joints, and lifelike fur. A quiet, sit-by-your-side companion designed by Chongker's artisans.",
+    "price": "$89.00",
+    "rating": 4.5,
+    "features": [
+      "Adjustable internal joints",
+      "Classic Beagle markings",
+      "Handmade by artisans"
+    ],
+    "highlight": "For Beagle lovers",
+    "productUrl": "Amazon.com: Perfect Petzzz Original Petzzz Beagle, Realistic, Lifelike Stuffed Interactive Pet Toy, Companion Pet Dog with 100% Handcrafted Synthetic Fur : Toys & Games",
+    "imageUrl": "/images/products/Mr-Beagle.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "calico-cat",
+    "name": "Calico Cat",
+    "manufacturer": "Perfect Petzzz",
+    "type": "Interactive",
+    "bestFor": [
+      "Children",
+      "Seniors"
+    ],
+    "blurb": "Handmade realistic calico cat plush with classic black, orange, and white patches. Soft synthetic fur and a weighted body for a lifelike feel. A quiet, low-maintenance companion.",
+    "price": "$79.00",
+    "rating": 4.5,
+    "features": [
+      "Calico patch pattern",
+      "Weighted body",
+      "Handmade by artisans"
+    ],
+    "highlight": "Classic calico look",
+    "productUrl": "https://www.amazon.com/dp/B004M42ER2/ref=sspa_dk_detail_0?psc=1&pd_rd_i=B004M42ER2&pd_rd_w=AjABt&content-id=amzn1.sym.386c274b-4bfe-4421-9052-a1a56db557ab&pf_rd_p=386c274b-4bfe-4421-9052-a1a56db557ab&pf_rd_r=7VNR97CX8AWABRX62554&pd_rd_wg=zOSGV&pd_rd_r=20ddc17d-c84f-4870-9b91-0bc9f9332ef1&s=toys-and-games&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM",
+    "imageUrl": "/images/products/Sweetie-Calico-Cat.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "plush-white-cat",
+    "name": "Plush White Cat",
+    "manufacturer": "Perfect Petzzz",
+    "type": "Interactive",
+    "bestFor": [
+      "Children",
+      "Seniors"
+    ],
+    "blurb": "Handmade realistic white cat plush with soft fur and a lifelike weighted body. A calming, quiet companion crafted from molds based on real cats.",
+    "price": "$79.00",
+    "rating": 4.5,
+    "features": [
+      "Soft white fur",
+      "Weighted lifelike body",
+      "Handmade by artisans"
+    ],
+    "highlight": "Pure white companion",
+    "productUrl": "https://www.amazon.com/Perfect-Petzzz-4934-Peluche-Blanc/dp/B00CZC87Y2/ref=sr_1_1?crid=14YL8V2AVTHVU&dib=eyJ2IjoiMSJ9.syNMjb00PcieFuHWZ14dNpX10fhBwfzVgDq48Mbsqy3wt6r7yAuiizQ-gJqO3gutmd-usuS-1jPuSSDuiE8F7KrUYEf7VW63FZMnBQXJ1yXijFD75YrnwKFHPSfpDZYB1rHfEdMxpplUGz5YsxdxlmKzk7P_kQ2hvnnoz4lFOOuC_rnNYtHWW2OqKG2kQ6QEh60SfaZB2WUehvtMMK64w-yWAgQNZs6EU_Yb2xeKjmM-5Khfk68ma90TLCkycwBQGqOe_EP8B2SiQb0HED-g_vVNrlQePali6C5BDgOyMAI.mLk5dZzie9i8qjd0wveehxGN82-UShHPDyYkBPSCokQ&dib_tag=se&keywords=perfect+petzzz+plush+white+cat&qid=1777496864&s=toys-and-games&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=perfect+ptezz+plush+white+ca%2Ctoys-and-games%2C140&sr=1-1",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "orange-tabby-cat",
+    "name": "Orange Tabby Cat",
+    "manufacturer": "Perfect Petzzz",
+    "type": "Interactive",
+    "bestFor": [
+      "Children",
+      "Seniors"
+    ],
+    "blurb": "Handmade realistic orange tabby cat plush with classic stripes, soft fur, and a lifelike weighted body. The most popular cat coloring in plush companion form.",
+    "price": "$79.00",
+    "rating": 4.6,
+    "features": [
+      "Orange tabby stripes",
+      "Weighted lifelike body",
+      "Handmade by artisans"
+    ],
+    "highlight": "Most popular cat color",
+    "productUrl": "https://www.amazon.com/dp/B0039Y3YOI/ref=sspa_dk_detail_2?psc=1&pd_rd_i=B0039Y3YOI&pd_rd_w=jV6FN&content-id=amzn1.sym.7dc70186-c171-4ad3-b982-b0b7c53e2f49&pf_rd_p=7dc70186-c171-4ad3-b982-b0b7c53e2f49&pf_rd_r=3DRP3XZZ66P886VD0ZFC&pd_rd_wg=uugqL&pd_rd_r=8a18b43f-7351-4cbb-b6ef-1a274737daec&s=toys-and-games&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWw",
+    "imageUrl": "/images/products/Sweetie-Cat.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "black-and-white-shorthair-cat",
+    "name": "Black and White Shorthair Cat",
+    "manufacturer": "Perfect Petzzz",
+    "type": "Interactive",
+    "bestFor": [
+      "Children",
+      "Seniors"
+    ],
+    "blurb": "Handmade realistic black-and-white shorthair cat plush with classic two-tone markings and soft fur. Modeled on real cat proportions for a lifelike look.",
+    "price": "$79.00",
+    "rating": 4.5,
+    "features": [
+      "Two-tone markings",
+      "Realistic proportions",
+      "Handmade by artisans"
+    ],
+    "highlight": "Classic two-tone look",
+    "productUrl": "https://www.amazon.com/dp/B003XSJ4YE/ref=sspa_dk_hqp_detail_aax_0?psc=1&sp_csd=d2lkZ2V0TmFtZT1zcF9ocXBfc2hhcmVk",
+    "imageUrl": "/images/products/Sweetie-Calico-Cat.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "siamese-cat",
+    "name": "Siamese Cat",
+    "manufacturer": "Perfect Petzzz",
+    "type": "Interactive",
+    "bestFor": [
+      "Children",
+      "Seniors"
+    ],
+    "blurb": "Handmade realistic Siamese cat plush with classic point coloring, blue eyes, and soft fur. A quiet, elegant companion crafted to mirror real Siamese proportions.",
+    "price": "$79.00",
+    "rating": 4.5,
+    "features": [
+      "Siamese point coloring",
+      "Blue glass-style eyes",
+      "Handmade by artisans"
+    ],
+    "highlight": "Elegant Siamese style",
+    "productUrl": "Amazon.com: Perfect Petzzz Siamese Cat The Breathing Puppy : Toys & Games",
+    "imageUrl": "/images/products/Sweetie-Siamese-Cat.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "my-realistic-robot-puppy",
+    "name": "My Realistic Robot Puppy",
+    "manufacturer": "Milow",
+    "type": "Interactive",
+    "bestFor": [
+      "Children",
+      "Families"
+    ],
+    "blurb": "Plush realistic robot puppy with motion sensors, barking sounds, and tail wagging. Walks and responds to voice commands. A budget-friendly interactive pet for kids.",
+    "price": "$39.99",
+    "rating": 3.9,
+    "features": [
+      "Walks & wags tail",
+      "Voice response",
+      "Soft plush body"
+    ],
+    "highlight": "Budget interactive puppy",
+    "productUrl": "Amazon.com: CU-MATE Electronic Walking Dog Toy, Interactive Plush Pomeranian Puppy, Realistic Interactive Pet Toy Dog, Walking, Barking, Wagging Tail & Talking, Present Gifts for 3+ Year : Toys & Games",
+    "imageUrl": "/images/products/Mr-Dog.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "18011-smart-robot-dog",
+    "name": "18011 Smart Robot Dog",
+    "manufacturer": "Ruko",
+    "type": "AI & Robotic",
+    "bestFor": [
+      "Children",
+      "Families"
+    ],
+    "blurb": "Programmable smart robot dog with remote control, gesture recognition, dance moves, and singing. Suitable for kids age 6+ as an entry into robotics and interactive play.",
+    "price": "$59.99",
+    "rating": 4,
+    "features": [
+      "Gesture recognition",
+      "Remote control",
+      "Dance & sing modes"
+    ],
+    "highlight": "Tech-forward kids' robot",
+    "productUrl": "Amazon.com: Ruko 18011 Smart Robot Dog, Interactive Puppy with 30 LED Expressions, Programmable Play, 2.4 GHz Remote & Gesture Control, Toy for Kids Age 3+ : Toys & Games",
+    "imageUrl": "/images/products/futuristic_ai_pets.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "robot-pet-dog",
+    "name": "Robot Pet Dog",
+    "manufacturer": "Loona",
+    "type": "AI & Robotic",
+    "bestFor": [
+      "Children",
+      "Families"
+    ],
+    "blurb": "Interactive robot dog with walking, barking, sitting, and tail-wagging behaviors. Touch and voice responsive with multiple play modes. A simple, affordable pet companion for children.",
+    "price": "$49.99",
+    "rating": 3.9,
+    "features": [
+      "Walks & sits",
+      "Voice response",
+      "Multiple play modes"
+    ],
+    "highlight": "Versatile play modes",
+    "productUrl": "Amazon.com: Loona Robot Pet Dog ChatGPT-4o Smart AI-Powered Companion Voice & Gesture Control, Real-Time Interaction Robotics Toys for Kids, Home Monitoring - Includes Charging Dock : Toys & Games",
+    "imageUrl": "/images/products/futuristic_ai_pets.png",
+    "flags": {
+      "gifts": true,
+      "premium": true,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "furby",
+    "name": "Furby",
+    "manufacturer": "",
+    "type": "AI & Robotic",
+    "bestFor": [
+      "Children",
+      "Families"
+    ],
+    "blurb": "The 2023 Hasbro reboot of the iconic '90s interactive toy. Speak to Furby to activate 600+ responses across Dance Party, Copy Cat, Tell My Fortune, Let's Chill, and Lightshow modes. Brightly colored fur, light-up ears, and an off switch.",
+    "price": "$69.99",
+    "rating": 4.2,
+    "features": [
+      "600+ voice responses",
+      "5 interactive modes",
+      "Light-up ears"
+    ],
+    "highlight": "Iconic '90s favorite returns",
+    "productUrl": "https://www.amazon.com/s?k=furby&i=toys-and-games&crid=30VFFMN70W1XS&sprefix=furby%2Ctoys-and-games%2C158&ref=nb_sb_ss_p13n-expert-pd-ops-ranker_ci_hl-bn-left_1_5",
+    "imageUrl": "/images/products/interactive_pet_toys.png",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "huggable-pug",
+    "name": "Huggable Pug",
+    "manufacturer": "Perfect Petzzz",
+    "type": "Interactive",
+    "bestFor": [
+      "Children",
+      "Families"
+    ],
+    "blurb": "Soft plush huggable pug with a realistic look and weighted body for cuddling comfort. A no-electronics quiet companion ideal for kids, seniors, and anyone wanting a calming pet alternative.",
+    "price": "$49.99",
+    "rating": 4.4,
+    "features": [
+      "Realistic pug look",
+      "Weighted plush body",
+      "No-electronics comfort"
+    ],
+    "highlight": "Calming pug cuddle",
+    "productUrl": "https://www.amazon.com/Realistic-Battery-Operated-Companion-Interactive-Synthetic/dp/B000N9EE8C/ref=sr_1_1_sspa?crid=3UDJCT8VT358V&dib=eyJ2IjoiMSJ9.h-XYOsGcHfqztS8iEKqApORMOEWdzWYZoJ7_5bV_MgLnKGqG1B-rgf5GL8FwagSdV-_puqUDBfzCky0nt1yWs59UtQo3HURoZCBbK_fzD9_9aAcGyz_CgYPhBT-2YETzzZbIdiS_FrzVAbsoZB4NeEvj7kPBta4GGp27Rf3KCW-pEbmT0K6yV6gSDTyRkcH8MCIowVLXRPx2OQZFUzy7oX3ui0nvi1Me1fZikibtAvIDkwpHoAgtOVG_OD-uztSuoXtO6U0XYT4XPxuwIEXnQNP4sZWkLSAt6Y8gNNSNvRs.8IxOpm0OpwE53R6f2zLlDN8_03EM0nnJhmOTjrakC24&dib_tag=se&keywords=huggable%2Bpug&qid=1777496322&s=toys-and-games&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=huggable%2Bpug%2Ctoys-and-games%2C156&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+    "flags": {
+      "gifts": true,
+      "premium": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "aibi",
+    "name": "Aibi",
+    "manufacturer": "",
+    "type": "AI & Robotic",
+    "bestFor": [
+      "Adults"
+    ],
+    "blurb": "Sony's flagship AI robot dog (ERS-1000). Forms unique personalities through interaction, recognizes faces and voices, learns tricks over time. Cloud-connected with OLED eyes for emotional expression. Requires AI Cloud Plan subscription for full features.",
+    "price": "$2,899.00",
+    "rating": 4.5,
+    "features": [
+      "Cloud AI personality",
+      "OLED expressive eyes",
+      "Face & voice recognition"
+    ],
+    "highlight": "Premium AI robot dog",
+    "productUrl": "Amazon.com: Aibi Pocket Pet - Wearable Robot | ChatGPT Powered AI Companion with Voice Commands, Emotional Interaction, Singing & Dancing | Magnetically Attaches to Anywhere | Ultra Portable : Toys & Games",
+    "flags": {
+      "gifts": true,
+      "premium": true,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
