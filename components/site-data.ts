@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
 //
-// Generated: 2026-04-30T22:40:39.284Z
+// Generated: 2026-04-30T22:50:56.986Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -379,7 +379,7 @@ export const products: Product[] = [
       "Soft golden fur"
     ],
     "highlight": "Award-winning senior companion",
-    "productUrl": "ttps://joyforall.com/products/companion-pet-pup?variant=37624426070199",
+    "productUrl": "https://joyforall.com/products/companion-pet-pup?variant=37624426070199",
     "imageUrl": "/images/products/Mr-Dog.png",
     "flags": {
       "gifts": true,
@@ -436,7 +436,7 @@ export const products: Product[] = [
     ],
     "highlight": "Best for dementia comfort",
     "productUrl": "https://joyforall.com/products/companion-cats?variant=10404273487915",
-    "imageUrl": "/images/products/Joy-for-All Companion-Cat-Silver",
+    "imageUrl": "/images/products/Joy-for-All-Companion-Cat-Silver",
     "flags": {
       "gifts": true,
       "premium": false,
@@ -492,7 +492,7 @@ export const products: Product[] = [
     ],
     "highlight": "Classic tuxedo look",
     "productUrl": "https://joyforall.com/products/companion-cats?variant=12931092676651",
-    "imageUrl": "/images/products/Joy-for-All-Companion-Pet-Cat-Tuxedo.jpg",
+    "imageUrl": "/images/products/Joy-for-All-Companion-Cat-Tuxedo.jpg",
     "flags": {
       "gifts": true,
       "premium": false,
