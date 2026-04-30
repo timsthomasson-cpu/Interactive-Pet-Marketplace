@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
 //
-// Generated: 2026-04-30T22:50:56.986Z
+// Generated: 2026-04-30T22:55:51.395Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -436,7 +436,7 @@ export const products: Product[] = [
     ],
     "highlight": "Best for dementia comfort",
     "productUrl": "https://joyforall.com/products/companion-cats?variant=10404273487915",
-    "imageUrl": "/images/products/Joy-for-All-Companion-Cat-Silver",
+    "imageUrl": "/images/products/Joy-for-All-Companion-Cat-Silver.png",
     "flags": {
       "gifts": true,
       "premium": false,
@@ -464,7 +464,7 @@ export const products: Product[] = [
     ],
     "highlight": "Most popular cat color",
     "productUrl": "https://joyforall.com/products/companion-cats?variant=10404273455147",
-    "imageUrl": "/images/products/Joy-for-All-Companion-Cat-Orange-Tabby",
+    "imageUrl": "/images/products/Joy-for-All-Companion-Cat-Orange-Tabby.png",
     "flags": {
       "gifts": true,
       "premium": false,
