@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
 //
-// Generated: 2026-04-28T20:06:24.095Z
+// Generated: 2026-04-30T21:39:12.642Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -47,7 +47,8 @@ export const products: Product[] = [
       "Auto-recharge dock"
     ],
     "highlight": "Smartest family robot",
-    "productUrl": "",
+    "productUrl": "EBO Air 2 Plus FamilyBot – Live Video & App Control",
+    "imageUrl": "/images/products/interactive_pet_toys.png",
     "flags": {
       "gifts": true,
       "premium": true,
@@ -74,61 +75,7 @@ export const products: Product[] = [
       "USB-C rechargeable"
     ],
     "highlight": "Best rechargeable option",
-    "productUrl": "",
-    "flags": {
-      "gifts": true,
-      "premium": false,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "companion-pet-pup",
-    "name": "Companion Pet Pup",
-    "manufacturer": "Joy for All",
-    "type": "Interactive",
-    "bestFor": [
-      "Seniors",
-      "Children"
-    ],
-    "blurb": "A lifelike animatronic puppy with soft fur, BarkBack technology, and a soothing heartbeat. Designed with feedback from caregivers to bring comfort to older adults.",
-    "price": "$179.99",
-    "rating": 4.5,
-    "features": [
-      "BarkBack voice response",
-      "Heartbeat sensation",
-      "Soft hypoallergenic fur"
-    ],
-    "highlight": "Award-winning senior companion",
-    "productUrl": "",
-    "flags": {
-      "gifts": true,
-      "premium": false,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "companion-pet-cat",
-    "name": "Companion Pet Cat",
-    "manufacturer": "Joy for All",
-    "type": "Interactive",
-    "bestFor": [
-      "Seniors",
-      "Children"
-    ],
-    "blurb": "An animatronic cat that purrs, meows, and rolls over for tummy scratches. Studies show it reduces feelings of loneliness and dementia-related agitation.",
-    "price": "$159.99",
-    "rating": 4.5,
-    "features": [
-      "VibraPurr technology",
-      "Motion sensors",
-      "Multiple colors"
-    ],
-    "highlight": "Best for dementia comfort",
-    "productUrl": "",
+    "productUrl": "Not Currently Available in the US",
     "flags": {
       "gifts": true,
       "premium": false,
@@ -155,7 +102,8 @@ export const products: Product[] = [
       "Handcrafted fur"
     ],
     "highlight": "Most lifelike under $150",
-    "productUrl": "",
+    "productUrl": "https://chongker.com/products/matecat-pro-hyper-realistic-bionic-cat",
+    "imageUrl": "/images/products/Sweetie-Cat.png",
     "flags": {
       "gifts": true,
       "premium": false,
