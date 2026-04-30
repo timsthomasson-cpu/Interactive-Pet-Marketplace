@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate:products": "node scripts/generate-products.js"
+    "generate:products": "node scripts/generate-products.js",
+    "refresh:prices": "node scripts/refresh-prices.js"
   },
   "dependencies": {
     "next": "14.2.15",

@@ -1,44 +1,242 @@
 {
   "_comment": "Web-researched details for products. Keys must match the slug (lowercase, hyphenated product name). The auto-generate script merges this with Documentation/Product Matrix.xlsx by slug. Products without an entry here will NOT appear on the site.",
-  "_lastUpdated": "2026-04-28",
-
-  "companion-pet-pup": {
-    "blurb": "A lifelike animatronic puppy with soft fur, BarkBack technology, and a soothing heartbeat. Designed with feedback from caregivers to bring comfort to older adults.",
-    "price": "$179.99",
+  "_lastUpdated": "2026-04-30",
+  "_____ENABOT_____": "===== Enabot family =====",
+  "ebo-max-familybot": {
+    "blurb": "Enabot's most advanced family robot. Multimodal AI brain processes vision, voice, and context, learns household routines, recognizes faces, and detects falls. 4K camera with two-way video, smart patrol, and V-SLAM autonomous navigation.",
+    "price": "$549.99",
     "rating": 4.5,
-    "features": ["BarkBack voice response", "Heartbeat sensation", "Soft hypoallergenic fur"],
-    "highlight": "Award-winning senior companion"
+    "features": [
+      "4K camera + AI",
+      "Fall detection alerts",
+      "V-SLAM navigation"
+    ],
+    "highlight": "Top-tier family AI robot",
+    "priceTier": "hot",
+    "priceLastChecked": "2026-04-30"
   },
-
-  "companion-pet-cat": {
-    "blurb": "An animatronic cat that purrs, meows, and rolls over for tummy scratches. Studies show it reduces feelings of loneliness and dementia-related agitation.",
-    "price": "$159.99",
-    "rating": 4.5,
-    "features": ["VibraPurr technology", "Motion sensors", "Multiple colors"],
-    "highlight": "Best for dementia comfort"
+  "ebo-air-2-plus": {
+    "blurb": "Premium mobile AI robot with 3K camera, two-way video calls, ChatGPT-powered chat mode, AI tracking, and smart patrol routes. Auto-recharges and patrols your home autonomously.",
+    "price": "$349.00",
+    "rating": 4.3,
+    "features": [
+      "3K camera + night vision",
+      "AI chat (ChatGPT)",
+      "Auto-recharge dock"
+    ],
+    "highlight": "Smartest mid-tier robot",
+    "priceTier": "hot",
+    "priceLastChecked": "2026-04-30"
   },
-
-  "matecat-pro": {
-    "blurb": "A hyper-realistic robotic cat with voice wake-up, blinking, purring, and tail movement. Responds to custom voice commands like \"Love U\" or \"Good night\".",
-    "price": "$119.00",
+  "ebo-x": {
+    "blurb": "Self-balancing 4K guardian robot with V-SLAM mapping, Harman audio, Alexa built-in, and elderly fall alerts. Designed as a three-in-one home device for security, companionship, and entertainment.",
+    "price": "$999.00",
     "rating": 4.4,
-    "features": ["Voice wake-up", "Blinking & ear movement", "Handcrafted fur"],
-    "highlight": "Most lifelike under $150"
+    "features": [
+      "4K stabilized camera",
+      "V-SLAM home mapping",
+      "Harman speakers + Alexa"
+    ],
+    "highlight": "Flagship guardian robot",
+    "priceTier": "hot",
+    "priceLastChecked": "2026-04-30"
   },
-
+  "ebo-air": {
+    "blurb": "Mobile home robot with 1080p camera, brushless silent motor, and pet entertainment features including a built-in laser and DIY feather stick. Treads handle carpets and small obstacles smoothly.",
+    "price": "$229.00",
+    "rating": 4.0,
+    "features": [
+      "1080p + night vision",
+      "Silent brushless motor",
+      "Pet laser + feather toy"
+    ],
+    "highlight": "Original Air model",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
+  },
+  "ebo-air-2": {
+    "blurb": "Mobile companion robot with 2K camera, IR-cut night vision, customizable LED expressions, and 10 interactive pet actions. Ships in three colors and acts as both a security camera and a pet playmate.",
+    "price": "$199.00",
+    "rating": 4.2,
+    "features": [
+      "2K camera + 137\u00b0 view",
+      "Custom LED expressions",
+      "10 pet interactions"
+    ],
+    "highlight": "Best value robot",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
+  },
+  "ebo-air-2s": {
+    "blurb": "Upgraded 2.5K-camera version of the EBO Air 2 with scheduled patrol, autonomous return-to-dock charging, and reliable home security monitoring.",
+    "price": "$249.00",
+    "rating": 4.3,
+    "features": [
+      "2.5K camera",
+      "Scheduled patrol",
+      "Auto-recharge"
+    ],
+    "highlight": "Security-focused upgrade",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
+  },
+  "ebo-se": {
+    "blurb": "Entry-level mobile camera robot with 1080p video, two-way audio, and night vision. The friendliest way to get started with a movable home and pet camera.",
+    "price": "$119.00",
+    "rating": 4.0,
+    "features": [
+      "1080p + night vision",
+      "Two-way audio",
+      "Compact pet-level view"
+    ],
+    "highlight": "Most affordable Enabot",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
+  },
+  "rola-mini": {
+    "blurb": "Compact mobile pet camera with 2K resolution, one-touch call, two-way talk, and night vision. Lightweight and ideal for small spaces or first-time buyers.",
+    "price": "$129.00",
+    "rating": 4.1,
+    "features": [
+      "2K camera",
+      "One-touch call",
+      "Local SD storage"
+    ],
+    "highlight": "Most compact pick",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
+  },
+  "_____ELEPHANT_____": "===== Elephant Robotics =====",
+  "marscat": {
+    "blurb": "The world's first fully autonomous robot cat. Walks, sits up, plays, and develops its own personality based on interactions. Powered by a quad-core Raspberry Pi with optional open-source development.",
+    "price": "$1,199.00",
+    "rating": 4.4,
+    "features": [
+      "Fully autonomous walk",
+      "Adaptive personality",
+      "Raspberry Pi powered"
+    ],
+    "highlight": "Most autonomous robot cat",
+    "priceTier": "hot",
+    "priceLastChecked": "2026-04-30"
+  },
   "metacat": {
-    "blurb": "An AI-powered companion cat with LED-screen eyes, 29 voice commands, and Type-C charging. Up to 10 hours of playtime per charge.",
+    "blurb": "Interactive companion robotic cat with LED expressive eyes, 29 voice commands, soft handcrafted fur, and USB-C charging. Up to 10 hours of playtime per charge. Available in Persian, Ragdoll, and Bicolor.",
     "price": "$159.00",
     "rating": 4.3,
-    "features": ["29 voice commands", "LED expressive eyes", "USB-C rechargeable"],
-    "highlight": "Best rechargeable option"
+    "features": [
+      "29 voice commands",
+      "LED expressive eyes",
+      "USB-C rechargeable"
+    ],
+    "highlight": "Best rechargeable cat",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
   },
-
-  "ebo-air-2-plus": {
-    "blurb": "A mobile AI robot companion with a 3K camera, two-way video, ChatGPT-powered chat mode, and auto-recharge. Patrols your home and engages with family.",
-    "price": "$349.00",
-    "rating": 4.2,
-    "features": ["3K camera + night vision", "AI chat (ChatGPT)", "Auto-recharge dock"],
-    "highlight": "Smartest family robot"
+  "metadog": {
+    "blurb": "Interactive companion robot dog with voice recognition and game app support. Available in Husky and Shiba Inu styles. A clean, mess-free alternative for those who can't have a real dog.",
+    "price": "$189.00",
+    "rating": 4.4,
+    "features": [
+      "Voice recognition",
+      "App-driven games",
+      "Lifelike Husky/Shiba"
+    ],
+    "highlight": "Best low-maintenance dog",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
+  },
+  "metapanda": {
+    "blurb": "Lifelike interactive panda with 6 degrees of freedom, 8 touch sensors, and 30+ voice commands. Plays a 'feeding' animation when given its bamboo toy. Plush hypoallergenic fur.",
+    "price": "$199.00",
+    "rating": 4.5,
+    "features": [
+      "8 touch sensors",
+      "30+ voice commands",
+      "Bamboo feeding mode"
+    ],
+    "highlight": "Most novel companion",
+    "priceTier": "hot",
+    "priceLastChecked": "2026-04-30"
+  },
+  "_____JOY_FOR_ALL_____": "===== Joy for All variants =====",
+  "companion-pet-pup-golden": {
+    "blurb": "Lifelike animatronic Golden Retriever puppy with BarkBack voice response, soothing heartbeat, and soft hypoallergenic fur. Designed with caregivers to bring comfort to older adults living with Alzheimer's and dementia.",
+    "price": "$179.99",
+    "rating": 4.5,
+    "features": [
+      "BarkBack voice response",
+      "Heartbeat sensation",
+      "Soft golden fur"
+    ],
+    "highlight": "Award-winning senior companion",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
+  },
+  "companion-pet-pup-freckled": {
+    "blurb": "Lifelike animatronic puppy with brown-and-white freckled coat, floppy ears, BarkBack voice response, and soothing heartbeat. The newest member of the Joy for All family.",
+    "price": "$179.99",
+    "rating": 4.5,
+    "features": [
+      "BarkBack voice response",
+      "Heartbeat sensation",
+      "Freckled brown coat"
+    ],
+    "highlight": "Newest Joy for All pup",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
+  },
+  "companion-pet-cat-silver": {
+    "blurb": "Animatronic silver-and-white cat that purrs, meows, and rolls over for tummy scratches. Studies show it reduces feelings of loneliness and dementia-related agitation. VibraPurr technology.",
+    "price": "$159.99",
+    "rating": 4.5,
+    "features": [
+      "VibraPurr technology",
+      "Motion sensors",
+      "Silver/white fur"
+    ],
+    "highlight": "Best for dementia comfort",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
+  },
+  "companion-pet-cat-orange-tabby": {
+    "blurb": "Animatronic orange tabby cat with realistic purring, soft fur, and lifelike interactions. Meows, grooms, and rolls over at your touch. Award-winning therapy companion.",
+    "price": "$159.99",
+    "rating": 4.5,
+    "features": [
+      "VibraPurr technology",
+      "Motion sensors",
+      "Orange tabby fur"
+    ],
+    "highlight": "Most popular cat color",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
+  },
+  "companion-pet-cat-tuxedo": {
+    "blurb": "Animatronic black-and-white tuxedo cat with realistic purring, motion-responsive interactions, and soft hypoallergenic fur. A calming, low-maintenance companion for any age.",
+    "price": "$159.99",
+    "rating": 4.4,
+    "features": [
+      "VibraPurr technology",
+      "Motion sensors",
+      "Black/white tuxedo fur"
+    ],
+    "highlight": "Classic tuxedo look",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
+  },
+  "_____CHONGKER_____": "===== Chongker =====",
+  "matecat-pro": {
+    "blurb": "Hyper-realistic robotic cat with voice wake-up, blinking, purring, and tail movement. Responds to custom voice commands like \"Love U\" or \"Good night\". Handcrafted fur for a premium feel.",
+    "price": "$119.00",
+    "rating": 4.4,
+    "features": [
+      "Voice wake-up",
+      "Blinking & ear movement",
+      "Handcrafted fur"
+    ],
+    "highlight": "Most lifelike under $150",
+    "priceTier": "regular",
+    "priceLastChecked": "2026-04-30"
   }
 }
