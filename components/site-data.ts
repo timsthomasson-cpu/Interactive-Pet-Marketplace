@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
 //
-// Generated: 2026-04-30T23:13:23.602Z
+// Generated: 2026-05-02T15:23:37.115Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -854,7 +854,8 @@ export const products: Product[] = [
       "Handmade by artisans"
     ],
     "highlight": "Pure white companion",
-    "productUrl": "https://www.amazon.com/Perfect-Petzzz-4934-Peluche-Blanc/dp/B00CZC87Y2/ref=sr_1_1?crid=14YL8V2AVTHVU&dib=eyJ2IjoiMSJ9.syNMjb00PcieFuHWZ14dNpX10fhBwfzVgDq48Mbsqy3wt6r7yAuiizQ-gJqO3gutmd-usuS-1jPuSSDuiE8F7KrUYEf7VW63FZMnBQXJ1yXijFD75YrnwKFHPSfpDZYB1rHfEdMxpplUGz5YsxdxlmKzk7P_kQ2hvnnoz4lFOOuC_rnNYtHWW2OqKG2kQ6QEh60SfaZB2WUehvtMMK64w-yWAgQNZs6EU_Yb2xeKjmM-5Khfk68ma90TLCkycwBQGqOe_EP8B2SiQb0HED-g_vVNrlQePali6C5BDgOyMAI.mLk5dZzie9i8qjd0wveehxGN82-UShHPDyYkBPSCokQ&dib_tag=se&keywords=perfect+petzzz+plush+white+cat&qid=1777496864&s=toys-and-games&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=perfect+ptezz+plush+white+ca%2Ctoys-and-games%2C140&sr=1-1",
+    "productUrl": "https://www.amazon.com/Perfect-Petzzz-4934-Peluche-Blanc/dp/B00CZC87Y2/ref=sr_1_6?crid=2DSSQ9S1E17NT&dib=eyJ2IjoiMSJ9._xaIiZ3a8J-2z_JxV4X0R1nw7RT5-CCIJzohURKRauFh_1RApvGWEwFyxaTPIRG0fd7JLrjcVFTscPNGqZPcCHaT3y_Gjbz2NESJ1A5vooYH9_NY5d5S3HCLV8e5X2cnjrlKwhEeBEl7YMYEpQpLISegcsFM1M2ERHH5rtaX5Ar8LIk5u-ZNupL7J6nKsknSkgg6PL09UNdCy6kOqBj_PGAQdMw9DYc5-lTxiudpdaLjCbSIKtjflEL9Ps7HVqUoTYgae4nqiuP7LDa_KVVQroDijVCYDcu-ZgVXOKtI2lA.V0rWULiC_BM4S_mny5HR3o4lGLc9nu_QZU0sazj6Toc&dib_tag=se&keywords=perfect+petzzz&qid=1777734273&s=toys-and-games&sprefix=per%2Ctoys-and-games%2C185&sr=1-6",
+    "imageUrl": "/images/products/Sweetie-White-Cat.png",
     "flags": {
       "gifts": true,
       "premium": false,
@@ -1054,59 +1055,6 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "huggable-pug",
-    "name": "Huggable Pug",
-    "manufacturer": "Perfect Petzzz",
-    "type": "Interactive",
-    "bestFor": [
-      "Children",
-      "Families"
-    ],
-    "blurb": "Soft plush huggable pug with a realistic look and weighted body for cuddling comfort. A no-electronics quiet companion ideal for kids, seniors, and anyone wanting a calming pet alternative.",
-    "price": "$49.99",
-    "rating": 4.4,
-    "features": [
-      "Realistic pug look",
-      "Weighted plush body",
-      "No-electronics comfort"
-    ],
-    "highlight": "Calming pug cuddle",
-    "productUrl": "https://www.amazon.com/Realistic-Battery-Operated-Companion-Interactive-Synthetic/dp/B000N9EE8C/ref=sr_1_1_sspa?crid=3UDJCT8VT358V&dib=eyJ2IjoiMSJ9.h-XYOsGcHfqztS8iEKqApORMOEWdzWYZoJ7_5bV_MgLnKGqG1B-rgf5GL8FwagSdV-_puqUDBfzCky0nt1yWs59UtQo3HURoZCBbK_fzD9_9aAcGyz_CgYPhBT-2YETzzZbIdiS_FrzVAbsoZB4NeEvj7kPBta4GGp27Rf3KCW-pEbmT0K6yV6gSDTyRkcH8MCIowVLXRPx2OQZFUzy7oX3ui0nvi1Me1fZikibtAvIDkwpHoAgtOVG_OD-uztSuoXtO6U0XYT4XPxuwIEXnQNP4sZWkLSAt6Y8gNNSNvRs.8IxOpm0OpwE53R6f2zLlDN8_03EM0nnJhmOTjrakC24&dib_tag=se&keywords=huggable%2Bpug&qid=1777496322&s=toys-and-games&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=huggable%2Bpug%2Ctoys-and-games%2C156&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
-    "flags": {
-      "gifts": true,
-      "premium": false,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "aibi",
-    "name": "Aibi",
-    "manufacturer": "",
-    "type": "AI & Robotic",
-    "bestFor": [
-      "Adults"
-    ],
-    "blurb": "Sony's flagship AI robot dog (ERS-1000). Forms unique personalities through interaction, recognizes faces and voices, learns tricks over time. Cloud-connected with OLED eyes for emotional expression. Requires AI Cloud Plan subscription for full features.",
-    "price": "$2,899.00",
-    "rating": 4.5,
-    "features": [
-      "Cloud AI personality",
-      "OLED expressive eyes",
-      "Face & voice recognition"
-    ],
-    "highlight": "Premium AI robot dog",
-    "productUrl": "Amazon.com: Aibi Pocket Pet - Wearable Robot | ChatGPT Powered AI Companion with Voice Commands, Emotional Interaction, Singing & Dancing | Magnetically Attaches to Anywhere | Ultra Portable : Toys & Games",
-    "flags": {
-      "gifts": true,
-      "premium": true,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
