@@ -377,13 +377,13 @@
   },
 
   "ai-desk-robot-companion": {
-    "blurb": "Compact AI desk robot companion with screen-based emotional expressions, voice chat, weather updates, and music playback. A small interactive desk buddy that responds to voice and touch.",
-    "price": "$79.99",
-    "rating": 4.0,
-    "features": ["Voice chat AI", "Animated face screen", "Music & weather"],
-    "highlight": "Compact AI desk buddy",
-    "priceTier": "longtail",
-    "priceLastChecked": "2026-04-30"
+    "blurb": "EMO by LivingAI — an AI desktop pet with over 1,000 expressions and movements, ChatGPT-powered conversation, face recognition, and a self-learning personality. Sees, hears, and understands you. Includes wireless charging skateboard. No subscription required.",
+    "price": "$279.00",
+    "rating": 4.3,
+    "features": ["1,000+ expressions", "ChatGPT conversation", "Face recognition AI"],
+    "highlight": "Most expressive desk AI",
+    "priceTier": "hot",
+    "priceLastChecked": "2026-05-05"
   },
 
   "_____CLASSIC_____": "===== Classic / iconic =====",

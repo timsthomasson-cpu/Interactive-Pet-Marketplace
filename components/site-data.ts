@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
 //
-// Generated: 2026-05-05T21:02:39.137Z
+// Generated: 2026-05-05T21:30:41.902Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -1066,7 +1066,7 @@ export const products: Product[] = [
     "imageUrl": "/images/products/futuristic_ai_pets.png",
     "flags": {
       "gifts": true,
-      "premium": true,
+      "premium": false,
       "topPick": false,
       "camera": false,
       "internetAccess": false,
@@ -1082,15 +1082,15 @@ export const products: Product[] = [
       "Adults",
       "Families"
     ],
-    "blurb": "Compact AI desk robot companion with screen-based emotional expressions, voice chat, weather updates, and music playback. A small interactive desk buddy that responds to voice and touch.",
-    "price": "$79.99",
-    "rating": 4,
+    "blurb": "EMO by LivingAI — an AI desktop pet with over 1,000 expressions and movements, ChatGPT-powered conversation, face recognition, and a self-learning personality. Sees, hears, and understands you. Includes wireless charging skateboard. No subscription required.",
+    "price": "$279.00",
+    "rating": 4.3,
     "features": [
-      "Voice chat AI",
-      "Animated face screen",
-      "Music & weather"
+      "1,000+ expressions",
+      "ChatGPT conversation",
+      "Face recognition AI"
     ],
-    "highlight": "Compact AI desk buddy",
+    "highlight": "Most expressive desk AI",
     "productUrl": "Amazon.com: EMOPET AI Desk Robot Companion - ChatGPT Enabled with Voice Commands & Dancing, Interactive AI Robot Pet with Personality, for Adults and Kids : Toys & Games",
     "imageUrl": "/images/products/interactive_pet_toys.png",
     "flags": {
