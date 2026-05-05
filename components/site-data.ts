@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
 //
-// Generated: 2026-05-05T20:25:01.392Z
+// Generated: 2026-05-05T20:59:23.443Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -281,6 +281,7 @@ export const products: Product[] = [
     ],
     "highlight": "Most autonomous robot cat",
     "productUrl": "Not Currently Available in the US",
+    "imageUrl": "/images/products/Skinny-AI-Cat.png",
     "flags": {
       "gifts": true,
       "premium": false,
@@ -309,6 +310,7 @@ export const products: Product[] = [
     ],
     "highlight": "Best rechargeable cat",
     "productUrl": "Not Currently Available in the US",
+    "imageUrl": "/images/products/Sweetie-White-Cat.png",
     "flags": {
       "gifts": true,
       "premium": false,
@@ -337,6 +339,7 @@ export const products: Product[] = [
     ],
     "highlight": "Best low-maintenance dog",
     "productUrl": "Not Currently Available in the US",
+    "imageUrl": "/images/products/Mr-Siberian-Husky.png",
     "flags": {
       "gifts": true,
       "premium": false,
@@ -365,6 +368,7 @@ export const products: Product[] = [
     ],
     "highlight": "Most novel companion",
     "productUrl": "Not Currently Available in the US",
+    "imageUrl": "/images/products/red_panda.png",
     "flags": {
       "gifts": true,
       "premium": false,
