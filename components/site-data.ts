@@ -2,11 +2,12 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
 //
-// Generated: 2026-05-02T15:49:29.474Z
+// Generated: 2026-05-05T20:25:01.392Z
 
 export type ProductFlags = {
   gifts: boolean;
   premium: boolean;
+  topPick: boolean;
   camera: boolean;
   internetAccess: boolean;
   affiliateAgreement: boolean;
@@ -52,6 +53,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -80,6 +82,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": true,
+      "topPick": true,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -108,6 +111,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -136,6 +140,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -164,6 +169,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -192,6 +198,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -220,6 +227,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -248,6 +256,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -275,6 +284,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -302,6 +312,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -329,6 +340,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -356,6 +368,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -384,6 +397,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -412,6 +426,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -440,6 +455,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": true,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -468,6 +484,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -496,6 +513,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": true,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -524,6 +542,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -552,6 +571,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": true,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -580,6 +600,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -608,6 +629,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": true,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -636,6 +658,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -664,6 +687,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -691,6 +715,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": true,
+      "topPick": false,
       "camera": true,
       "internetAccess": true,
       "affiliateAgreement": false
@@ -719,6 +744,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -747,6 +773,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -775,6 +802,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -803,6 +831,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -831,6 +860,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -859,6 +889,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -887,6 +918,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -915,6 +947,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -943,6 +976,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -971,6 +1005,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -999,6 +1034,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -1027,6 +1063,36 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": true,
+      "topPick": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "ai-desk-robot-companion",
+    "name": "AI Desk Robot Companion",
+    "manufacturer": "EMOPET",
+    "type": "AI & Robotic",
+    "bestFor": [
+      "Adults",
+      "Families"
+    ],
+    "blurb": "Compact AI desk robot companion with screen-based emotional expressions, voice chat, weather updates, and music playback. A small interactive desk buddy that responds to voice and touch.",
+    "price": "$79.99",
+    "rating": 4,
+    "features": [
+      "Voice chat AI",
+      "Animated face screen",
+      "Music & weather"
+    ],
+    "highlight": "Compact AI desk buddy",
+    "productUrl": "Amazon.com: EMOPET AI Desk Robot Companion - ChatGPT Enabled with Voice Commands & Dancing, Interactive AI Robot Pet with Personality, for Adults and Kids : Toys & Games",
+    "imageUrl": "/images/products/interactive_pet_toys.png",
+    "flags": {
+      "gifts": true,
+      "premium": true,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -1055,6 +1121,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "premium": false,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false

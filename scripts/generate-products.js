@@ -103,6 +103,7 @@ for (const row of rows) {
     flags: {
       gifts: isYes(row["Gifts"]),
       premium: isYes(row["Premium"]),
+      topPick: isYes(row["Top Pick"]),
       camera: isYes(row["Camera"]),
       internetAccess: isYes(row["Internet Access"]),
       affiliateAgreement: isYes(row["Affiliate Agreement"])
@@ -123,6 +124,7 @@ const tsContent = `${banner}
 export type ProductFlags = {
   gifts: boolean;
   premium: boolean;
+  topPick: boolean;
   camera: boolean;
   internetAccess: boolean;
   affiliateAgreement: boolean;
