@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
 //
-// Generated: 2026-05-05T20:59:23.443Z
+// Generated: 2026-05-05T21:02:39.137Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -284,7 +284,7 @@ export const products: Product[] = [
     "imageUrl": "/images/products/Skinny-AI-Cat.png",
     "flags": {
       "gifts": true,
-      "premium": false,
+      "premium": true,
       "topPick": false,
       "camera": false,
       "internetAccess": false,
