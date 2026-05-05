@@ -54,7 +54,7 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
           {product.features.map((feature) => (
-            <div key={feature} className="rounded-2xl bg-cream-100 border border-coral-200 px-2 py-2 text-center text-[11px] leading-tight font-medium text-brand-900 min-w-0 break-words">
+            <div key={feature} className="rounded-2xl bg-cream-100 border border-coral-200 px-1.5 py-2 text-center text-[10px] leading-tight font-medium text-brand-900 min-w-0">
               {feature}
             </div>
           ))}
