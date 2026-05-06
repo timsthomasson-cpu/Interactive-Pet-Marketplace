@@ -21,7 +21,7 @@ export function ShopByNeed() {
     ["Best for Kids & Families", "Playful options built for novelty and everyday entertainment.", "/kids-and-families"],
     ["Best Premium Picks", "Higher-end robotic pets with more advanced movement and sensors.", "/premium-picks"]
   ];
-  return <section className="pt-4 pb-7 bg-white sm:pt-6 sm:pb-8 lg:pt-8 lg:pb-10"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{items.map(([title, text, href])=><Link key={title} href={href} className="block rounded-3xl border border-trust-200 bg-trust-50 p-6 transition hover:-translate-y-0.5 hover:border-trust-400 hover:shadow-soft"><h3 className="text-lg font-semibold text-trust-900">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{text}</p></Link>)}</div></div></section>;
+  return <section className="section-pad pt-4 bg-white sm:pt-6 lg:pt-8"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{items.map(([title, text, href])=><Link key={title} href={href} className="block rounded-3xl border border-trust-200 bg-trust-50 p-6 transition hover:-translate-y-0.5 hover:border-trust-400 hover:shadow-soft"><h3 className="text-lg font-semibold text-trust-900">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{text}</p></Link>)}</div></div></section>;
 }
 export function FeaturedProducts({ filter }: { filter?: "Interactive" | "AI & Robotic" }) {
   const filtered = filter ? products.filter((p)=>p.type===filter) : products;
@@ -31,6 +31,16 @@ export function CompareTable({ items, title = "Compare at a glance", text = "Qui
   if (items.length === 0) return null;
   return <section className="section-pad bg-white"><div className="container-shell"><SectionHeading eyebrow="Compare faster" title={title} text={text} /><div className="mt-10 overflow-hidden rounded-3xl border border-coral-200 bg-white shadow-soft"><div className="overflow-x-auto"><table className="min-w-full text-left text-sm"><thead className="bg-cream-100"><tr>{["Product","Type","Best For","Highlight","Rating","Price"].map((h)=><th key={h} className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{h}</th>)}</tr></thead><tbody>{items.map((product)=><tr key={product.slug} className="border-t border-coral-200"><td className="px-5 py-4 font-semibold text-slate-900">{product.name}</td><td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.type}</td><td className="px-5 py-4 font-semibold text-slate-900">{product.bestFor.join(", ")}</td><td className="px-5 py-4 font-semibold text-slate-900">{product.highlight}</td><td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.rating !== undefined ? <><span className="text-red-600">★</span> {product.rating.toFixed(1)}</> : "—"}</td><td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.price}</td></tr>)}</tbody></table></div></div></div></section>;
 }
+export function TrustBoxesRow() {
+  const items = [
+    ["Comfort & Companionship", "Smart pets can provide gentle interaction and emotional comfort without the demands of a live pet."],
+    ["Low Maintenance", "No feeding, walking, litter, or vet visits — a key reason many families start here."],
+    ["Easy for Families", "A simple way to add novelty, comfort, or companionship without ongoing care complexity."],
+    ["Great Gift Option", "A thoughtful present for parents, grandparents, kids, and pet lovers who want something memorable."]
+  ];
+  return <section className="pt-4 pb-2 sm:pt-6 sm:pb-3 lg:pt-8 lg:pb-4"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">{items.map(([title,text])=><div key={title} className="rounded-3xl border border-coral-200 bg-white p-6 shadow-soft"><h4 className="text-lg font-semibold text-slate-900">{title}</h4><p className="mt-3 text-sm leading-7 text-slate-600">{text}</p></div>)}</div></div></section>;
+}
+
 export function TrustBlocks() {
   const items = [
     ["Comfort & Companionship", "Smart pets can provide gentle interaction and emotional comfort without the demands of a live pet."],

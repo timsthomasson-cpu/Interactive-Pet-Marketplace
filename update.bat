@@ -1,0 +1,3 @@
+commit.bat
+update_spreadsheet.bat
+restart_dev
