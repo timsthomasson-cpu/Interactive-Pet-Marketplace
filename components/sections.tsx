@@ -27,10 +27,7 @@ export function FeaturedProducts({ filter }: { filter?: "Interactive" | "AI & Ro
   const filtered = filter ? products.filter((p)=>p.type===filter) : products;
   return <section className="section-pad pt-10 sm:pt-12"><div className="container-shell"><div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">{filtered.map((product)=><ProductCard key={product.slug} product={product} />)}</div></div></section>;
 }
-export function CompareTable({ items, title = "Compare at a glance", text = "Quickly scan type, audience, highlight, rating, and price." }: { items: typeof products; title?: string; text?: string }) {
-  if (items.length === 0) return null;
-  return <section className="section-pad bg-white"><div className="container-shell"><SectionHeading eyebrow="Compare faster" title={title} text={text} /><div className="mt-10 overflow-hidden rounded-3xl border border-coral-200 bg-white shadow-soft"><div className="overflow-x-auto"><table className="min-w-full text-left text-sm"><thead className="bg-cream-100"><tr>{["Product","Category","Type","Best For","Highlight","Rating","Price"].map((h)=><th key={h} className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{h}</th>)}</tr></thead><tbody>{items.map((product)=><tr key={product.slug} className="border-t border-coral-200"><td className="px-5 py-4 font-semibold text-slate-900">{product.name}</td><td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.category || "—"}</td><td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.type}</td><td className="px-5 py-4 font-semibold text-slate-900">{product.bestFor.join(", ")}</td><td className="px-5 py-4 font-semibold text-slate-900">{product.highlight}</td><td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.rating !== undefined ? <><span className="text-red-600">★</span> {product.rating.toFixed(1)}</> : "—"}</td><td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.price}</td></tr>)}</tbody></table></div></div></div></section>;
-}
+export { CompareTable } from "./compare-table";
 export function TrustBoxesRow() {
   const items = [
     ["Comfort & Companionship", "Smart pets can provide gentle interaction and emotional comfort without the demands of a live pet."],

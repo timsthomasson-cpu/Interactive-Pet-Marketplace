@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
 //
-// Generated: 2026-05-06T21:55:20.512Z
+// Generated: 2026-05-06T22:16:31.976Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -875,7 +875,7 @@ export const products: Product[] = [
     "name": "Calico Cat",
     "manufacturer": "Perfect Petzzz",
     "type": "Interactive",
-    "category": "",
+    "category": "Cat",
     "bestFor": [
       "Children",
       "Seniors"
