@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
 //
-// Generated: 2026-05-06T18:00:38.749Z
+// Generated: 2026-05-06T21:44:59.511Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -1105,7 +1105,7 @@ export const products: Product[] = [
   {
     "slug": "furby",
     "name": "Furby",
-    "manufacturer": "",
+    "manufacturer": "Furby",
     "type": "AI & Robotic",
     "bestFor": [
       "Children",
