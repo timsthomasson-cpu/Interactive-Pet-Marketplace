@@ -63,7 +63,7 @@ export function CompareTable({
     if (filters.name && p.name !== filters.name) return false;
     if (filters.category && p.category !== filters.category) return false;
     if (filters.type && p.type !== filters.type) return false;
-    if (filters.rating && (p.rating === undefined || p.rating.toFixed(1) !== filters.rating)) return false;
+    if (filters.rating && (p.rating === undefined || p.rating < parseFloat(filters.rating))) return false;
     if (filters.price && priceBucketLabel(p.price) !== filters.price) return false;
     return true;
   }), [items, filters]);
@@ -123,7 +123,7 @@ export function CompareTable({
                     <div className="font-semibold text-slate-900">Rating</div>
                     <select className={selectClass} value={filters.rating} onChange={set("rating")} aria-label="Filter by rating">
                       <option value="">All</option>
-                      {options.rating.map(v => <option key={v} value={v}>★ {v}</option>)}
+                      {options.rating.map(v => <option key={v} value={v}>★ {v} & up</option>)}
                     </select>
                   </th>
                   <th className="px-5 py-4 text-left min-w-[140px]">
