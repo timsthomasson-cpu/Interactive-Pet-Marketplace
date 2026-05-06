@@ -1,3 +1,3 @@
-commit.bat
-update_spreadsheet.bat
+update_spreadsheet
+commit
 restart_dev
