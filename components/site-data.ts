@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
 //
-// Generated: 2026-05-06T21:56:12.147Z
+// Generated: 2026-05-06T21:55:20.512Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -18,6 +18,7 @@ export type Product = {
   name: string;
   manufacturer: string;
   type: "Interactive" | "AI & Robotic" | string;
+  category: string;
   bestFor: string[];
   blurb: string;
   price: string;
@@ -35,6 +36,7 @@ export const products: Product[] = [
     "name": "EBO Max FamilyBot",
     "manufacturer": "Enabot",
     "type": "AI & Robotic",
+    "category": "Robot",
     "bestFor": [
       "Families",
       "Children"
@@ -64,6 +66,7 @@ export const products: Product[] = [
     "name": "EBO Air 2 Plus",
     "manufacturer": "Enabot",
     "type": "AI & Robotic",
+    "category": "Robot",
     "bestFor": [
       "Families",
       "Children"
@@ -93,6 +96,7 @@ export const products: Product[] = [
     "name": "EBO X",
     "manufacturer": "Enabot",
     "type": "AI & Robotic",
+    "category": "Robot",
     "bestFor": [
       "Families",
       "Children"
@@ -122,6 +126,7 @@ export const products: Product[] = [
     "name": "EBO Air",
     "manufacturer": "Enabot",
     "type": "AI & Robotic",
+    "category": "Robot",
     "bestFor": [
       "Families",
       "Children"
@@ -151,6 +156,7 @@ export const products: Product[] = [
     "name": "EBO Air 2",
     "manufacturer": "Enabot",
     "type": "AI & Robotic",
+    "category": "Robot",
     "bestFor": [
       "Families",
       "Children"
@@ -180,6 +186,7 @@ export const products: Product[] = [
     "name": "EBO Air 2S",
     "manufacturer": "Enabot",
     "type": "AI & Robotic",
+    "category": "Robot",
     "bestFor": [
       "Families",
       "Children"
@@ -209,6 +216,7 @@ export const products: Product[] = [
     "name": "EBO SE",
     "manufacturer": "Enabot",
     "type": "AI & Robotic",
+    "category": "Robot",
     "bestFor": [
       "Families",
       "Children"
@@ -238,6 +246,7 @@ export const products: Product[] = [
     "name": "ROLA Mini",
     "manufacturer": "Enabot",
     "type": "AI & Robotic",
+    "category": "Robot",
     "bestFor": [
       "Families",
       "Children"
@@ -267,6 +276,7 @@ export const products: Product[] = [
     "name": "MarsCat",
     "manufacturer": "Elephant Robotics",
     "type": "Interactive",
+    "category": "Cat",
     "bestFor": [
       "Families",
       "Children"
@@ -296,6 +306,7 @@ export const products: Product[] = [
     "name": "metaCat",
     "manufacturer": "Elephant Robotics",
     "type": "Interactive",
+    "category": "Cat",
     "bestFor": [
       "Seniors",
       "Children"
@@ -325,6 +336,7 @@ export const products: Product[] = [
     "name": "metaDog",
     "manufacturer": "Elephant Robotics",
     "type": "Interactive",
+    "category": "Dog",
     "bestFor": [
       "Seniors",
       "Children"
@@ -354,6 +366,7 @@ export const products: Product[] = [
     "name": "metaPanda",
     "manufacturer": "Elephant Robotics",
     "type": "Interactive",
+    "category": "Panda",
     "bestFor": [
       "Seniors",
       "Children"
@@ -383,6 +396,7 @@ export const products: Product[] = [
     "name": "Companion Pet Pup Golden",
     "manufacturer": "Joy for All",
     "type": "Interactive",
+    "category": "Dog",
     "bestFor": [
       "Seniors",
       "Children"
@@ -412,6 +426,7 @@ export const products: Product[] = [
     "name": "Companion Pet Pup Freckled",
     "manufacturer": "Joy for All",
     "type": "Interactive",
+    "category": "Dog",
     "bestFor": [
       "Seniors",
       "Children"
@@ -441,6 +456,7 @@ export const products: Product[] = [
     "name": "Companion Pet Cat Silver",
     "manufacturer": "Joy for All",
     "type": "Interactive",
+    "category": "Cat",
     "bestFor": [
       "Seniors",
       "Children"
@@ -470,6 +486,7 @@ export const products: Product[] = [
     "name": "Companion Pet Cat Orange Tabby",
     "manufacturer": "Joy for All",
     "type": "Interactive",
+    "category": "Cat",
     "bestFor": [
       "Seniors",
       "Children"
@@ -499,6 +516,7 @@ export const products: Product[] = [
     "name": "Companion Pet Cat Tuxedo",
     "manufacturer": "Joy for All",
     "type": "Interactive",
+    "category": "Cat",
     "bestFor": [
       "Seniors",
       "Children"
@@ -528,6 +546,7 @@ export const products: Product[] = [
     "name": "MateCat Pro",
     "manufacturer": "Chongker",
     "type": "Interactive",
+    "category": "Cat",
     "bestFor": [
       "Seniors",
       "Children"
@@ -557,6 +576,7 @@ export const products: Product[] = [
     "name": "MateCat 1.1",
     "manufacturer": "Chongker",
     "type": "Interactive",
+    "category": "Cat",
     "bestFor": [
       "Seniors",
       "Children"
@@ -586,6 +606,7 @@ export const products: Product[] = [
     "name": "Percy 1.1 Robotic Dog",
     "manufacturer": "Chongker",
     "type": "Interactive",
+    "category": "Dog",
     "bestFor": [
       "Seniors",
       "Children"
@@ -615,6 +636,7 @@ export const products: Product[] = [
     "name": "Percy Robot Cat",
     "manufacturer": "Chongker",
     "type": "Interactive",
+    "category": "Cat",
     "bestFor": [
       "Seniors",
       "Children"
@@ -644,6 +666,7 @@ export const products: Product[] = [
     "name": "Breathing Red Panda Plush",
     "manufacturer": "Chongker",
     "type": "Interactive",
+    "category": "Panda",
     "bestFor": [
       "Seniors",
       "Children"
@@ -673,6 +696,7 @@ export const products: Product[] = [
     "name": "Wuffy Robot Puppy",
     "manufacturer": "Wuffy",
     "type": "Interactive",
+    "category": "Dog",
     "bestFor": [
       "Children",
       "Families"
@@ -702,6 +726,7 @@ export const products: Product[] = [
     "name": "KAMOMO",
     "manufacturer": "Ropet",
     "type": "Interactive",
+    "category": "Robot",
     "bestFor": [
       "Families"
     ],
@@ -730,6 +755,7 @@ export const products: Product[] = [
     "name": "Border Collie",
     "manufacturer": "Perfect Petzzz",
     "type": "Interactive",
+    "category": "Dog",
     "bestFor": [
       "Children",
       "Seniors"
@@ -759,6 +785,7 @@ export const products: Product[] = [
     "name": "Chocolate Lab",
     "manufacturer": "Perfect Petzzz",
     "type": "Interactive",
+    "category": "Dog",
     "bestFor": [
       "Children",
       "Seniors"
@@ -788,6 +815,7 @@ export const products: Product[] = [
     "name": "Shih Tzu",
     "manufacturer": "Perfect Petzzz",
     "type": "Interactive",
+    "category": "Dog",
     "bestFor": [
       "Children",
       "Seniors"
@@ -817,6 +845,7 @@ export const products: Product[] = [
     "name": "Beagle",
     "manufacturer": "Perfect Petzzz",
     "type": "Interactive",
+    "category": "Dog",
     "bestFor": [
       "Children",
       "Seniors"
@@ -846,6 +875,7 @@ export const products: Product[] = [
     "name": "Calico Cat",
     "manufacturer": "Perfect Petzzz",
     "type": "Interactive",
+    "category": "",
     "bestFor": [
       "Children",
       "Seniors"
@@ -875,6 +905,7 @@ export const products: Product[] = [
     "name": "Plush White Cat",
     "manufacturer": "Perfect Petzzz",
     "type": "Interactive",
+    "category": "Cat",
     "bestFor": [
       "Children",
       "Seniors"
@@ -904,6 +935,7 @@ export const products: Product[] = [
     "name": "Orange Tabby Cat",
     "manufacturer": "Perfect Petzzz",
     "type": "Interactive",
+    "category": "Cat",
     "bestFor": [
       "Children",
       "Seniors"
@@ -933,6 +965,7 @@ export const products: Product[] = [
     "name": "Black and White Shorthair Cat",
     "manufacturer": "Perfect Petzzz",
     "type": "Interactive",
+    "category": "Cat",
     "bestFor": [
       "Children",
       "Seniors"
@@ -962,6 +995,7 @@ export const products: Product[] = [
     "name": "Siamese Cat",
     "manufacturer": "Perfect Petzzz",
     "type": "Interactive",
+    "category": "Cat",
     "bestFor": [
       "Children",
       "Seniors"
@@ -991,6 +1025,7 @@ export const products: Product[] = [
     "name": "My Realistic Robot Puppy",
     "manufacturer": "Milow",
     "type": "Interactive",
+    "category": "Dog",
     "bestFor": [
       "Children",
       "Families"
@@ -1020,6 +1055,7 @@ export const products: Product[] = [
     "name": "18011 Smart Robot Dog",
     "manufacturer": "Ruko",
     "type": "AI & Robotic",
+    "category": "Dog",
     "bestFor": [
       "Children",
       "Families"
@@ -1049,6 +1085,7 @@ export const products: Product[] = [
     "name": "Robot Pet Dog",
     "manufacturer": "Loona",
     "type": "AI & Robotic",
+    "category": "Dog",
     "bestFor": [
       "Children",
       "Families"
@@ -1078,6 +1115,7 @@ export const products: Product[] = [
     "name": "AI Desk Robot Companion",
     "manufacturer": "EMOPET",
     "type": "AI & Robotic",
+    "category": "Robot",
     "bestFor": [
       "Adults",
       "Families"
@@ -1107,6 +1145,7 @@ export const products: Product[] = [
     "name": "Furby",
     "manufacturer": "Furby",
     "type": "AI & Robotic",
+    "category": "Robot",
     "bestFor": [
       "Children",
       "Families"

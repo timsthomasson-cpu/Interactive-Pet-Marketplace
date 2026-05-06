@@ -92,6 +92,7 @@ for (const row of rows) {
     name,
     manufacturer: clean(row["Manufacturer"]),
     type: normalizeType(row["Type"]),
+    category: clean(row["Category"]),
     bestFor,
     blurb: detail.blurb,
     price: detail.price || "",
@@ -135,6 +136,7 @@ export type Product = {
   name: string;
   manufacturer: string;
   type: "Interactive" | "AI & Robotic" | string;
+  category: string;
   bestFor: string[];
   blurb: string;
   price: string;
