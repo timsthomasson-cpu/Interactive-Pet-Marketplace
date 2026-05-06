@@ -38,7 +38,7 @@ export function TrustBoxesRow() {
     ["Easy for Families", "A simple way to add novelty, comfort, or companionship without ongoing care complexity."],
     ["Great Gift Option", "A thoughtful present for parents, grandparents, kids, and pet lovers who want something memorable."]
   ];
-  return <section className="pt-4 pb-2 sm:pt-6 sm:pb-3 lg:pt-8 lg:pb-4"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">{items.map(([title,text])=><div key={title} className="rounded-3xl border border-coral-200 bg-white p-6 shadow-soft"><h4 className="text-lg font-semibold text-slate-900">{title}</h4><p className="mt-3 text-sm leading-7 text-slate-600">{text}</p></div>)}</div></div></section>;
+  return <section className="pt-4 pb-2 sm:pt-6 sm:pb-3 lg:pt-8 lg:pb-4 bg-white"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">{items.map(([title,text])=><div key={title} className="rounded-3xl border border-trust-200 bg-trust-50 p-6"><h4 className="text-lg font-semibold text-trust-900">{title}</h4><p className="mt-3 text-sm leading-7 text-slate-600">{text}</p></div>)}</div></div></section>;
 }
 
 export function TrustBlocks() {
