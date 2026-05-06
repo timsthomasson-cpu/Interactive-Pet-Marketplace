@@ -34,10 +34,11 @@ type FilterState = {
   name: string;
   category: string;
   type: string;
+  bestFor: string;
   price: string;
 };
 
-const ALL: FilterState = { name: "", category: "", type: "", price: "" };
+const ALL: FilterState = { name: "", category: "", type: "", bestFor: "", price: "" };
 
 export function DetailedCompareTable({ items }: { items: Product[] }) {
   const [filters, setFilters] = useState<FilterState>(ALL);
@@ -46,6 +47,7 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
     name: items.map(p => p.name).sort(),
     category: unique(items.map(p => p.category)),
     type: unique(items.map(p => p.type)),
+    bestFor: unique(items.flatMap(p => p.bestFor)),
     price: PRICE_BUCKETS.map(b => b.label).filter(label => items.some(p => priceBucketLabel(p.price) === label))
   }), [items]);
 
@@ -53,6 +55,7 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
     if (filters.name && p.name !== filters.name) return false;
     if (filters.category && p.category !== filters.category) return false;
     if (filters.type && p.type !== filters.type) return false;
+    if (filters.bestFor && !p.bestFor.includes(filters.bestFor)) return false;
     if (filters.price && priceBucketLabel(p.price) !== filters.price) return false;
     return true;
   }), [items, filters]);
@@ -102,7 +105,13 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
                     {options.type.map(v => <option key={v} value={v}>{v}</option>)}
                   </select>
                 </th>
-                <th className="px-5 py-4 text-left font-semibold text-slate-900">Best For</th>
+                <th className="px-5 py-4 text-left min-w-[160px]">
+                  <div className="font-semibold text-slate-900">Best For</div>
+                  <select className={selectClass} value={filters.bestFor} onChange={set("bestFor")} aria-label="Filter by best for">
+                    <option value="">All</option>
+                    {options.bestFor.map(v => <option key={v} value={v}>{v}</option>)}
+                  </select>
+                </th>
                 <th className="px-5 py-4 text-left font-semibold text-slate-900">Key Features</th>
                 <th className="px-5 py-4 text-left font-semibold text-slate-900">Highlight</th>
                 <th className="px-5 py-4 text-left min-w-[140px]">

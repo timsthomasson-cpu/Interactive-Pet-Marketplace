@@ -34,11 +34,12 @@ type FilterState = {
   name: string;
   category: string;
   type: string;
+  bestFor: string;
   rating: string;
   price: string;
 };
 
-const ALL: FilterState = { name: "", category: "", type: "", rating: "", price: "" };
+const ALL: FilterState = { name: "", category: "", type: "", bestFor: "", rating: "", price: "" };
 
 export function CompareTable({
   items,
@@ -55,6 +56,7 @@ export function CompareTable({
     name: items.map(p => p.name).sort(),
     category: unique(items.map(p => p.category)),
     type: unique(items.map(p => p.type)),
+    bestFor: unique(items.flatMap(p => p.bestFor)),
     rating: unique(items.map(p => p.rating !== undefined ? p.rating.toFixed(1) : undefined)).sort((a, b) => parseFloat(b) - parseFloat(a)),
     price: PRICE_BUCKETS.map(b => b.label).filter(label => items.some(p => priceBucketLabel(p.price) === label))
   }), [items]);
@@ -63,6 +65,7 @@ export function CompareTable({
     if (filters.name && p.name !== filters.name) return false;
     if (filters.category && p.category !== filters.category) return false;
     if (filters.type && p.type !== filters.type) return false;
+    if (filters.bestFor && !p.bestFor.includes(filters.bestFor)) return false;
     if (filters.rating && (p.rating === undefined || p.rating < parseFloat(filters.rating))) return false;
     if (filters.price && priceBucketLabel(p.price) !== filters.price) return false;
     return true;
@@ -117,7 +120,13 @@ export function CompareTable({
                       {options.type.map(v => <option key={v} value={v}>{v}</option>)}
                     </select>
                   </th>
-                  <th className="px-5 py-4 text-left font-semibold text-slate-900">Best For</th>
+                  <th className="px-5 py-4 text-left min-w-[160px]">
+                    <div className="font-semibold text-slate-900">Best For</div>
+                    <select className={selectClass} value={filters.bestFor} onChange={set("bestFor")} aria-label="Filter by best for">
+                      <option value="">All</option>
+                      {options.bestFor.map(v => <option key={v} value={v}>{v}</option>)}
+                    </select>
+                  </th>
                   <th className="px-5 py-4 text-left font-semibold text-slate-900">Highlight</th>
                   <th className="px-5 py-4 text-left min-w-[120px]">
                     <div className="font-semibold text-slate-900">Rating</div>
