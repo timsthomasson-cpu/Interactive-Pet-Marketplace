@@ -87,51 +87,51 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
           <table className="min-w-full text-left text-sm">
             <thead className="bg-cream-100 align-top">
               <tr>
-                <th className="px-5 py-4 text-left min-w-[180px]">
+                <th className="px-3 py-4 text-left min-w-[160px]">
                   <div className="font-semibold text-slate-900">Product</div>
                   <select className={selectClass} value={filters.name} onChange={set("name")} aria-label="Filter by product">
                     <option value="">All</option>
                     {options.name.map(v => <option key={v} value={v}>{v}</option>)}
                   </select>
                 </th>
-                <th className="px-5 py-4 text-left min-w-[140px]">
+                <th className="px-3 py-4 text-left min-w-[110px]">
                   <div className="font-semibold text-slate-900">Category</div>
                   <select className={selectClass} value={filters.category} onChange={set("category")} aria-label="Filter by category">
                     <option value="">All</option>
                     {options.category.map(v => <option key={v} value={v}>{v}</option>)}
                   </select>
                 </th>
-                <th className="px-5 py-4 text-left min-w-[160px]">
+                <th className="px-3 py-4 text-left min-w-[130px]">
                   <div className="font-semibold text-slate-900">Type</div>
                   <select className={selectClass} value={filters.type} onChange={set("type")} aria-label="Filter by type">
                     <option value="">All</option>
                     {options.type.map(v => <option key={v} value={v}>{v}</option>)}
                   </select>
                 </th>
-                <th className="px-5 py-4 text-left min-w-[160px]">
+                <th className="px-3 py-4 text-left min-w-[130px]">
                   <div className="font-semibold text-slate-900">Best For</div>
                   <select className={selectClass} value={filters.bestFor} onChange={set("bestFor")} aria-label="Filter by best for">
                     <option value="">All</option>
                     {options.bestFor.map(v => <option key={v} value={v}>{v}</option>)}
                   </select>
                 </th>
-                <th className="px-5 py-4 text-left font-semibold text-slate-900">Key Features</th>
-                <th className="px-5 py-4 text-left font-semibold text-slate-900">Highlight</th>
-                <th className="px-5 py-4 text-left min-w-[120px]">
+                <th className="px-3 py-4 text-left font-semibold text-slate-900 min-w-[140px]">Key Features</th>
+                <th className="px-3 py-4 text-left font-semibold text-slate-900 min-w-[120px]">Highlight</th>
+                <th className="px-3 py-4 text-left min-w-[100px]">
                   <div className="font-semibold text-slate-900">Rating</div>
                   <select className={selectClass} value={filters.rating} onChange={set("rating")} aria-label="Filter by rating">
                     <option value="">All</option>
                     {options.rating.map(v => <option key={v} value={v}>★ {v} & up</option>)}
                   </select>
                 </th>
-                <th className="px-5 py-4 text-left min-w-[140px]">
+                <th className="px-3 py-4 text-left min-w-[110px]">
                   <div className="font-semibold text-slate-900">Price</div>
                   <select className={selectClass} value={filters.price} onChange={set("price")} aria-label="Filter by price">
                     <option value="">All</option>
                     {options.price.map(v => <option key={v} value={v}>{v}</option>)}
                   </select>
                 </th>
-                <th className="px-5 py-4 text-left font-semibold text-slate-900 min-w-[100px]">Action</th>
+                <th className="px-3 py-4 text-left font-semibold text-slate-900 min-w-[80px]">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -139,16 +139,16 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
                 <tr><td colSpan={9} className="px-5 py-10 text-center text-slate-600">No products match these filters. <button onClick={() => setFilters(ALL)} className="font-semibold text-trust-700 underline hover:text-trust-900">Clear filters</button></td></tr>
               ) : filtered.map(product => (
                 <tr key={product.slug} className="border-t border-coral-200 align-top">
-                  <td className="px-5 py-4 font-semibold text-slate-900">{product.name}</td>
-                  <td className="px-5 py-4 text-slate-600 whitespace-nowrap">{product.category || "—"}</td>
-                  <td className="px-5 py-4 text-slate-600">{product.type}</td>
-                  <td className="px-5 py-4 text-slate-600">{product.bestFor.join(", ")}</td>
-                  <td className="px-5 py-4 text-slate-600">{product.features.join(", ")}</td>
-                  <td className="px-5 py-4 text-slate-600">{product.highlight}</td>
-                  <td className="px-5 py-4 text-slate-900 whitespace-nowrap">{product.rating !== undefined ? <><span className="text-red-600">★</span> {product.rating.toFixed(1)}</> : "—"}</td>
-                  <td className="px-5 py-4 text-slate-900">{product.price}</td>
-                  <td className="px-5 py-4">
-                    <Link href={product.productUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap">View</Link>
+                  <td className="px-3 py-4 font-semibold text-slate-900">{product.name}</td>
+                  <td className="px-3 py-4 text-slate-600 whitespace-nowrap">{product.category || "—"}</td>
+                  <td className="px-3 py-4 text-slate-600">{product.type}</td>
+                  <td className="px-3 py-4 text-slate-600">{product.bestFor.join(", ")}</td>
+                  <td className="px-3 py-4 text-slate-600">{product.features.join(", ")}</td>
+                  <td className="px-3 py-4 text-slate-600">{product.highlight}</td>
+                  <td className="px-3 py-4 text-slate-900 whitespace-nowrap">{product.rating !== undefined ? <><span className="text-red-600">★</span> {product.rating.toFixed(1)}</> : "—"}</td>
+                  <td className="px-3 py-4 text-slate-900">{product.price}</td>
+                  <td className="px-3 py-4">
+                    <Link href={product.productUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap">View</Link>
                   </td>
                 </tr>
               ))}
