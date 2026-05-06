@@ -39,9 +39,9 @@ const articles: { title: string; source: string; url: string; note?: string }[] 
     url: "https://arxiv.org/abs/2409.10710"
   },
   {
-    title: "Social Robots for Child Development: Research Hotspots, Topic Modeling, and Collaborations",
-    source: "Nature (Humanities and Social Sciences Communications)",
-    url: "https://www.nature.com/articles/s41599-025-05752-5"
+    title: "Social Robots for Education: A Review",
+    source: "Science Robotics",
+    url: "https://www.science.org/doi/10.1126/scirobotics.aat5954"
   },
   {
     title: "Why Electronic Pets Might Be the Perfect Pet for Your Child",
