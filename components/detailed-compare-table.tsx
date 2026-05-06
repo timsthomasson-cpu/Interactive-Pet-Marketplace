@@ -35,10 +35,11 @@ type FilterState = {
   category: string;
   type: string;
   bestFor: string;
+  rating: string;
   price: string;
 };
 
-const ALL: FilterState = { name: "", category: "", type: "", bestFor: "", price: "" };
+const ALL: FilterState = { name: "", category: "", type: "", bestFor: "", rating: "", price: "" };
 
 export function DetailedCompareTable({ items }: { items: Product[] }) {
   const [filters, setFilters] = useState<FilterState>(ALL);
@@ -48,6 +49,7 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
     category: unique(items.map(p => p.category)),
     type: unique(items.map(p => p.type)),
     bestFor: unique(items.flatMap(p => p.bestFor)),
+    rating: unique(items.map(p => p.rating !== undefined ? p.rating.toFixed(1) : undefined)).sort((a, b) => parseFloat(b) - parseFloat(a)),
     price: PRICE_BUCKETS.map(b => b.label).filter(label => items.some(p => priceBucketLabel(p.price) === label))
   }), [items]);
 
@@ -56,6 +58,7 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
     if (filters.category && p.category !== filters.category) return false;
     if (filters.type && p.type !== filters.type) return false;
     if (filters.bestFor && !p.bestFor.includes(filters.bestFor)) return false;
+    if (filters.rating && (p.rating === undefined || p.rating < parseFloat(filters.rating))) return false;
     if (filters.price && priceBucketLabel(p.price) !== filters.price) return false;
     return true;
   }), [items, filters]);
@@ -114,6 +117,13 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
                 </th>
                 <th className="px-5 py-4 text-left font-semibold text-slate-900">Key Features</th>
                 <th className="px-5 py-4 text-left font-semibold text-slate-900">Highlight</th>
+                <th className="px-5 py-4 text-left min-w-[120px]">
+                  <div className="font-semibold text-slate-900">Rating</div>
+                  <select className={selectClass} value={filters.rating} onChange={set("rating")} aria-label="Filter by rating">
+                    <option value="">All</option>
+                    {options.rating.map(v => <option key={v} value={v}>★ {v} & up</option>)}
+                  </select>
+                </th>
                 <th className="px-5 py-4 text-left min-w-[140px]">
                   <div className="font-semibold text-slate-900">Price</div>
                   <select className={selectClass} value={filters.price} onChange={set("price")} aria-label="Filter by price">
@@ -121,12 +131,12 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
                     {options.price.map(v => <option key={v} value={v}>{v}</option>)}
                   </select>
                 </th>
-                <th className="px-5 py-4 text-left font-semibold text-slate-900">Action</th>
+                <th className="px-5 py-4 text-left font-semibold text-slate-900 min-w-[100px]">Action</th>
               </tr>
             </thead>
             <tbody>
               {filtered.length === 0 ? (
-                <tr><td colSpan={8} className="px-5 py-10 text-center text-slate-600">No products match these filters. <button onClick={() => setFilters(ALL)} className="font-semibold text-trust-700 underline hover:text-trust-900">Clear filters</button></td></tr>
+                <tr><td colSpan={9} className="px-5 py-10 text-center text-slate-600">No products match these filters. <button onClick={() => setFilters(ALL)} className="font-semibold text-trust-700 underline hover:text-trust-900">Clear filters</button></td></tr>
               ) : filtered.map(product => (
                 <tr key={product.slug} className="border-t border-coral-200 align-top">
                   <td className="px-5 py-4 font-semibold text-slate-900">{product.name}</td>
@@ -135,9 +145,10 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
                   <td className="px-5 py-4 text-slate-600">{product.bestFor.join(", ")}</td>
                   <td className="px-5 py-4 text-slate-600">{product.features.join(", ")}</td>
                   <td className="px-5 py-4 text-slate-600">{product.highlight}</td>
+                  <td className="px-5 py-4 text-slate-900 whitespace-nowrap">{product.rating !== undefined ? <><span className="text-red-600">★</span> {product.rating.toFixed(1)}</> : "—"}</td>
                   <td className="px-5 py-4 text-slate-900">{product.price}</td>
                   <td className="px-5 py-4">
-                    <Link href={product.productUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap">View Details</Link>
+                    <Link href={product.productUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap">View</Link>
                   </td>
                 </tr>
               ))}
