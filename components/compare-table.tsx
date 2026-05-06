@@ -96,38 +96,38 @@ export function CompareTable({
             <table className="min-w-full text-left text-sm">
               <thead className="bg-cream-100 align-top">
                 <tr>
-                  <th className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap min-w-[180px]">
-                    Product
+                  <th className="px-5 py-4 text-left min-w-[180px]">
+                    <div className="font-semibold text-slate-900">Product</div>
                     <select className={selectClass} value={filters.name} onChange={set("name")} aria-label="Filter by product">
                       <option value="">All</option>
                       {options.name.map(v => <option key={v} value={v}>{v}</option>)}
                     </select>
                   </th>
-                  <th className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap min-w-[140px]">
-                    Category
+                  <th className="px-5 py-4 text-left min-w-[140px]">
+                    <div className="font-semibold text-slate-900">Category</div>
                     <select className={selectClass} value={filters.category} onChange={set("category")} aria-label="Filter by category">
                       <option value="">All</option>
                       {options.category.map(v => <option key={v} value={v}>{v}</option>)}
                     </select>
                   </th>
-                  <th className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap min-w-[160px]">
-                    Type
+                  <th className="px-5 py-4 text-left min-w-[160px]">
+                    <div className="font-semibold text-slate-900">Type</div>
                     <select className={selectClass} value={filters.type} onChange={set("type")} aria-label="Filter by type">
                       <option value="">All</option>
                       {options.type.map(v => <option key={v} value={v}>{v}</option>)}
                     </select>
                   </th>
-                  <th className="px-5 py-4 font-semibold text-slate-900">Best For</th>
-                  <th className="px-5 py-4 font-semibold text-slate-900">Highlight</th>
-                  <th className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap min-w-[120px]">
-                    Rating
+                  <th className="px-5 py-4 text-left font-semibold text-slate-900">Best For</th>
+                  <th className="px-5 py-4 text-left font-semibold text-slate-900">Highlight</th>
+                  <th className="px-5 py-4 text-left min-w-[120px]">
+                    <div className="font-semibold text-slate-900">Rating</div>
                     <select className={selectClass} value={filters.rating} onChange={set("rating")} aria-label="Filter by rating">
                       <option value="">All</option>
                       {options.rating.map(v => <option key={v} value={v}>★ {v}</option>)}
                     </select>
                   </th>
-                  <th className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap min-w-[140px]">
-                    Price
+                  <th className="px-5 py-4 text-left min-w-[140px]">
+                    <div className="font-semibold text-slate-900">Price</div>
                     <select className={selectClass} value={filters.price} onChange={set("price")} aria-label="Filter by price">
                       <option value="">All</option>
                       {options.price.map(v => <option key={v} value={v}>{v}</option>)}
