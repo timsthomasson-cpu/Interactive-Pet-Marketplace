@@ -21,7 +21,7 @@ export function ShopByNeed() {
     ["Best for Kids & Families", "Playful options built for novelty and everyday entertainment.", "/kids-and-families"],
     ["Best Premium Picks", "Higher-end robotic pets with more advanced movement and sensors.", "/premium-picks"]
   ];
-  return <section className="section-pad pt-4 bg-white sm:pt-6 lg:pt-8"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{items.map(([title, text, href])=><Link key={title} href={href} className="block rounded-3xl border border-trust-200 bg-trust-50 p-6 transition hover:-translate-y-0.5 hover:border-trust-400 hover:shadow-soft"><h3 className="text-lg font-semibold text-trust-900">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{text}</p></Link>)}</div></div></section>;
+  return <section className="pt-4 pb-7 bg-white sm:pt-6 sm:pb-8 lg:pt-8 lg:pb-10"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{items.map(([title, text, href])=><Link key={title} href={href} className="block rounded-3xl border border-trust-200 bg-trust-50 p-6 transition hover:-translate-y-0.5 hover:border-trust-400 hover:shadow-soft"><h3 className="text-lg font-semibold text-trust-900">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{text}</p></Link>)}</div></div></section>;
 }
 export function FeaturedProducts({ filter }: { filter?: "Interactive" | "AI & Robotic" }) {
   const filtered = filter ? products.filter((p)=>p.type===filter) : products;
