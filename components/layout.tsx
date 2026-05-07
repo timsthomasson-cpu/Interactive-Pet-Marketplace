@@ -15,7 +15,6 @@ const shopForNav = [
 ];
 const tailNav = [
   { href:"/compare", label:"Compare" },
-  { href:"/reviews", label:"Reviews" },
   { href:"/questions", label:"Questions?" }
 ];
 
