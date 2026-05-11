@@ -19,7 +19,12 @@ function StarRating({ rating }: { rating: number }) {
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="card flex flex-col overflow-hidden">
+    <div className="card flex flex-col overflow-hidden relative">
+      {product.flags?.topPick && (
+        <div className="absolute top-3 right-3 z-10 inline-flex items-center gap-1 rounded-full bg-trust-500 px-3 py-1.5 text-xs font-bold text-white shadow-soft">
+          ★ Top Pick
+        </div>
+      )}
       <div className="p-4">
         {product.imageUrl ? (
           <div className="overflow-hidden rounded-3xl border border-coral-200 bg-cream-100">

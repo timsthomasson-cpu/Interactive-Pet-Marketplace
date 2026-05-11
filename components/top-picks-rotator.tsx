@@ -65,6 +65,9 @@ export function TopPicksRotator() {
               alt={product.name}
               className="block h-full w-full object-cover"
             />
+            <div className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full bg-trust-500 px-3 py-1.5 text-xs font-bold text-white shadow-soft">
+              ★ Top Pick
+            </div>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-5 text-white">
               <p className="text-xs font-semibold uppercase tracking-wide opacity-90">{product.manufacturer}</p>
               <p className="text-xl font-semibold">{product.name}</p>

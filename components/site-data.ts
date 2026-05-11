@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-11T19:00:29.970Z
+// Generated: 2026-05-11T19:09:44.190Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -473,7 +473,7 @@ export const products: Product[] = [
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
     "productUrl": "https://chongker.com/products/matecat-pro-hyper-realistic-bionic-cat",
-    "imageUrl": "/images/products/Sweetie-Cat.png",
+    "imageUrl": "/images/products/Chongker-Percy-Robot-Cat.jpg",
     "flags": {
       "gifts": true,
       "topPick": true,
@@ -587,7 +587,7 @@ export const products: Product[] = [
     "imageUrl": "/images/products/Chongker-Percy-Robot-Cat.jpg",
     "flags": {
       "gifts": true,
-      "topPick": true,
+      "topPick": false,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
