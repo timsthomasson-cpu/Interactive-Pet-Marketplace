@@ -135,6 +135,7 @@ export function CompareTable({
                       {options.rating.map(v => <option key={v} value={v}>★ {v} & up</option>)}
                     </select>
                   </th>
+                  <th className="px-5 py-4 text-left font-semibold text-slate-900 min-w-[110px]">Reviews</th>
                   <th className="px-5 py-4 text-left min-w-[140px]">
                     <div className="font-semibold text-slate-900">Price</div>
                     <select className={selectClass} value={filters.price} onChange={set("price")} aria-label="Filter by price">
@@ -146,18 +147,39 @@ export function CompareTable({
               </thead>
               <tbody>
                 {filtered.length === 0 ? (
-                  <tr><td colSpan={7} className="px-5 py-10 text-center text-slate-600">No products match these filters. <button onClick={() => setFilters(ALL)} className="font-semibold text-trust-700 underline hover:text-trust-900">Clear filters</button></td></tr>
-                ) : filtered.map(product => (
+                  <tr><td colSpan={8} className="px-5 py-10 text-center text-slate-600">No products match these filters. <button onClick={() => setFilters(ALL)} className="font-semibold text-trust-700 underline hover:text-trust-900">Clear filters</button></td></tr>
+                ) : filtered.map(product => {
+                  const ratingTooltipParts: string[] = [];
+                  if (product.ratingSource) ratingTooltipParts.push(`Rating from ${product.ratingSource}`);
+                  if (product.ratingLastChecked) ratingTooltipParts.push(`last verified ${product.ratingLastChecked}`);
+                  const ratingTooltip = ratingTooltipParts.join(", ");
+                  const priceTooltipParts: string[] = [];
+                  if (product.priceSource) priceTooltipParts.push(`Price from ${product.priceSource}`);
+                  if (product.priceLastChecked) priceTooltipParts.push(`last verified ${product.priceLastChecked}`);
+                  const priceTooltip = priceTooltipParts.join(", ");
+                  return (
                   <tr key={product.slug} className="border-t border-coral-200">
                     <td className="px-5 py-4 font-semibold text-slate-900">{product.name}</td>
                     <td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.category || "—"}</td>
                     <td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.type}</td>
                     <td className="px-5 py-4 font-semibold text-slate-900">{product.bestFor.join(", ")}</td>
                     <td className="px-5 py-4 font-semibold text-slate-900">{product.highlight}</td>
-                    <td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.rating !== undefined ? <><span className="text-red-600">★</span> {product.rating.toFixed(1)}</> : "—"}</td>
-                    <td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.price}</td>
+                    <td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">
+                      {product.rating !== undefined ? (
+                        product.ratingUrl ? (
+                          <a href={product.ratingUrl} target="_blank" rel="noopener noreferrer" title={ratingTooltip || undefined} className="hover:underline">
+                            <span className="text-red-600">★</span> {product.rating.toFixed(1)}
+                          </a>
+                        ) : (
+                          <span title={ratingTooltip || undefined}><span className="text-red-600">★</span> {product.rating.toFixed(1)}</span>
+                        )
+                      ) : "—"}
+                    </td>
+                    <td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.reviewCount !== undefined ? product.reviewCount.toLocaleString() : "—"}</td>
+                    <td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap" title={priceTooltip || undefined}>{product.price}</td>
                   </tr>
-                ))}
+                  );
+                })}
               </tbody>
             </table>
           </div>

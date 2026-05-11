@@ -2,21 +2,6 @@ import Link from "next/link";
 import { Product } from "./site-data";
 import { Badge, PlaceholderVisual } from "./ui";
 
-function StarRating({ rating }: { rating: number }) {
-  const full = Math.floor(rating);
-  const half = rating % 1 >= 0.25 && rating % 1 < 0.75;
-  const empty = 5 - full - (half ? 1 : 0);
-  return (
-    <div className="flex items-center gap-1">
-      <div className="flex text-amber-400">
-        {"★".repeat(full)}{half ? "☆" : ""}{"☆".repeat(empty).replace(/☆/g, "")}
-        <span className="text-slate-300">{"★".repeat(empty)}</span>
-      </div>
-      <span className="text-xs font-medium text-slate-600">{rating.toFixed(1)}</span>
-    </div>
-  );
-}
-
 export function ProductCard({ product }: { product: Product }) {
   return (
     <div className="card flex flex-col overflow-hidden relative">
@@ -53,7 +38,30 @@ export function ProductCard({ product }: { product: Product }) {
           <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">{product.manufacturer}</p>
           <p className="mt-1 text-xl font-semibold text-slate-900">{product.name}</p>
           {product.rating !== undefined && (
-            <div className="mt-2"><StarRating rating={product.rating} /></div>
+            <div className="mt-2">
+              {(() => {
+                const tooltipParts: string[] = [];
+                if (product.ratingSource) tooltipParts.push(`Rating from ${product.ratingSource}`);
+                if (product.ratingLastChecked) tooltipParts.push(`last verified ${product.ratingLastChecked}`);
+                const tooltip = tooltipParts.join(", ");
+                const ratingText = (
+                  <span className="inline-flex items-baseline gap-1 text-sm font-semibold">
+                    <span className="text-red-600">★</span>
+                    <span className="text-slate-900">{product.rating.toFixed(1)}</span>
+                    {product.reviewCount !== undefined && (
+                      <span className="text-slate-600 font-normal">({product.reviewCount.toLocaleString()} {product.reviewCount === 1 ? "review" : "reviews"})</span>
+                    )}
+                  </span>
+                );
+                return product.ratingUrl ? (
+                  <a href={product.ratingUrl} target="_blank" rel="noopener noreferrer" title={tooltip || undefined} className="hover:underline">
+                    {ratingText}
+                  </a>
+                ) : (
+                  <span title={tooltip || undefined}>{ratingText}</span>
+                );
+              })()}
+            </div>
           )}
           <p className="mt-3 text-sm leading-6 text-slate-600">{product.blurb}</p>
         </div>
@@ -65,10 +73,18 @@ export function ProductCard({ product }: { product: Product }) {
           ))}
         </div>
         <div className="mt-auto flex items-end justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">Price</p>
-            <p className="text-lg font-bold text-slate-900">{product.price}</p>
-          </div>
+          {(() => {
+            const priceTooltipParts: string[] = [];
+            if (product.priceSource) priceTooltipParts.push(`Price from ${product.priceSource}`);
+            if (product.priceLastChecked) priceTooltipParts.push(`last verified ${product.priceLastChecked}`);
+            const priceTooltip = priceTooltipParts.join(", ");
+            return (
+              <div title={priceTooltip || undefined}>
+                <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">Price</p>
+                <p className="text-lg font-bold text-slate-900">{product.price}</p>
+              </div>
+            );
+          })()}
           <Link href={product.productUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600">
             View Details
           </Link>
