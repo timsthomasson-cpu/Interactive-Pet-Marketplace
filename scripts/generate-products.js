@@ -2,14 +2,16 @@
  * generate-products.js
  *
  * Reads:
- *   - Documentation/Product Matrix.xlsx  (structured data: brand, type, flags, URLs)
- *   - Documentation/product-details.json (web-researched details: price, blurb, rating, features)
+ *   - Documentation/Product Matrix.xlsx (SINGLE SOURCE OF TRUTH for all product data)
  *
  * Writes:
  *   - components/site-data.ts (auto-generated; do NOT edit by hand)
  *
  * Usage:
  *   npm run generate:products
+ *
+ * Note: product-details.json is being phased out. The spreadsheet is now
+ * the single source of truth. See README.md and Documentation/PRODUCT_DATA_RULES.md.
  */
 
 const XLSX = require("xlsx");
@@ -18,10 +20,10 @@ const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
 const XLSX_PATH = path.join(ROOT, "Documentation", "Product Matrix.xlsx");
-const JSON_PATH = path.join(ROOT, "Documentation", "product-details.json");
 const OUT_PATH = path.join(ROOT, "components", "site-data.ts");
 
-// Convert "Companion Pet Pup" → "companion-pet-pup"
+// ── Helpers ─────────────────────────────────────────────────────────────────
+
 function toSlug(name) {
   return String(name)
     .trim()
@@ -31,7 +33,6 @@ function toSlug(name) {
     .replace(/^-+|-+$/g, "");
 }
 
-// Normalize spreadsheet "Type" cell to canonical site values
 function normalizeType(raw) {
   if (!raw) return "";
   const t = String(raw).trim().toLowerCase();
@@ -50,22 +51,58 @@ function clean(val) {
   return String(val).trim();
 }
 
-// ── Read sources ────────────────────────────────────────────────────────────
+function toNumber(val) {
+  if (val === null || val === undefined || val === "") return undefined;
+  const n = typeof val === "number" ? val : parseFloat(String(val).replace(/[^0-9.-]/g, ""));
+  return isNaN(n) ? undefined : n;
+}
+
+function toInt(val) {
+  const n = toNumber(val);
+  return n === undefined ? undefined : Math.round(n);
+}
+
+// Format a date value (could be Date, string, or number) → YYYY-MM-DD string
+function toDateString(val) {
+  if (!val) return "";
+  if (val instanceof Date) {
+    const y = val.getFullYear();
+    const m = String(val.getMonth() + 1).padStart(2, "0");
+    const d = String(val.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  }
+  // Excel may pass dates as strings already
+  return clean(val);
+}
+
+// Format a numeric price → "$789.00" or "$159.99"
+function formatPrice(val) {
+  const n = toNumber(val);
+  if (n === undefined) return clean(val);
+  // Show .00 for whole numbers, otherwise keep two decimals
+  return "$" + n.toFixed(2).replace(/\.00$/, ".00");
+}
+
+// Normalize Price Category values
+function normalizePriceCategory(raw) {
+  if (!raw) return "";
+  const t = String(raw).trim().toLowerCase();
+  if (t.includes("premium")) return "Premium";
+  if (t.includes("best")) return "Best Value";
+  if (t.includes("budget")) return "Budget Friendly";
+  return clean(raw);
+}
+
+// ── Read source ─────────────────────────────────────────────────────────────
 
 if (!fs.existsSync(XLSX_PATH)) {
   console.error(`ERROR: Spreadsheet not found at ${XLSX_PATH}`);
   process.exit(1);
 }
-if (!fs.existsSync(JSON_PATH)) {
-  console.error(`ERROR: product-details.json not found at ${JSON_PATH}`);
-  process.exit(1);
-}
 
-const workbook = XLSX.readFile(XLSX_PATH);
+const workbook = XLSX.readFile(XLSX_PATH, { cellDates: true });
 const sheet = workbook.Sheets[workbook.SheetNames[0]];
 const rows = XLSX.utils.sheet_to_json(sheet, { defval: null });
-
-const details = JSON.parse(fs.readFileSync(JSON_PATH, "utf8"));
 
 // ── Build product list ──────────────────────────────────────────────────────
 
@@ -77,33 +114,46 @@ for (const row of rows) {
   if (!name) continue;
 
   const slug = toSlug(name);
-  const detail = details[slug];
+  const blurb = clean(row["Blurb"]);
 
-  // Skip products without web-researched details
-  if (!detail || typeof detail !== "object" || !detail.blurb) {
-    skipped.push({ name, slug, reason: "no entry in product-details.json" });
+  // A product needs at least a blurb to be shown
+  if (!blurb) {
+    skipped.push({ name, slug, reason: "missing Blurb in spreadsheet" });
     continue;
   }
 
   const bestFor = [clean(row["Best For 1"]), clean(row["Best For 2"])].filter(Boolean);
 
+  const features = [
+    clean(row["Feature 1"]),
+    clean(row["Feature 2"]),
+    clean(row["Feature 3"])
+  ].filter(Boolean);
+
   products.push({
     slug,
     name,
     manufacturer: clean(row["Manufacturer"]),
+    manufacturerAndProduct: clean(row["Manufacturer and Product"]),
     type: normalizeType(row["Type"]),
     category: clean(row["Category"]),
     bestFor,
-    blurb: detail.blurb,
-    price: detail.price || "",
-    rating: typeof detail.rating === "number" ? detail.rating : undefined,
-    features: Array.isArray(detail.features) ? detail.features : [],
-    highlight: detail.highlight || "",
-    productUrl: clean(row["Product URL"]),
+    blurb,
+    features,
+    highlight: clean(row["Highlight"]),
+    rating: toNumber(row["Rating"]),
+    reviewCount: toInt(row["Review Count"]),
+    ratingSource: clean(row["Rating Source"]),
+    ratingLastChecked: toDateString(row["Rating Last-Checked"]),
+    ratingUrl: clean(row["Rating URL"]),
+    price: formatPrice(row["Price"]),
+    priceSource: clean(row["Price Source"]),
+    priceLastChecked: toDateString(row["Price Last Checked"]),
+    priceCategory: normalizePriceCategory(row["Price Category"]),
+    productUrl: (() => { const u = clean(row["Rating URL"]); return /^https?:\/\//i.test(u) ? u : ""; })(),
     imageUrl: clean(row["Image URL"]) || undefined,
     flags: {
       gifts: isYes(row["Gifts"]),
-      premium: isYes(row["Premium"]),
       topPick: isYes(row["Top Pick"]),
       camera: isYes(row["Camera"]),
       internetAccess: isYes(row["Internet Access"]),
@@ -116,7 +166,7 @@ for (const row of rows) {
 
 const banner = `// AUTO-GENERATED FILE — DO NOT EDIT BY HAND.
 // Run \`npm run generate:products\` to regenerate.
-// Source: Documentation/Product Matrix.xlsx + Documentation/product-details.json
+// Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
 // Generated: ${new Date().toISOString()}
 `;
@@ -124,7 +174,6 @@ const banner = `// AUTO-GENERATED FILE — DO NOT EDIT BY HAND.
 const tsContent = `${banner}
 export type ProductFlags = {
   gifts: boolean;
-  premium: boolean;
   topPick: boolean;
   camera: boolean;
   internetAccess: boolean;
@@ -135,14 +184,22 @@ export type Product = {
   slug: string;
   name: string;
   manufacturer: string;
+  manufacturerAndProduct: string;
   type: "Interactive" | "AI & Robotic" | string;
   category: string;
   bestFor: string[];
   blurb: string;
-  price: string;
-  rating?: number;
   features: string[];
   highlight: string;
+  rating?: number;
+  reviewCount?: number;
+  ratingSource: string;
+  ratingLastChecked: string;
+  ratingUrl: string;
+  price: string;
+  priceSource: string;
+  priceLastChecked: string;
+  priceCategory: "Premium" | "Best Value" | "Budget Friendly" | string;
   productUrl: string;
   imageUrl?: string;
   flags: ProductFlags;
@@ -164,10 +221,9 @@ fs.writeFileSync(OUT_PATH, tsContent, "utf8");
 
 console.log(`✓ Generated ${OUT_PATH}`);
 console.log(`  Included: ${products.length} product(s)`);
-products.forEach(p => console.log(`    - ${p.name}  [${p.type}]`));
+products.forEach(p => console.log(`    - ${p.name}  [${p.type}] [${p.priceCategory}]`));
 
 if (skipped.length > 0) {
-  console.log(`\n  Skipped: ${skipped.length} product(s) without entries in product-details.json:`);
-  skipped.forEach(s => console.log(`    - ${s.name}  (slug: ${s.slug})`));
-  console.log(`\n  → To include them, add their entries to Documentation/product-details.json.`);
+  console.log(`\n  Skipped: ${skipped.length} product(s):`);
+  skipped.forEach(s => console.log(`    - ${s.name}  (${s.reason})`));
 }
