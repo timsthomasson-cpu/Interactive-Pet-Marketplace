@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-11T18:40:12.945Z
+// Generated: 2026-05-11T18:46:20.971Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -39,10 +39,10 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    "slug": "ebo-x-famiybot",
-    "name": "EBO X FamiyBot",
+    "slug": "ebo-x-familybot",
+    "name": "EBO X FamilyBot",
     "manufacturer": "Enabot",
-    "manufacturerAndProduct": "Enabot EBO X FamiyBot",
+    "manufacturerAndProduct": "Enabot EBO X FamilyBot",
     "type": "AI & Robotic",
     "category": "Robot",
     "bestFor": [
@@ -65,7 +65,7 @@ export const products: Product[] = [
     "priceSource": "Enabot Store",
     "priceLastChecked": "2026-05-07",
     "priceCategory": "Premium",
-    "productUrl": "",
+    "productUrl": "https://www.enabot.com/home-robot/ebo-x",
     "imageUrl": "/images/products/interactive_pet_toys.png",
     "flags": {
       "gifts": true,
@@ -76,10 +76,10 @@ export const products: Product[] = [
     }
   },
   {
-    "slug": "ebo-max-famiybot",
-    "name": "EBO Max FamiyBot",
+    "slug": "ebo-max-familybot",
+    "name": "EBO Max FamilyBot",
     "manufacturer": "Enabot",
-    "manufacturerAndProduct": "Enabot EBO Max FamiyBot",
+    "manufacturerAndProduct": "Enabot EBO Max FamilyBot",
     "type": "AI & Robotic",
     "category": "Robot",
     "bestFor": [
@@ -97,12 +97,12 @@ export const products: Product[] = [
     "reviewCount": 0,
     "ratingSource": "Enabot Store",
     "ratingLastChecked": "2026-05-07",
-    "ratingUrl": "FamiyBot – Enabot Store",
+    "ratingUrl": "FamilyBot – Enabot Store",
     "price": "$549.00",
     "priceSource": "Enabot Store",
     "priceLastChecked": "2026-05-07",
     "priceCategory": "Premium",
-    "productUrl": "",
+    "productUrl": "https://www.enabot.com/home-robot/ebo-max",
     "imageUrl": "/images/products/interactive_pet_toys.png",
     "flags": {
       "gifts": true,
@@ -113,10 +113,10 @@ export const products: Product[] = [
     }
   },
   {
-    "slug": "ebo-air-2-plus-famiybot",
-    "name": "EBO Air 2 Plus FamiyBot",
+    "slug": "ebo-air-2-plus-familybot",
+    "name": "EBO Air 2 Plus FamilyBot",
     "manufacturer": "Enabot",
-    "manufacturerAndProduct": "Enabot EBO Air 2 Plus FamiyBot",
+    "manufacturerAndProduct": "Enabot EBO Air 2 Plus FamilyBot",
     "type": "AI & Robotic",
     "category": "Robot",
     "bestFor": [
@@ -139,7 +139,7 @@ export const products: Product[] = [
     "priceSource": "Enabot Store",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Premium",
-    "productUrl": "",
+    "productUrl": "https://www.enabot.com/home-robot/ebo-air-2-plus",
     "imageUrl": "/images/products/interactive_pet_toys.png",
     "flags": {
       "gifts": true,
@@ -150,10 +150,10 @@ export const products: Product[] = [
     }
   },
   {
-    "slug": "ebo-air-2s-famiybot",
-    "name": "EBO Air 2S FamiyBot",
+    "slug": "ebo-air-2s-familybot",
+    "name": "EBO Air 2S FamilyBot",
     "manufacturer": "Enabot",
-    "manufacturerAndProduct": "Enabot EBO Air 2S FamiyBot",
+    "manufacturerAndProduct": "Enabot EBO Air 2S FamilyBot",
     "type": "AI & Robotic",
     "category": "Robot",
     "bestFor": [
@@ -176,7 +176,7 @@ export const products: Product[] = [
     "priceSource": "Enabot Store",
     "priceLastChecked": "2026-05-09",
     "priceCategory": "Premium",
-    "productUrl": "",
+    "productUrl": "https://www.enabot.com/home-robot/ebo-air-2s",
     "imageUrl": "/images/products/interactive_pet_toys.png",
     "flags": {
       "gifts": true,
@@ -187,10 +187,10 @@ export const products: Product[] = [
     }
   },
   {
-    "slug": "ebo-air-2-famiybot",
-    "name": "EBO Air 2 FamiyBot",
+    "slug": "ebo-air-2-familybot",
+    "name": "EBO Air 2 FamilyBot",
     "manufacturer": "Enabot",
-    "manufacturerAndProduct": "Enabot EBO Air 2 FamiyBot",
+    "manufacturerAndProduct": "Enabot EBO Air 2 FamilyBot",
     "type": "AI & Robotic",
     "category": "Robot",
     "bestFor": [
@@ -213,7 +213,7 @@ export const products: Product[] = [
     "priceSource": "Enabot Store",
     "priceLastChecked": "2026-05-10",
     "priceCategory": "Best Value",
-    "productUrl": "",
+    "productUrl": "https://www.enabot.com/home-robot/ebo-air-2",
     "imageUrl": "/images/products/interactive_pet_toys.png",
     "flags": {
       "gifts": true,
@@ -245,12 +245,12 @@ export const products: Product[] = [
     "reviewCount": 30,
     "ratingSource": "Enabot Store",
     "ratingLastChecked": "2026-05-07",
-    "ratingUrl": "ROLA Mini FamiyBot – 2K Movable Camera & Monitor – Enabot Store",
+    "ratingUrl": "ROLA Mini FamilyBot – 2K Movable Camera & Monitor – Enabot Store",
     "price": "$139.00",
     "priceSource": "Enabot Store",
     "priceLastChecked": "2026-05-11",
     "priceCategory": "Best Value",
-    "productUrl": "",
+    "productUrl": "https://www.enabot.com/pet-robot/rola-mini",
     "imageUrl": "/images/products/interactive_pet_toys.png",
     "flags": {
       "gifts": true,
@@ -287,7 +287,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "",
+    "productUrl": "https://joyforall.com/products/companion-pet-pup?variant=37624426102967",
     "imageUrl": "/images/products/Mr-Dog.png",
     "flags": {
       "gifts": true,
@@ -324,7 +324,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "",
+    "productUrl": "https://joyforall.com/products/companion-pet-pup?variant=37624426102967",
     "imageUrl": "/images/products/Mr-Dog.png",
     "flags": {
       "gifts": true,
@@ -361,7 +361,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "",
+    "productUrl": "https://joyforall.com/products/companion-cats?variant=10404273487915",
     "imageUrl": "/images/products/Joy-for-All-Companion-Cat-Silver.png",
     "flags": {
       "gifts": true,
@@ -398,7 +398,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "",
+    "productUrl": "https://joyforall.com/products/companion-cats?variant=10404273455147",
     "imageUrl": "/images/products/Joy-for-All-Companion-Cat-Orange-Tabby.png",
     "flags": {
       "gifts": true,
@@ -435,7 +435,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "",
+    "productUrl": "https://joyforall.com/products/companion-cats?variant=12931092676651",
     "imageUrl": "/images/products/Joy-for-All-Companion-Cat-Tuxedo.jpg",
     "flags": {
       "gifts": true,
@@ -472,7 +472,7 @@ export const products: Product[] = [
     "priceSource": "Chongker Website",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "",
+    "productUrl": "https://chongker.com/products/matecat-pro-hyper-realistic-bionic-cat",
     "imageUrl": "/images/products/Sweetie-Cat.png",
     "flags": {
       "gifts": true,
@@ -509,7 +509,7 @@ export const products: Product[] = [
     "priceSource": "Chongker Website",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "",
+    "productUrl": "https://chongker.com/products/matecat10-interactive-cat",
     "imageUrl": "/images/products/Chongker-Percy-Robot-Cat.jpg",
     "flags": {
       "gifts": true,
@@ -546,7 +546,7 @@ export const products: Product[] = [
     "priceSource": "Chongker Website",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://chongker.com/products/percy-robotic-dog-companion-designed-for-comfort",
     "imageUrl": "/images/products/Mr-Dog.png",
     "flags": {
       "gifts": true,
@@ -583,7 +583,7 @@ export const products: Product[] = [
     "priceSource": "Chongker Website",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://chongker.com/products/percy-interactive-cat",
     "imageUrl": "/images/products/Chongker-Percy-Robot-Cat.jpg",
     "flags": {
       "gifts": true,
@@ -620,7 +620,7 @@ export const products: Product[] = [
     "priceSource": "Chongker Website",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "",
+    "productUrl": "https://chongker.com/products/breathing-red-panda",
     "imageUrl": "/images/products/red_panda.png",
     "flags": {
       "gifts": true,
@@ -657,7 +657,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-09",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://www.amazon.com/s?k=wuffy+robot+dog&crid=19CKEYDLEBH6A&sprefix=wuffy%2Caps%2C185&ref=nb_sb_ss_p13n-expert-pd-ops-ranker_1_5",
     "imageUrl": "Amazon.com: chinatera 2026 Wuffy Robot Dog Lifelike Toy Dog, Interactive Robot with Touch Sensing Voice Mimic Licking Motion Leash Remote Soft Fur for Kids Battery Powered (Style-G) : Toys & Games",
     "flags": {
       "gifts": true,
@@ -694,7 +694,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-10",
     "priceCategory": "Premium",
-    "productUrl": "",
+    "productUrl": "https://ropetai.com/products/ropet%E2%84%A2-ai-comfort-companion-plush-robot",
     "imageUrl": "/images/products/interactive_pet_toys.png",
     "flags": {
       "gifts": true,
@@ -731,7 +731,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Realistic-Battery-Operated-Interactive/dp/B002PJ37XG/ref=sr_1_2_sspa?crid=2IOK13QU3Y39L&dib=eyJ2IjoiMSJ9.5idCvQyh45P0neoJ1RmhfCPIRFmNKkUOqHExgy1NckGrvJPqAP7UW2M-0R7w-CnSP0522PcNF1P9cGi6TuJZEAVtJlnkY2PmYS_wrdCeSKfTGSv6GfbTQM0UjROGll4DlZ9LriCiU1pkT0oRb0EwJS2dCOG4ve0cDOUiqTuKfDMowXf3c7LxGOEazm7ZZHiLCWBJIeELYJhg-Wz1MOIVPcxkzVB12ycX3FLjFpm-EGwEG31z63CiyoqW-3l1VRmRq2Q2M9uepGLq0sx0th6lTldAuBF8aww0-STwTsseZIs.gigFOXhWquu5yobhKyyoLwp_mkiYa01Ho9EEDEWgQHg&dib_tag=se&keywords=perfect+petzzz&qid=1778523937&sprefix=perfect+petzzz%2Caps%2C211&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
     "imageUrl": "/images/products/Mr-Border-Collie.png",
     "flags": {
       "gifts": true,
@@ -768,7 +768,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Chocolate-Lab-Plush/dp/B008Y0QTV2/ref=sr_1_8?crid=2IOK13QU3Y39L&dib=eyJ2IjoiMSJ9.5idCvQyh45P0neoJ1RmhfCPIRFmNKkUOqHExgy1NckGrvJPqAP7UW2M-0R7w-CnSP0522PcNF1P9cGi6TuJZEAVtJlnkY2PmYS_wrdCeSKfTGSv6GfbTQM0UjROGll4DlZ9LriCiU1pkT0oRb0EwJS2dCOG4ve0cDOUiqTuKfDMowXf3c7LxGOEazm7ZZHiLCWBJIeELYJhg-Wz1MOIVPcxkzVB12ycX3FLjFpm-EGwEG31z63CiyoqW-3l1VRmRq2Q2M9uepGLq0sx0th6lTldAuBF8aww0-STwTsseZIs.gigFOXhWquu5yobhKyyoLwp_mkiYa01Ho9EEDEWgQHg&dib_tag=se&keywords=perfect+petzzz&qid=1778523937&sprefix=perfect+petzzz%2Caps%2C211&sr=8-8",
     "imageUrl": "/images/products/Mr-Chocolate-Lab.png",
     "flags": {
       "gifts": true,
@@ -805,7 +805,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Realistic-Interactive-Handcrafted/dp/B0040127N8/ref=sr_1_3_sspa?crid=2IOK13QU3Y39L&dib=eyJ2IjoiMSJ9.5idCvQyh45P0neoJ1RmhfCPIRFmNKkUOqHExgy1NckGrvJPqAP7UW2M-0R7w-CnSP0522PcNF1P9cGi6TuJZEAVtJlnkY2PmYS_wrdCeSKfTGSv6GfbTQM0UjROGll4DlZ9LriCiU1pkT0oRb0EwJS2dCOG4ve0cDOUiqTuKfDMowXf3c7LxGOEazm7ZZHiLCWBJIeELYJhg-Wz1MOIVPcxkzVB12ycX3FLjFpm-EGwEG31z63CiyoqW-3l1VRmRq2Q2M9uepGLq0sx0th6lTldAuBF8aww0-STwTsseZIs.gigFOXhWquu5yobhKyyoLwp_mkiYa01Ho9EEDEWgQHg&dib_tag=se&keywords=perfect%2Bpetzzz&qid=1778523937&sprefix=perfect%2Bpetzzz%2Caps%2C211&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
     "imageUrl": "/images/products/Mr-Shih-Tzu.png",
     "flags": {
       "gifts": true,
@@ -842,7 +842,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://www.amazon.com/Perfect-Pets-International-Sleeping-Beagle/dp/B00279NUFY/ref=sr_1_5_sspa?crid=2IOK13QU3Y39L&dib=eyJ2IjoiMSJ9.5idCvQyh45P0neoJ1RmhfCPIRFmNKkUOqHExgy1NckGrvJPqAP7UW2M-0R7w-CnSP0522PcNF1P9cGi6TuJZEAVtJlnkY2PmYS_wrdCeSKfTGSv6GfbTQM0UjROGll4DlZ9LriCiU1pkT0oRb0EwJS2dCOG4ve0cDOUiqTuKfDMowXf3c7LxGOEazm7ZZHiLCWBJIeELYJhg-Wz1MOIVPcxkzVB12ycX3FLjFpm-EGwEG31z63CiyoqW-3l1VRmRq2Q2M9uepGLq0sx0th6lTldAuBF8aww0-STwTsseZIs.gigFOXhWquu5yobhKyyoLwp_mkiYa01Ho9EEDEWgQHg&dib_tag=se&keywords=perfect+petzzz&qid=1778523937&sprefix=perfect+petzzz%2Caps%2C211&sr=8-5-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
     "imageUrl": "/images/products/Mr-Beagle.png",
     "flags": {
       "gifts": true,
@@ -879,7 +879,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Grey-Tabby-Cat/dp/B001TEYF84/ref=sr_1_8?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-8",
     "imageUrl": "/images/products/Sweetie-Calico-Cat.png",
     "flags": {
       "gifts": true,
@@ -916,7 +916,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://www.amazon.com/Perfect-Petzzz-4934-Peluche-Blanc/dp/B00CZC87Y2/ref=sr_1_7?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-7",
     "imageUrl": "/images/products/Sweetie-White-Cat.png",
     "flags": {
       "gifts": true,
@@ -953,7 +953,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Black-Shorthair-Kitten/dp/B003XSJ4YE/ref=sr_1_3_sspa?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
     "imageUrl": "/images/products/Sweetie-Calico-Cat.png",
     "flags": {
       "gifts": true,
@@ -990,7 +990,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Siamese-Breathing-Puppy/dp/B06ZY3CYX4/ref=sr_1_6?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-6",
     "imageUrl": "/images/products/Sweetie-Siamese-Cat.png",
     "flags": {
       "gifts": true,
@@ -1027,7 +1027,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://www.amazon.com/Ruko-18011-Interactive-Expressions-Programmable/dp/B0FLXCXPHD/ref=sr_1_2_sspa?crid=3Q84O44BMP4I1&dib=eyJ2IjoiMSJ9.5Gly7Ov9TtkvwLAe4rZwH2l-BTiwaFOMLi92o4eo2efL59RBhuAyz5dL1llQO9Oq3VOvL554UZdKGuCvEr0aULc0FuaW-0tXMv-Su3A0pJUYX216NZD-8OUNQh6gxNKl8ATh6D7HDFqXqh-HftmgAQSnm2CAImjyhEseHeartYBrk0RKnk_qongpk7N2LmhhFwKFgq-JlfQJBXAYeXfjdZ53H5tQAmhJmbXnYWxOCYV0NtCgyyMVmml1rR7tZkoyjG_4I2LrxuOnAJYrH2drb6GCU0NIUssYnsjouZhfUF4.-br2EkX1bjJZyuScMeKTaBh68fd6MSebkMG0MoeTeO0&dib_tag=se&keywords=ruko%2Brobot&qid=1778524458&sprefix=ruko%2Caps%2C210&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
     "imageUrl": "/images/products/futuristic_ai_pets.png",
     "flags": {
       "gifts": true,
@@ -1064,7 +1064,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "",
+    "productUrl": "https://www.amazon.com/s?k=furby+dj&crid=1U6BER2BCWJV5&sprefix=furby+%2Caps%2C205&ref=nb_sb_ss_p13n-expert-pd-ops-ranker_7_6",
     "imageUrl": "/images/products/interactive_pet_toys.png",
     "flags": {
       "gifts": true,
@@ -1101,7 +1101,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Premium",
-    "productUrl": "",
+    "productUrl": "https://www.amazon.com/Loona-ChatGPT-4o-AI-Powered-Interaction-Monitoring/dp/B0DCF53PCH/ref=sr_1_1_sspa?crid=2DBOX8S0Q2AR6&dib=eyJ2IjoiMSJ9.fRTz6IKj5O3hiZ4V3RbIiqzYkMvGWX1yxIfmBNQ2bPG8a8X70ewO_kByz-KXp50JfmUuJx9rrIjkexZxX4nWSVxWP_bUrHWGWHPfZnhgH5GMVf6Rltx3FiivEWa9A_74tX_ykUsCTRmHEZ_IwI-5pdDeOvDpmzf07kmD73czlJ5S56lz7gAFPcJ9cgVfwD2yW0a7rgFB4N8XbcF4FmsoLN4nTZhHdGzE2qW01-CozMdL5maZB9Wotwoz672FPyl4IOivur7Z3Gj71yWxlpzykJORSvNzc5nhys8YwW1Zl90.csUcqcC85C04azO69LCOq0bdtEXSzk6YfX_vospSKeE&dib_tag=se&keywords=loona%2Brobot%2Bdog&qid=1778524541&sprefix=loona%2Caps%2C177&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
     "imageUrl": "/images/products/futuristic_ai_pets.png",
     "flags": {
       "gifts": true,

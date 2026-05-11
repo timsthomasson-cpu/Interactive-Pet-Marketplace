@@ -101,7 +101,13 @@ if (!fs.existsSync(XLSX_PATH)) {
 }
 
 const workbook = XLSX.readFile(XLSX_PATH, { cellDates: true });
-const sheet = workbook.Sheets[workbook.SheetNames[0]];
+const SHEET_NAME = "Product Matrix";
+if (!workbook.Sheets[SHEET_NAME]) {
+  console.error(`ERROR: Sheet "${SHEET_NAME}" not found in ${XLSX_PATH}`);
+  console.error(`  Available sheets: ${workbook.SheetNames.join(", ")}`);
+  process.exit(1);
+}
+const sheet = workbook.Sheets[SHEET_NAME];
 const rows = XLSX.utils.sheet_to_json(sheet, { defval: null });
 
 // ── Build product list ──────────────────────────────────────────────────────
@@ -150,7 +156,7 @@ for (const row of rows) {
     priceSource: clean(row["Price Source"]),
     priceLastChecked: toDateString(row["Price Last Checked"]),
     priceCategory: normalizePriceCategory(row["Price Category"]),
-    productUrl: (() => { const u = clean(row["Rating URL"]); return /^https?:\/\//i.test(u) ? u : ""; })(),
+    productUrl: (() => { const u = clean(row["Product URL"]); return /^https?:\/\//i.test(u) ? u : ""; })(),
     imageUrl: clean(row["Image URL"]) || undefined,
     flags: {
       gifts: isYes(row["Gifts"]),
