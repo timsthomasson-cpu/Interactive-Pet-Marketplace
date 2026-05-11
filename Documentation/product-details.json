@@ -1,5 +1,5 @@
 {
-  "_comment": "_comment": "PHASING OUT. New product data goes in Documentation/Product Matrix.xlsx, not here. This file should not grow. Existing entries should migrate to the spreadsheet over time. NEVER add invented ratings, specs, or features here. See README.md and Documentation/PRODUCT_DATA_RULES.md for full rules."
+"_comment": "PHASING OUT. New product data goes in Documentation/Product Matrix.xlsx, not here. This file should not grow. Existing entries should migrate to the spreadsheet over time. NEVER add invented ratings, specs, or features here. See README.md and Documentation/PRODUCT_DATA_RULES.md for full rules.",
 
 ##"Web-researched details for products. Keys must match the slug (lowercase, hyphenated product name). The auto-generate script merges this with Documentation/Product ##
   "_lastUpdated": "2026-05-07",
