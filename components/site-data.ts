@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-11T17:09:39.276Z
+// Generated: 2026-05-11T18:40:12.945Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -853,10 +853,10 @@ export const products: Product[] = [
     }
   },
   {
-    "slug": "original-calico-cat",
-    "name": "Original Calico Cat",
+    "slug": "grey-tabby-cat",
+    "name": "Grey Tabby Cat",
     "manufacturer": "Perfect Petzzz",
-    "manufacturerAndProduct": "Perfect Petzzz Original Calico Cat",
+    "manufacturerAndProduct": "Perfect Petzzz Grey Tabby Cat",
     "type": "Interactive",
     "category": "Cat",
     "bestFor": [
