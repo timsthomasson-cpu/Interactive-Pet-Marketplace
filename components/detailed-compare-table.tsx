@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { Product } from "./site-data";
+import { InfoPopover } from "./info-popover";
 
 const PRICE_BUCKETS = [
   { label: "<$50", test: (n: number) => n < 50 },
@@ -156,18 +157,26 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
                   <td className="px-3 py-4 text-slate-600">{product.features.join(", ")}</td>
                   <td className="px-3 py-4 text-slate-600">{product.highlight}</td>
                   <td className="px-3 py-4 text-slate-900 whitespace-nowrap">
-                    {product.rating !== undefined ? (
-                      product.ratingUrl ? (
-                        <a href={product.ratingUrl} target="_blank" rel="noopener noreferrer" title={ratingTooltip || undefined} className="hover:underline">
-                          <span className="text-red-600">★</span> {product.rating.toFixed(1)}
-                        </a>
-                      ) : (
-                        <span title={ratingTooltip || undefined}><span className="text-red-600">★</span> {product.rating.toFixed(1)}</span>
-                      )
-                    ) : "—"}
+                    <span className="inline-flex items-center">
+                      {product.rating !== undefined ? (
+                        product.ratingUrl ? (
+                          <a href={product.ratingUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                            <span className="text-red-600">★</span> {product.rating.toFixed(1)}
+                          </a>
+                        ) : (
+                          <span><span className="text-red-600">★</span> {product.rating.toFixed(1)}</span>
+                        )
+                      ) : "—"}
+                      {ratingTooltip && <InfoPopover content={ratingTooltip} label="Rating source info" />}
+                    </span>
                   </td>
                   <td className="px-3 py-4 text-slate-600 whitespace-nowrap">{product.reviewCount !== undefined ? product.reviewCount.toLocaleString() : "—"}</td>
-                  <td className="px-3 py-4 text-slate-900" title={priceTooltip || undefined}>{product.price}</td>
+                  <td className="px-3 py-4 text-slate-900">
+                    <span className="inline-flex items-center">
+                      {product.price}
+                      {priceTooltip && <InfoPopover content={priceTooltip} label="Price source info" />}
+                    </span>
+                  </td>
                   <td className="px-3 py-4">
                     <Link href={product.productUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap">View</Link>
                   </td>

@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import { Product } from "./site-data";
 import { SectionHeading } from "./ui";
+import { InfoPopover } from "./info-popover";
 
 const PRICE_BUCKETS = [
   { label: "<$50", test: (n: number) => n < 50 },
@@ -165,18 +166,26 @@ export function CompareTable({
                     <td className="px-5 py-4 font-semibold text-slate-900">{product.bestFor.join(", ")}</td>
                     <td className="px-5 py-4 font-semibold text-slate-900">{product.highlight}</td>
                     <td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">
-                      {product.rating !== undefined ? (
-                        product.ratingUrl ? (
-                          <a href={product.ratingUrl} target="_blank" rel="noopener noreferrer" title={ratingTooltip || undefined} className="hover:underline">
-                            <span className="text-red-600">★</span> {product.rating.toFixed(1)}
-                          </a>
-                        ) : (
-                          <span title={ratingTooltip || undefined}><span className="text-red-600">★</span> {product.rating.toFixed(1)}</span>
-                        )
-                      ) : "—"}
+                      <span className="inline-flex items-center">
+                        {product.rating !== undefined ? (
+                          product.ratingUrl ? (
+                            <a href={product.ratingUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                              <span className="text-red-600">★</span> {product.rating.toFixed(1)}
+                            </a>
+                          ) : (
+                            <span><span className="text-red-600">★</span> {product.rating.toFixed(1)}</span>
+                          )
+                        ) : "—"}
+                        {ratingTooltip && <InfoPopover content={ratingTooltip} label="Rating source info" />}
+                      </span>
                     </td>
                     <td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">{product.reviewCount !== undefined ? product.reviewCount.toLocaleString() : "—"}</td>
-                    <td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap" title={priceTooltip || undefined}>{product.price}</td>
+                    <td className="px-5 py-4 font-semibold text-slate-900 whitespace-nowrap">
+                      <span className="inline-flex items-center">
+                        {product.price}
+                        {priceTooltip && <InfoPopover content={priceTooltip} label="Price source info" />}
+                      </span>
+                    </td>
                   </tr>
                   );
                 })}

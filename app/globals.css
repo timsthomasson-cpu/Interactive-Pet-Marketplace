@@ -10,3 +10,5 @@ body {@apply bg-cream-50 text-slate-900 antialiased;}
 .btn-primary {@apply inline-flex items-center justify-center rounded-full bg-brand-600 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-brand-700;}
 .btn-secondary {@apply inline-flex items-center justify-center rounded-full border-2 border-trust-500 bg-white px-5 py-3 text-sm font-semibold text-trust-600 transition hover:-translate-y-0.5 hover:border-trust-600 hover:text-trust-700;}
 .gradient-tile {background: linear-gradient(135deg, #fdf6e3 0%, #fbecc4 50%, #f7dc92 100%);}
+.no-scrollbar::-webkit-scrollbar {display: none;}
+.no-scrollbar {-ms-overflow-style: none; scrollbar-width: none;}

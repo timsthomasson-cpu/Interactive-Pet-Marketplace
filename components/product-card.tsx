@@ -6,27 +6,27 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <div className="card flex flex-col overflow-hidden relative">
       {product.flags?.topPick && (
-        <div className="absolute top-3 right-3 z-10 inline-flex items-center gap-1 rounded-full bg-trust-500 px-3 py-1.5 text-xs font-bold text-white shadow-soft">
+        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 inline-flex items-center gap-1 rounded-full bg-trust-500 px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-bold text-white shadow-soft">
           ★ Top Pick
         </div>
       )}
-      <div className="p-4">
+      <div className="p-2 sm:p-4">
         {product.imageUrl ? (
-          <div className="overflow-hidden rounded-3xl border border-coral-200 bg-cream-100">
+          <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-coral-200 bg-cream-100">
             <img
               src={product.imageUrl}
               alt={product.name}
-              className="block h-56 w-full object-cover"
+              className="block h-36 sm:h-56 w-full object-cover"
             />
           </div>
         ) : (
           <PlaceholderVisual label={product.name} />
         )}
       </div>
-      <div className="flex flex-1 flex-col space-y-4 p-6 pt-1">
-        <div className="flex flex-wrap items-center gap-2">
+      <div className="flex flex-1 flex-col space-y-3 sm:space-y-4 p-3 pt-1 sm:p-6 sm:pt-1">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
           {product.type === "AI & Robotic" ? (
-            <span className="inline-flex rounded-full bg-trust-100 px-3 py-1 text-xs font-semibold text-trust-700">{product.type}</span>
+            <span className="inline-flex rounded-full bg-trust-100 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold text-trust-700">{product.type}</span>
           ) : (
             <Badge>{product.type}</Badge>
           )}
@@ -35,17 +35,17 @@ export function ProductCard({ product }: { product: Product }) {
           ))}
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">{product.manufacturer}</p>
-          <p className="mt-1 text-xl font-semibold text-slate-900">{product.name}</p>
+          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-brand-700">{product.manufacturer}</p>
+          <p className="mt-1 text-base sm:text-xl font-semibold text-slate-900 leading-tight">{product.name}</p>
           {product.rating !== undefined && (
-            <div className="mt-2">
+            <div className="mt-1.5 sm:mt-2">
               {(() => {
                 const tooltipParts: string[] = [];
                 if (product.ratingSource) tooltipParts.push(`Rating from ${product.ratingSource}`);
                 if (product.ratingLastChecked) tooltipParts.push(`last verified ${product.ratingLastChecked}`);
                 const tooltip = tooltipParts.join(", ");
                 const ratingText = (
-                  <span className="inline-flex items-baseline gap-1 text-sm font-semibold">
+                  <span className="inline-flex items-baseline gap-1 text-xs sm:text-sm font-semibold">
                     <span className="text-red-600">★</span>
                     <span className="text-slate-900">{product.rating.toFixed(1)}</span>
                     {product.reviewCount !== undefined && (
@@ -63,16 +63,16 @@ export function ProductCard({ product }: { product: Product }) {
               })()}
             </div>
           )}
-          <p className="mt-3 text-sm leading-6 text-slate-600">{product.blurb}</p>
+          <p className="mt-2 sm:mt-3 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-600">{product.blurb}</p>
         </div>
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-1.5 sm:gap-2 sm:grid-cols-3">
           {product.features.map((feature) => (
-            <div key={feature} className="rounded-2xl bg-cream-100 border border-coral-200 px-1.5 py-2 text-center text-[10px] leading-tight font-medium text-brand-900 min-w-0">
+            <div key={feature} className="rounded-xl sm:rounded-2xl bg-cream-100 border border-coral-200 px-1.5 py-1.5 sm:py-2 text-center text-[10px] leading-tight font-medium text-brand-900 min-w-0">
               {feature}
             </div>
           ))}
         </div>
-        <div className="mt-auto flex items-end justify-between">
+        <div className="mt-auto flex items-end justify-between gap-2">
           {(() => {
             const priceTooltipParts: string[] = [];
             if (product.priceSource) priceTooltipParts.push(`Price from ${product.priceSource}`);
@@ -80,12 +80,12 @@ export function ProductCard({ product }: { product: Product }) {
             const priceTooltip = priceTooltipParts.join(", ");
             return (
               <div title={priceTooltip || undefined}>
-                <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">Price</p>
-                <p className="text-lg font-bold text-slate-900">{product.price}</p>
+                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-brand-700">Price</p>
+                <p className="text-sm sm:text-lg font-bold text-slate-900">{product.price}</p>
               </div>
             );
           })()}
-          <Link href={product.productUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600">
+          <Link href={product.productUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-3 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600">
             View Details
           </Link>
         </div>

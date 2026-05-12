@@ -5,7 +5,7 @@ import { CTAButtons, PlaceholderVisual, SectionHeading, Badge } from "./ui";
 import { TopPicksRotator } from "./top-picks-rotator";
 
 export function HeroSection() {
-  return <section className="section-pad pt-6 overflow-hidden sm:pt-8 lg:pt-10 bg-gradient-to-br from-cream-100 via-brand-100 to-brand-200"><div className="container-shell"><div className="grid items-center gap-12 lg:grid-cols-[1fr_1.4fr]"><div><p className="eyebrow">Companionship, comfort, and comparison</p><h1 className="mt-4 max-w-3xl text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">Find the right smart pet for comfort, companionship, and fun.</h1><p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">Compare the best interactive pets and AI & robotic pets for seniors, families, gift buyers, and premium shoppers — without a cluttered buying experience.</p></div><TopPicksRotator /></div></div></section>;
+  return <section className="section-pad pt-4 pb-6 overflow-hidden sm:pt-8 sm:pb-12 lg:pt-10 bg-gradient-to-br from-cream-100 via-brand-100 to-brand-200"><div className="container-shell"><div className="grid items-center gap-6 sm:gap-10 lg:gap-12 lg:grid-cols-[1fr_1.4fr]"><div><p className="eyebrow">Companionship, comfort, and comparison</p><h1 className="mt-2 sm:mt-4 max-w-3xl text-[1.5rem] leading-[1.15] font-bold tracking-tight text-slate-900 sm:text-5xl sm:leading-tight lg:text-6xl">Find the right smart pet for comfort, companionship, and fun.</h1><p className="mt-3 sm:mt-6 max-w-2xl text-sm sm:text-lg leading-6 sm:leading-8 text-slate-700">Compare the best interactive pets and AI & robotic pets for seniors, families, gift buyers, and premium shoppers — without a cluttered buying experience.</p></div><TopPicksRotator /></div></div></section>;
 }
 export function TwoCategoryCards() {
   const cards = [
@@ -21,7 +21,32 @@ export function ShopByNeed() {
     ["Best for Kids & Families", "Playful options built for novelty and everyday entertainment.", "/kids-and-families"],
     ["Best Premium Picks", "Higher-end robotic pets with more advanced movement and sensors.", "/premium-picks"]
   ];
-  return <section className="section-pad pt-4 bg-white sm:pt-6 lg:pt-8"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{items.map(([title, text, href])=><Link key={title} href={href} className="block rounded-3xl border border-trust-200 bg-trust-50 p-6 transition hover:-translate-y-0.5 hover:border-trust-400 hover:shadow-soft"><h3 className="text-lg font-semibold text-trust-900">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{text}</p></Link>)}</div></div></section>;
+  return <section className="hidden md:block section-pad pt-4 bg-white sm:pt-6 lg:pt-8"><div className="container-shell"><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">{items.map(([title, text, href])=><Link key={title} href={href} className="block rounded-3xl border border-trust-200 bg-trust-50 p-6 transition hover:-translate-y-0.5 hover:border-trust-400 hover:shadow-soft"><h3 className="text-lg font-semibold text-trust-900">{title}</h3><p className="mt-2 text-sm leading-7 text-slate-600">{text}</p></Link>)}</div></div></section>;
+}
+export function MobileShopPills() {
+  const items: [string, string][] = [
+    ["Plushy Companions", "/interactive-pets"],
+    ["AI & Robotic Pets", "/ai-robotic-pets"],
+    ["Best for Seniors", "/best-for-seniors"],
+    ["Best for Gifts", "/best-for-gifts"],
+    ["Best for Kids & Families", "/kids-and-families"],
+    ["Best Premium Picks", "/premium-picks"]
+  ];
+  return (
+    <section className="md:hidden bg-white py-4">
+      <div className="no-scrollbar flex gap-3 overflow-x-auto px-4">
+        {items.map(([title, href]) => (
+          <Link
+            key={href}
+            href={href}
+            className="shrink-0 rounded-2xl border border-trust-200 bg-trust-50 px-4 py-3 text-sm font-semibold text-trust-900 transition hover:border-trust-400 hover:bg-trust-100"
+          >
+            {title}
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
 }
 export function GroupedProducts({ items, pageName }: { items: typeof products; pageName?: string }) {
   if (items.length === 0) return null;
@@ -32,11 +57,11 @@ export function GroupedProducts({ items, pageName }: { items: typeof products; p
     { title: "Budget Friendly", products: items.filter((p) => p.priceCategory === "Budget Friendly") }
   ];
   const nonEmpty = sections.filter((s) => s.products.length > 0);
-  return <section className="section-pad pt-10 sm:pt-12"><div className="container-shell space-y-14">{nonEmpty.map((section) => <div key={section.title}><h3 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">{pageName ? `${section.title} - ${pageName}` : section.title}</h3><div className="mt-6 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">{section.products.map((product) => <ProductCard key={product.slug} product={product} />)}</div></div>)}</div></section>;
+  return <section className="section-pad pt-10 sm:pt-12"><div className="container-shell space-y-14">{nonEmpty.map((section) => <div key={section.title}><h3 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">{pageName ? `${section.title} - ${pageName}` : section.title}</h3><div className="mt-6 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-2 xl:grid-cols-4">{section.products.map((product) => <ProductCard key={product.slug} product={product} />)}</div></div>)}</div></section>;
 }
 export function FeaturedProducts({ filter }: { filter?: "Interactive" | "AI & Robotic" }) {
   const filtered = filter ? products.filter((p)=>p.type===filter) : products;
-  return <section className="section-pad pt-10 sm:pt-12"><div className="container-shell"><div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-4">{filtered.map((product)=><ProductCard key={product.slug} product={product} />)}</div></div></section>;
+  return <section className="section-pad pt-10 sm:pt-12"><div className="container-shell"><div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-2 xl:grid-cols-4">{filtered.map((product)=><ProductCard key={product.slug} product={product} />)}</div></div></section>;
 }
 export { CompareTable } from "./compare-table";
 export function TrustBoxesRow() {
