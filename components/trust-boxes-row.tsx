@@ -1,7 +1,11 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
-const ROTATION_MS = 4000;
+const DEFAULT_DWELL_MS = 4000;
+// Per-card dwell overrides (index in the original 4-item array)
+const DWELL_OVERRIDES: Record<number, number> = {
+  2: 1000, // "Easy for Families" — show for only 1 second
+};
 
 const items: [string, string][] = [
   ["Comfort & Companionship", "Smart pets can provide gentle interaction and emotional comfort without the demands of a live pet."],
@@ -10,14 +14,29 @@ const items: [string, string][] = [
   ["Great Gift Option", "A thoughtful present for parents, grandparents, kids, and pet lovers who want something memorable."]
 ];
 
+// Doubled list for seamless circular scrolling
+const loopItems = [...items, ...items];
+const N = items.length;
+
+function dwellFor(idx: number) {
+  return DWELL_OVERRIDES[idx % N] ?? DEFAULT_DWELL_MS;
+}
+
 export function TrustBoxesRow() {
-  const [index, setIndex] = useState(0);
+  // displayIndex: 0..(2N-1), which DOM card is centered
+  const [displayIndex, setDisplayIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
   const scrollRef = useRef<HTMLDivElement>(null);
-  const userScrollingRef = useRef(false);
-  const userScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const autoTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const userScrollDebounceRef = useRef<NodeJS.Timeout | null>(null);
+  // True when we're programmatically scrolling (auto-advance or silent jump);
+  // suppresses the user-scroll handler from reacting.
+  const programmaticScrollRef = useRef(false);
+  const programmaticScrollResetRef = useRef<NodeJS.Timeout | null>(null);
+
+  const activeIndex = displayIndex % N;
 
   // Honor prefers-reduced-motion
   useEffect(() => {
@@ -29,78 +48,118 @@ export function TrustBoxesRow() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  // Auto-advance
+  // Scroll to a given displayIndex with chosen behavior
+  const scrollToIndex = useCallback((idx: number, behavior: ScrollBehavior = "smooth") => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const slide = container.children[idx] as HTMLElement | undefined;
+    if (!slide) return;
+    // Position so the card sits centered
+    const target = slide.offsetLeft - container.offsetLeft - (container.clientWidth - slide.offsetWidth) / 2;
+    programmaticScrollRef.current = true;
+    if (programmaticScrollResetRef.current) clearTimeout(programmaticScrollResetRef.current);
+    container.scrollTo({ left: target, behavior });
+    // Smooth scroll on mobile typically settles within ~400ms; instant is immediate.
+    programmaticScrollResetRef.current = setTimeout(() => {
+      programmaticScrollRef.current = false;
+    }, behavior === "smooth" ? 600 : 50);
+  }, []);
+
+  // After mount, position at displayIndex 0 instantly so the first card is centered
+  useEffect(() => {
+    scrollToIndex(0, "auto");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // When displayIndex changes (auto-advance), smooth-scroll to it.
+  // If we've moved into the duplicated half (idx >= N), schedule a silent
+  // wrap-back to idx - N once the smooth scroll has settled.
+  useEffect(() => {
+    if (!scrollRef.current) return;
+    scrollToIndex(displayIndex, "smooth");
+
+    if (displayIndex >= N) {
+      // Silent wrap after smooth scroll completes
+      const wrapTimeout = setTimeout(() => {
+        const wrappedIdx = displayIndex - N;
+        scrollToIndex(wrappedIdx, "auto");
+        setDisplayIndex(wrappedIdx);
+      }, 650); // slightly longer than smooth-scroll settle window
+      return () => clearTimeout(wrapTimeout);
+    }
+  }, [displayIndex, scrollToIndex]);
+
+  // Auto-advance with per-card dwell
   useEffect(() => {
     if (paused || reducedMotion) return;
-    intervalRef.current = setInterval(() => {
-      setIndex((i) => (i + 1) % items.length);
-    }, ROTATION_MS);
+    const dwell = dwellFor(activeIndex);
+    autoTimeoutRef.current = setTimeout(() => {
+      setDisplayIndex((i) => i + 1);
+    }, dwell);
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
+      if (autoTimeoutRef.current) clearTimeout(autoTimeoutRef.current);
     };
-  }, [paused, reducedMotion]);
+  }, [displayIndex, paused, reducedMotion, activeIndex]);
 
-  // Sync scroll position to index when it changes from auto-advance
-  useEffect(() => {
-    if (!scrollRef.current) return;
-    if (userScrollingRef.current) return;
-    const slide = scrollRef.current.children[index] as HTMLElement | undefined;
-    if (slide) {
-      scrollRef.current.scrollTo({ left: slide.offsetLeft - scrollRef.current.offsetLeft, behavior: "smooth" });
-    }
-  }, [index]);
-
-  // Track user manual scroll, derive active index from scroll position
+  // User scroll handler: when user manually swipes, find the centered card
+  // and sync state. If they land in the duplicated half, silently wrap.
   function handleScroll() {
-    if (!scrollRef.current) return;
-    userScrollingRef.current = true;
-    if (userScrollTimeoutRef.current) clearTimeout(userScrollTimeoutRef.current);
-    userScrollTimeoutRef.current = setTimeout(() => {
-      userScrollingRef.current = false;
-      if (!scrollRef.current) return;
-      // Find which child is most centered in the viewport
-      const containerCenter = scrollRef.current.scrollLeft + scrollRef.current.clientWidth / 2;
+    if (programmaticScrollRef.current) return;
+    if (userScrollDebounceRef.current) clearTimeout(userScrollDebounceRef.current);
+    userScrollDebounceRef.current = setTimeout(() => {
+      const container = scrollRef.current;
+      if (!container) return;
+      const containerCenter = container.scrollLeft + container.clientWidth / 2;
       let nearestIdx = 0;
       let nearestDist = Infinity;
-      Array.from(scrollRef.current.children).forEach((child, i) => {
+      Array.from(container.children).forEach((child, i) => {
         const el = child as HTMLElement;
-        const cardCenter = el.offsetLeft - scrollRef.current!.offsetLeft + el.offsetWidth / 2;
+        const cardCenter = el.offsetLeft - container.offsetLeft + el.offsetWidth / 2;
         const dist = Math.abs(cardCenter - containerCenter);
         if (dist < nearestDist) {
           nearestDist = dist;
           nearestIdx = i;
         }
       });
-      if (nearestIdx !== index) setIndex(nearestIdx);
+      if (nearestIdx !== displayIndex) {
+        if (nearestIdx >= N) {
+          // User landed in the duplicate half — silently jump back
+          const wrappedIdx = nearestIdx - N;
+          scrollToIndex(wrappedIdx, "auto");
+          setDisplayIndex(wrappedIdx);
+        } else {
+          setDisplayIndex(nearestIdx);
+        }
+      }
     }, 150);
   }
 
   return (
     <section className="pt-4 pb-2 sm:pt-6 sm:pb-3 lg:pt-8 lg:pb-4 bg-white">
-      {/* MOBILE: auto-scrolling row with centered "zoom" card */}
+      {/* MOBILE: circular auto-scrolling row with centered "zoom" card */}
       <div className="md:hidden">
         <div
           ref={scrollRef}
           onScroll={handleScroll}
           onTouchStart={() => setPaused(true)}
           onTouchEnd={() => {
-            // Resume auto-advance after a short delay so the user can read
             setTimeout(() => setPaused(false), 3000);
           }}
           className="no-scrollbar flex gap-3 overflow-x-auto snap-x snap-mandatory px-[14%] py-4"
           aria-label="Why people choose smart pets"
         >
-          {items.map(([title, text], i) => {
-            const active = i === index;
+          {loopItems.map(([title, text], i) => {
+            const active = i === displayIndex;
             return (
               <div
-                key={title}
+                key={`${title}-${i}`}
                 className={`snap-center shrink-0 w-[72%] rounded-2xl border bg-trust-50 p-5 transition-all duration-300 ease-out ${
                   active
                     ? "border-trust-400 scale-[1.05] shadow-soft z-10"
                     : "border-trust-200 scale-95 opacity-80"
                 }`}
-                aria-current={active ? "true" : undefined}
+                aria-hidden={i >= N ? "true" : undefined}
+                aria-current={active && i < N ? "true" : undefined}
               >
                 <h4
                   className={`transition-all duration-300 ${
