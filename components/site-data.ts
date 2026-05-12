@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-12T17:11:18.318Z
+// Generated: 2026-05-11T22:41:52.778Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -1115,7 +1115,7 @@ export const products: Product[] = [
 
 export const faqs = [
   { q: "What is the difference between interactive pets and AI & robotic pets?", a: "Interactive pets usually focus on comfort, touch response, and simple engagement. AI & robotic pets generally add movement, sensors, or more advanced behavior." },
-  { q: "Are smart pets good for seniors?", a: "Many buyers choose them for companionship and low maintenance. The best fit depends on comfort needs, ease of use, and how much technology the user wants." },
+  { q: "Are interactive pets good for seniors?", a: "A growing body of research suggests that interactive and robotic pets can meaningfully improve the lives of seniors — especially those facing loneliness, isolation, dementia, depression, or anxiety.", link: { href: "/senior-research", text: "Click here for a list of related publications." } },
   { q: "Do these products need Wi-Fi?", a: "Some advanced models may use apps or connectivity, but many simpler interactive companion products do not." },
   { q: "Are these a good gift?", a: "Yes. Buyers often choose them for holidays, birthdays, or thoughtful gifts for parents and grandparents." }
 ];
