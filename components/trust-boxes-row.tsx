@@ -3,9 +3,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 const DEFAULT_DWELL_MS = 4000;
 // Per-card dwell overrides (index in the original 4-item array)
-const DWELL_OVERRIDES: Record<number, number> = {
-  2: 1000, // "Easy for Families" — show for only 1 second
-};
+const DWELL_OVERRIDES: Record<number, number> = {};
 
 const items: [string, string][] = [
   ["Comfort & Companionship", "Smart pets can provide gentle interaction and emotional comfort without the demands of a live pet."],
@@ -48,46 +46,65 @@ export function TrustBoxesRow() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  // Scroll to a given displayIndex with chosen behavior
+  // Scroll to a given displayIndex with chosen behavior.
+  // Does NOT auto-clear programmaticScrollRef — callers manage it via
+  // clearProgrammaticAfter() so we can hold the flag across smooth scroll +
+  // silent wrap as one atomic sequence.
   const scrollToIndex = useCallback((idx: number, behavior: ScrollBehavior = "smooth") => {
     const container = scrollRef.current;
     if (!container) return;
     const slide = container.children[idx] as HTMLElement | undefined;
     if (!slide) return;
-    // Position so the card sits centered
-    const target = slide.offsetLeft - container.offsetLeft - (container.clientWidth - slide.offsetWidth) / 2;
     programmaticScrollRef.current = true;
+    // Browser-native centering. Plays correctly with scroll-snap-mandatory,
+    // avoiding sub-pixel rounding errors that caused snap to re-correct after
+    // our scrollTo and produce a visible wobble.
+    slide.scrollIntoView({ behavior, inline: "center", block: "nearest" });
+  }, []);
+
+  // Schedule clearing the programmatic flag after a delay
+  const clearProgrammaticAfter = useCallback((ms: number) => {
     if (programmaticScrollResetRef.current) clearTimeout(programmaticScrollResetRef.current);
-    container.scrollTo({ left: target, behavior });
-    // Smooth scroll on mobile typically settles within ~400ms; instant is immediate.
     programmaticScrollResetRef.current = setTimeout(() => {
       programmaticScrollRef.current = false;
-    }, behavior === "smooth" ? 600 : 50);
+    }, ms);
   }, []);
 
   // After mount, position at displayIndex 0 instantly so the first card is centered
   useEffect(() => {
     scrollToIndex(0, "auto");
+    clearProgrammaticAfter(50);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // When displayIndex changes (auto-advance), smooth-scroll to it.
   // If we've moved into the duplicated half (idx >= N), schedule a silent
-  // wrap-back to idx - N once the smooth scroll has settled.
+  // wrap-back to idx - N once the smooth scroll has settled. We hold the
+  // programmatic flag across BOTH the smooth scroll and the wrap so the
+  // user-scroll handler stays inert through the entire sequence — this is
+  // what prevents the jitter where the wrap-back race-conditioned with
+  // snap re-correction.
   useEffect(() => {
     if (!scrollRef.current) return;
     scrollToIndex(displayIndex, "smooth");
 
     if (displayIndex >= N) {
-      // Silent wrap after smooth scroll completes
+      // Silent wrap after smooth scroll settles. Don't clear the
+      // programmatic flag in between — hold it across both phases.
       const wrapTimeout = setTimeout(() => {
         const wrappedIdx = displayIndex - N;
         scrollToIndex(wrappedIdx, "auto");
+        // Don't clear the flag here — setDisplayIndex below will re-trigger
+        // this effect with displayIndex=wrappedIdx, and the else branch will
+        // clear the flag after that smooth-scroll (no-op) settles.
         setDisplayIndex(wrappedIdx);
-      }, 650); // slightly longer than smooth-scroll settle window
+      }, 700); // long enough for smooth scroll + any snap re-correction
       return () => clearTimeout(wrapTimeout);
+    } else {
+      // Normal advance — release the flag after the smooth scroll settles.
+      clearProgrammaticAfter(700);
     }
-  }, [displayIndex, scrollToIndex]);
+  }, [displayIndex, scrollToIndex, clearProgrammaticAfter]);
 
   // Auto-advance with per-card dwell
   useEffect(() => {
@@ -126,6 +143,7 @@ export function TrustBoxesRow() {
           // User landed in the duplicate half — silently jump back
           const wrappedIdx = nearestIdx - N;
           scrollToIndex(wrappedIdx, "auto");
+          clearProgrammaticAfter(50);
           setDisplayIndex(wrappedIdx);
         } else {
           setDisplayIndex(nearestIdx);
