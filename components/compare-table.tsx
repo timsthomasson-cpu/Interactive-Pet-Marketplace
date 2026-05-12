@@ -211,7 +211,7 @@ export function CompareTable({
                       {/* Sticky top-left header — empty above the labels */}
                       <th
                         className="sticky left-0 z-20 bg-cream-100 px-3 py-3 align-top border-b border-coral-200"
-                        style={{ width: "35vw", minWidth: "35vw", boxShadow: "1px 0 0 rgba(0,0,0,0.06)" }}
+                        style={{ width: "25vw", minWidth: "25vw", boxShadow: "1px 0 0 rgba(0,0,0,0.06)" }}
                       >
                         <span className="sr-only">Attribute</span>
                       </th>
@@ -219,7 +219,7 @@ export function CompareTable({
                         <th
                           key={product.slug}
                           className="px-3 py-3 align-top border-b border-coral-200 bg-cream-100 font-semibold text-slate-900"
-                          style={{ width: "60vw", minWidth: "60vw" }}
+                          style={{ width: "70vw", minWidth: "70vw" }}
                         >
                           {product.name}
                         </th>
