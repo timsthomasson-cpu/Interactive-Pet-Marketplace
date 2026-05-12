@@ -76,8 +76,32 @@ function ShopForDropdown() {
 
 export function SiteHeader() {
   const allMobileNav = [...mainNav, ...shopForNav, ...tailNav];
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Publish the header's pixel height as a CSS variable so any sticky element
+  // on the page can pin itself directly below the header without hardcoding
+  // a pixel value. ResizeObserver keeps this current across rotation,
+  // font-size changes, etc.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const el = headerRef.current;
+    if (!el) return;
+    function publish() {
+      const h = el!.getBoundingClientRect().height;
+      document.documentElement.style.setProperty("--header-height", `${h}px`);
+    }
+    publish();
+    const ro = new ResizeObserver(publish);
+    ro.observe(el);
+    window.addEventListener("resize", publish);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", publish);
+    };
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-coral-200 bg-white/95 backdrop-blur">
+    <header ref={headerRef} className="sticky top-0 z-40 border-b border-coral-200 bg-white/95 backdrop-blur">
       <div className="container-shell flex items-center justify-between gap-6 py-4">
         <Link href="/" className="flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 text-lg text-white">🐾</div>

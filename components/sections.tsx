@@ -57,7 +57,15 @@ export function GroupedProducts({ items, pageName }: { items: typeof products; p
     { title: "Budget Friendly", products: items.filter((p) => p.priceCategory === "Budget Friendly") }
   ];
   const nonEmpty = sections.filter((s) => s.products.length > 0);
-  return <section className="section-pad pt-10 sm:pt-12"><div className="container-shell space-y-14">{nonEmpty.map((section) => <div key={section.title}><h3 className="text-center sm:text-left text-[2.25rem] leading-tight font-bold tracking-tight text-slate-900 sm:text-3xl">{pageName ? `${section.title} - ${pageName}` : section.title}</h3>
+  return <section className="section-pad pt-10 sm:pt-12"><div className="container-shell space-y-14">{nonEmpty.map((section) => <div key={section.title}>
+    {/* MOBILE: heading sticks below the pills nav while its cards scroll past.
+        Next heading pushes this one out of view when it enters the same zone. */}
+    <h3
+      className="text-center sm:text-left text-[2.25rem] leading-tight font-bold tracking-tight text-slate-900 sm:text-3xl sticky z-30 bg-white/95 backdrop-blur py-3 -mx-4 px-4 border-b border-coral-100 sm:static sm:bg-transparent sm:backdrop-blur-none sm:py-0 sm:mx-0 sm:px-0 sm:border-0"
+      style={{ top: "var(--header-height, 124px)" }}
+    >
+      {pageName ? `${section.title} - ${pageName}` : section.title}
+    </h3>
     {/* MOBILE: horizontal scroll, one row per category */}
     <div className="mt-6 sm:hidden -mx-4">
       <div className="no-scrollbar flex gap-3 overflow-x-auto snap-x snap-mandatory px-4 pb-2">
