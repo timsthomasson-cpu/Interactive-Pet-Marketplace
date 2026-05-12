@@ -33,6 +33,11 @@ export function TrustBoxesRow() {
   // suppresses the user-scroll handler from reacting.
   const programmaticScrollRef = useRef(false);
   const programmaticScrollResetRef = useRef<NodeJS.Timeout | null>(null);
+  // Set when a silent wrap has just instant-jumped us to a new position.
+  // The next run of the displayIndex effect skips its smooth-scroll so we
+  // don't animate a sub-pixel delta over the wrapped position (which snap
+  // would then re-correct, producing a visible nudge).
+  const justWrappedRef = useRef(false);
 
   const activeIndex = displayIndex % N;
 
@@ -78,31 +83,61 @@ export function TrustBoxesRow() {
   }, []);
 
   // When displayIndex changes (auto-advance), smooth-scroll to it.
-  // If we've moved into the duplicated half (idx >= N), schedule a silent
-  // wrap-back to idx - N once the smooth scroll has settled. We hold the
-  // programmatic flag across BOTH the smooth scroll and the wrap so the
-  // user-scroll handler stays inert through the entire sequence — this is
-  // what prevents the jitter where the wrap-back race-conditioned with
-  // snap re-correction.
+  // If we've moved into the duplicated half (idx >= N), wrap silently AFTER
+  // the smooth scroll truly finishes — detected via the `scrollend` event
+  // when available, falling back to a generous timeout for older browsers.
+  // We hold the programmatic flag across the entire sequence so the user-
+  // scroll handler stays inert and can't race the wrap.
   useEffect(() => {
-    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    if (!container) return;
+
+    // If we just silently jumped here via wrap, don't re-animate to the same
+    // position — that would cause a sub-pixel smooth-scroll which snap would
+    // re-correct, producing a visible nudge.
+    if (justWrappedRef.current) {
+      justWrappedRef.current = false;
+      // Programmatic flag was held by the wrap; release it now that React
+      // has settled at the wrapped index.
+      clearProgrammaticAfter(50);
+      return;
+    }
+
     scrollToIndex(displayIndex, "smooth");
 
     if (displayIndex >= N) {
-      // Silent wrap after smooth scroll settles. Don't clear the
-      // programmatic flag in between — hold it across both phases.
-      const wrapTimeout = setTimeout(() => {
+      // Wrap silently once the smooth scroll truly finishes.
+      let timeoutHandle: NodeJS.Timeout | null = null;
+      let scrollendHandle: (() => void) | null = null;
+
+      const doWrap = () => {
+        if (timeoutHandle) clearTimeout(timeoutHandle);
+        if (scrollendHandle) container.removeEventListener("scrollend", scrollendHandle);
         const wrappedIdx = displayIndex - N;
+        // Mark before we instant-jump so the next effect run skips its scroll.
+        justWrappedRef.current = true;
         scrollToIndex(wrappedIdx, "auto");
-        // Don't clear the flag here — setDisplayIndex below will re-trigger
-        // this effect with displayIndex=wrappedIdx, and the else branch will
-        // clear the flag after that smooth-scroll (no-op) settles.
         setDisplayIndex(wrappedIdx);
-      }, 700); // long enough for smooth scroll + any snap re-correction
-      return () => clearTimeout(wrapTimeout);
+      };
+
+      // Prefer the native scrollend event — fires when scroll + snap have
+      // both finished. Use a fallback timeout for older browsers.
+      if ("onscrollend" in container) {
+        scrollendHandle = () => doWrap();
+        container.addEventListener("scrollend", scrollendHandle, { once: true });
+        // Safety fallback in case scrollend somehow doesn't fire
+        timeoutHandle = setTimeout(doWrap, 1200);
+      } else {
+        timeoutHandle = setTimeout(doWrap, 900);
+      }
+
+      return () => {
+        if (timeoutHandle) clearTimeout(timeoutHandle);
+        if (scrollendHandle) container.removeEventListener("scrollend", scrollendHandle);
+      };
     } else {
       // Normal advance — release the flag after the smooth scroll settles.
-      clearProgrammaticAfter(700);
+      clearProgrammaticAfter(900);
     }
   }, [displayIndex, scrollToIndex, clearProgrammaticAfter]);
 
