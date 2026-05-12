@@ -57,7 +57,20 @@ export function GroupedProducts({ items, pageName }: { items: typeof products; p
     { title: "Budget Friendly", products: items.filter((p) => p.priceCategory === "Budget Friendly") }
   ];
   const nonEmpty = sections.filter((s) => s.products.length > 0);
-  return <section className="section-pad pt-10 sm:pt-12"><div className="container-shell space-y-14">{nonEmpty.map((section) => <div key={section.title}><h3 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">{pageName ? `${section.title} - ${pageName}` : section.title}</h3><div className="mt-6 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-2 xl:grid-cols-4">{section.products.map((product) => <ProductCard key={product.slug} product={product} />)}</div></div>)}</div></section>;
+  return <section className="section-pad pt-10 sm:pt-12"><div className="container-shell space-y-14">{nonEmpty.map((section) => <div key={section.title}><h3 className="text-center sm:text-left text-[2.25rem] leading-tight font-bold tracking-tight text-slate-900 sm:text-3xl">{pageName ? `${section.title} - ${pageName}` : section.title}</h3>
+    {/* MOBILE: horizontal scroll, one row per category */}
+    <div className="mt-6 sm:hidden -mx-4">
+      <div className="no-scrollbar flex gap-3 overflow-x-auto snap-x snap-mandatory px-4 pb-2">
+        {section.products.map((product) => (
+          <div key={product.slug} className="snap-start shrink-0 w-[72%]">
+            <ProductCard product={product} />
+          </div>
+        ))}
+      </div>
+    </div>
+    {/* DESKTOP: original grid */}
+    <div className="mt-6 hidden sm:grid gap-6 lg:grid-cols-2 xl:grid-cols-4">{section.products.map((product) => <ProductCard key={product.slug} product={product} />)}</div>
+  </div>)}</div></section>;
 }
 export function FeaturedProducts({ filter }: { filter?: "Interactive" | "AI & Robotic" }) {
   const filtered = filter ? products.filter((p)=>p.type===filter) : products;
