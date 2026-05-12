@@ -216,6 +216,7 @@ export const products: Product[] = ${JSON.stringify(products, null, 2)};
 export const faqs = [
   { q: "What is the difference between interactive pets and AI & robotic pets?", a: "Interactive pets usually focus on comfort, touch response, and simple engagement. AI & robotic pets generally add movement, sensors, or more advanced behavior." },
   { q: "Are interactive pets good for seniors?", a: "A growing body of research suggests that interactive and robotic pets can meaningfully improve the lives of seniors — especially those facing loneliness, isolation, dementia, depression, or anxiety.", link: { href: "/senior-research", text: "Click here for a list of related publications." } },
+  { q: "Are Interactive Pets good for Children?", a: "Engaging companions designed to entertain children and bring families together. Research has shown that Interactive Pets can improve the lives of children by improving Interactive Learning, Personalized Engagement, Empathy, Technology Skills, and many other areas.", link: { href: "/kids-research", text: "See a list of articles." } },
   { q: "Do these products need Wi-Fi?", a: "Some advanced models may use apps or connectivity, but many simpler interactive companion products do not." },
   { q: "Are these a good gift?", a: "Yes. Buyers often choose them for holidays, birthdays, or thoughtful gifts for parents and grandparents." }
 ];
