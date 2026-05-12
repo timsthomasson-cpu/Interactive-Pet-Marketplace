@@ -77,40 +77,7 @@ export function FeaturedProducts({ filter }: { filter?: "Interactive" | "AI & Ro
   return <section className="section-pad pt-10 sm:pt-12"><div className="container-shell"><div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-2 xl:grid-cols-4">{filtered.map((product)=><ProductCard key={product.slug} product={product} />)}</div></div></section>;
 }
 export { CompareTable } from "./compare-table";
-export function TrustBoxesRow() {
-  const items = [
-    ["Comfort & Companionship", "Smart pets can provide gentle interaction and emotional comfort without the demands of a live pet."],
-    ["Low Maintenance", "No feeding, walking, litter, or vet visits — a key reason many families start here."],
-    ["Easy for Families", "A simple way to add novelty, comfort, or companionship without ongoing care complexity."],
-    ["Great Gift Option", "A thoughtful present for parents, grandparents, kids, and pet lovers who want something memorable."]
-  ];
-  return (
-    <section className="pt-4 pb-2 sm:pt-6 sm:pb-3 lg:pt-8 lg:pb-4 bg-white">
-      {/* MOBILE: horizontal scroller */}
-      <div className="md:hidden">
-        <div className="no-scrollbar flex gap-3 overflow-x-auto snap-x snap-mandatory px-4 pb-2">
-          {items.map(([title, text]) => (
-            <div key={title} className="snap-start shrink-0 w-[72%] rounded-2xl border border-trust-200 bg-trust-50 p-5">
-              <h4 className="text-base font-semibold text-trust-900">{title}</h4>
-              <p className="mt-2 text-sm leading-6 text-slate-600">{text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* DESKTOP: original grid */}
-      <div className="hidden md:block container-shell">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {items.map(([title, text]) => (
-            <div key={title} className="rounded-3xl border border-trust-200 bg-trust-50 p-6">
-              <h4 className="text-lg font-semibold text-trust-900">{title}</h4>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+export { TrustBoxesRow } from "./trust-boxes-row";
 
 export function TrustBlocks() {
   const items = [
