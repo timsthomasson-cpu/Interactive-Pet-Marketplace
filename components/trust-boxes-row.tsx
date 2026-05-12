@@ -8,7 +8,7 @@ const TRANSITION_MS = 500;
 const DWELL_OVERRIDES: Record<number, number> = {};
 
 const items: [string, string][] = [
-  ["Comfort & Companionship", "Smart pets can provide gentle interaction and emotional comfort without the demands of a live pet."],
+  ["Comfort & Companionship", "Interactive pets can provide gentle interaction and emotional comfort without the demands of a live pet."],
   ["Low Maintenance", "No feeding, walking, litter, or vet visits — a key reason many families start here."],
   ["Easy for Families", "A simple way to add novelty, comfort, or companionship without ongoing care complexity."],
   ["Great Gift Option", "A thoughtful present for parents, grandparents, kids, and pet lovers who want something memorable."]
@@ -113,7 +113,7 @@ export function TrustBoxesRow() {
         <div
           ref={viewportRef}
           className="relative overflow-hidden py-4"
-          aria-label="Why people choose smart pets"
+          aria-label="Why people choose interactive pets"
         >
           <div
             className="flex gap-3"

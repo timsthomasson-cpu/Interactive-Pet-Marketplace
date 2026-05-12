@@ -1,4 +1,4 @@
-# Smart Pets Marketplace Editing Rules
+# Interactive Pets Marketplace Editing Rules
 
 Always preserve:
 - Plushy Companions
