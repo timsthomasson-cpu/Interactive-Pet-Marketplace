@@ -13,11 +13,7 @@ export function FAQSection() {
   return (
     <section className="section-pad">
       <div className="container-shell">
-        <SectionHeading
-          eyebrow="FAQ"
-          title="Common questions before someone buys."
-          text="This also helps support SEO and keeps buyer hesitation lower."
-        />
+        <SectionHeading title="Additional Frequently Asked Questions." />
         <div className="mt-10 space-y-4">
           {items.map((faq) => (
             <details key={faq.q} className="card p-6">
