@@ -106,6 +106,17 @@ export function TrustBoxesRow() {
       ? Math.round((viewportWidth - cardWidth) / 2 - step * (cardWidth + GAP_PX))
       : 0;
 
+  // A card counts as "active" if its position in loopItems matches `step`
+  // OR if it's the original (index < N) counterpart of the duplicate first
+  // card we're currently showing (step === N). Marking both as active during
+  // the reset frame means the card at index 0 is ALREADY scaled up when the
+  // silent jump from step=N to step=0 happens — no second zoom animation.
+  function isActive(i: number) {
+    if (i === step) return true;
+    if (step === N && i === 0) return true;
+    return false;
+  }
+
   return (
     <section className="pt-4 pb-2 sm:pt-6 sm:pb-3 lg:pt-8 lg:pb-4 bg-white">
       {/* MOBILE: transform-based carousel — no native scroll, no snap */}
@@ -125,12 +136,18 @@ export function TrustBoxesRow() {
             }}
           >
             {loopItems.map(([title, text], i) => {
-              const active = i === step;
+              const active = isActive(i);
+              // Disable the card's own scale/opacity transition while the
+              // track transition is disabled (i.e. during the silent reset).
+              // Otherwise the duplicate at index N and the original at index 0
+              // visibly hand off the active state, restarting the zoom.
+              const cardTransition = transitioning ? "transition-all duration-300 ease-out" : "";
+              const headingTransition = transitioning ? "transition-all duration-300" : "";
               return (
                 <div
                   key={`${title}-${i}`}
                   ref={i === 0 ? cardRef : undefined}
-                  className={`shrink-0 w-[72vw] rounded-2xl border bg-trust-50 p-5 transition-all duration-300 ease-out ${
+                  className={`shrink-0 w-[72vw] rounded-2xl border bg-trust-50 p-5 ${cardTransition} ${
                     active
                       ? "border-trust-400 scale-[1.05] shadow-soft z-10"
                       : "border-trust-200 scale-95 opacity-80"
@@ -139,7 +156,7 @@ export function TrustBoxesRow() {
                   aria-current={active && i < N ? "true" : undefined}
                 >
                   <h4
-                    className={`transition-all duration-300 ${
+                    className={`${headingTransition} ${
                       active
                         ? "text-lg font-bold text-trust-900"
                         : "text-base font-semibold text-trust-900"
@@ -148,7 +165,7 @@ export function TrustBoxesRow() {
                     {title}
                   </h4>
                   <p
-                    className={`mt-2 leading-6 transition-all duration-300 ${
+                    className={`mt-2 leading-6 ${headingTransition} ${
                       active
                         ? "text-base font-medium text-slate-700"
                         : "text-sm font-normal text-slate-600"
