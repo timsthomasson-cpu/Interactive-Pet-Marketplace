@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
 
-// PLACEHOLDER — replace this with your Web3Forms access key before launch.
-// Sign up free at https://web3forms.com (no account needed, just an email).
-// You'll receive an access key. Paste it below.
-const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
+// Web3Forms access key. This key identifies which inbox submissions go to.
+// It's exposed in the client bundle by necessity (the form submits from the
+// browser), so it's not a true secret — but don't paste it into public
+// repos/issues. If it ever needs rotating, do it in the Web3Forms dashboard.
+const WEB3FORMS_ACCESS_KEY = "193279a0-8b73-49fc-80bc-fa86a219d7aa";
 
 const TOPICS = [
   "Product correction or update",
