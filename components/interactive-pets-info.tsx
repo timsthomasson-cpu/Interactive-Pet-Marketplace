@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SectionHeading } from "./ui";
 
 const audienceBullets = [
@@ -58,7 +59,6 @@ const reasons: { title: string; emoji: string; bullets: string[] }[] = [
       "May improve mood in memory care settings",
       "No fall risk from pulling on a leash",
       "No physical burden of care",
-      "Can remind about medication if programmed",
       "Familiar, comforting routine"
     ]
   },
@@ -111,15 +111,10 @@ const reasons: { title: string; emoji: string; bullets: string[] }[] = [
     title: "Health and therapeutic reasons",
     emoji: "\ud83e\ude7a",
     bullets: [
-      "Anxiety reduction",
-      "Stress relief",
-      "Sensory comfort",
-      "Dementia therapy use",
-      "Autism sensory engagement",
-      "Depression support",
-      "PTSD calming aid",
-      "Hospital comfort tool",
-      "Rehab motivation"
+      "May help reduce stress and anxiety (research-suggested)",
+      "Sensory comfort and tactile soothing",
+      "Studied in dementia care for reducing agitation",
+      "Research links companion robots to reduced depression and loneliness in older adults"
     ]
   },
   {
@@ -267,6 +262,19 @@ export function InteractivePetsInfo() {
               </details>
             ))}
           </div>
+          <p className="mt-6 text-sm leading-7 text-slate-600">
+            Claims about health and wellbeing are drawn from published research.
+            See our summaries for{" "}
+            <Link href="/senior-research" className="underline text-trust-700 hover:text-trust-900">
+              older adults
+            </Link>{" "}
+            and{" "}
+            <Link href="/kids-research" className="underline text-trust-700 hover:text-trust-900">
+              children
+            </Link>
+            . Interactive pets are not medical devices and are not a substitute
+            for professional care.
+          </p>
         </div>
       </div>
     </section>

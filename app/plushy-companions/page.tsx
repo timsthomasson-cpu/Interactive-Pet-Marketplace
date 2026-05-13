@@ -22,7 +22,7 @@ export default function Page() {
           />
         </div>
       </section>
-      <TrustBoxesRow />
+      <TrustBoxesRow variant="plushy" />
       <GroupedProducts items={items} pageName="Plushy Companions" />
       <CompareTable items={items} title="Plushy Companions at a glance" text="Quickly scan type, audience, highlight, rating, and price." />
     </PageShell>

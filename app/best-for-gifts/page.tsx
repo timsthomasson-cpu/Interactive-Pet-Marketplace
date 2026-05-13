@@ -27,7 +27,7 @@ export default function GiftsPage() {
       <Suspense fallback={null}>
         <GiftWizard />
       </Suspense>
-      <TrustBoxesRow />
+      <TrustBoxesRow variant="gifts" />
       <CompareTable items={picks} title="Gift picks at a glance" text="Quickly scan type, audience, highlight, rating, and price." />
     </PageShell>
   );

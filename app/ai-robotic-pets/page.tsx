@@ -22,7 +22,7 @@ export default function Page() {
           />
         </div>
       </section>
-      <TrustBoxesRow />
+      <TrustBoxesRow variant="ai-robotic" />
       <GroupedProducts items={items} pageName="AI & Robotic Pets" />
       <CompareTable items={items} title="AI & Robotic Pets at a glance" text="Quickly scan type, audience, highlight, rating, and price." />
     </PageShell>

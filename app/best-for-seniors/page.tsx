@@ -30,7 +30,7 @@ export default function SeniorsPage() {
           </div>
         </div>
       </section>
-      <TrustBoxesRow />
+      <TrustBoxesRow variant="seniors" />
       <GroupedProducts items={picks} pageName="Seniors" />
       <CompareTable items={picks} title="Senior picks at a glance" text="Quickly scan type, audience, highlight, rating, and price." />
     </PageShell>

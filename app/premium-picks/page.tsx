@@ -3,6 +3,7 @@ import { products } from "@/components/site-data";
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/ui";
 import { CompareTable, TrustBoxesRow } from "@/components/sections";
+import { IllustrativeImagesNote } from "@/components/illustrative-images-note";
 
 export const metadata = {
   title: "Premium Picks — High-end AI & robotic pets",
@@ -23,9 +24,10 @@ export default function PremiumPage() {
           />
         </div>
       </section>
-      <TrustBoxesRow />
+      <TrustBoxesRow variant="premium" />
       <section className="section-pad pt-0">
-        <div className="container-shell">
+        <IllustrativeImagesNote />
+        <div className="container-shell mt-3">
           <div className="grid gap-6 lg:grid-cols-3">
             {picks.map((product) => <ProductCard key={product.slug} product={product} />)}
           </div>

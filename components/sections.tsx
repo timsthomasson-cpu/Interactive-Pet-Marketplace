@@ -3,6 +3,7 @@ import { products } from "./site-data";
 import { ProductCard } from "./product-card";
 import { CTAButtons, PlaceholderVisual, SectionHeading, Badge } from "./ui";
 import { TopPicksRotator } from "./top-picks-rotator";
+import { IllustrativeImagesNote } from "./illustrative-images-note";
 
 export function HeroSection() {
   return <section className="section-pad pt-4 pb-6 overflow-hidden sm:pt-8 sm:pb-12 lg:pt-10 bg-gradient-to-br from-cream-100 via-brand-100 to-brand-200"><div className="container-shell"><div className="grid items-center gap-6 sm:gap-10 lg:gap-12 lg:grid-cols-[1fr_1.4fr]"><div><p className="eyebrow">Companionship, comfort, and comparison</p><h1 className="mt-2 sm:mt-4 max-w-3xl text-[1.5rem] leading-[1.15] font-bold tracking-tight text-slate-900 sm:text-5xl sm:leading-tight lg:text-6xl">Find the right interactive pet for comfort, companionship, and fun.</h1><p className="mt-3 sm:mt-6 max-w-2xl text-sm sm:text-lg leading-6 sm:leading-8 text-slate-700">Compare the best interactive pets and AI & robotic pets for seniors, families, gift buyers, and premium shoppers — without a cluttered buying experience.</p></div><TopPicksRotator /></div></div></section>;
@@ -57,7 +58,7 @@ export function GroupedProducts({ items, pageName }: { items: typeof products; p
     { title: "Budget Friendly", products: items.filter((p) => p.priceCategory === "Budget Friendly") }
   ];
   const nonEmpty = sections.filter((s) => s.products.length > 0);
-  return <section className="section-pad pt-10 sm:pt-12"><div className="container-shell space-y-14">{nonEmpty.map((section) => <div key={section.title}>
+  return <section className="section-pad pt-10 sm:pt-12"><IllustrativeImagesNote /><div className="container-shell space-y-14 mt-3">{nonEmpty.map((section) => <div key={section.title}>
     {/* MOBILE: heading sticks below the pills nav while its cards scroll past.
         Next heading pushes this one out of view when it enters the same zone. */}
     <h3

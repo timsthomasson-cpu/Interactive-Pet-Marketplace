@@ -1,33 +1,99 @@
 "use client";
-import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { useState, useEffect, useRef, useLayoutEffect, useMemo } from "react";
 
 const DEFAULT_DWELL_MS = 4000;
 const TRANSITION_MS = 500;
+const GAP_PX = 12; // tailwind gap-3
 
-// Per-card dwell overrides (index in the original items array)
+// Per-card dwell overrides (rarely used; index is in the original items array)
 const DWELL_OVERRIDES: Record<number, number> = {};
 
-const items: [string, string][] = [
+type TrustItem = [string, string]; // [title, body]
+
+// Preset variants so each page can show distinct trust messages.
+// This avoids Google's duplicate-content signal that comes from rendering
+// the same four trust boxes on every category page.
+const DEFAULT_ITEMS: TrustItem[] = [
   ["Comfort & Companionship", "Interactive pets can provide gentle interaction and emotional comfort without the demands of a live pet."],
   ["Low Maintenance", "No feeding, walking, litter, or vet visits — a key reason many families start here."],
   ["Easy for Families", "A simple way to add novelty, comfort, or companionship without ongoing care complexity."],
   ["Great Gift Option", "A thoughtful present for parents, grandparents, kids, and pet lovers who want something memorable."]
 ];
 
-const N = items.length;
-// Render two copies. When step reaches N, we silently reset to 0: drop the
-// transition, snap translate back to the visually identical first-copy
-// position, then re-enable the transition. No native scroll, no scroll-snap,
-// no race conditions — just transform math.
-const loopItems = [...items, ...items];
+const PLUSHY_ITEMS: TrustItem[] = [
+  ["Soft & Soothing", "Plush companions offer gentle tactile comfort — a calming presence for quiet moments and bedtime."],
+  ["No Setup Required", "Most plushy companions are ready out of the box. No apps, no Wi-Fi, no learning curve."],
+  ["Allergy-Friendly", "No fur shedding, no dander, no fleas. A practical option for sensitive households."],
+  ["Affordable Comfort", "Plushy companions are often the most budget-friendly entry point into the category."]
+];
 
-const GAP_PX = 12; // tailwind gap-3
+const AI_ROBOTIC_ITEMS: TrustItem[] = [
+  ["Lifelike Interaction", "AI and robotic pets respond to touch, sound, and presence with movement and personality."],
+  ["Advanced Features", "Sensors, app integration, and adaptive behavior give a richer interactive experience over time."],
+  ["Conversation & Play", "Some models hold simple conversations, play games, or respond to voice commands."],
+  ["Modern Companion", "A good fit for tech-curious buyers and anyone who wants more than a static plush toy."]
+];
 
-function dwellFor(idx: number) {
-  return DWELL_OVERRIDES[idx % N] ?? DEFAULT_DWELL_MS;
+const SENIORS_ITEMS: TrustItem[] = [
+  ["Reduces Loneliness", "Research suggests companion pets can help reduce social isolation in older adults living alone or in care."],
+  ["Calm for Dementia Care", "Studies show animatronic pets can ease agitation and bring comfort to people with dementia."],
+  ["No Caregiving Burden", "No feeding, walking, or vet visits — and no fall risk from a leash or excited live pet."],
+  ["Easy to Use", "Senior-friendly designs prioritize simple touch and sound interactions over complex tech."]
+];
+
+const FAMILIES_ITEMS: TrustItem[] = [
+  ["Playful Companions", "Engaging companions designed to entertain kids and bring families together."],
+  ["Builds Nurturing Habits", "A safe way for children to practice caring for something — without live-pet responsibilities."],
+  ["Safer Than Live Pets", "No bites, no scratches, no allergies. A first-pet experience without the risk."],
+  ["Sparks Imagination", "Open-ended play that supports curiosity, empathy, and emotional learning."]
+];
+
+const GIFTS_ITEMS: TrustItem[] = [
+  ["Memorable Gifts", "Interactive pets stand out from typical presents — recipients tend to remember who gave them."],
+  ["Broad Age Appeal", "Choices for grandparents, parents, kids, and pet lovers — many models work across generations."],
+  ["Ready Out of the Box", "Most arrive with batteries included and start working the moment they're unwrapped."],
+  ["Thoughtful Touch", "A gift that acknowledges someone's situation — loneliness, allergies, housing limits — with warmth."]
+];
+
+const PREMIUM_ITEMS: TrustItem[] = [
+  ["Most Advanced Tech", "Premium models offer the most sophisticated movement, sensors, and AI-driven behavior available."],
+  ["Designed to Last", "Higher build quality, better materials, and more comprehensive warranties than entry-level options."],
+  ["Richer Interaction", "Multi-modal AI, camera features, and adaptive learning — closest you'll get to a real pet experience."],
+  ["For Discerning Buyers", "When budget isn't the deciding factor and you want the best of what the category offers."]
+];
+
+export type TrustBoxesVariant =
+  | "default"
+  | "plushy"
+  | "ai-robotic"
+  | "seniors"
+  | "families"
+  | "gifts"
+  | "premium";
+
+const VARIANTS: Record<TrustBoxesVariant, TrustItem[]> = {
+  "default": DEFAULT_ITEMS,
+  "plushy": PLUSHY_ITEMS,
+  "ai-robotic": AI_ROBOTIC_ITEMS,
+  "seniors": SENIORS_ITEMS,
+  "families": FAMILIES_ITEMS,
+  "gifts": GIFTS_ITEMS,
+  "premium": PREMIUM_ITEMS
+};
+
+function dwellFor(idx: number, n: number) {
+  return DWELL_OVERRIDES[idx % n] ?? DEFAULT_DWELL_MS;
 }
 
-export function TrustBoxesRow() {
+export function TrustBoxesRow({ variant = "default" }: { variant?: TrustBoxesVariant }) {
+  const items = useMemo(() => VARIANTS[variant] ?? DEFAULT_ITEMS, [variant]);
+  const N = items.length;
+  // Render two copies. When step reaches N, we silently reset to 0: drop the
+  // transition, snap translate back to the visually identical first-copy
+  // position, then re-enable the transition. No native scroll, no scroll-snap,
+  // no race conditions — just transform math.
+  const loopItems = useMemo(() => [...items, ...items], [items]);
+
   // Logical position 0..N. When it hits N, an effect silently resets it to 0.
   const [step, setStep] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -67,50 +133,34 @@ export function TrustBoxesRow() {
   useEffect(() => {
     if (paused || reducedMotion) return;
     if (cardWidth === 0) return; // wait until measured
-    const dwell = dwellFor(activeIndex);
+    const dwell = dwellFor(activeIndex, N);
     autoTimeoutRef.current = setTimeout(() => {
       setStep((s) => s + 1);
     }, dwell);
     return () => {
       if (autoTimeoutRef.current) clearTimeout(autoTimeoutRef.current);
     };
-  }, [step, paused, reducedMotion, activeIndex, cardWidth]);
+  }, [step, paused, reducedMotion, activeIndex, cardWidth, N]);
 
   // When step reaches N (the duplicate first card), wait for the transition
   // to finish, then silently jump back to step 0 with the transition disabled.
-  // The visual at step=0 is identical to the visual at step=N (it's the same
-  // card art in both positions), so the reset is invisible.
   useEffect(() => {
     if (step !== N) return;
     const t = setTimeout(() => {
       setTransitioning(false);
       setStep(0);
-      // Re-enable the transition AFTER the browser has applied the reset.
-      // Two rAFs are needed so the no-transition style is committed before
-      // we re-enable, otherwise the transition would animate the reset.
       requestAnimationFrame(() => {
         requestAnimationFrame(() => setTransitioning(true));
       });
     }, TRANSITION_MS + 30);
     return () => clearTimeout(t);
-  }, [step]);
+  }, [step, N]);
 
-  // Compute the track translate. We want the card at index `step` centered in
-  // the viewport, so:
-  //   translateX = (viewportWidth - cardWidth) / 2 - step * (cardWidth + GAP_PX)
-  // The first term centers card 0 at step=0; the second term scrolls left as
-  // step increases. We round to whole pixels to avoid sub-pixel rendering
-  // artifacts (the original source of the jitter on the previous approach).
   const translateX =
     viewportWidth > 0 && cardWidth > 0
       ? Math.round((viewportWidth - cardWidth) / 2 - step * (cardWidth + GAP_PX))
       : 0;
 
-  // A card counts as "active" if its position in loopItems matches `step`
-  // OR if it's the original (index < N) counterpart of the duplicate first
-  // card we're currently showing (step === N). Marking both as active during
-  // the reset frame means the card at index 0 is ALREADY scaled up when the
-  // silent jump from step=N to step=0 happens — no second zoom animation.
   function isActive(i: number) {
     if (i === step) return true;
     if (step === N && i === 0) return true;
@@ -137,10 +187,6 @@ export function TrustBoxesRow() {
           >
             {loopItems.map(([title, text], i) => {
               const active = isActive(i);
-              // Disable the card's own scale/opacity transition while the
-              // track transition is disabled (i.e. during the silent reset).
-              // Otherwise the duplicate at index N and the original at index 0
-              // visibly hand off the active state, restarting the zoom.
               const cardTransition = transitioning ? "transition-all duration-300 ease-out" : "";
               const headingTransition = transitioning ? "transition-all duration-300" : "";
               return (

@@ -104,10 +104,10 @@ export function SiteHeader() {
     <header ref={headerRef} className="sticky top-0 z-40 border-b border-coral-200 bg-white/95 backdrop-blur">
       <div className="container-shell flex items-center justify-between gap-6 py-4">
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 text-lg text-white">🐾</div>
+          <img src="/logo-mark.svg" alt="" width="44" height="44" className="h-11 w-11" />
           <div>
             <div className="text-sm font-semibold text-brand-700">Interactive Pet Marketplace</div>
-            <div className="hidden sm:block text-xs text-slate-500">Interactive & AI companion guides</div>
+            <div className="hidden sm:block text-xs text-slate-500">Interactive &amp; AI companion guides</div>
           </div>
         </Link>
         <nav className="hidden items-center gap-6 lg:flex">
