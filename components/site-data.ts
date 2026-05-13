@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-11T22:41:52.778Z
+// Generated: 2026-05-13T18:20:31.682Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -66,43 +66,6 @@ export const products: Product[] = [
     "priceLastChecked": "2026-05-07",
     "priceCategory": "Premium",
     "productUrl": "https://www.enabot.com/home-robot/ebo-x",
-    "imageUrl": "/images/products/interactive_pet_toys.png",
-    "flags": {
-      "gifts": true,
-      "topPick": false,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "ebo-max-familybot",
-    "name": "EBO Max FamilyBot",
-    "manufacturer": "Enabot",
-    "manufacturerAndProduct": "Enabot EBO Max FamilyBot",
-    "type": "AI & Robotic",
-    "category": "Robot",
-    "bestFor": [
-      "Seniors",
-      "Families"
-    ],
-    "blurb": "AI home monitoring robot and AI Assistant designed to keep your home, pets, and loved ones connected and secure. The robot pet camera lets you check in and visit anytime from your smartphone. Monitors home and family. Sends alerts when anomalies are detected.",
-    "features": [
-      "Fall Detection",
-      "Intelligent Patrol",
-      "Multimodal AI"
-    ],
-    "highlight": "Intelligent companion, assistant, and home monitor.",
-    "rating": 0,
-    "reviewCount": 0,
-    "ratingSource": "Enabot Store",
-    "ratingLastChecked": "2026-05-07",
-    "ratingUrl": "https://store.enabot.com/products/ebo-x-familybot",
-    "price": "$549.00",
-    "priceSource": "Enabot Store",
-    "priceLastChecked": "2026-05-07",
-    "priceCategory": "Premium",
-    "productUrl": "https://www.enabot.com/home-robot/ebo-max",
     "imageUrl": "/images/products/interactive_pet_toys.png",
     "flags": {
       "gifts": true,
