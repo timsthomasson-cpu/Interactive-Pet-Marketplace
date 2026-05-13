@@ -61,7 +61,7 @@ export function GroupedProducts({ items, pageName }: { items: typeof products; p
     {/* MOBILE: heading sticks below the pills nav while its cards scroll past.
         Next heading pushes this one out of view when it enters the same zone. */}
     <h3
-      className="text-center sm:text-left text-[2.25rem] leading-tight font-bold tracking-tight text-slate-900 sm:text-3xl sticky z-30 bg-white/95 backdrop-blur py-3 -mx-4 px-4 border-b border-coral-100 sm:static sm:bg-transparent sm:backdrop-blur-none sm:py-0 sm:mx-0 sm:px-0 sm:border-0"
+      className="text-center sm:text-left text-xl leading-tight font-bold tracking-tight text-slate-900 sm:text-3xl sticky z-30 bg-white/95 backdrop-blur py-2 -mx-4 px-4 border-b border-coral-100 sm:static sm:bg-transparent sm:backdrop-blur-none sm:py-0 sm:mx-0 sm:px-0 sm:border-0"
       style={{ top: "var(--header-height, 124px)" }}
     >
       {pageName ? `${section.title} - ${pageName}` : section.title}

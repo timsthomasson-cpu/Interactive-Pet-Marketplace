@@ -16,7 +16,7 @@ export function ProductCard({ product }: { product: Product }) {
             <img
               src={product.imageUrl}
               alt={product.name}
-              className="block h-36 sm:h-56 w-full object-cover"
+              className="block h-44 sm:h-56 w-full object-contain sm:object-cover"
             />
           </div>
         ) : (
