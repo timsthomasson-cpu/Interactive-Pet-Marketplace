@@ -129,12 +129,13 @@ export default function AboutPage() {
             </h2>
             <div className="mt-5 space-y-4 text-base leading-7 text-slate-700">
               <p>
-                Smart Pets Marketplace participates in affiliate programs,
-                including the Amazon Associates Program. When you click a
-                "View Details" or product link on this site and go on to buy,
-                we may earn a small commission at no extra cost to you. This
-                commission helps fund the time it takes to research products,
-                verify prices, and keep the site running.
+                Smart Pets Marketplace may participate in affiliate programs.
+                If you click a "View Details" or product link on this site and
+                go on to buy, we may earn a small commission at no extra cost
+                to you. Any commissions help fund the time it takes to research
+                products, verify prices, and keep the site running. Specific
+                affiliate programs we participate in will be listed here once
+                they are active.
               </p>
               <p>
                 Earning a commission does not change which products appear on
@@ -163,11 +164,12 @@ export default function AboutPage() {
         <div className="container-shell">
           <div className="card p-6 sm:p-10 text-center">
             <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-              Spotted something we should fix?
+              Have any questions or suggestions?
             </h2>
             <p className="mt-3 text-base leading-7 text-slate-700">
-              If a price looks wrong, a feature is outdated, or a product is
-              missing from a category where it belongs — we want to know.
+              Whether you're trying to decide between two products, want to
+              suggest a pet we should review, or noticed something on the site
+              that doesn't look right — we'd like to hear from you.
             </p>
             <Link
               href="/contact"

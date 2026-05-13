@@ -168,7 +168,7 @@ export function SiteFooter() {
         </div>
         <div className="mt-10 border-t border-coral-200 pt-6">
           <p className="text-xs leading-6 text-slate-500">
-            Smart Pets Marketplace participates in affiliate programs and may earn a commission when you buy through links on this site, at no extra cost to you. See our <Link href="/about#affiliate-disclosure" className="underline hover:text-brand-700">full affiliate disclosure</Link> for details.
+            Smart Pets Marketplace may participate in affiliate programs and may earn a commission when you buy through links on this site, at no extra cost to you. See our <Link href="/about#affiliate-disclosure" className="underline hover:text-brand-700">full affiliate disclosure</Link> for details.
           </p>
         </div>
       </div>
