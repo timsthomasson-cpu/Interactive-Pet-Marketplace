@@ -15,7 +15,9 @@ const shopForNav = [
 ];
 const tailNav = [
   { href:"/compare", label:"Compare" },
-  { href:"/questions", label:"Questions?" }
+  { href:"/questions", label:"Questions?" },
+  { href:"/about", label:"About" },
+  { href:"/contact", label:"Contact" }
 ];
 
 function ShopForDropdown() {
@@ -110,7 +112,7 @@ export function SiteHeader() {
             <div className="hidden sm:block text-xs text-slate-500">Interactive &amp; AI companion guides</div>
           </div>
         </Link>
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-5 lg:flex">
           {mainNav.map((item)=><Link key={item.href} href={item.href} className="text-sm font-medium text-slate-700 transition hover:text-brand-700">{item.label}</Link>)}
           <ShopForDropdown />
           {tailNav.map((item)=><Link key={item.href} href={item.href} className="text-sm font-medium text-slate-700 transition hover:text-brand-700">{item.label}</Link>)}
