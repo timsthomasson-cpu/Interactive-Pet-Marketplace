@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-13T23:18:00.351Z
+// Generated: 2026-05-13T23:38:44.729Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -38,6 +38,80 @@ export type Product = {
 };
 
 export const products: Product[] = [
+  {
+    "slug": "breathing-red-panda-plush",
+    "name": "Breathing Red Panda Plush",
+    "manufacturer": "Chongker",
+    "manufacturerAndProduct": "Chongker Breathing Red Panda Plush",
+    "type": "Interactive",
+    "category": "Panda",
+    "bestFor": [
+      "Seniors",
+      "Children"
+    ],
+    "blurb": "Lifelike red panda plush with realistic breathing simulation. A weighted, calming companion designed for stress relief, anxiety support, and quiet comfort. Hand-crafted for exceptional detail.",
+    "features": [
+      "Realistic breathing motion",
+      "Weighted plush body",
+      "Calming companion"
+    ],
+    "highlight": "Unique anxiety relief",
+    "rating": 5,
+    "reviewCount": 2,
+    "ratingSource": "Chongker website",
+    "ratingLastChecked": "2026-05-11",
+    "ratingUrl": "https://chongker.com/collections/interactive-stuffed-animals",
+    "price": "$119.00",
+    "priceSource": "Chongker Website",
+    "priceLastChecked": "2026-05-08",
+    "priceCategory": "Best Value",
+    "productUrl": "https://chongker.com/products/breathing-red-panda",
+    "imageUrl": "/images/products/red_panda.png",
+    "flags": {
+      "gifts": true,
+      "topPick": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "matecat-1-1",
+    "name": "MateCat 1.1",
+    "manufacturer": "Chongker",
+    "manufacturerAndProduct": "Chongker MateCat 1.1",
+    "type": "Interactive",
+    "category": "Cat",
+    "bestFor": [
+      "Seniors",
+      "Children"
+    ],
+    "blurb": "Companion robot cat designed for sensory comfort. Touch-responsive sensors trigger purrs, meows, and gentle movements. Studied through 200+ hours of real cat behavior simulation. Heartbeat feature provides a calming, realistic experience.",
+    "features": [
+      "Touch-sensitive zones",
+      "Realistic heartbeat",
+      "Sensory comfort design"
+    ],
+    "highlight": "Calming, anxiety reducing actions and feel.",
+    "rating": 4,
+    "reviewCount": 2,
+    "ratingSource": "Chongker website",
+    "ratingLastChecked": "2026-05-11",
+    "ratingUrl": "https://chongker.com/products/matecat10-interactive-cat",
+    "price": "$149.00",
+    "priceSource": "Chongker Website",
+    "priceLastChecked": "2026-05-08",
+    "priceCategory": "Best Value",
+    "productUrl": "https://chongker.com/products/matecat10-interactive-cat",
+    "imageUrl": "/images/products/Chongker-Percy-Mate-Cat-1.1.jpg",
+    "flags": {
+      "gifts": true,
+      "topPick": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
   {
     "slug": "matecat-pro",
     "name": "MateCat Pro",
@@ -76,6 +150,43 @@ export const products: Product[] = [
     }
   },
   {
+    "slug": "percy-1-1-robotic-companion-dog",
+    "name": "Percy 1.1 Robotic Companion Dog",
+    "manufacturer": "Chongker",
+    "manufacturerAndProduct": "Chongker Percy 1.1 Robotic Companion Dog",
+    "type": "Interactive",
+    "category": "Dog",
+    "bestFor": [
+      "Seniors",
+      "Children"
+    ],
+    "blurb": "Handmade realistic robotic dog with weighted body for sensory comfort, touch sensors, and a calming heartbeat simulation. Crafted through 30+ steps for exceptional detail. Charges via USB-C with 8+ hours of battery.",
+    "features": [
+      "Weighted comfort design",
+      "Touch & heartbeat sensors",
+      "USB-C rechargeable"
+    ],
+    "highlight": "Most affordable interactive dog",
+    "rating": 5,
+    "reviewCount": 5,
+    "ratingSource": "",
+    "ratingLastChecked": "2026-05-11",
+    "ratingUrl": "https://chongker.com/products/percy-1-1-robotic-dog-border-collie-robotic-companion-dog",
+    "price": "$89.00",
+    "priceSource": "Chongker Website",
+    "priceLastChecked": "2026-05-08",
+    "priceCategory": "Budget Friendly",
+    "productUrl": "https://chongker.com/products/percy-robotic-dog-companion-designed-for-comfort",
+    "imageUrl": "/images/products/Percy-1.1-Robotic-Companion-Dog.png",
+    "flags": {
+      "gifts": true,
+      "topPick": true,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
     "slug": "percy-robot-cat",
     "name": "Percy Robot Cat",
     "manufacturer": "Chongker",
@@ -104,43 +215,6 @@ export const products: Product[] = [
     "priceCategory": "Budget Friendly",
     "productUrl": "https://chongker.com/products/percy-interactive-cat",
     "imageUrl": "/images/products/Chongker-Percy-Robot-Cat.jpg",
-    "flags": {
-      "gifts": true,
-      "topPick": false,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "matecat-1-1",
-    "name": "MateCat 1.1",
-    "manufacturer": "Chongker",
-    "manufacturerAndProduct": "Chongker MateCat 1.1",
-    "type": "Interactive",
-    "category": "Cat",
-    "bestFor": [
-      "Seniors",
-      "Children"
-    ],
-    "blurb": "Companion robot cat designed for sensory comfort. Touch-responsive sensors trigger purrs, meows, and gentle movements. Studied through 200+ hours of real cat behavior simulation. Heartbeat feature provides a calming, realistic experience.",
-    "features": [
-      "Touch-sensitive zones",
-      "Realistic heartbeat",
-      "Sensory comfort design"
-    ],
-    "highlight": "Calming, anxiety reducing actions and feel.",
-    "rating": 4,
-    "reviewCount": 2,
-    "ratingSource": "Chongker website",
-    "ratingLastChecked": "2026-05-11",
-    "ratingUrl": "https://chongker.com/products/matecat10-interactive-cat",
-    "price": "$149.00",
-    "priceSource": "Chongker Website",
-    "priceLastChecked": "2026-05-08",
-    "priceCategory": "Best Value",
-    "productUrl": "https://chongker.com/products/matecat10-interactive-cat",
-    "imageUrl": "/images/products/Chongker-Percy-Mate-Cat-1.1.jpg",
     "flags": {
       "gifts": true,
       "topPick": false,
@@ -335,154 +409,6 @@ export const products: Product[] = [
     }
   },
   {
-    "slug": "18011-smart-robot-dog",
-    "name": "18011 Smart Robot Dog",
-    "manufacturer": "Ruko",
-    "manufacturerAndProduct": "Ruko 18011 Smart Robot Dog",
-    "type": "AI & Robotic",
-    "category": "Dog",
-    "bestFor": [
-      "Children",
-      "Families"
-    ],
-    "blurb": "Ruko 18011 Smart Robot Dog is an interactive robot puppy with touch response, LED facial expressions, gesture control, and programmable actions. Designed for kids, it encourages creativity, STEM learning, and engaging screen-free play.",
-    "features": [
-      "Spins, slides and dances",
-      "Programmable",
-      "30+ Interactive faces"
-    ],
-    "highlight": "Fun, affordable,  programmable robot puppy",
-    "rating": 4.4,
-    "reviewCount": 283,
-    "ratingSource": "Amazon",
-    "ratingLastChecked": "2026-05-08",
-    "ratingUrl": "https://www.amazon.com/Ruko-18011-Interactive-Expressions-Programmable/dp/B0FLXCXPHD/ref=sr_1_2_sspa?crid=46F3EM563RH2&dib=eyJ2IjoiMSJ9.5Gly7Ov9TtkvwLAe4rZwH2l-BTiwaFOMLi92o4eo2efL59RBhuAyz5dL1llQO9Oq3VOvL554UZdKGuCvEr0aULc0FuaW-0tXMv-Su3A0pJUYX216NZD-8OUNQh6gxNKl8ATh6D7HDFqXqh-HftmgAbHCQTy9hU7JIHWTap9VCLBOTqG63pGqH1CMk2nheo8GFwKFgq-JlfQJBXAYeXfjdZ53H5tQAmhJmbXnYWxOCYV0NtCgyyMVmml1rR7tZkoyjG_4I2LrxuOnAJYrH2drbxe-cORLKoeEvdhhs7eZVRM.AAyl4FwdoPkwE97T990tA9oBb3kFfNjZ571FnV0wajE&dib_tag=se&keywords=ruko%2Brobot&qid=1778539008&s=toys-and-games&sprefix=ruko%2Ctoys-and-games%2C220&sr=1-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
-    "price": "$69.99",
-    "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-08",
-    "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Ruko-18011-Interactive-Expressions-Programmable/dp/B0FLXCXPHD/ref=sr_1_2_sspa?crid=3Q84O44BMP4I1&dib=eyJ2IjoiMSJ9.5Gly7Ov9TtkvwLAe4rZwH2l-BTiwaFOMLi92o4eo2efL59RBhuAyz5dL1llQO9Oq3VOvL554UZdKGuCvEr0aULc0FuaW-0tXMv-Su3A0pJUYX216NZD-8OUNQh6gxNKl8ATh6D7HDFqXqh-HftmgAQSnm2CAImjyhEseHeartYBrk0RKnk_qongpk7N2LmhhFwKFgq-JlfQJBXAYeXfjdZ53H5tQAmhJmbXnYWxOCYV0NtCgyyMVmml1rR7tZkoyjG_4I2LrxuOnAJYrH2drb6GCU0NIUssYnsjouZhfUF4.-br2EkX1bjJZyuScMeKTaBh68fd6MSebkMG0MoeTeO0&dib_tag=se&keywords=ruko%2Brobot&qid=1778524458&sprefix=ruko%2Caps%2C210&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
-    "imageUrl": "/images/products/Ruko-18001-Smart-Robot-Dog.png",
-    "flags": {
-      "gifts": true,
-      "topPick": true,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "robot-pet-dog",
-    "name": "Robot Pet Dog",
-    "manufacturer": "Loona",
-    "manufacturerAndProduct": "Loona Robot Pet Dog",
-    "type": "AI & Robotic",
-    "category": "Dog",
-    "bestFor": [
-      "Children",
-      "Families"
-    ],
-    "blurb": "Loona Robot Pet Dog is an AI-powered robot pet with voice interaction, facial recognition, touch response, and smart home monitoring. Designed for kids and families, Loona delivers interactive companionship, learning, and entertainment.",
-    "features": [
-      "Recognizes faces",
-      "Voice Command Enabled",
-      "Auto Re-charge"
-    ],
-    "highlight": "",
-    "rating": 4.2,
-    "reviewCount": 1199,
-    "ratingSource": "Amazon",
-    "ratingLastChecked": "2026-05-08",
-    "ratingUrl": "https://www.amazon.com/Loona-ChatGPT-4o-AI-Powered-Interaction-Monitoring/dp/B0DCF53PCH/ref=sr_1_1_sspa?crid=LXSZQC579ZUJ&dib=eyJ2IjoiMSJ9.fRTz6IKj5O3hiZ4V3RbIiqzYkMvGWX1yxIfmBNQ2bPEXhXF8Ry2nqncmMGEv7evRpJaa3U9aWxY1MQkhTgdPIV6Wjq-bFAK8cz4LIVjlEwH6W3j7kAEh6OD6pXtvOtnElQhMvBxTEwFpCiEYHVGyhpXxpCYzj1C2k8p3eIaIxYpRdd5pCvCtpNx-q-dgV8LfuIsu2pUkkgQks54gIUrjn4mpoOq0hqlBJXm_aPrP6Bi0oNJqD9loGYkwNNTqGtcUJYHc5fRntYIBPwj9_pE6lRUuH1CiB6ijg6RWmc0N6oE.9xo2lpag-NNW4-lvsbZ84aWH32CcaxXnQJs2fXDBXV8&dib_tag=se&keywords=loona%2Brobot&qid=1778539102&s=toys-and-games&sprefix=loona%2Ctoys-and-games%2C257&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
-    "price": "$499.00",
-    "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-08",
-    "priceCategory": "Premium",
-    "productUrl": "https://www.amazon.com/Loona-ChatGPT-4o-AI-Powered-Interaction-Monitoring/dp/B0DCF53PCH/ref=sr_1_1_sspa?crid=2DBOX8S0Q2AR6&dib=eyJ2IjoiMSJ9.fRTz6IKj5O3hiZ4V3RbIiqzYkMvGWX1yxIfmBNQ2bPG8a8X70ewO_kByz-KXp50JfmUuJx9rrIjkexZxX4nWSVxWP_bUrHWGWHPfZnhgH5GMVf6Rltx3FiivEWa9A_74tX_ykUsCTRmHEZ_IwI-5pdDeOvDpmzf07kmD73czlJ5S56lz7gAFPcJ9cgVfwD2yW0a7rgFB4N8XbcF4FmsoLN4nTZhHdGzE2qW01-CozMdL5maZB9Wotwoz672FPyl4IOivur7Z3Gj71yWxlpzykJORSvNzc5nhys8YwW1Zl90.csUcqcC85C04azO69LCOq0bdtEXSzk6YfX_vospSKeE&dib_tag=se&keywords=loona%2Brobot%2Bdog&qid=1778524541&sprefix=loona%2Caps%2C177&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
-    "imageUrl": "/images/products/Loona-Robot-Pet-Dog.png",
-    "flags": {
-      "gifts": true,
-      "topPick": true,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "kamomo",
-    "name": "KAMOMO",
-    "manufacturer": "Ropet",
-    "manufacturerAndProduct": "Ropet KAMOMO",
-    "type": "Interactive",
-    "category": "Robot",
-    "bestFor": [
-      "children",
-      "Families"
-    ],
-    "blurb": "Ropet KAMOMO AI Robot Pet is an interactive AI robot pet with lifelike emotions, touch response, and voice interaction. Designed for companionship, stress relief, and family fun, it reacts to attention and creates engaging daily interactions.",
-    "features": [
-      "Touch & motion response",
-      "Enhances nurturing skills",
-      "Builds personal connections"
-    ],
-    "highlight": "Ultimate AI Interactions",
-    "rating": 4.3,
-    "reviewCount": 17,
-    "ratingSource": "Amazon",
-    "ratingLastChecked": "2026-05-10",
-    "ratingUrl": "https://www.amazon.com/ropet-Companion-Interactive-Emotional-Support/dp/B0GTPZ4N4M/ref=sr_1_1_sspa?crid=X2VCF2RXTW0X&dib=eyJ2IjoiMSJ9.9kRHdzgs52yEbstiCw5zkAPTqsRrmdj6gtNMFXMLDlJkGhu-bMFjN2LPlQeMj_e5sIeb5ythEPfeSxEXaQ7SJNt6miVnmQauQGaBVBQr-uHpeqC0g9-FoCvhSY-M0M0g_ViUa98yIz9hfQ6zBvbvtKtEGq5_c9U6vgqbi7-bmgOjUxCEjM0undxnj77JdOTRshgmW-1cJJGhBPKrkqh8zJAa5LvZ8CA-_HfQmfk-R06uBcBkELLdF6WaOOON7xE2dQPBH2QaCNB93wVYWobCpXjdRSQwghIJV3xYyxknb7E.UfBT7o_7AglidAtI5mfWXYBglVtblPYmTisiFlaKA3M&dib_tag=se&keywords=ropet&qid=1778538905&s=toys-and-games&sprefix=ropet+%2Ctoys-and-games%2C220&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
-    "price": "$329.00",
-    "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-10",
-    "priceCategory": "Premium",
-    "productUrl": "https://ropetai.com/products/ropet%E2%84%A2-ai-comfort-companion-plush-robot",
-    "imageUrl": "/images/products/Ropet-Kamomo.png",
-    "flags": {
-      "gifts": true,
-      "topPick": true,
-      "camera": true,
-      "internetAccess": true,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "dj-furby",
-    "name": "DJ Furby",
-    "manufacturer": "Furby",
-    "manufacturerAndProduct": "Furby DJ Furby",
-    "type": "AI & Robotic",
-    "category": "Robot",
-    "bestFor": [
-      "Children",
-      "Families"
-    ],
-    "blurb": "DJ Furby Interactive Plush is an interactive electronic pet with voice activation, music, lights, and touch response. Furby encourages imaginative play, conversation, and screen-free entertainment for kids and nostalgic collectors alike.",
-    "features": [
-      "chats, laughs, and dances",
-      "Voice activated",
-      "Amazon Overall Pick"
-    ],
-    "highlight": "Affordable Super-fun intelligent toy",
-    "rating": 4.8,
-    "reviewCount": 772,
-    "ratingSource": "Amazon",
-    "ratingLastChecked": "2026-05-08",
-    "ratingUrl": "https://www.amazon.com/Furby-G0668-FURBY-Fur-Rainbow/dp/B0DNG9FXL7/ref=sr_1_1?crid=VY6MLD53A1RT&dib=eyJ2IjoiMSJ9.402EMJ7f_ZC-s54vTZnqiH4syK2v1SdhINs9tpdLNBUZU-w2GGYe8yQd0pzwTMs9xBxXp3-p30mlQ5vqZ0x-TVipBXGK333YL6dqyGMLcsVc5ZGlnk24QbqVRe9ODOJ5jRKRiacfWluZN1jaNhhuW1fa74-j2vUqFp6iVCd0uShAgLzTbttA6Cwb8nfCxayd9uwWdS4-jggKQLp-IYF6r34HfqfCAhFmnV2cl8xFtQxxvTNcN27JPFrX4zmMtuk_b4ZEwOuowITDwWtGN6ucXHJXCX7JdZtE-oPg5YmbcdM.UjE4yUXMjGw7yDfDGl8HdUM8QBcBWMPWjK550TccAmM&dib_tag=se&keywords=dj%2Bfurby&qid=1778539054&s=toys-and-games&sprefix=dj%2Bfurby%2Ctoys-and-games%2C235&sr=1-1&th=1",
-    "price": "$50.11",
-    "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-08",
-    "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/s?k=furby+dj&crid=1U6BER2BCWJV5&sprefix=furby+%2Caps%2C205&ref=nb_sb_ss_p13n-expert-pd-ops-ranker_7_6",
-    "imageUrl": "/images/products/DJ-Furby.png",
-    "flags": {
-      "gifts": true,
-      "topPick": true,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
     "slug": "companion-pet-cat-orange-tabby",
     "name": "Companion Pet Cat Orange Tabby",
     "manufacturer": "Joy for All",
@@ -668,6 +594,154 @@ export const products: Product[] = [
     }
   },
   {
+    "slug": "wuffy-robot-puppy",
+    "name": "Wuffy Robot Puppy",
+    "manufacturer": "Wuffy",
+    "manufacturerAndProduct": "Wuffy Wuffy Robot Puppy",
+    "type": "Interactive",
+    "category": "Dog",
+    "bestFor": [
+      "Children",
+      "Families"
+    ],
+    "blurb": "Affordable interactive robot puppy featuring touch sensors, walking, barking, and tail wagging. Runs on AA batteries with no app or Wi-Fi setup needed — instant out-of-box play. A kid-friendly starter pet alternative.",
+    "features": [
+      "Touch sensor responses",
+      "Walks, barks, wags",
+      "AA batteries — no app"
+    ],
+    "highlight": "Best price for interactive pet",
+    "rating": 3,
+    "reviewCount": 80,
+    "ratingSource": "Amazon",
+    "ratingLastChecked": "2026-05-09",
+    "ratingUrl": "https://www.amazon.com/chinatera-Wuffy-Robot-Dog-Lifelike/dp/B0GBVGT2TT/ref=sr_1_4?crid=MNXD8CZH5YEV&dib=eyJ2IjoiMSJ9.i_tCHpgxpk0FPJlKxc8tmurS2drN-O1cFpparDV-5dl35TwFC6ems-tsDiAyskF_9B3xvBbUvjP5x56dyVD6f5sGhY-qSNHcZyvjgSmxMAYieOB52GM1W-1z4-2NgoN3.a7Ck7KBmtYBU37IrxfgTYHNpJnij0qyKGBGoj0bq5Pk&dib_tag=se&keywords=wuffy&qid=1778538852&s=toys-and-games&sprefix=wuffy%2Ctoys-and-games%2C198&sr=1-4&th=1",
+    "price": "$25.99",
+    "priceSource": "Amazon",
+    "priceLastChecked": "2026-05-09",
+    "priceCategory": "Budget Friendly",
+    "productUrl": "https://www.amazon.com/s?k=wuffy+robot+dog&crid=19CKEYDLEBH6A&sprefix=wuffy%2Caps%2C185&ref=nb_sb_ss_p13n-expert-pd-ops-ranker_1_5",
+    "imageUrl": "/images/products/wuffy.png",
+    "flags": {
+      "gifts": true,
+      "topPick": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "dj-furby",
+    "name": "DJ Furby",
+    "manufacturer": "Furby",
+    "manufacturerAndProduct": "Furby DJ Furby",
+    "type": "AI & Robotic",
+    "category": "Robot",
+    "bestFor": [
+      "Children",
+      "Families"
+    ],
+    "blurb": "DJ Furby Interactive Plush is an interactive electronic pet with voice activation, music, lights, and touch response. Furby encourages imaginative play, conversation, and screen-free entertainment for kids and nostalgic collectors alike.",
+    "features": [
+      "chats, laughs, and dances",
+      "Voice activated",
+      "Amazon Overall Pick"
+    ],
+    "highlight": "Affordable Super-fun intelligent toy",
+    "rating": 4.8,
+    "reviewCount": 772,
+    "ratingSource": "Amazon",
+    "ratingLastChecked": "2026-05-08",
+    "ratingUrl": "https://www.amazon.com/Furby-G0668-FURBY-Fur-Rainbow/dp/B0DNG9FXL7/ref=sr_1_1?crid=VY6MLD53A1RT&dib=eyJ2IjoiMSJ9.402EMJ7f_ZC-s54vTZnqiH4syK2v1SdhINs9tpdLNBUZU-w2GGYe8yQd0pzwTMs9xBxXp3-p30mlQ5vqZ0x-TVipBXGK333YL6dqyGMLcsVc5ZGlnk24QbqVRe9ODOJ5jRKRiacfWluZN1jaNhhuW1fa74-j2vUqFp6iVCd0uShAgLzTbttA6Cwb8nfCxayd9uwWdS4-jggKQLp-IYF6r34HfqfCAhFmnV2cl8xFtQxxvTNcN27JPFrX4zmMtuk_b4ZEwOuowITDwWtGN6ucXHJXCX7JdZtE-oPg5YmbcdM.UjE4yUXMjGw7yDfDGl8HdUM8QBcBWMPWjK550TccAmM&dib_tag=se&keywords=dj%2Bfurby&qid=1778539054&s=toys-and-games&sprefix=dj%2Bfurby%2Ctoys-and-games%2C235&sr=1-1&th=1",
+    "price": "$50.11",
+    "priceSource": "Amazon",
+    "priceLastChecked": "2026-05-08",
+    "priceCategory": "Budget Friendly",
+    "productUrl": "https://www.amazon.com/s?k=furby+dj&crid=1U6BER2BCWJV5&sprefix=furby+%2Caps%2C205&ref=nb_sb_ss_p13n-expert-pd-ops-ranker_7_6",
+    "imageUrl": "/images/products/DJ-Furby.png",
+    "flags": {
+      "gifts": true,
+      "topPick": true,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "robot-pet-dog",
+    "name": "Robot Pet Dog",
+    "manufacturer": "Loona",
+    "manufacturerAndProduct": "Loona Robot Pet Dog",
+    "type": "AI & Robotic",
+    "category": "Dog",
+    "bestFor": [
+      "Children",
+      "Families"
+    ],
+    "blurb": "Loona Robot Pet Dog is an AI-powered robot pet with voice interaction, facial recognition, touch response, and smart home monitoring. Designed for kids and families, Loona delivers interactive companionship, learning, and entertainment.",
+    "features": [
+      "Recognizes faces",
+      "Voice Command Enabled",
+      "Auto Re-charge"
+    ],
+    "highlight": "",
+    "rating": 4.2,
+    "reviewCount": 1199,
+    "ratingSource": "Amazon",
+    "ratingLastChecked": "2026-05-08",
+    "ratingUrl": "https://www.amazon.com/Loona-ChatGPT-4o-AI-Powered-Interaction-Monitoring/dp/B0DCF53PCH/ref=sr_1_1_sspa?crid=LXSZQC579ZUJ&dib=eyJ2IjoiMSJ9.fRTz6IKj5O3hiZ4V3RbIiqzYkMvGWX1yxIfmBNQ2bPEXhXF8Ry2nqncmMGEv7evRpJaa3U9aWxY1MQkhTgdPIV6Wjq-bFAK8cz4LIVjlEwH6W3j7kAEh6OD6pXtvOtnElQhMvBxTEwFpCiEYHVGyhpXxpCYzj1C2k8p3eIaIxYpRdd5pCvCtpNx-q-dgV8LfuIsu2pUkkgQks54gIUrjn4mpoOq0hqlBJXm_aPrP6Bi0oNJqD9loGYkwNNTqGtcUJYHc5fRntYIBPwj9_pE6lRUuH1CiB6ijg6RWmc0N6oE.9xo2lpag-NNW4-lvsbZ84aWH32CcaxXnQJs2fXDBXV8&dib_tag=se&keywords=loona%2Brobot&qid=1778539102&s=toys-and-games&sprefix=loona%2Ctoys-and-games%2C257&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+    "price": "$499.00",
+    "priceSource": "Amazon",
+    "priceLastChecked": "2026-05-08",
+    "priceCategory": "Premium",
+    "productUrl": "https://www.amazon.com/Loona-ChatGPT-4o-AI-Powered-Interaction-Monitoring/dp/B0DCF53PCH/ref=sr_1_1_sspa?crid=2DBOX8S0Q2AR6&dib=eyJ2IjoiMSJ9.fRTz6IKj5O3hiZ4V3RbIiqzYkMvGWX1yxIfmBNQ2bPG8a8X70ewO_kByz-KXp50JfmUuJx9rrIjkexZxX4nWSVxWP_bUrHWGWHPfZnhgH5GMVf6Rltx3FiivEWa9A_74tX_ykUsCTRmHEZ_IwI-5pdDeOvDpmzf07kmD73czlJ5S56lz7gAFPcJ9cgVfwD2yW0a7rgFB4N8XbcF4FmsoLN4nTZhHdGzE2qW01-CozMdL5maZB9Wotwoz672FPyl4IOivur7Z3Gj71yWxlpzykJORSvNzc5nhys8YwW1Zl90.csUcqcC85C04azO69LCOq0bdtEXSzk6YfX_vospSKeE&dib_tag=se&keywords=loona%2Brobot%2Bdog&qid=1778524541&sprefix=loona%2Caps%2C177&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+    "imageUrl": "/images/products/Loona-Robot-Pet-Dog.png",
+    "flags": {
+      "gifts": true,
+      "topPick": true,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "grey-tabby-cat",
+    "name": "Grey Tabby Cat",
+    "manufacturer": "Perfect Petzzz",
+    "manufacturerAndProduct": "Perfect Petzzz Grey Tabby Cat",
+    "type": "Interactive",
+    "category": "Cat",
+    "bestFor": [
+      "Children",
+      "Seniors"
+    ],
+    "blurb": "Perfect Petzzz Original Calico Cat is a lifelike breathing plush cat with soft fur and realistic sleeping motions. Provides calming companionship for seniors, children, and cat lovers without the care and upkeep of a live pet.",
+    "features": [
+      "Very affordable",
+      "Breathes",
+      "Soft and cuddly"
+    ],
+    "highlight": "Affordable  breathing, super cuddly cat.",
+    "rating": 4.3,
+    "reviewCount": 848,
+    "ratingSource": "Amazon",
+    "ratingLastChecked": "2026-05-08",
+    "ratingUrl": "https://www.amazon.com/s?k=perfect+petzzz&i=toys-and-games&crid=1Y0BRIT7Y8BFM&sprefix=perfect%2Ctoys-and-games%2C228&ref=nb_sb_ss_saint-nlq-prefix_ci_hl-bn-left_1_11",
+    "price": "$44.45",
+    "priceSource": "Amazon",
+    "priceLastChecked": "2026-05-08",
+    "priceCategory": "Budget Friendly",
+    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Grey-Tabby-Cat/dp/B001TEYF84/ref=sr_1_8?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-8",
+    "imageUrl": "/images/products/Perfect-Petzzz-Grey-Tabby-Cat.png",
+    "flags": {
+      "gifts": true,
+      "topPick": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
     "slug": "original-beagle",
     "name": "Original Beagle",
     "manufacturer": "Perfect Petzzz",
@@ -699,6 +773,43 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "topPick": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "original-black-and-white-shorthair-cat",
+    "name": "Original Black and White Shorthair Cat",
+    "manufacturer": "Perfect Petzzz",
+    "manufacturerAndProduct": "Perfect Petzzz Original Black and White Shorthair Cat",
+    "type": "Interactive",
+    "category": "Cat",
+    "bestFor": [
+      "Children",
+      "Seniors"
+    ],
+    "blurb": "Perfect Petzzz Original Black and White Shorthair Cat is a lifelike breathing plush cat with soft fur and realistic sleeping motions. Provides calming companionship for seniors, children, and cat lovers without the care and upkeep of a live pet.",
+    "features": [
+      "Very affordable",
+      "Breathes",
+      "Soft and cuddly"
+    ],
+    "highlight": "Affordable  breathing, super cuddly cat.",
+    "rating": 4.4,
+    "reviewCount": 1200,
+    "ratingSource": "Amazon",
+    "ratingLastChecked": "2026-05-08",
+    "ratingUrl": "https://www.amazon.com/s?k=perfect+petzzz&i=toys-and-games&crid=1Y0BRIT7Y8BFM&sprefix=perfect%2Ctoys-and-games%2C228&ref=nb_sb_ss_saint-nlq-prefix_ci_hl-bn-left_1_13",
+    "price": "$44.45",
+    "priceSource": "Amazon",
+    "priceLastChecked": "2026-05-08",
+    "priceCategory": "Budget Friendly",
+    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Black-Shorthair-Kitten/dp/B003XSJ4YE/ref=sr_1_3_sspa?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    "imageUrl": "/images/products/Perfect-Petzzz-Original-Black-and-White-Shorthair-Cat.png",
+    "flags": {
+      "gifts": true,
+      "topPick": true,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -779,6 +890,43 @@ export const products: Product[] = [
     }
   },
   {
+    "slug": "original-plush-white-cat",
+    "name": "Original Plush White Cat",
+    "manufacturer": "Perfect Petzzz",
+    "manufacturerAndProduct": "Perfect Petzzz Original Plush White Cat",
+    "type": "Interactive",
+    "category": "Cat",
+    "bestFor": [
+      "Children",
+      "Seniors"
+    ],
+    "blurb": "Perfect Petzzz Original Plush White Cat is a lifelike breathing plush cat with soft fur and realistic sleeping motions. Provides calming companionship for seniors, children, and cat lovers without the care and upkeep of a live pet.",
+    "features": [
+      "Soft and cuddly",
+      "Very affordable",
+      "Breathes"
+    ],
+    "highlight": "Affordable  breathing, super cuddly cat.",
+    "rating": 4,
+    "reviewCount": 54,
+    "ratingSource": "Amazon",
+    "ratingLastChecked": "2026-05-08",
+    "ratingUrl": "https://www.amazon.com/s?k=perfect+petzzz&i=toys-and-games&crid=1Y0BRIT7Y8BFM&sprefix=perfect%2Ctoys-and-games%2C228&ref=nb_sb_ss_saint-nlq-prefix_ci_hl-bn-left_1_12",
+    "price": "$53.90",
+    "priceSource": "Amazon",
+    "priceLastChecked": "2026-05-08",
+    "priceCategory": "Budget Friendly",
+    "productUrl": "https://www.amazon.com/Perfect-Petzzz-4934-Peluche-Blanc/dp/B00CZC87Y2/ref=sr_1_7?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-7",
+    "imageUrl": "/images/products/Sweetie-White-Cat.png",
+    "flags": {
+      "gifts": true,
+      "topPick": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
     "slug": "original-shih-tzu",
     "name": "Original Shih Tzu",
     "manufacturer": "Perfect Petzzz",
@@ -807,154 +955,6 @@ export const products: Product[] = [
     "priceCategory": "Budget Friendly",
     "productUrl": "https://www.amazon.com/Perfect-Petzzz-Realistic-Interactive-Handcrafted/dp/B0040127N8/ref=sr_1_3_sspa?crid=2IOK13QU3Y39L&dib=eyJ2IjoiMSJ9.5idCvQyh45P0neoJ1RmhfCPIRFmNKkUOqHExgy1NckGrvJPqAP7UW2M-0R7w-CnSP0522PcNF1P9cGi6TuJZEAVtJlnkY2PmYS_wrdCeSKfTGSv6GfbTQM0UjROGll4DlZ9LriCiU1pkT0oRb0EwJS2dCOG4ve0cDOUiqTuKfDMowXf3c7LxGOEazm7ZZHiLCWBJIeELYJhg-Wz1MOIVPcxkzVB12ycX3FLjFpm-EGwEG31z63CiyoqW-3l1VRmRq2Q2M9uepGLq0sx0th6lTldAuBF8aww0-STwTsseZIs.gigFOXhWquu5yobhKyyoLwp_mkiYa01Ho9EEDEWgQHg&dib_tag=se&keywords=perfect%2Bpetzzz&qid=1778523937&sprefix=perfect%2Bpetzzz%2Caps%2C211&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
     "imageUrl": "/images/products/Mr-Shih-Tzu.png",
-    "flags": {
-      "gifts": true,
-      "topPick": true,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "percy-1-1-robotic-companion-dog",
-    "name": "Percy 1.1 Robotic Companion Dog",
-    "manufacturer": "Chongker",
-    "manufacturerAndProduct": "Chongker Percy 1.1 Robotic Companion Dog",
-    "type": "Interactive",
-    "category": "Dog",
-    "bestFor": [
-      "Seniors",
-      "Children"
-    ],
-    "blurb": "Handmade realistic robotic dog with weighted body for sensory comfort, touch sensors, and a calming heartbeat simulation. Crafted through 30+ steps for exceptional detail. Charges via USB-C with 8+ hours of battery.",
-    "features": [
-      "Weighted comfort design",
-      "Touch & heartbeat sensors",
-      "USB-C rechargeable"
-    ],
-    "highlight": "Most affordable interactive dog",
-    "rating": 5,
-    "reviewCount": 5,
-    "ratingSource": "",
-    "ratingLastChecked": "2026-05-11",
-    "ratingUrl": "https://chongker.com/products/percy-1-1-robotic-dog-border-collie-robotic-companion-dog",
-    "price": "$89.00",
-    "priceSource": "Chongker Website",
-    "priceLastChecked": "2026-05-08",
-    "priceCategory": "Budget Friendly",
-    "productUrl": "https://chongker.com/products/percy-robotic-dog-companion-designed-for-comfort",
-    "imageUrl": "/images/products/Percy-1.1-Robotic-Companion-Dog.png",
-    "flags": {
-      "gifts": true,
-      "topPick": true,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "breathing-red-panda-plush",
-    "name": "Breathing Red Panda Plush",
-    "manufacturer": "Chongker",
-    "manufacturerAndProduct": "Chongker Breathing Red Panda Plush",
-    "type": "Interactive",
-    "category": "Panda",
-    "bestFor": [
-      "Seniors",
-      "Children"
-    ],
-    "blurb": "Lifelike red panda plush with realistic breathing simulation. A weighted, calming companion designed for stress relief, anxiety support, and quiet comfort. Hand-crafted for exceptional detail.",
-    "features": [
-      "Realistic breathing motion",
-      "Weighted plush body",
-      "Calming companion"
-    ],
-    "highlight": "Unique anxiety relief",
-    "rating": 5,
-    "reviewCount": 2,
-    "ratingSource": "Chongker website",
-    "ratingLastChecked": "2026-05-11",
-    "ratingUrl": "https://chongker.com/collections/interactive-stuffed-animals",
-    "price": "$119.00",
-    "priceSource": "Chongker Website",
-    "priceLastChecked": "2026-05-08",
-    "priceCategory": "Best Value",
-    "productUrl": "https://chongker.com/products/breathing-red-panda",
-    "imageUrl": "/images/products/red_panda.png",
-    "flags": {
-      "gifts": true,
-      "topPick": false,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "grey-tabby-cat",
-    "name": "Grey Tabby Cat",
-    "manufacturer": "Perfect Petzzz",
-    "manufacturerAndProduct": "Perfect Petzzz Grey Tabby Cat",
-    "type": "Interactive",
-    "category": "Cat",
-    "bestFor": [
-      "Children",
-      "Seniors"
-    ],
-    "blurb": "Perfect Petzzz Original Calico Cat is a lifelike breathing plush cat with soft fur and realistic sleeping motions. Provides calming companionship for seniors, children, and cat lovers without the care and upkeep of a live pet.",
-    "features": [
-      "Very affordable",
-      "Breathes",
-      "Soft and cuddly"
-    ],
-    "highlight": "Affordable  breathing, super cuddly cat.",
-    "rating": 4.3,
-    "reviewCount": 848,
-    "ratingSource": "Amazon",
-    "ratingLastChecked": "2026-05-08",
-    "ratingUrl": "https://www.amazon.com/s?k=perfect+petzzz&i=toys-and-games&crid=1Y0BRIT7Y8BFM&sprefix=perfect%2Ctoys-and-games%2C228&ref=nb_sb_ss_saint-nlq-prefix_ci_hl-bn-left_1_11",
-    "price": "$44.45",
-    "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-08",
-    "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Grey-Tabby-Cat/dp/B001TEYF84/ref=sr_1_8?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-8",
-    "imageUrl": "/images/products/Sweetie-Calico-Cat.png",
-    "flags": {
-      "gifts": true,
-      "topPick": false,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "original-black-and-white-shorthair-cat",
-    "name": "Original Black and White Shorthair Cat",
-    "manufacturer": "Perfect Petzzz",
-    "manufacturerAndProduct": "Perfect Petzzz Original Black and White Shorthair Cat",
-    "type": "Interactive",
-    "category": "Cat",
-    "bestFor": [
-      "Children",
-      "Seniors"
-    ],
-    "blurb": "Perfect Petzzz Original Black and White Shorthair Cat is a lifelike breathing plush cat with soft fur and realistic sleeping motions. Provides calming companionship for seniors, children, and cat lovers without the care and upkeep of a live pet.",
-    "features": [
-      "Very affordable",
-      "Breathes",
-      "Soft and cuddly"
-    ],
-    "highlight": "Affordable  breathing, super cuddly cat.",
-    "rating": 4.4,
-    "reviewCount": 1200,
-    "ratingSource": "Amazon",
-    "ratingLastChecked": "2026-05-08",
-    "ratingUrl": "https://www.amazon.com/s?k=perfect+petzzz&i=toys-and-games&crid=1Y0BRIT7Y8BFM&sprefix=perfect%2Ctoys-and-games%2C228&ref=nb_sb_ss_saint-nlq-prefix_ci_hl-bn-left_1_13",
-    "price": "$44.45",
-    "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-08",
-    "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Black-Shorthair-Kitten/dp/B003XSJ4YE/ref=sr_1_3_sspa?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
-    "imageUrl": "/images/products/Sweetie-Calico-Cat.png",
     "flags": {
       "gifts": true,
       "topPick": true,
@@ -1001,74 +1001,74 @@ export const products: Product[] = [
     }
   },
   {
-    "slug": "original-plush-white-cat",
-    "name": "Original Plush White Cat",
-    "manufacturer": "Perfect Petzzz",
-    "manufacturerAndProduct": "Perfect Petzzz Original Plush White Cat",
+    "slug": "kamomo",
+    "name": "KAMOMO",
+    "manufacturer": "Ropet",
+    "manufacturerAndProduct": "Ropet KAMOMO",
     "type": "Interactive",
-    "category": "Cat",
+    "category": "Robot",
     "bestFor": [
-      "Children",
-      "Seniors"
+      "children",
+      "Families"
     ],
-    "blurb": "Perfect Petzzz Original Plush White Cat is a lifelike breathing plush cat with soft fur and realistic sleeping motions. Provides calming companionship for seniors, children, and cat lovers without the care and upkeep of a live pet.",
+    "blurb": "Ropet KAMOMO AI Robot Pet is an interactive AI robot pet with lifelike emotions, touch response, and voice interaction. Designed for companionship, stress relief, and family fun, it reacts to attention and creates engaging daily interactions.",
     "features": [
-      "Soft and cuddly",
-      "Very affordable",
-      "Breathes"
+      "Touch & motion response",
+      "Enhances nurturing skills",
+      "Builds personal connections"
     ],
-    "highlight": "Affordable  breathing, super cuddly cat.",
-    "rating": 4,
-    "reviewCount": 54,
+    "highlight": "Ultimate AI Interactions",
+    "rating": 4.3,
+    "reviewCount": 17,
     "ratingSource": "Amazon",
-    "ratingLastChecked": "2026-05-08",
-    "ratingUrl": "https://www.amazon.com/s?k=perfect+petzzz&i=toys-and-games&crid=1Y0BRIT7Y8BFM&sprefix=perfect%2Ctoys-and-games%2C228&ref=nb_sb_ss_saint-nlq-prefix_ci_hl-bn-left_1_12",
-    "price": "$53.90",
+    "ratingLastChecked": "2026-05-10",
+    "ratingUrl": "https://www.amazon.com/ropet-Companion-Interactive-Emotional-Support/dp/B0GTPZ4N4M/ref=sr_1_1_sspa?crid=X2VCF2RXTW0X&dib=eyJ2IjoiMSJ9.9kRHdzgs52yEbstiCw5zkAPTqsRrmdj6gtNMFXMLDlJkGhu-bMFjN2LPlQeMj_e5sIeb5ythEPfeSxEXaQ7SJNt6miVnmQauQGaBVBQr-uHpeqC0g9-FoCvhSY-M0M0g_ViUa98yIz9hfQ6zBvbvtKtEGq5_c9U6vgqbi7-bmgOjUxCEjM0undxnj77JdOTRshgmW-1cJJGhBPKrkqh8zJAa5LvZ8CA-_HfQmfk-R06uBcBkELLdF6WaOOON7xE2dQPBH2QaCNB93wVYWobCpXjdRSQwghIJV3xYyxknb7E.UfBT7o_7AglidAtI5mfWXYBglVtblPYmTisiFlaKA3M&dib_tag=se&keywords=ropet&qid=1778538905&s=toys-and-games&sprefix=ropet+%2Ctoys-and-games%2C220&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    "price": "$329.00",
     "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-08",
-    "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Perfect-Petzzz-4934-Peluche-Blanc/dp/B00CZC87Y2/ref=sr_1_7?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-7",
-    "imageUrl": "/images/products/Sweetie-White-Cat.png",
+    "priceLastChecked": "2026-05-10",
+    "priceCategory": "Premium",
+    "productUrl": "https://ropetai.com/products/ropet%E2%84%A2-ai-comfort-companion-plush-robot",
+    "imageUrl": "/images/products/Ropet-Kamomo.png",
     "flags": {
       "gifts": true,
-      "topPick": false,
-      "camera": false,
-      "internetAccess": false,
+      "topPick": true,
+      "camera": true,
+      "internetAccess": true,
       "affiliateAgreement": false
     }
   },
   {
-    "slug": "wuffy-robot-puppy",
-    "name": "Wuffy Robot Puppy",
-    "manufacturer": "Wuffy",
-    "manufacturerAndProduct": "Wuffy Wuffy Robot Puppy",
-    "type": "Interactive",
+    "slug": "18011-smart-robot-dog",
+    "name": "18011 Smart Robot Dog",
+    "manufacturer": "Ruko",
+    "manufacturerAndProduct": "Ruko 18011 Smart Robot Dog",
+    "type": "AI & Robotic",
     "category": "Dog",
     "bestFor": [
       "Children",
       "Families"
     ],
-    "blurb": "Affordable interactive robot puppy featuring touch sensors, walking, barking, and tail wagging. Runs on AA batteries with no app or Wi-Fi setup needed — instant out-of-box play. A kid-friendly starter pet alternative.",
+    "blurb": "Ruko 18011 Smart Robot Dog is an interactive robot puppy with touch response, LED facial expressions, gesture control, and programmable actions. Designed for kids, it encourages creativity, STEM learning, and engaging screen-free play.",
     "features": [
-      "Touch sensor responses",
-      "Walks, barks, wags",
-      "AA batteries — no app"
+      "Spins, slides and dances",
+      "Programmable",
+      "30+ Interactive faces"
     ],
-    "highlight": "Best price for interactive pet",
-    "rating": 3,
-    "reviewCount": 80,
+    "highlight": "Fun, affordable,  programmable robot puppy",
+    "rating": 4.4,
+    "reviewCount": 283,
     "ratingSource": "Amazon",
-    "ratingLastChecked": "2026-05-09",
-    "ratingUrl": "https://www.amazon.com/chinatera-Wuffy-Robot-Dog-Lifelike/dp/B0GBVGT2TT/ref=sr_1_4?crid=MNXD8CZH5YEV&dib=eyJ2IjoiMSJ9.i_tCHpgxpk0FPJlKxc8tmurS2drN-O1cFpparDV-5dl35TwFC6ems-tsDiAyskF_9B3xvBbUvjP5x56dyVD6f5sGhY-qSNHcZyvjgSmxMAYieOB52GM1W-1z4-2NgoN3.a7Ck7KBmtYBU37IrxfgTYHNpJnij0qyKGBGoj0bq5Pk&dib_tag=se&keywords=wuffy&qid=1778538852&s=toys-and-games&sprefix=wuffy%2Ctoys-and-games%2C198&sr=1-4&th=1",
-    "price": "$25.99",
+    "ratingLastChecked": "2026-05-08",
+    "ratingUrl": "https://www.amazon.com/Ruko-18011-Interactive-Expressions-Programmable/dp/B0FLXCXPHD/ref=sr_1_2_sspa?crid=46F3EM563RH2&dib=eyJ2IjoiMSJ9.5Gly7Ov9TtkvwLAe4rZwH2l-BTiwaFOMLi92o4eo2efL59RBhuAyz5dL1llQO9Oq3VOvL554UZdKGuCvEr0aULc0FuaW-0tXMv-Su3A0pJUYX216NZD-8OUNQh6gxNKl8ATh6D7HDFqXqh-HftmgAbHCQTy9hU7JIHWTap9VCLBOTqG63pGqH1CMk2nheo8GFwKFgq-JlfQJBXAYeXfjdZ53H5tQAmhJmbXnYWxOCYV0NtCgyyMVmml1rR7tZkoyjG_4I2LrxuOnAJYrH2drbxe-cORLKoeEvdhhs7eZVRM.AAyl4FwdoPkwE97T990tA9oBb3kFfNjZ571FnV0wajE&dib_tag=se&keywords=ruko%2Brobot&qid=1778539008&s=toys-and-games&sprefix=ruko%2Ctoys-and-games%2C220&sr=1-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+    "price": "$69.99",
     "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-09",
+    "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/s?k=wuffy+robot+dog&crid=19CKEYDLEBH6A&sprefix=wuffy%2Caps%2C185&ref=nb_sb_ss_p13n-expert-pd-ops-ranker_1_5",
-    "imageUrl": "/images/products/wuffy.png",
+    "productUrl": "https://www.amazon.com/Ruko-18011-Interactive-Expressions-Programmable/dp/B0FLXCXPHD/ref=sr_1_2_sspa?crid=3Q84O44BMP4I1&dib=eyJ2IjoiMSJ9.5Gly7Ov9TtkvwLAe4rZwH2l-BTiwaFOMLi92o4eo2efL59RBhuAyz5dL1llQO9Oq3VOvL554UZdKGuCvEr0aULc0FuaW-0tXMv-Su3A0pJUYX216NZD-8OUNQh6gxNKl8ATh6D7HDFqXqh-HftmgAQSnm2CAImjyhEseHeartYBrk0RKnk_qongpk7N2LmhhFwKFgq-JlfQJBXAYeXfjdZ53H5tQAmhJmbXnYWxOCYV0NtCgyyMVmml1rR7tZkoyjG_4I2LrxuOnAJYrH2drb6GCU0NIUssYnsjouZhfUF4.-br2EkX1bjJZyuScMeKTaBh68fd6MSebkMG0MoeTeO0&dib_tag=se&keywords=ruko%2Brobot&qid=1778524458&sprefix=ruko%2Caps%2C210&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+    "imageUrl": "/images/products/Ruko-18001-Smart-Robot-Dog.png",
     "flags": {
       "gifts": true,
-      "topPick": false,
+      "topPick": true,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
