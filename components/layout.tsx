@@ -138,6 +138,41 @@ export function StickyCompareBar() {
   return <div className="fixed bottom-4 left-0 right-0 z-40"><div className="container-shell"><div className="mx-auto flex max-w-3xl items-center justify-between gap-4 rounded-full border border-coral-200 bg-white px-4 py-3 shadow-soft"><div><p className="text-sm font-semibold text-brand-900">Need a faster decision?</p><p className="text-xs text-slate-600">Compare comfort, ease of use, and price in one view.</p></div><Link href="/compare" className="btn-primary shrink-0">Open Compare</Link></div></div></div>;
 }
 export function SiteFooter() {
-  return <footer className="border-t border-coral-200 bg-cream-100"><div className="container-shell py-12"><div className="grid gap-10 md:grid-cols-3"><div><p className="text-base font-semibold text-brand-900">Interactive Pets Marketplace</p><p className="mt-3 max-w-sm text-sm leading-7 text-slate-600">A cleaner way to compare companion-style plushy companions and AI & robotic pets for seniors, families, and gift buyers.</p></div><div><p className="text-sm font-semibold text-brand-900">Explore</p><div className="mt-4 space-y-3 text-sm text-slate-600"><Link href="/interactive-pets" className="block hover:text-brand-700">Plushy Companions</Link><Link href="/ai-robotic-pets" className="block hover:text-brand-700">AI & Robotic Pets</Link><Link href="/best-for-seniors" className="block hover:text-brand-700">Seniors</Link></div></div><div><p className="text-sm font-semibold text-brand-900">Affiliate note</p><p className="mt-4 text-sm leading-7 text-slate-600">Replace placeholder links with your affiliate URLs and add a visible affiliate disclosure before launch.</p></div></div></div></footer>;
+  return (
+    <footer className="border-t border-coral-200 bg-cream-100">
+      <div className="container-shell py-12">
+        <div className="grid gap-10 md:grid-cols-4">
+          <div className="md:col-span-2">
+            <p className="text-base font-semibold text-brand-900">Interactive Pets Marketplace</p>
+            <p className="mt-3 max-w-sm text-sm leading-7 text-slate-600">
+              A cleaner way to compare companion-style plushy companions and AI &amp; robotic pets for seniors, families, and gift buyers.
+            </p>
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-brand-900">Explore</p>
+            <div className="mt-4 space-y-3 text-sm text-slate-600">
+              <Link href="/interactive-pets" className="block hover:text-brand-700">Plushy Companions</Link>
+              <Link href="/ai-robotic-pets" className="block hover:text-brand-700">AI &amp; Robotic Pets</Link>
+              <Link href="/best-for-seniors" className="block hover:text-brand-700">Seniors</Link>
+              <Link href="/compare" className="block hover:text-brand-700">Compare</Link>
+            </div>
+          </div>
+          <div>
+            <p className="text-sm font-semibold text-brand-900">About this site</p>
+            <div className="mt-4 space-y-3 text-sm text-slate-600">
+              <Link href="/about" className="block hover:text-brand-700">About</Link>
+              <Link href="/contact" className="block hover:text-brand-700">Contact</Link>
+              <Link href="/about#affiliate-disclosure" className="block hover:text-brand-700">Affiliate disclosure</Link>
+            </div>
+          </div>
+        </div>
+        <div className="mt-10 border-t border-coral-200 pt-6">
+          <p className="text-xs leading-6 text-slate-500">
+            Smart Pets Marketplace participates in affiliate programs and may earn a commission when you buy through links on this site, at no extra cost to you. See our <Link href="/about#affiliate-disclosure" className="underline hover:text-brand-700">full affiliate disclosure</Link> for details.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 }
 export function PageShell({ children }: { children: ReactNode }) { return <><SiteHeader /><main>{children}</main><SiteFooter /></>; }
