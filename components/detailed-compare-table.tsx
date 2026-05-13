@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { Product } from "./site-data";
 import { InfoPopover } from "./info-popover";
+import { PRODUCT_LINK_REL, RATING_LINK_REL } from "./link-rel";
 
 const PRICE_BUCKETS = [
   { label: "<$50", test: (n: number) => n < 50 },
@@ -160,7 +161,7 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
                     <span className="inline-flex items-center">
                       {product.rating !== undefined ? (
                         product.ratingUrl ? (
-                          <a href={product.ratingUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                          <a href={product.ratingUrl} target="_blank" rel={RATING_LINK_REL} className="hover:underline">
                             <span className="text-red-600">★</span> {product.rating.toFixed(1)}
                           </a>
                         ) : (
@@ -178,7 +179,7 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
                     </span>
                   </td>
                   <td className="px-3 py-4">
-                    <Link href={product.productUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap">View</Link>
+                    <Link href={product.productUrl} target="_blank" rel={PRODUCT_LINK_REL} className="inline-flex items-center justify-center rounded-full bg-trust-500 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap">View</Link>
                   </td>
                 </tr>
                 );

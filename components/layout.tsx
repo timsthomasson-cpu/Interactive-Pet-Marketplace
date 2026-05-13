@@ -4,7 +4,7 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 
 const mainNav = [
   { href:"/", label:"Home" },
-  { href:"/interactive-pets", label:"Plushy Companions" },
+  { href:"/plushy-companions", label:"Plushy Companions" },
   { href:"/ai-robotic-pets", label:"AI & Robotic Pets" }
 ];
 const shopForNav = [
@@ -106,7 +106,7 @@ export function SiteHeader() {
         <Link href="/" className="flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-600 text-lg text-white">🐾</div>
           <div>
-            <div className="text-sm font-semibold text-brand-700">Interactive Pets Marketplace</div>
+            <div className="text-sm font-semibold text-brand-700">Interactive Pet Marketplace</div>
             <div className="hidden sm:block text-xs text-slate-500">Interactive & AI companion guides</div>
           </div>
         </Link>
@@ -143,7 +143,7 @@ export function SiteFooter() {
       <div className="container-shell py-12">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
-            <p className="text-base font-semibold text-brand-900">Interactive Pets Marketplace</p>
+            <p className="text-base font-semibold text-brand-900">Interactive Pet Marketplace</p>
             <p className="mt-3 max-w-sm text-sm leading-7 text-slate-600">
               A cleaner way to compare companion-style plushy companions and AI &amp; robotic pets for seniors, families, and gift buyers.
             </p>
@@ -151,7 +151,7 @@ export function SiteFooter() {
           <div>
             <p className="text-sm font-semibold text-brand-900">Explore</p>
             <div className="mt-4 space-y-3 text-sm text-slate-600">
-              <Link href="/interactive-pets" className="block hover:text-brand-700">Plushy Companions</Link>
+              <Link href="/plushy-companions" className="block hover:text-brand-700">Plushy Companions</Link>
               <Link href="/ai-robotic-pets" className="block hover:text-brand-700">AI &amp; Robotic Pets</Link>
               <Link href="/best-for-seniors" className="block hover:text-brand-700">Seniors</Link>
               <Link href="/compare" className="block hover:text-brand-700">Compare</Link>
@@ -168,7 +168,7 @@ export function SiteFooter() {
         </div>
         <div className="mt-10 border-t border-coral-200 pt-6">
           <p className="text-xs leading-6 text-slate-500">
-            Smart Pets Marketplace may participate in affiliate programs and may earn a commission when you buy through links on this site, at no extra cost to you. See our <Link href="/about#affiliate-disclosure" className="underline hover:text-brand-700">full affiliate disclosure</Link> for details.
+            Interactive Pet Marketplace may participate in affiliate programs and may earn a commission when you buy through links on this site, at no extra cost to you. See our <Link href="/about#affiliate-disclosure" className="underline hover:text-brand-700">full affiliate disclosure</Link> for details.
           </p>
         </div>
       </div>

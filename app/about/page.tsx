@@ -3,7 +3,7 @@ import { SectionHeading } from "@/components/ui";
 import Link from "next/link";
 
 export const metadata = {
-  title: "About — Smart Pets Marketplace",
+  title: "About",
   description: "Who we are, how we choose products, and our affiliate disclosure."
 };
 
@@ -13,9 +13,10 @@ export default function AboutPage() {
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
         <div className="container-shell">
           <SectionHeading
+            as="h1"
             eyebrow="About"
             title="A cleaner way to compare interactive pets."
-            text="Smart Pets Marketplace exists to make it easier to find the right interactive pet, AI & robotic pet, or plushy companion — without wading through cluttered review sites."
+            text="Interactive Pet Marketplace exists to make it easier to find the right interactive pet, AI & robotic pet, or plushy companion — without wading through cluttered review sites."
           />
         </div>
       </section>
@@ -39,7 +40,7 @@ export default function AboutPage() {
                 Lumping them all together makes choosing harder, not easier.
               </p>
               <p>
-                The team behind Smart Pets Marketplace organizes products by who
+                The team behind Interactive Pet Marketplace organizes products by who
                 they're best for and what they actually do, so you can narrow
                 things down quickly. We focus on plushy companions, AI &amp; robotic
                 pets, and senior-friendly options — the categories where buyers
@@ -129,7 +130,7 @@ export default function AboutPage() {
             </h2>
             <div className="mt-5 space-y-4 text-base leading-7 text-slate-700">
               <p>
-                Smart Pets Marketplace may participate in affiliate programs.
+                Interactive Pet Marketplace may participate in affiliate programs.
                 If you click a "View Details" or product link on this site and
                 go on to buy, we may earn a small commission at no extra cost
                 to you. Any commissions help fund the time it takes to research

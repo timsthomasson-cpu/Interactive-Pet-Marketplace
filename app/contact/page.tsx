@@ -3,8 +3,8 @@ import { SectionHeading } from "@/components/ui";
 import { ContactForm } from "@/components/contact-form";
 
 export const metadata = {
-  title: "Contact — Smart Pets Marketplace",
-  description: "Get in touch with the team behind Smart Pets Marketplace. Send corrections, feedback, or partnership inquiries."
+  title: "Contact",
+  description: "Get in touch with the team behind Interactive Pet Marketplace. Send corrections, feedback, or partnership inquiries."
 };
 
 export default function ContactPage() {
@@ -13,8 +13,9 @@ export default function ContactPage() {
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
         <div className="container-shell">
           <SectionHeading
+            as="h1"
             eyebrow="Get in touch"
-            title="Contact Smart Pets Marketplace"
+            title="Contact Interactive Pet Marketplace"
             text="Spotted an inaccurate price or feature? Have a suggestion, partnership idea, or a product we should review? We'd like to hear from you."
           />
         </div>

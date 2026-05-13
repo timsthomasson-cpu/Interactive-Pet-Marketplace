@@ -3,6 +3,11 @@ import { FAQSection } from "@/components/faq";
 import { InteractivePetsInfo } from "@/components/interactive-pets-info";
 import { PageShell } from "@/components/layout";
 
+export const metadata = {
+  title: "Questions about Interactive Pets — FAQ and buyer's guide",
+  description: "Plain-English answers about interactive pets and AI companions: who they help, what they offer, and how to choose. Frequently asked questions answered."
+};
+
 export default function QuestionsPage() {
   return (
     <PageShell>

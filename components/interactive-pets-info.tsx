@@ -218,6 +218,7 @@ export function InteractivePetsInfo() {
     <section className="section-pad pt-10 sm:pt-12">
       <div className="container-shell space-y-12">
         <SectionHeading
+          as="h1"
           eyebrow="About interactive pets"
           title="Who would enjoy them, what they offer, and why people choose them."
           text="A plain-English look at the audiences, benefits, and motivations behind interactive and AI companion pets."

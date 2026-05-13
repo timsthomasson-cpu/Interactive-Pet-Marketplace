@@ -40,7 +40,7 @@ export function ContactForm() {
     formData.append("access_key", WEB3FORMS_ACCESS_KEY);
     // Optional: subject line for the email you'll receive.
     const topic = formData.get("topic") || "Contact form";
-    formData.append("subject", `[Smart Pets Marketplace] ${topic}`);
+    formData.append("subject", `[Interactive Pet Marketplace] ${topic}`);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {

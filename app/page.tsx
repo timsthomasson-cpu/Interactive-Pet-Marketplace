@@ -12,7 +12,7 @@ export default function HomePage() {
         <div className="container-shell">
           <div className="grid gap-10 sm:grid-cols-2 sm:gap-16">
             <div className="flex flex-col items-center text-center">
-              <Link href="/interactive-pets" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-8 py-5 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600">Explore Plushy Companions</Link>
+              <Link href="/plushy-companions" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-8 py-5 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600">Explore Plushy Companions</Link>
               <p className="mt-4 max-w-sm text-sm leading-7 text-slate-600">Soft, engaging companion pets with touch response, sounds, and comforting interaction.</p>
             </div>
             <div className="flex flex-col items-center text-center">

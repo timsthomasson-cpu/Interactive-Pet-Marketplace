@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import { Product } from "./site-data";
 import { SectionHeading } from "./ui";
+import { RATING_LINK_REL } from "./link-rel";
 
 const PRICE_BUCKETS = [
   { label: "<$50", test: (n: number) => n < 50 },
@@ -94,7 +95,7 @@ export function CompareTable({
 
   // Renderer for a single product cell value, used by both layouts.
   function ratingCell(product: Product) {
-    if (product.rating === undefined) return <>—</>;
+    if (product.rating === undefined || product.rating === 0) return <>—</>;
     const tipParts: string[] = [];
     if (product.ratingSource) tipParts.push(`Rating from ${product.ratingSource}`);
     if (product.ratingLastChecked) tipParts.push(`last verified ${product.ratingLastChecked}`);
@@ -103,7 +104,7 @@ export function CompareTable({
       <><span className="text-red-600">★</span> {product.rating.toFixed(1)}</>
     );
     return product.ratingUrl ? (
-      <a href={product.ratingUrl} target="_blank" rel="noopener noreferrer" title={tip || undefined} className="hover:underline">
+      <a href={product.ratingUrl} target="_blank" rel={RATING_LINK_REL} title={tip || undefined} className="hover:underline">
         {inner}
       </a>
     ) : (

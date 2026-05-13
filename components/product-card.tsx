@@ -1,8 +1,18 @@
 import Link from "next/link";
 import { Product } from "./site-data";
 import { Badge, PlaceholderVisual } from "./ui";
+import { PRODUCT_LINK_REL, RATING_LINK_REL } from "./link-rel";
 
 export function ProductCard({ product }: { product: Product }) {
+  // Only show a rating if we actually have a meaningful one. A product with
+  // rating === 0 or reviewCount === 0 means we haven't verified one yet —
+  // showing "★ 0.0 (0 reviews)" would actively hurt the listing.
+  const hasRating =
+    product.rating !== undefined &&
+    product.rating > 0 &&
+    product.reviewCount !== undefined &&
+    product.reviewCount > 0;
+
   return (
     <div className="card flex flex-col overflow-hidden relative">
       {product.flags?.topPick && (
@@ -37,7 +47,7 @@ export function ProductCard({ product }: { product: Product }) {
         <div>
           <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-brand-700">{product.manufacturer}</p>
           <p className="mt-1 text-base sm:text-xl font-semibold text-slate-900 leading-tight">{product.name}</p>
-          {product.rating !== undefined && (
+          {hasRating && (
             <div className="mt-1.5 sm:mt-2">
               {(() => {
                 const tooltipParts: string[] = [];
@@ -47,14 +57,12 @@ export function ProductCard({ product }: { product: Product }) {
                 const ratingText = (
                   <span className="inline-flex items-baseline gap-1 text-xs sm:text-sm font-semibold">
                     <span className="text-red-600">★</span>
-                    <span className="text-slate-900">{product.rating.toFixed(1)}</span>
-                    {product.reviewCount !== undefined && (
-                      <span className="text-slate-600 font-normal">({product.reviewCount.toLocaleString()} {product.reviewCount === 1 ? "review" : "reviews"})</span>
-                    )}
+                    <span className="text-slate-900">{product.rating!.toFixed(1)}</span>
+                    <span className="text-slate-600 font-normal">({product.reviewCount!.toLocaleString()} {product.reviewCount === 1 ? "review" : "reviews"})</span>
                   </span>
                 );
                 return product.ratingUrl ? (
-                  <a href={product.ratingUrl} target="_blank" rel="noopener noreferrer" title={tooltip || undefined} className="hover:underline">
+                  <a href={product.ratingUrl} target="_blank" rel={RATING_LINK_REL} title={tooltip || undefined} className="hover:underline">
                     {ratingText}
                   </a>
                 ) : (
@@ -85,7 +93,7 @@ export function ProductCard({ product }: { product: Product }) {
               </div>
             );
           })()}
-          <Link href={product.productUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-trust-500 px-3 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600">
+          <Link href={product.productUrl} target="_blank" rel={PRODUCT_LINK_REL} className="inline-flex items-center justify-center rounded-full bg-trust-500 px-3 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600">
             View Details
           </Link>
         </div>

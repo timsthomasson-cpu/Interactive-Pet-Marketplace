@@ -9,7 +9,7 @@ export function HeroSection() {
 }
 export function TwoCategoryCards() {
   const cards = [
-    { title:"Plushy Companions", text:"Soft, engaging companion pets with touch response, sounds, and comforting interaction.", href:"/interactive-pets" },
+    { title:"Plushy Companions", text:"Soft, engaging companion pets with touch response, sounds, and comforting interaction.", href:"/plushy-companions" },
     { title:"AI & Robotic Pets", text:"Advanced interactive pets with movement, sensors, app features, and more lifelike behavior.", href:"/ai-robotic-pets" }
   ];
   return <section className="section-pad pt-0"><div className="container-shell"><SectionHeading eyebrow="Start here" title="Choose your shopping path in one click." text="Keep the homepage simple and let product complexity appear later." /><div className="mt-10 grid gap-6 md:grid-cols-2">{cards.map((card)=><div key={card.title} className="card p-8"><p className="eyebrow">{card.title}</p><h3 className="mt-4 text-2xl font-semibold text-slate-900">{card.title}</h3><p className="mt-3 max-w-lg text-slate-600">{card.text}</p><Link href={card.href} className="btn-primary mt-6">Explore {card.title}</Link></div>)}</div></div></section>;
@@ -25,7 +25,7 @@ export function ShopByNeed() {
 }
 export function MobileShopPills() {
   const items: [string, string][] = [
-    ["Plushy Companions", "/interactive-pets"],
+    ["Plushy Companions", "/plushy-companions"],
     ["AI & Robotic Pets", "/ai-robotic-pets"],
     ["Best for Seniors", "/best-for-seniors"],
     ["Best for Gifts", "/best-for-gifts"],

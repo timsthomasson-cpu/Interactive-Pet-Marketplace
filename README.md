@@ -1,4 +1,4 @@
-# Interactive Pets Marketplace
+# Interactive Pet Marketplace
 
 Improved multi-page affiliate-style Next.js site for comparing interactive pets and AI \& robotic pets.
 

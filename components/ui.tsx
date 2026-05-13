@@ -1,11 +1,27 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 
-export function SectionHeading({ eyebrow, title, text, align = "left" }: { eyebrow?: string; title: string; text?: string; align?: "left" | "center"; }) {
+export function SectionHeading({
+  eyebrow,
+  title,
+  text,
+  align = "left",
+  as = "h2"
+}: {
+  eyebrow?: string;
+  title: string;
+  text?: string;
+  align?: "left" | "center";
+  // Heading level for the title. Pages should pass as="h1" when this is the
+  // primary page heading. Defaults to h2 so existing in-page section uses
+  // are unaffected.
+  as?: "h1" | "h2";
+}) {
+  const Title = as;
   return (
     <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-      <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{title}</h2>
+      <Title className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{title}</Title>
       {text ? <p className="mt-4 text-lg leading-8 text-slate-600">{text}</p> : null}
     </div>
   );
