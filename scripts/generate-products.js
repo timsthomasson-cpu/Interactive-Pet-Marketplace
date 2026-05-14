@@ -2,7 +2,10 @@
  * generate-products.js
  *
  * Reads:
- *   - Documentation/Product Matrix.xlsx (SINGLE SOURCE OF TRUTH for all product data)
+ *   - Documentation/Product Matrix.xlsx (single source of truth for product
+ *     data: name, blurb, price, rating, flags, etc.)
+ *   - Documentation/product-privacy.json (privacy/security research for
+ *     products with cameras or internet access; hand-curated, keyed by slug)
  *
  * Writes:
  *   - components/site-data.ts (auto-generated; do NOT edit by hand)
@@ -11,7 +14,8 @@
  *   npm run generate:products
  *
  * Note: product-details.json is being phased out. The spreadsheet is now
- * the single source of truth. See README.md and Documentation/PRODUCT_DATA_RULES.md.
+ * the source of truth for product data, with product-privacy.json holding
+ * supplementary privacy research. See README.md and Documentation/PRODUCT_DATA_RULES.md.
  */
 
 const XLSX = require("xlsx");
@@ -20,6 +24,7 @@ const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
 const XLSX_PATH = path.join(ROOT, "Documentation", "Product Matrix.xlsx");
+const PRIVACY_PATH = path.join(ROOT, "Documentation", "product-privacy.json");
 const OUT_PATH = path.join(ROOT, "components", "site-data.ts");
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
@@ -110,6 +115,27 @@ if (!workbook.Sheets[SHEET_NAME]) {
 const sheet = workbook.Sheets[SHEET_NAME];
 const rows = XLSX.utils.sheet_to_json(sheet, { defval: null });
 
+// ── Read privacy research ───────────────────────────────────────────────────
+// The privacy file is optional — if missing, products simply won't have a
+// `privacy` field. If present and a product is flagged Camera=yes but has no
+// privacy entry, we warn so the discrepancy gets caught early.
+
+let privacyData = { products: {} };
+if (fs.existsSync(PRIVACY_PATH)) {
+  try {
+    const raw = fs.readFileSync(PRIVACY_PATH, "utf8");
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed === "object" && parsed.products) {
+      privacyData = parsed;
+    }
+  } catch (err) {
+    console.error(`WARNING: Failed to parse ${PRIVACY_PATH}: ${err.message}`);
+    console.error(`  Continuing without privacy data.`);
+  }
+} else {
+  console.error(`WARNING: ${PRIVACY_PATH} not found. Continuing without privacy data.`);
+}
+
 // ── Build product list ──────────────────────────────────────────────────────
 
 const skipped = [];
@@ -136,7 +162,7 @@ for (const row of rows) {
     clean(row["Feature 3"])
   ].filter(Boolean);
 
-  products.push({
+  const product = {
     slug,
     name,
     manufacturer: clean(row["Manufacturer"]),
@@ -165,7 +191,14 @@ for (const row of rows) {
       internetAccess: isYes(row["Internet Access"]),
       affiliateAgreement: isYes(row["Affiliate Agreement"])
     }
-  });
+  };
+
+  // Attach privacy research if present for this slug.
+  if (privacyData.products && privacyData.products[slug]) {
+    product.privacy = privacyData.products[slug];
+  }
+
+  products.push(product);
 }
 
 // ── Write site-data.ts ──────────────────────────────────────────────────────
@@ -184,6 +217,26 @@ export type ProductFlags = {
   camera: boolean;
   internetAccess: boolean;
   affiliateAgreement: boolean;
+};
+
+// Privacy and security research for products with cameras or internet access.
+// Hand-curated in Documentation/product-privacy.json and merged in at build
+// time. Optional — only camera/connected products carry this field.
+export type ProductPrivacyField<T extends string> = {
+  value: T;
+  note?: string;
+};
+
+export type ProductPrivacy = {
+  lastResearched?: string;
+  sources?: string[];
+  privacyShutter?: ProductPrivacyField<"physical" | "software-only" | "none" | "unknown">;
+  indicatorLED?: ProductPrivacyField<"yes" | "no" | "unknown">;
+  twoFactorAuth?: ProductPrivacyField<"yes" | "no" | "unknown">;
+  privacyPolicyClarity?: ProductPrivacyField<"strong" | "moderate" | "weak" | "unknown">;
+  storageLocation?: ProductPrivacyField<"local-only" | "local-first" | "cloud-first" | "cloud-only" | "unknown">;
+  knownIncidents?: ProductPrivacyField<"none-known" | "minor" | "major" | "unknown">;
+  summary?: string;
 };
 
 export type Product = {
@@ -209,6 +262,7 @@ export type Product = {
   productUrl: string;
   imageUrl?: string;
   flags: ProductFlags;
+  privacy?: ProductPrivacy;
 };
 
 export const products: Product[] = ${JSON.stringify(products, null, 2)};
@@ -234,3 +288,18 @@ if (skipped.length > 0) {
   console.log(`\n  Skipped: ${skipped.length} product(s):`);
   skipped.forEach(s => console.log(`    - ${s.name}  (${s.reason})`));
 }
+
+// Camera/privacy consistency check. Helps catch mismatches when one is
+// updated without the other.
+const cameraNoPrivacy = products.filter(p => p.flags.camera && !p.privacy);
+const privacyNoCamera = products.filter(p => p.privacy && !p.flags.camera);
+if (cameraNoPrivacy.length > 0) {
+  console.log(`\n  ⚠️  Camera=yes but no entry in product-privacy.json:`);
+  cameraNoPrivacy.forEach(p => console.log(`    - ${p.name} (slug: ${p.slug})`));
+}
+if (privacyNoCamera.length > 0) {
+  console.log(`\n  ℹ️  Has privacy entry but Camera=no in spreadsheet (may be intentional for internet-only products):`);
+  privacyNoCamera.forEach(p => console.log(`    - ${p.name} (slug: ${p.slug})`));
+}
+const withPrivacy = products.filter(p => p.privacy).length;
+console.log(`\n  Privacy data attached: ${withPrivacy} product(s)`);

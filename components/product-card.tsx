@@ -43,6 +43,17 @@ export function ProductCard({ product }: { product: Product }) {
           {product.bestFor.map((tag) => (
             <Badge key={tag}>Best for {tag}</Badge>
           ))}
+          {product.flags?.camera && (
+            <Link
+              href="/questions#privacy"
+              className="inline-flex items-center gap-1 rounded-full border border-slate-300 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs font-semibold text-slate-700 hover:border-trust-400 hover:text-trust-700"
+              title="This product includes a camera. View our privacy & security checklist."
+              aria-label="Has camera — view privacy & security checklist"
+            >
+              <span aria-hidden>📷</span>
+              <span>Camera</span>
+            </Link>
+          )}
         </div>
         <div>
           <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-brand-700">{product.manufacturer}</p>

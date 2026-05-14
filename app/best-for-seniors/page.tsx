@@ -1,7 +1,8 @@
+import Link from "next/link";
 import { PageShell } from "@/components/layout";
 import { products } from "@/components/site-data";
 import { CompareTable, GroupedProducts, TrustBoxesRow } from "@/components/sections";
-import Link from "next/link";
+import { CategoryIntro } from "@/components/category-intro";
 
 export const metadata = {
   title: "Best Interactive Pets for Seniors and Senior Loved Ones",
@@ -24,12 +25,36 @@ export default function SeniorsPage() {
             <p className="mt-4 text-lg leading-8 text-slate-600">
               This page is structured for adult children shopping for parents, as well as older buyers who want companionship with minimal complexity.
             </p>
-            <p className="mt-4 text-lg leading-8 text-slate-600">
-              Research has shown that Interactive Pets can improve the lives of seniors by reducing loneliness and social isolation, as well as decreasing agitation and anxiety. (<Link href="/senior-research" className="underline text-trust-700 hover:text-trust-900">See a list of articles.</Link>)
-            </p>
           </div>
         </div>
       </section>
+
+      <CategoryIntro
+        body={[
+          <>
+            Research has shown that interactive pets can improve the lives of seniors by reducing loneliness and social isolation, as well as decreasing agitation and anxiety. (
+            <Link href="/senior-research" className="underline text-trust-700 hover:text-trust-900">
+              See a list of articles
+            </Link>
+            .)
+          </>,
+          <>
+            <strong className="text-slate-900">Why this matters for older adults.</strong>{" "}
+            The research linked on this site consistently points to a few specific benefits of companion pets and robotic companions for older adults: reduced loneliness in people living alone, calmer behavior and less agitation in dementia care, and small but measurable improvements in mood for residents of memory care facilities. The mechanism is straightforward — gentle, predictable interaction with something that feels alive provides comfort without requiring the cognitive effort of a conversation. None of this is a substitute for human connection or professional care, but as a supplemental presence in someone&rsquo;s day, the evidence is encouraging enough that many assisted-living facilities now use these products as part of their resident care toolkit.
+          </>
+        ]}
+        checklist={{
+          title: "What to look for when choosing for an older adult",
+          items: [
+            ["Ease of use", "Touch-and-sound interaction is universally easier than app-based or voice-controlled features. The fewer buttons, the better."],
+            ["Recognizable form", "Cat and dog shapes feel familiar; abstract robotic designs can be confusing in dementia care."],
+            ["Quiet sounds", "Loud purring or barking can startle. Look for models with adjustable or muted audio."],
+            ["No fall risks", "Smaller, lighter products that can sit on a lap or bed avoid the trip hazard of a moving robotic pet on the floor."],
+            ["Battery, not plug", "Battery-powered models are safer (no cord across the floor) and let the pet move around with the person."]
+          ]
+        }}
+      />
+
       <TrustBoxesRow variant="seniors" />
       <GroupedProducts items={picks} pageName="Seniors" />
       <CompareTable items={picks} title="Senior picks at a glance" text="Quickly scan type, audience, highlight, rating, and price." />

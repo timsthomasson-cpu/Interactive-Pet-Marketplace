@@ -96,15 +96,33 @@ on this project must follow these rules without exception.
 
 &#x20; all product-specific data: manufacturer, name, type, category, best for
 
-&#x20; tags, flags (gifts, premium, top pick), URLs, images, prices, ratings,
+&#x20; tags, flags (gifts, premium, top pick, camera, internet access), URLs,
 
-&#x20; review counts, sources, and last-checked dates, blurbs, features, and
+&#x20; images, prices, ratings, review counts, sources, and last-checked dates,
 
-&#x20; highlights.
+&#x20; blurbs, features, and highlights.
 
-\- \*\*`components/site-data.ts`\*\* is auto-generated from the spreadsheet
+\- \*\*`Documentation/product-privacy.json`\*\* holds hand-curated privacy and
 
-&#x20; via `npm run generate:products`. \*\*Never edit it by hand.\*\*
+&#x20; security research for products with cameras or internet access. Keyed by
+
+&#x20; product slug (matching `components/site-data.ts`). Each entry includes
+
+&#x20; sources, a research date, and findings on privacy shutter, indicator LED,
+
+&#x20; 2FA, policy clarity, storage location, and known incidents. Update
+
+&#x20; manually when a product's privacy posture changes or a new camera product
+
+&#x20; is added; the `npm run generate:products` step will merge it into
+
+&#x20; `site-data.ts` automatically.
+
+\- \*\*`components/site-data.ts`\*\* is auto-generated from the spreadsheet AND
+
+&#x20; `product-privacy.json` via `npm run generate:products`. \*\*Never edit it
+
+&#x20; by hand.\*\*
 
 \- \*\*`Documentation/product-details.json`\*\* is being phased out. Do not
 

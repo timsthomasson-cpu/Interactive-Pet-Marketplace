@@ -1,17 +1,19 @@
 import Link from "next/link";
 import { FAQSection } from "@/components/faq";
 import { InteractivePetsInfo } from "@/components/interactive-pets-info";
+import { PrivacySecuritySection } from "@/components/privacy-security-section";
 import { PageShell } from "@/components/layout";
 
 export const metadata = {
   title: "Questions about Interactive Pets — FAQ and buyer's guide",
-  description: "Plain-English answers about interactive pets and AI companions: who they help, what they offer, and how to choose. Frequently asked questions answered."
+  description: "Plain-English answers about interactive pets and AI companions: who they help, what they offer, how to choose, and how to think about camera privacy."
 };
 
 export default function QuestionsPage() {
   return (
     <PageShell>
       <InteractivePetsInfo />
+      <PrivacySecuritySection />
       <FAQSection />
       <section className="pb-16 sm:pb-20">
         <div className="container-shell">
