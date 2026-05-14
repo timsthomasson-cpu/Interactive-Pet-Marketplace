@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-14T00:33:14.509Z
+// Generated: 2026-05-14T00:39:57.305Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -255,7 +255,7 @@ export const products: Product[] = [
       "Families",
       "Children"
     ],
-    "blurb": "Enabot's emtry level robot. AI home monitoring robot designed to keep your home, pets, and loved ones connected and secure. Interactive laser point allows you to entertain your pets while you are away.",
+    "blurb": "Enabot's entry level robot. AI home monitoring robot designed to keep your home, pets, and loved ones connected and secure. Interactive laser point allows you to entertain your pets while you are away.",
     "features": [
       "Intelligent Patrol",
       "Budget Friendly",
@@ -276,7 +276,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "topPick": true,
-      "camera": false,
+      "camera": true,
       "internetAccess": false,
       "affiliateAgreement": false
     },
@@ -345,7 +345,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "topPick": true,
-      "camera": false,
+      "camera": true,
       "internetAccess": false,
       "affiliateAgreement": false
     },
@@ -392,7 +392,7 @@ export const products: Product[] = [
       "Families",
       "Children"
     ],
-    "blurb": "Newer genration than the EBO Air 2 with more features. AI home monitoring robot designed to keep your home, pets, and loved ones connected and secure. Does not include the AI Assistant. White option only.",
+    "blurb": "Newer generation than the EBO Air 2 with more features. AI home monitoring robot designed to keep your home, pets, and loved ones connected and secure. Does not include the AI Assistant. White option only.",
     "features": [
       "AI Tracking",
       "Dual Screen Eyes",
@@ -413,7 +413,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "topPick": false,
-      "camera": false,
+      "camera": true,
       "internetAccess": false,
       "affiliateAgreement": false
     },
@@ -481,7 +481,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "topPick": false,
-      "camera": false,
+      "camera": true,
       "internetAccess": false,
       "affiliateAgreement": false
     },
@@ -549,7 +549,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "topPick": false,
-      "camera": false,
+      "camera": true,
       "internetAccess": false,
       "affiliateAgreement": false
     },
@@ -875,7 +875,7 @@ export const products: Product[] = [
     "flags": {
       "gifts": true,
       "topPick": true,
-      "camera": false,
+      "camera": true,
       "internetAccess": false,
       "affiliateAgreement": false
     },
