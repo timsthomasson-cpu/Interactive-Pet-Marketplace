@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-14T00:39:57.305Z
+// Generated: 2026-05-14T00:57:28.605Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -277,7 +277,7 @@ export const products: Product[] = [
       "gifts": true,
       "topPick": true,
       "camera": true,
-      "internetAccess": false,
+      "internetAccess": true,
       "affiliateAgreement": false
     },
     "privacy": {
@@ -346,7 +346,7 @@ export const products: Product[] = [
       "gifts": true,
       "topPick": true,
       "camera": true,
-      "internetAccess": false,
+      "internetAccess": true,
       "affiliateAgreement": false
     },
     "privacy": {
@@ -414,7 +414,7 @@ export const products: Product[] = [
       "gifts": true,
       "topPick": false,
       "camera": true,
-      "internetAccess": false,
+      "internetAccess": true,
       "affiliateAgreement": false
     },
     "privacy": {
@@ -482,7 +482,7 @@ export const products: Product[] = [
       "gifts": true,
       "topPick": false,
       "camera": true,
-      "internetAccess": false,
+      "internetAccess": true,
       "affiliateAgreement": false
     },
     "privacy": {
@@ -550,7 +550,7 @@ export const products: Product[] = [
       "gifts": true,
       "topPick": false,
       "camera": true,
-      "internetAccess": false,
+      "internetAccess": true,
       "affiliateAgreement": false
     },
     "privacy": {
@@ -876,7 +876,7 @@ export const products: Product[] = [
       "gifts": true,
       "topPick": true,
       "camera": true,
-      "internetAccess": false,
+      "internetAccess": true,
       "affiliateAgreement": false
     },
     "privacy": {
