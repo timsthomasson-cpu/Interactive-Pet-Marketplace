@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Product } from "./site-data";
 import { Badge, PlaceholderVisual } from "./ui";
 import { PRODUCT_LINK_REL, RATING_LINK_REL } from "./link-rel";
+import { ProductPrivacyDetails } from "./product-privacy-details";
 
 // Optional prop: imageFit. The default (undefined) preserves the existing
 // behavior — object-contain on mobile (h-44) and object-cover on desktop
@@ -123,6 +124,7 @@ export function ProductCard({
             View Details
           </Link>
         </div>
+        <ProductPrivacyDetails product={product} />
       </div>
     </div>
   );

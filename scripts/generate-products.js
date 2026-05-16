@@ -119,14 +119,22 @@ const rows = XLSX.utils.sheet_to_json(sheet, { defval: null });
 // The privacy file is optional — if missing, products simply won't have a
 // `privacy` field. If present and a product is flagged Camera=yes but has no
 // privacy entry, we warn so the discrepancy gets caught early.
+//
+// File shape: top-level keys are product slugs; entries are PrivacyEntry
+// objects. A "_meta" key holds documentation and is skipped at merge time.
 
-let privacyData = { products: {} };
+let privacyData = {};
 if (fs.existsSync(PRIVACY_PATH)) {
   try {
     const raw = fs.readFileSync(PRIVACY_PATH, "utf8");
     const parsed = JSON.parse(raw);
-    if (parsed && typeof parsed === "object" && parsed.products) {
-      privacyData = parsed;
+    if (parsed && typeof parsed === "object") {
+      // Strip _meta (documentation block) and any other underscore-prefixed
+      // keys — the rest are slug-keyed entries.
+      for (const [key, value] of Object.entries(parsed)) {
+        if (key.startsWith("_")) continue;
+        privacyData[key] = value;
+      }
     }
   } catch (err) {
     console.error(`WARNING: Failed to parse ${PRIVACY_PATH}: ${err.message}`);
@@ -194,8 +202,8 @@ for (const row of rows) {
   };
 
   // Attach privacy research if present for this slug.
-  if (privacyData.products && privacyData.products[slug]) {
-    product.privacy = privacyData.products[slug];
+  if (privacyData[slug]) {
+    product.privacy = privacyData[slug];
   }
 
   products.push(product);
@@ -222,21 +230,45 @@ export type ProductFlags = {
 // Privacy and security research for products with cameras or internet access.
 // Hand-curated in Documentation/product-privacy.json and merged in at build
 // time. Optional — only camera/connected products carry this field.
+//
+// Data discipline:
+//   - fromManufacturer.* values come from direct manufacturer statements
+//     on product pages or in privacy policies. If the manufacturer does
+//     not explicitly state a fact, the value is "not-specified".
+//   - fromThirdParty findings come from Tier 1 sources (Mozilla Privacy
+//     Not Included, Consumer Reports, FTC) or Tier 2 sources (established
+//     tech/security publications). Each finding includes the source name,
+//     URL, and date.
+//   - summary is a neutral one-line restatement of documented behavior.
+
 export type ProductPrivacyField<T extends string> = {
   value: T;
   note?: string;
 };
 
+export type ThirdPartyFinding = {
+  finding: string;
+  sourceName: string;
+  sourceUrl: string;
+  sourceDate: string;
+  note?: string;
+};
+
 export type ProductPrivacy = {
-  lastResearched?: string;
-  sources?: string[];
-  privacyShutter?: ProductPrivacyField<"physical" | "software-only" | "none" | "unknown">;
-  indicatorLED?: ProductPrivacyField<"yes" | "no" | "unknown">;
-  twoFactorAuth?: ProductPrivacyField<"yes" | "no" | "unknown">;
-  privacyPolicyClarity?: ProductPrivacyField<"strong" | "moderate" | "weak" | "unknown">;
-  storageLocation?: ProductPrivacyField<"local-only" | "local-first" | "cloud-first" | "cloud-only" | "unknown">;
-  knownIncidents?: ProductPrivacyField<"none-known" | "minor" | "major" | "unknown">;
-  summary?: string;
+  lastResearched: string;
+  manufacturerSources: string[];
+  thirdPartySources: { name: string; url: string; date: string }[];
+  fromManufacturer: {
+    physicalShutter?: ProductPrivacyField<"yes" | "no" | "not-specified">;
+    softwarePrivacyMode?: ProductPrivacyField<"yes" | "no" | "not-specified">;
+    indicatorLED?: ProductPrivacyField<"yes" | "no" | "not-specified">;
+    twoFactorAuth?: ProductPrivacyField<"yes" | "no" | "not-specified">;
+    storageLocation?: ProductPrivacyField<"local-only" | "local-first" | "cloud-first" | "hybrid" | "not-specified">;
+    privacyPolicyAvailable?: ProductPrivacyField<"yes" | "no" | "not-specified">;
+    manufacturerDisclosedIncidents?: ProductPrivacyField<"none-disclosed" | "disclosed" | "not-specified">;
+  };
+  fromThirdParty: ThirdPartyFinding[];
+  summary: string;
 };
 
 export type Product = {
