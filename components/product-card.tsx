@@ -3,7 +3,18 @@ import { Product } from "./site-data";
 import { Badge, PlaceholderVisual } from "./ui";
 import { PRODUCT_LINK_REL, RATING_LINK_REL } from "./link-rel";
 
-export function ProductCard({ product }: { product: Product }) {
+// Optional prop: imageFit. The default (undefined) preserves the existing
+// behavior — object-contain on mobile (h-44) and object-cover on desktop
+// (h-56). Pass "contain" to force object-contain at all breakpoints, which
+// is useful in places where the card is visually featured (e.g. the
+// category top-picks rotator) and image cropping would hide product detail.
+export function ProductCard({
+  product,
+  imageFit
+}: {
+  product: Product;
+  imageFit?: "contain";
+}) {
   // Only show a rating if we actually have a meaningful one. A product with
   // rating === 0 or reviewCount === 0 means we haven't verified one yet —
   // showing "★ 0.0 (0 reviews)" would actively hurt the listing.
@@ -12,6 +23,10 @@ export function ProductCard({ product }: { product: Product }) {
     product.rating > 0 &&
     product.reviewCount !== undefined &&
     product.reviewCount > 0;
+
+  const imageClass = imageFit === "contain"
+    ? "block h-44 sm:h-56 w-full object-contain"
+    : "block h-44 sm:h-56 w-full object-contain sm:object-cover";
 
   return (
     <div className="card flex flex-col overflow-hidden relative">
@@ -26,7 +41,7 @@ export function ProductCard({ product }: { product: Product }) {
             <img
               src={product.imageUrl}
               alt={product.name}
-              className="block h-44 sm:h-56 w-full object-contain sm:object-cover"
+              className={imageClass}
             />
           </div>
         ) : (

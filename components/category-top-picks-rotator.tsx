@@ -115,19 +115,10 @@ export function CategoryTopPicksRotator({
 
   return (
     <section
-      className="pt-2 sm:pt-3 pb-8 sm:pb-10"
+      className="pt-1 sm:pt-2 pb-8 sm:pb-10"
       aria-label={`${title} for this category`}
     >
       <div className="container-shell">
-        <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-            {title}
-          </h2>
-          {subtitle && (
-            <p className="text-sm text-slate-600 sm:text-base">{subtitle}</p>
-          )}
-        </div>
-
         <div
           ref={containerRef}
           className="relative max-w-sm mx-auto"
@@ -162,7 +153,7 @@ export function CategoryTopPicksRotator({
                 }}
                 aria-hidden={measured ? !isActive : undefined}
               >
-                <ProductCard product={product} />
+                <ProductCard product={product} imageFit="contain" />
               </div>
             );
           })}
