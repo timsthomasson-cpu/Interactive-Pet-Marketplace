@@ -3,6 +3,7 @@ import { PageShell } from "@/components/layout";
 import { products } from "@/components/site-data";
 import { CompareTable, GroupedProducts, TrustBoxesRow } from "@/components/sections";
 import { CategoryHeader } from "@/components/category-header";
+import { JsonLd, productSchema, breadcrumbListSchema } from "@/components/json-ld";
 
 export const metadata = {
   title: "Best Interactive Pets for Kids and Families",
@@ -16,6 +17,15 @@ export default function FamiliesPage() {
   const topPicks = picks.filter((p) => p.flags?.topPick && p.imageUrl);
   return (
     <PageShell>
+      <JsonLd
+        schema={[
+          breadcrumbListSchema([
+            { name: "Home", path: "/" },
+            { name: "Kids & Families", path: "/kids-and-families" }
+          ]),
+          ...picks.map(productSchema)
+        ]}
+      />
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
         <div className="container-shell">
           <div className="max-w-3xl">

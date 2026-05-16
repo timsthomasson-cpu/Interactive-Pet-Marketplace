@@ -3,6 +3,9 @@ import { FAQSection } from "@/components/faq";
 import { InteractivePetsInfo } from "@/components/interactive-pets-info";
 import { PrivacySecuritySection } from "@/components/privacy-security-section";
 import { PageShell } from "@/components/layout";
+import { faqs } from "@/components/site-data";
+import { PRIVACY_FAQ_FOR_SCHEMA } from "@/components/privacy-faq-data";
+import { JsonLd, faqPageSchema, breadcrumbListSchema } from "@/components/json-ld";
 
 export const metadata = {
   title: "Questions about Interactive Pets — FAQ and buyer's guide",
@@ -10,8 +13,25 @@ export const metadata = {
 };
 
 export default function QuestionsPage() {
+  // Combine the existing FAQ entries (from site-data) with the privacy
+  // section's Q&A (from privacy-faq-data) into a single FAQPage schema.
+  // Search engines treat the whole page as one FAQ document.
+  const faqItems = [
+    ...faqs.map((f) => ({ question: f.q, answer: f.a })),
+    ...PRIVACY_FAQ_FOR_SCHEMA
+  ];
+
   return (
     <PageShell>
+      <JsonLd
+        schema={[
+          breadcrumbListSchema([
+            { name: "Home", path: "/" },
+            { name: "Questions", path: "/questions" }
+          ]),
+          faqPageSchema(faqItems)
+        ]}
+      />
       <InteractivePetsInfo />
       <PrivacySecuritySection />
       <FAQSection />

@@ -2,9 +2,29 @@ import { PageShell } from "@/components/layout";
 import { CompareTable, GroupedProducts, HeroSection, MobileShopPills, ShopByNeed } from "@/components/sections";
 import { products } from "@/components/site-data";
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
+import {
+  organizationSchema,
+  websiteSchema,
+  productSchema
+} from "@/components/json-ld";
+
 export default function HomePage() {
+  // Home page features the top picks via TopPicksRotator. Embed Product
+  // schema for each top pick so they can be associated with the home URL
+  // in search results. Other products will be schema-tagged on their
+  // respective category pages.
+  const topPicks = products.filter((p) => p.flags?.topPick && p.imageUrl);
+
   return (
     <PageShell>
+      <JsonLd
+        schema={[
+          organizationSchema(),
+          websiteSchema(),
+          ...topPicks.map(productSchema)
+        ]}
+      />
       <HeroSection />
       <MobileShopPills />
       <ShopByNeed />

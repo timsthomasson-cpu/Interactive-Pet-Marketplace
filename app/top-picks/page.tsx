@@ -4,6 +4,7 @@ import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/ui";
 import { CompareTable } from "@/components/sections";
 import { IllustrativeImagesNote } from "@/components/illustrative-images-note";
+import { JsonLd, productSchema, breadcrumbListSchema } from "@/components/json-ld";
 
 export const metadata = {
   title: "Top Picks — Editor's choice interactive pets",
@@ -14,6 +15,15 @@ export default function TopPicksPage() {
   const picks = products.filter((p) => p.flags?.topPick);
   return (
     <PageShell>
+      <JsonLd
+        schema={[
+          breadcrumbListSchema([
+            { name: "Home", path: "/" },
+            { name: "Top Picks", path: "/top-picks" }
+          ]),
+          ...picks.map(productSchema)
+        ]}
+      />
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
         <div className="container-shell">
           <SectionHeading

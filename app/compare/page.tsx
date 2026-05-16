@@ -2,6 +2,7 @@ import { PageShell } from "@/components/layout";
 import { products } from "@/components/site-data";
 import { SectionHeading } from "@/components/ui";
 import { DetailedCompareTable } from "@/components/detailed-compare-table";
+import { JsonLd, breadcrumbListSchema } from "@/components/json-ld";
 
 export const metadata = {
   title: "Compare Interactive Pets — Side-by-side feature and price comparison",
@@ -11,6 +12,12 @@ export const metadata = {
 export default function ComparePage() {
   return (
     <PageShell>
+      <JsonLd
+        schema={breadcrumbListSchema([
+          { name: "Home", path: "/" },
+          { name: "Compare", path: "/compare" }
+        ])}
+      />
       <section className="section-pad">
         <div className="container-shell">
           <SectionHeading

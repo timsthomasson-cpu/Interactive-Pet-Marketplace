@@ -5,6 +5,7 @@ import { CompareTable, TrustBoxesRow } from "@/components/sections";
 import { CategoryHeader } from "@/components/category-header";
 import { GiftWizard } from "@/components/gift-wizard";
 import { Suspense } from "react";
+import { JsonLd, productSchema, breadcrumbListSchema } from "@/components/json-ld";
 
 export const metadata = {
   title: "Best Interactive Pets for Gifts — Curated holiday and birthday picks",
@@ -16,6 +17,15 @@ export default function GiftsPage() {
   const topPicks = picks.filter((p) => p.flags?.topPick && p.imageUrl);
   return (
     <PageShell>
+      <JsonLd
+        schema={[
+          breadcrumbListSchema([
+            { name: "Home", path: "/" },
+            { name: "Best for Gifts", path: "/best-for-gifts" }
+          ]),
+          ...picks.map(productSchema)
+        ]}
+      />
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
         <div className="container-shell">
           <SectionHeading

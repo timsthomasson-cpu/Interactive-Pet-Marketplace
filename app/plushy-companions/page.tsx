@@ -3,6 +3,7 @@ import { CompareTable, GroupedProducts, TrustBoxesRow } from "@/components/secti
 import { products } from "@/components/site-data";
 import { SectionHeading } from "@/components/ui";
 import { CategoryHeader } from "@/components/category-header";
+import { JsonLd, productSchema, breadcrumbListSchema } from "@/components/json-ld";
 
 export const metadata = {
   title: "Plushy Companions — Comfort-first interactive pets",
@@ -14,6 +15,15 @@ export default function Page() {
   const topPicks = items.filter((p) => p.flags?.topPick && p.imageUrl);
   return (
     <PageShell>
+      <JsonLd
+        schema={[
+          breadcrumbListSchema([
+            { name: "Home", path: "/" },
+            { name: "Plushy Companions", path: "/plushy-companions" }
+          ]),
+          ...items.map(productSchema)
+        ]}
+      />
       <section className="section-pad pb-2 sm:pb-3">
         <div className="container-shell">
           <SectionHeading

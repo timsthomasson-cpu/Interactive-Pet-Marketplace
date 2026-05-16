@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/ui";
 import { CompareTable, TrustBoxesRow } from "@/components/sections";
 import { CategoryHeader } from "@/components/category-header";
 import { IllustrativeImagesNote } from "@/components/illustrative-images-note";
+import { JsonLd, productSchema, breadcrumbListSchema } from "@/components/json-ld";
 
 export const metadata = {
   title: "Premium Picks — High-end AI & robotic pets",
@@ -17,6 +18,15 @@ export default function PremiumPage() {
   const topPicks = picks.filter((p) => p.flags?.topPick && p.imageUrl);
   return (
     <PageShell>
+      <JsonLd
+        schema={[
+          breadcrumbListSchema([
+            { name: "Home", path: "/" },
+            { name: "Premium Picks", path: "/premium-picks" }
+          ]),
+          ...picks.map(productSchema)
+        ]}
+      />
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
         <div className="container-shell">
           <SectionHeading

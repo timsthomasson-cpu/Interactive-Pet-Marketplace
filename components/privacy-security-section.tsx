@@ -4,6 +4,10 @@ import Link from "next/link";
 // Linked from category intros (AI & Robotic, Premium) and from the camera
 // badge on product cards. Provides actionable buying advice rather than
 // generic warnings, with authoritative external sources cited.
+//
+// IMPORTANT: When you edit any question or answer in this component, also
+// update the corresponding entry in components/privacy-faq-data.ts so the
+// FAQPage JSON-LD schema stays in sync.
 
 export function PrivacySecuritySection() {
   return (

@@ -1,6 +1,7 @@
 import { PageShell } from "@/components/layout";
 import { SectionHeading } from "@/components/ui";
 import { ContactForm } from "@/components/contact-form";
+import { JsonLd, breadcrumbListSchema } from "@/components/json-ld";
 
 export const metadata = {
   title: "Contact",
@@ -10,6 +11,12 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <PageShell>
+      <JsonLd
+        schema={breadcrumbListSchema([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" }
+        ])}
+      />
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
         <div className="container-shell">
           <SectionHeading
