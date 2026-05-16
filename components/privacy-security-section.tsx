@@ -44,18 +44,6 @@ export function PrivacySecuritySection() {
             </summary>
             <ul className="mt-4 max-w-3xl space-y-3 text-sm leading-7 text-slate-700 sm:text-base">
               <li>
-                <span className="font-semibold text-slate-900">Physical privacy shutter.</span>{" "}
-                A mechanical cover that slides over the camera lens is more trustworthy than a software &ldquo;off&rdquo; button. You can visually confirm the camera can&rsquo;t see. This is uncommon in the pet-robot category; if not present, look for a clearly indicated camera-off mode.
-              </li>
-              <li>
-                <span className="font-semibold text-slate-900">Indicator light when the camera is active.</span>{" "}
-                It should be impossible to record without a visible LED on.
-              </li>
-              <li>
-                <span className="font-semibold text-slate-900">Two-factor authentication on the companion app.</span>{" "}
-                A connected camera in your home protected only by a password is a weak link. If the app doesn&rsquo;t visibly support 2FA, use a strong unique password and consider isolating the device on a guest Wi-Fi network.
-              </li>
-              <li>
                 <span className="font-semibold text-slate-900">A clear, readable privacy policy.</span>{" "}
                 Look for explicit statements about what data is collected, where it&rsquo;s stored, how long it&rsquo;s kept, and whether it&rsquo;s shared with third parties.
               </li>
@@ -66,6 +54,24 @@ export function PrivacySecuritySection() {
               <li>
                 <span className="font-semibold text-slate-900">A track record.</span>{" "}
                 Search &ldquo;[product name] security breach&rdquo; or &ldquo;[brand] privacy&rdquo; before buying. Past incidents are a useful signal.
+              </li>
+            </ul>
+
+            <p className="mt-6 max-w-3xl font-bold text-slate-900 text-sm sm:text-base">
+              For an additional level of privacy, look for the following:
+            </p>
+            <ul className="mt-3 max-w-3xl space-y-3 text-sm leading-7 text-slate-700 sm:text-base">
+              <li>
+                <span className="font-semibold text-slate-900">Indicator light when the camera is active.</span>{" "}
+                It should be impossible to record without a visible LED on.
+              </li>
+              <li>
+                <span className="font-semibold text-slate-900">Physical privacy shutter.</span>{" "}
+                A mechanical cover that slides over the camera lens is more trustworthy than a software &ldquo;off&rdquo; button. You can visually confirm the camera can&rsquo;t see. This is uncommon in the pet-robot category; if not present, look for a clearly indicated camera-off mode.
+              </li>
+              <li>
+                <span className="font-semibold text-slate-900">Two-factor authentication on the companion app.</span>{" "}
+                A connected camera in your home protected only by a password is a weak link. If the app doesn&rsquo;t visibly support 2FA, use a strong unique password and consider isolating the device on a guest Wi-Fi network.
               </li>
             </ul>
           </details>
