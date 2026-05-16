@@ -89,12 +89,16 @@ export function PrivacySecuritySection() {
                 If you don&rsquo;t need remote access while away from home, turn it off.
               </li>
               <li>
+                <span className="font-semibold text-slate-900">Turn off the camera in the app when it&rsquo;s not needed.</span>{" "}
+                Even when a robot uses its camera for navigation or legitimate monitoring, you usually don&rsquo;t need it on around the clock. Many of these products (including the Enabot EBO line and Loona) let you disable the camera through the companion app and re-enable it when you actually want it active. Build the habit of toggling it off during private moments — meals, conversations, time in the bedroom — and back on when you need the feature.
+              </li>
+              <li>
                 <span className="font-semibold text-slate-900">Keep firmware updated.</span>{" "}
                 Most security incidents involve products running outdated software.
               </li>
               <li>
-                <span className="font-semibold text-slate-900">Cover the camera when you don&rsquo;t need it.</span>{" "}
-                A physical shutter is best; a piece of tape works.
+                <span className="font-semibold text-slate-900">Physically cover the camera as a backup.</span>{" "}
+                If your app&rsquo;s privacy toggle doesn&rsquo;t fully reassure you, a piece of tape or a small sticker over the lens is a zero-trust backup. It costs nothing and you can verify it visually.
               </li>
               <li>
                 <span className="font-semibold text-slate-900">Review the privacy policy periodically.</span>{" "}
