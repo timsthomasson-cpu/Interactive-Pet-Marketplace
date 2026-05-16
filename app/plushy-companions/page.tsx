@@ -3,6 +3,7 @@ import { CompareTable, GroupedProducts, TrustBoxesRow } from "@/components/secti
 import { products } from "@/components/site-data";
 import { SectionHeading } from "@/components/ui";
 import { CategoryIntro } from "@/components/category-intro";
+import { CategoryTopPicksRotator } from "@/components/category-top-picks-rotator";
 
 export const metadata = {
   title: "Plushy Companions — Comfort-first interactive pets",
@@ -11,6 +12,7 @@ export const metadata = {
 
 export default function Page() {
   const items = products.filter((p) => p.type === "Interactive");
+  const topPicks = items.filter((p) => p.flags?.topPick && p.imageUrl);
   return (
     <PageShell>
       <section className="section-pad pb-2 sm:pb-3">
@@ -23,6 +25,12 @@ export default function Page() {
           />
         </div>
       </section>
+
+      <CategoryTopPicksRotator
+        items={topPicks}
+        title="Our Top Plushy Companion Picks"
+        subtitle="Curated favorites across this category"
+      />
 
       <CategoryIntro
         body={[

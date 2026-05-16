@@ -3,6 +3,7 @@ import { products } from "@/components/site-data";
 import { SectionHeading } from "@/components/ui";
 import { CompareTable, TrustBoxesRow } from "@/components/sections";
 import { CategoryIntro } from "@/components/category-intro";
+import { CategoryTopPicksRotator } from "@/components/category-top-picks-rotator";
 import { GiftWizard } from "@/components/gift-wizard";
 import { Suspense } from "react";
 
@@ -13,6 +14,7 @@ export const metadata = {
 
 export default function GiftsPage() {
   const picks = products.filter((p) => p.flags?.gifts);
+  const topPicks = picks.filter((p) => p.flags?.topPick && p.imageUrl);
   return (
     <PageShell>
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
@@ -25,6 +27,12 @@ export default function GiftsPage() {
           />
         </div>
       </section>
+
+      <CategoryTopPicksRotator
+        items={topPicks}
+        title="Our Top Gift Picks"
+        subtitle="Curated favorites for gift-giving"
+      />
 
       <CategoryIntro
         body={[

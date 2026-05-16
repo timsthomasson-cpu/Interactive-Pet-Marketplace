@@ -5,6 +5,7 @@ import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/ui";
 import { CompareTable, TrustBoxesRow } from "@/components/sections";
 import { CategoryIntro } from "@/components/category-intro";
+import { CategoryTopPicksRotator } from "@/components/category-top-picks-rotator";
 import { IllustrativeImagesNote } from "@/components/illustrative-images-note";
 
 export const metadata = {
@@ -14,6 +15,7 @@ export const metadata = {
 
 export default function PremiumPage() {
   const picks = products.filter((p) => p.priceCategory === "Premium");
+  const topPicks = picks.filter((p) => p.flags?.topPick && p.imageUrl);
   return (
     <PageShell>
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
@@ -26,6 +28,12 @@ export default function PremiumPage() {
           />
         </div>
       </section>
+
+      <CategoryTopPicksRotator
+        items={topPicks}
+        title="Our Top Premium Picks"
+        subtitle="Curated favorites in this tier"
+      />
 
       <CategoryIntro
         body={[

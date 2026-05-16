@@ -3,6 +3,7 @@ import { PageShell } from "@/components/layout";
 import { products } from "@/components/site-data";
 import { CompareTable, GroupedProducts, TrustBoxesRow } from "@/components/sections";
 import { CategoryIntro } from "@/components/category-intro";
+import { CategoryTopPicksRotator } from "@/components/category-top-picks-rotator";
 
 export const metadata = {
   title: "Best Interactive Pets for Seniors and Senior Loved Ones",
@@ -13,6 +14,7 @@ export default function SeniorsPage() {
   const picks = products.filter((p) =>
     p.bestFor.some((tag) => ["Seniors", "Senior loved ones", "Gift buyers"].includes(tag))
   );
+  const topPicks = picks.filter((p) => p.flags?.topPick && p.imageUrl);
   return (
     <PageShell>
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
@@ -28,6 +30,12 @@ export default function SeniorsPage() {
           </div>
         </div>
       </section>
+
+      <CategoryTopPicksRotator
+        items={topPicks}
+        title="Our Top Picks for Seniors"
+        subtitle="Curated favorites for this audience"
+      />
 
       <CategoryIntro
         body={[
