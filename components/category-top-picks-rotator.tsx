@@ -47,8 +47,11 @@ export function CategoryTopPicksRotator({
   }, []);
 
   // Measure the tallest card so the container reserves enough height for
-  // any card to render without clipping. Re-measure on resize since
-  // ProductCard is responsive.
+  // any card to render without clipping. Re-measure on:
+  //   - mount (after layout settles)
+  //   - window resize
+  //   - any <img> inside the cards finishing load (image dimensions affect
+  //     card height; pre-load measurements are unreliable)
   useLayoutEffect(() => {
     function measure() {
       const heights = cardRefs.current
@@ -58,15 +61,39 @@ export function CategoryTopPicksRotator({
         setMaxHeight(Math.max(...heights));
       }
     }
-    // Two-frame delay so layout settles before measurement
-    const raf1 = requestAnimationFrame(() => {
-      const raf2 = requestAnimationFrame(measure);
-      return () => cancelAnimationFrame(raf2);
+
+    // Two-frame delay so layout settles before initial measurement
+    let raf2id: number | null = null;
+    const raf1id = requestAnimationFrame(() => {
+      raf2id = requestAnimationFrame(measure);
     });
+
+    // Re-measure when any product image loads. ProductCard images aren't
+    // present in initial layout dimensions, so pre-load measurement misses
+    // their contribution.
+    const containerEl = containerRef.current;
+    const imageLoadHandlers: Array<{ el: HTMLImageElement; fn: () => void }> = [];
+    if (containerEl) {
+      const imgs = containerEl.querySelectorAll("img");
+      imgs.forEach((img) => {
+        if (!img.complete) {
+          const fn = () => measure();
+          img.addEventListener("load", fn, { once: true });
+          img.addEventListener("error", fn, { once: true });
+          imageLoadHandlers.push({ el: img, fn });
+        }
+      });
+    }
+
     window.addEventListener("resize", measure);
     return () => {
-      cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf1id);
+      if (raf2id !== null) cancelAnimationFrame(raf2id);
       window.removeEventListener("resize", measure);
+      imageLoadHandlers.forEach(({ el, fn }) => {
+        el.removeEventListener("load", fn);
+        el.removeEventListener("error", fn);
+      });
     };
   }, [items.length]);
 
@@ -88,7 +115,7 @@ export function CategoryTopPicksRotator({
 
   return (
     <section
-      className="section-pad pt-6 sm:pt-8 pb-6 sm:pb-8"
+      className="pt-2 sm:pt-3 pb-8 sm:pb-10"
       aria-label={`${title} for this category`}
     >
       <div className="container-shell">
@@ -103,7 +130,7 @@ export function CategoryTopPicksRotator({
 
         <div
           ref={containerRef}
-          className="relative max-w-lg mx-auto"
+          className="relative max-w-sm mx-auto"
           style={maxHeight ? { height: maxHeight } : undefined}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
