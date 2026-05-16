@@ -116,7 +116,7 @@ export function PrivacySecuritySection() {
           <details className="group card p-5 sm:p-6">
             <summary className="cursor-pointer list-none flex items-center justify-between gap-4">
               <span className="text-base font-semibold text-slate-900 sm:text-lg">
-                Where to research a specific product
+                Where to research privacy questions for a specific product
               </span>
               <span aria-hidden className="shrink-0 text-trust-700 text-lg transition-transform group-open:rotate-45">+</span>
             </summary>
@@ -159,6 +159,9 @@ export function PrivacySecuritySection() {
                   — guidance for consumers on connected-device privacy.
                 </li>
               </ul>
+              <p className="pt-2">
+                Also check the manufacturer&rsquo;s own privacy policy on their product page. This is the authoritative source for what data the product collects, where it&rsquo;s stored, how long it&rsquo;s kept, and who it&rsquo;s shared with. Read it alongside the independent sources above rather than instead of them — manufacturers are accurate about their own practices but tend to present them in the most favorable light.
+              </p>
             </div>
           </details>
 
