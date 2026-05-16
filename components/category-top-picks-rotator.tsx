@@ -114,74 +114,73 @@ export function CategoryTopPicksRotator({
   }
 
   return (
-    <section
-      className="pt-1 sm:pt-2 pb-8 sm:pb-10"
+    <div
+      className="relative"
+      role="region"
       aria-label={`${title} for this category`}
     >
-      <div className="container-shell">
-        <div
-          ref={containerRef}
-          className="relative max-w-sm mx-auto"
-          style={maxHeight ? { height: maxHeight } : undefined}
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-          onTouchStart={() => setPaused(true)}
-          onTouchEnd={() => setTimeout(() => setPaused(false), 2500)}
-        >
-          {items.map((product, i) => {
-            const measured = maxHeight !== null;
-            const isActive = i === index;
-            // Before measurement, render only the active card in normal flow
-            // (so the container gets a natural height to measure from), and
-            // render the others absolute-positioned and invisible so they're
-            // measurable but don't take layout space.
-            const className = measured
-              ? "absolute inset-0 transition-opacity ease-in-out"
-              : isActive
-              ? "transition-opacity ease-in-out"
-              : "absolute inset-x-0 top-0 invisible";
-            return (
-              <div
-                key={product.slug}
-                ref={(el) => { cardRefs.current[i] = el; }}
-                className={className}
-                style={{
-                  transitionDuration: `${FADE_MS}ms`,
-                  opacity: measured ? (isActive ? 1 : 0) : 1,
-                  pointerEvents: measured && !isActive ? "none" : "auto",
-                  zIndex: isActive ? 10 : 0
-                }}
-                aria-hidden={measured ? !isActive : undefined}
-              >
-                <ProductCard product={product} imageFit="contain" />
-              </div>
-            );
-          })}
-        </div>
-
-        {items.length > 1 && (
-          <div
-            className="mt-4 flex justify-center gap-2"
-            role="tablist"
-            aria-label="Choose top pick"
-          >
-            {items.map((p, i) => (
-              <button
-                key={p.slug}
-                onClick={() => setIndex(i)}
-                role="tab"
-                aria-selected={i === index}
-                aria-label={`Show ${p.name}`}
-                className={`h-2.5 rounded-full transition-all ${
-                  i === index
-                    ? "w-8 bg-trust-500"
-                    : "w-2.5 bg-coral-200 hover:bg-coral-300"
-                }`}
-              />
-            ))}
-          </div>
-        )}
+      <div
+        ref={containerRef}
+        className="relative max-w-sm mx-auto lg:mx-0"
+        style={maxHeight ? { height: maxHeight } : undefined}
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onTouchStart={() => setPaused(true)}
+        onTouchEnd={() => setTimeout(() => setPaused(false), 2500)}
+      >
+        {items.map((product, i) => {
+          const measured = maxHeight !== null;
+          const isActive = i === index;
+          // Before measurement, render only the active card in normal flow
+          // (so the container gets a natural height to measure from), and
+          // render the others absolute-positioned and invisible so they're
+          // measurable but don't take layout space.
+          const className = measured
+            ? "absolute inset-0 transition-opacity ease-in-out"
+            : isActive
+            ? "transition-opacity ease-in-out"
+            : "absolute inset-x-0 top-0 invisible";
+          return (
+            <div
+              key={product.slug}
+              ref={(el) => { cardRefs.current[i] = el; }}
+              className={className}
+              style={{
+                transitionDuration: `${FADE_MS}ms`,
+                opacity: measured ? (isActive ? 1 : 0) : 1,
+                pointerEvents: measured && !isActive ? "none" : "auto",
+                zIndex: isActive ? 10 : 0
+              }}
+              aria-hidden={measured ? !isActive : undefined}
+            >
+              <ProductCard product={product} imageFit="contain" />
+            </div>
+          );
+        })}
       </div>
-    </section>
+
+      {items.length > 1 && (
+        <div
+          className="mt-4 flex justify-center lg:justify-start gap-2"
+          role="tablist"
+          aria-label="Choose top pick"
+        >
+          {items.map((p, i) => (
+            <button
+              key={p.slug}
+              onClick={() => setIndex(i)}
+              role="tab"
+              aria-selected={i === index}
+              aria-label={`Show ${p.name}`}
+              className={`h-2.5 rounded-full transition-all ${
+                i === index
+                  ? "w-8 bg-trust-500"
+                  : "w-2.5 bg-coral-200 hover:bg-coral-300"
+              }`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }

@@ -2,8 +2,7 @@ import { PageShell } from "@/components/layout";
 import { products } from "@/components/site-data";
 import { SectionHeading } from "@/components/ui";
 import { CompareTable, TrustBoxesRow } from "@/components/sections";
-import { CategoryIntro } from "@/components/category-intro";
-import { CategoryTopPicksRotator } from "@/components/category-top-picks-rotator";
+import { CategoryHeader } from "@/components/category-header";
 import { GiftWizard } from "@/components/gift-wizard";
 import { Suspense } from "react";
 
@@ -28,13 +27,9 @@ export default function GiftsPage() {
         </div>
       </section>
 
-      <CategoryTopPicksRotator
-        items={topPicks}
-        title="Our Top Gift Picks"
-        subtitle="Curated favorites for gift-giving"
-      />
-
-      <CategoryIntro
+      <CategoryHeader
+        topPicks={topPicks}
+        rotatorTitle="Our Top Gift Picks"
         body={[
           <>
             <strong className="text-slate-900">Why interactive pets make memorable gifts.</strong>{" "}

@@ -4,8 +4,7 @@ import { products } from "@/components/site-data";
 import { ProductCard } from "@/components/product-card";
 import { SectionHeading } from "@/components/ui";
 import { CompareTable, TrustBoxesRow } from "@/components/sections";
-import { CategoryIntro } from "@/components/category-intro";
-import { CategoryTopPicksRotator } from "@/components/category-top-picks-rotator";
+import { CategoryHeader } from "@/components/category-header";
 import { IllustrativeImagesNote } from "@/components/illustrative-images-note";
 
 export const metadata = {
@@ -29,13 +28,9 @@ export default function PremiumPage() {
         </div>
       </section>
 
-      <CategoryTopPicksRotator
-        items={topPicks}
-        title="Our Top Premium Picks"
-        subtitle="Curated favorites in this tier"
-      />
-
-      <CategoryIntro
+      <CategoryHeader
+        topPicks={topPicks}
+        rotatorTitle="Our Top Premium Picks"
         body={[
           <>
             <strong className="text-slate-900">What &ldquo;premium&rdquo; means on this site.</strong>{" "}

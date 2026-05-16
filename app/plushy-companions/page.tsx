@@ -2,8 +2,7 @@ import { PageShell } from "@/components/layout";
 import { CompareTable, GroupedProducts, TrustBoxesRow } from "@/components/sections";
 import { products } from "@/components/site-data";
 import { SectionHeading } from "@/components/ui";
-import { CategoryIntro } from "@/components/category-intro";
-import { CategoryTopPicksRotator } from "@/components/category-top-picks-rotator";
+import { CategoryHeader } from "@/components/category-header";
 
 export const metadata = {
   title: "Plushy Companions — Comfort-first interactive pets",
@@ -26,13 +25,9 @@ export default function Page() {
         </div>
       </section>
 
-      <CategoryTopPicksRotator
-        items={topPicks}
-        title="Our Top Plushy Companion Picks"
-        subtitle="Curated favorites across this category"
-      />
-
-      <CategoryIntro
+      <CategoryHeader
+        topPicks={topPicks}
+        rotatorTitle="Our Top Plushy Companion Picks"
         body={[
           <>
             <strong className="text-slate-900">What plushy companions are.</strong>{" "}

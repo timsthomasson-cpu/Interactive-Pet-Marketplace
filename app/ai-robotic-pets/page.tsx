@@ -3,8 +3,7 @@ import { PageShell } from "@/components/layout";
 import { CompareTable, GroupedProducts, TrustBoxesRow } from "@/components/sections";
 import { products } from "@/components/site-data";
 import { SectionHeading } from "@/components/ui";
-import { CategoryIntro } from "@/components/category-intro";
-import { CategoryTopPicksRotator } from "@/components/category-top-picks-rotator";
+import { CategoryHeader } from "@/components/category-header";
 
 export const metadata = {
   title: "AI & Robotic Pets — Smart interactive companions",
@@ -27,13 +26,9 @@ export default function Page() {
         </div>
       </section>
 
-      <CategoryTopPicksRotator
-        items={topPicks}
-        title="Our Top AI & Robotic Pet Picks"
-        subtitle="Curated favorites across this category"
-      />
-
-      <CategoryIntro
+      <CategoryHeader
+        topPicks={topPicks}
+        rotatorTitle="Our Top AI & Robotic Pet Picks"
         body={[
           <>
             <strong className="text-slate-900">What AI and robotic pets are.</strong>{" "}

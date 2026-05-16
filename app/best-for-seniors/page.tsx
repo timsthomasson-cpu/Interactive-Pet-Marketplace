@@ -2,8 +2,7 @@ import Link from "next/link";
 import { PageShell } from "@/components/layout";
 import { products } from "@/components/site-data";
 import { CompareTable, GroupedProducts, TrustBoxesRow } from "@/components/sections";
-import { CategoryIntro } from "@/components/category-intro";
-import { CategoryTopPicksRotator } from "@/components/category-top-picks-rotator";
+import { CategoryHeader } from "@/components/category-header";
 
 export const metadata = {
   title: "Best Interactive Pets for Seniors and Senior Loved Ones",
@@ -31,13 +30,9 @@ export default function SeniorsPage() {
         </div>
       </section>
 
-      <CategoryTopPicksRotator
-        items={topPicks}
-        title="Our Top Picks for Seniors"
-        subtitle="Curated favorites for this audience"
-      />
-
-      <CategoryIntro
+      <CategoryHeader
+        topPicks={topPicks}
+        rotatorTitle="Our Top Picks for Seniors"
         body={[
           <>
             Research has shown that interactive pets can improve the lives of seniors by reducing loneliness and social isolation, as well as decreasing agitation and anxiety. (
