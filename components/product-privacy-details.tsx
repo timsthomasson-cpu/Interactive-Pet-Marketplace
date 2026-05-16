@@ -1,72 +1,29 @@
-import { Product, ProductPrivacy, ProductPrivacyField, ThirdPartyFinding } from "./site-data";
+import { ProductPrivacy, ProductPrivacyField, ThirdPartyFinding } from "./site-data";
 
-// Expandable privacy-details panel for camera-equipped product cards.
-// Renders nothing when product.privacy is not present.
-//
-// Two zones:
-//   1. "From the manufacturer" — facts directly stated on the manufacturer's
-//      product page or privacy policy. Values that aren't documented show
-//      as "Not specified." Source URLs link to the manufacturer's pages.
-//   2. "From independent reviews" — findings from Tier 1/Tier 2 sources
-//      (Mozilla Privacy Not Included, Consumer Reports, FTC, established
-//      tech publications). Each finding shows attribution and date.
-//
-// Designed to be compact when collapsed, scannable when expanded. Visitors
-// who don't care can ignore it. Visitors who do get a complete picture in
-// one click without leaving the page.
-
-export function ProductPrivacyDetails({ product }: { product: Product }) {
-  if (!product.privacy) return null;
-  const p = product.privacy;
-
-  return (
-    <details className="group mt-4 rounded-2xl border border-slate-200 bg-cream-50">
-      <summary className="cursor-pointer list-none flex items-center justify-between gap-4 p-4">
-        <span className="flex items-center gap-2 text-sm font-semibold text-slate-900 sm:text-base">
-          <span aria-hidden>📷</span>
-          Privacy details
-        </span>
-        <span
-          aria-hidden
-          className="shrink-0 text-trust-700 text-lg transition-transform group-open:rotate-45"
-        >
-          +
-        </span>
-      </summary>
-
-      <div className="space-y-4 px-4 pb-4 pt-1 text-sm leading-7 text-slate-700">
-        {/* Summary line — neutral restatement of manufacturer's documented behavior */}
-        <p className="text-slate-800">{p.summary}</p>
-
-        {/* Manufacturer zone */}
-        <ManufacturerZone privacy={p} />
-
-        {/* Third-party zone — only render if findings exist */}
-        {p.fromThirdParty.length > 0 && (
-          <ThirdPartyZone findings={p.fromThirdParty} />
-        )}
-
-        {/* Footer: research date */}
-        <p className="text-xs text-slate-500">
-          Last researched: {p.lastResearched}
-        </p>
-      </div>
-    </details>
-  );
-}
+// Presentational helpers for the dedicated per-product privacy page.
+// Originally these lived inside a card-level accordion; that has been
+// retired in favor of dedicated /privacy/[slug] pages. The two zone
+// components (ManufacturerZone, ThirdPartyZone) are now used by
+// app/privacy/[slug]/page.tsx to compose the page.
 
 // ────────────────────────────────────────────────────────────────────
 // Manufacturer zone
 // ────────────────────────────────────────────────────────────────────
 
-function ManufacturerZone({ privacy }: { privacy: ProductPrivacy }) {
+export function ManufacturerZone({ privacy }: { privacy: ProductPrivacy }) {
   const m = privacy.fromManufacturer;
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-3">
-      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-600">
+    <section className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+      <h2 className="text-lg font-bold tracking-tight text-slate-900 sm:text-xl">
         From the manufacturer
+      </h2>
+      <p className="mt-1 text-sm text-slate-600">
+        Facts directly stated on the manufacturer&rsquo;s product page or in
+        their privacy policy. Where the manufacturer doesn&rsquo;t document a
+        criterion, the value is shown as &ldquo;Not specified.&rdquo;
       </p>
-      <dl className="grid grid-cols-1 gap-x-4 gap-y-2 sm:grid-cols-[max-content_1fr]">
+
+      <dl className="mt-5 grid grid-cols-1 gap-x-6 gap-y-4 text-sm leading-7 sm:grid-cols-[max-content_1fr] sm:text-base">
         <FieldRow label="Physical privacy shutter" field={m.physicalShutter} valueMap={yesNoMap} />
         <FieldRow label="Software privacy mode" field={m.softwarePrivacyMode} valueMap={yesNoMap} />
         <FieldRow label="Camera indicator light" field={m.indicatorLED} valueMap={yesNoMap} />
@@ -81,24 +38,25 @@ function ManufacturerZone({ privacy }: { privacy: ProductPrivacy }) {
       </dl>
 
       {privacy.manufacturerSources.length > 0 && (
-        <div className="mt-3 border-t border-slate-100 pt-2 text-xs text-slate-600">
-          <span className="font-semibold">Manufacturer sources:</span>{" "}
-          {privacy.manufacturerSources.map((url, i) => (
-            <span key={url}>
-              {i > 0 && ", "}
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline text-trust-700 hover:text-trust-900 break-all"
-              >
-                {prettyHost(url)}
-              </a>
-            </span>
-          ))}
+        <div className="mt-6 border-t border-slate-100 pt-4 text-sm text-slate-600">
+          <p className="font-semibold text-slate-700">Manufacturer sources:</p>
+          <ul className="mt-2 space-y-1.5">
+            {privacy.manufacturerSources.map((url) => (
+              <li key={url}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline text-trust-700 hover:text-trust-900 break-all"
+                >
+                  {url}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
-    </div>
+    </section>
   );
 }
 
@@ -106,17 +64,23 @@ function ManufacturerZone({ privacy }: { privacy: ProductPrivacy }) {
 // Third-party zone
 // ────────────────────────────────────────────────────────────────────
 
-function ThirdPartyZone({ findings }: { findings: ThirdPartyFinding[] }) {
+export function ThirdPartyZone({ findings }: { findings: ThirdPartyFinding[] }) {
+  if (findings.length === 0) return null;
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-3">
-      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-600">
+    <section className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6">
+      <h2 className="text-lg font-bold tracking-tight text-slate-900 sm:text-xl">
         From independent reviews
+      </h2>
+      <p className="mt-1 text-sm text-slate-600">
+        Findings reported by Tier 1 sources (Mozilla Privacy Not Included,
+        Consumer Reports, FTC) or established tech and security publications.
       </p>
-      <ul className="space-y-3">
+
+      <ul className="mt-5 space-y-5">
         {findings.map((f, i) => (
-          <li key={i} className="text-sm leading-6 text-slate-700">
+          <li key={i} className="text-sm leading-7 text-slate-700 sm:text-base">
             <p>{f.finding}</p>
-            <p className="mt-1 text-xs text-slate-500">
+            <p className="mt-2 text-xs text-slate-500 sm:text-sm">
               Source:{" "}
               <a
                 href={f.sourceUrl}
@@ -128,11 +92,15 @@ function ThirdPartyZone({ findings }: { findings: ThirdPartyFinding[] }) {
               </a>
               , {f.sourceDate}
             </p>
-            {f.note && <p className="mt-1 text-xs italic text-slate-500">{f.note}</p>}
+            {f.note && (
+              <p className="mt-2 text-xs italic text-slate-500 sm:text-sm">
+                {f.note}
+              </p>
+            )}
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
 
@@ -161,11 +129,11 @@ function FieldRow<T extends string>({
   }[entry.tone];
   return (
     <>
-      <dt className="text-slate-600 sm:pr-2">{label}:</dt>
-      <dd className={`font-medium ${toneClass}`}>
+      <dt className="font-medium text-slate-600 sm:pr-2">{label}:</dt>
+      <dd className={`font-semibold ${toneClass}`}>
         {entry.label}
         {field.note && (
-          <span className="mt-0.5 block text-xs font-normal italic text-slate-500">
+          <span className="mt-1 block text-xs font-normal italic text-slate-500 sm:text-sm">
             {field.note}
           </span>
         )}
@@ -199,14 +167,3 @@ const incidentsMap: ValueMap = {
   "disclosed": { label: "Disclosed (see note)", tone: "negative" },
   "not-specified": { label: "Not specified", tone: "unknown" }
 };
-
-// Pretty-print a URL host as the display label (e.g. "ropetai.com" instead of
-// "https://ropetai.com/products/ropet™-ai-comfort-companion-plush-robot").
-function prettyHost(url: string): string {
-  try {
-    const u = new URL(url);
-    return u.hostname.replace(/^www\./, "");
-  } catch {
-    return url;
-  }
-}

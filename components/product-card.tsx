@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Product } from "./site-data";
 import { Badge, PlaceholderVisual } from "./ui";
 import { PRODUCT_LINK_REL, RATING_LINK_REL } from "./link-rel";
-import { ProductPrivacyDetails } from "./product-privacy-details";
 
 // Optional prop: imageFit. The default (undefined) preserves the existing
 // behavior — object-contain on mobile (h-44) and object-cover on desktop
@@ -61,10 +60,10 @@ export function ProductCard({
           ))}
           {product.flags?.camera && (
             <Link
-              href="/questions#privacy"
+              href={product.privacy ? `/privacy/${product.slug}` : "/questions#privacy"}
               className="inline-flex items-center gap-1 rounded-full border border-slate-300 bg-white px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-xs font-semibold text-slate-700 hover:border-trust-400 hover:text-trust-700"
-              title="This product includes a camera. View our privacy & security checklist."
-              aria-label="Has camera — view privacy & security checklist"
+              title={product.privacy ? "This product includes a camera. View privacy details." : "This product includes a camera. View our privacy & security checklist."}
+              aria-label={product.privacy ? `Has camera — view privacy details for ${product.name}` : "Has camera — view privacy & security checklist"}
             >
               <span aria-hidden>📷</span>
               <span>Camera</span>
@@ -124,7 +123,6 @@ export function ProductCard({
             View Details
           </Link>
         </div>
-        <ProductPrivacyDetails product={product} />
       </div>
     </div>
   );

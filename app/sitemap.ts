@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { products } from "@/components/site-data";
 
 // Generates /sitemap.xml at build time.
 // Update the host once you have a live domain.
@@ -28,10 +29,23 @@ const ROUTES: { path: string; changeFreq: MetadataRoute.Sitemap[number]["changeF
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  return ROUTES.map((r) => ({
+  const staticRoutes = ROUTES.map((r) => ({
     url: `${SITE_URL}${r.path}`,
     lastModified: now,
     changeFrequency: r.changeFreq,
     priority: r.priority
   }));
+
+  // Dynamically include one entry per camera product that has privacy data.
+  // These pages are routed at /privacy/[slug] and are statically generated.
+  const privacyRoutes = products
+    .filter((p) => p.privacy)
+    .map((p) => ({
+      url: `${SITE_URL}/privacy/${p.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6
+    }));
+
+  return [...staticRoutes, ...privacyRoutes];
 }
