@@ -88,7 +88,7 @@ export function PrivacySecuritySection() {
                 <span className="font-semibold text-slate-900">Connect it to a guest Wi-Fi network</span>, not your primary home network. Most modern routers offer guest networks; using one keeps the robot isolated from your phones, computers, and other devices.
               </li>
               <li>
-                <span className="font-semibold text-slate-900">Enable two-factor authentication</span> on the companion app immediately, if the app supports it.
+                <span className="font-semibold text-slate-900">If available, enable two-factor authentication</span> on the companion app immediately.
               </li>
               <li>
                 <span className="font-semibold text-slate-900">Disable cloud features you don&rsquo;t use.</span>{" "}
