@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-16T15:24:32.295Z
+// Generated: 2026-05-16T18:41:25.344Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -15,21 +15,45 @@ export type ProductFlags = {
 // Privacy and security research for products with cameras or internet access.
 // Hand-curated in Documentation/product-privacy.json and merged in at build
 // time. Optional — only camera/connected products carry this field.
+//
+// Data discipline:
+//   - fromManufacturer.* values come from direct manufacturer statements
+//     on product pages or in privacy policies. If the manufacturer does
+//     not explicitly state a fact, the value is "not-specified".
+//   - fromThirdParty findings come from Tier 1 sources (Mozilla Privacy
+//     Not Included, Consumer Reports, FTC) or Tier 2 sources (established
+//     tech/security publications). Each finding includes the source name,
+//     URL, and date.
+//   - summary is a neutral one-line restatement of documented behavior.
+
 export type ProductPrivacyField<T extends string> = {
   value: T;
   note?: string;
 };
 
+export type ThirdPartyFinding = {
+  finding: string;
+  sourceName: string;
+  sourceUrl: string;
+  sourceDate: string;
+  note?: string;
+};
+
 export type ProductPrivacy = {
-  lastResearched?: string;
-  sources?: string[];
-  privacyShutter?: ProductPrivacyField<"physical" | "software-only" | "none" | "unknown">;
-  indicatorLED?: ProductPrivacyField<"yes" | "no" | "unknown">;
-  twoFactorAuth?: ProductPrivacyField<"yes" | "no" | "unknown">;
-  privacyPolicyClarity?: ProductPrivacyField<"strong" | "moderate" | "weak" | "unknown">;
-  storageLocation?: ProductPrivacyField<"local-only" | "local-first" | "cloud-first" | "cloud-only" | "unknown">;
-  knownIncidents?: ProductPrivacyField<"none-known" | "minor" | "major" | "unknown">;
-  summary?: string;
+  lastResearched: string;
+  manufacturerSources: string[];
+  thirdPartySources: { name: string; url: string; date: string }[];
+  fromManufacturer: {
+    physicalShutter?: ProductPrivacyField<"yes" | "no" | "not-specified">;
+    softwarePrivacyMode?: ProductPrivacyField<"yes" | "no" | "not-specified">;
+    indicatorLED?: ProductPrivacyField<"yes" | "no" | "not-specified">;
+    twoFactorAuth?: ProductPrivacyField<"yes" | "no" | "not-specified">;
+    storageLocation?: ProductPrivacyField<"local-only" | "local-first" | "cloud-first" | "hybrid" | "not-specified">;
+    privacyPolicyAvailable?: ProductPrivacyField<"yes" | "no" | "not-specified">;
+    manufacturerDisclosedIncidents?: ProductPrivacyField<"none-disclosed" | "disclosed" | "not-specified">;
+  };
+  fromThirdParty: ThirdPartyFinding[];
+  summary: string;
 };
 
 export type Product = {
@@ -281,36 +305,41 @@ export const products: Product[] = [
       "affiliateAgreement": false
     },
     "privacy": {
-      "lastResearched": "2026-05-13",
-      "sources": [
-        "https://store.enabot.com/pages/ebo-air-2-companion-robot",
+      "lastResearched": "2026-05-16",
+      "manufacturerSources": [
+        "https://www.enabot.com/products/ebo-air-2-familybot",
         "https://mediakit.enabot.com/ebo/IOS/Intl/ebo_privacy_policy_en.html"
       ],
-      "privacyShutter": {
-        "value": "software-only",
-        "note": "One-tap privacy mode disables camera and microphone in software. No physical lens cover."
+      "thirdPartySources": [],
+      "fromManufacturer": {
+        "physicalShutter": {
+          "value": "not-specified",
+          "note": "Manufacturer does not document a physical lens cover on the product page or in the privacy policy."
+        },
+        "softwarePrivacyMode": {
+          "value": "not-specified",
+          "note": "The product page does not document a one-tap camera/microphone disable feature (this feature is documented for the EBO Air 2 Plus and EBO Air 2S, but not the EBO Air 2 specifically)."
+        },
+        "indicatorLED": {
+          "value": "not-specified"
+        },
+        "twoFactorAuth": {
+          "value": "not-specified"
+        },
+        "storageLocation": {
+          "value": "local-first",
+          "note": "Manufacturer states the EBO Air 2 ships with a 32GB microSD card (pre-installed), expandable to 256GB, where videos are stored locally."
+        },
+        "privacyPolicyAvailable": {
+          "value": "yes",
+          "note": "Privacy policy is published at mediakit.enabot.com. It states Wi-Fi credentials are not saved on local or cloud terminals, and that camera notification data is transmitted via cloud but not stored there."
+        },
+        "manufacturerDisclosedIncidents": {
+          "value": "none-disclosed"
+        }
       },
-      "indicatorLED": {
-        "value": "unknown",
-        "note": "Not explicitly documented in available materials."
-      },
-      "twoFactorAuth": {
-        "value": "unknown",
-        "note": "Not advertised in the EBO companion app description or the privacy policy."
-      },
-      "privacyPolicyClarity": {
-        "value": "moderate",
-        "note": "Policy exists and explicitly states that cloud video storage is opt-in. Some sections are generic boilerplate."
-      },
-      "storageLocation": {
-        "value": "local-first",
-        "note": "32GB onboard storage included, expandable to 256GB via microSD. Cloud video storage is opt-in."
-      },
-      "knownIncidents": {
-        "value": "none-known",
-        "note": "No major public security incidents found as of research date."
-      },
-      "summary": "Local-first storage is a positive. Software-only privacy mode and lack of documented 2FA are weaknesses. A reasonable choice for buyers who want the home-monitoring features and are comfortable managing app security themselves."
+      "fromThirdParty": [],
+      "summary": "Manufacturer documents 32GB onboard storage (expandable to 256GB) for video and a privacy policy disclosing Wi-Fi credentials are not saved on local or cloud terminals."
     }
   },
   {
@@ -350,35 +379,43 @@ export const products: Product[] = [
       "affiliateAgreement": false
     },
     "privacy": {
-      "lastResearched": "2026-05-13",
-      "sources": [
+      "lastResearched": "2026-05-16",
+      "manufacturerSources": [
         "https://www.enabot.com/pages/ebo-air-2-plus-family-companion-robot",
-        "https://mediakit.enabot.com/ebo/IOS/Intl/ebo_privacy_policy_en.html"
+        "https://www.enabot.com/products/ebo-air-2-plus-companion-robot",
+        "https://mediakit.enabot.com/ebohome/privacy_policy_en.html",
+        "https://mediakit.enabot.com/ebohome/service_agreement_for_users_en.html"
       ],
-      "privacyShutter": {
-        "value": "software-only",
-        "note": "One-tap privacy mode toggles camera and microphone in software. No physical lens cover."
+      "thirdPartySources": [],
+      "fromManufacturer": {
+        "physicalShutter": {
+          "value": "not-specified",
+          "note": "Manufacturer does not document a physical lens cover."
+        },
+        "softwarePrivacyMode": {
+          "value": "yes",
+          "note": "Manufacturer states: 'Instantly disable camera or microphone with a single tap.' Product page also documents user-access management: 'Unified management of access rights and time restrictions.'"
+        },
+        "indicatorLED": {
+          "value": "not-specified"
+        },
+        "twoFactorAuth": {
+          "value": "not-specified"
+        },
+        "storageLocation": {
+          "value": "local-first",
+          "note": "Manufacturer states: '32GB Built-in (21GB Available) + 32GB microSD Card Included.' Privacy policy adds that face data 'will be saved on the robot locally rather than on the cloud.'"
+        },
+        "privacyPolicyAvailable": {
+          "value": "yes",
+          "note": "EBO HOME ROBOT service agreement states: 'EBO HOME ROBOT will not use your audio, video, picture, and other data saved on the cloud for other [purposes] unless agreed expressly by you or prescribed by compulsory provisions of laws and regulations.'"
+        },
+        "manufacturerDisclosedIncidents": {
+          "value": "none-disclosed"
+        }
       },
-      "indicatorLED": {
-        "value": "unknown",
-        "note": "Not explicitly documented."
-      },
-      "twoFactorAuth": {
-        "value": "unknown",
-        "note": "Not advertised in companion app description or privacy policy."
-      },
-      "privacyPolicyClarity": {
-        "value": "moderate",
-        "note": "Same policy as other Enabot products. Cloud video storage is opt-in."
-      },
-      "storageLocation": {
-        "value": "local-first",
-        "note": "32GB onboard storage with microSD support. Cloud is opt-in."
-      },
-      "knownIncidents": {
-        "value": "none-known"
-      },
-      "summary": "Adds AI Chat Mode on top of the Air 2 base. AI conversations route through cloud services when enabled, so the privacy considerations are slightly heavier than the base Air 2. Other aspects are equivalent."
+      "fromThirdParty": [],
+      "summary": "Manufacturer documents one-tap camera and microphone disable, local face-data processing, 32GB built-in storage plus 32GB microSD, and a service agreement limiting use of cloud-stored audio, video, and pictures."
     }
   },
   {
@@ -418,35 +455,41 @@ export const products: Product[] = [
       "affiliateAgreement": false
     },
     "privacy": {
-      "lastResearched": "2026-05-13",
-      "sources": [
-        "https://www.walmart.com/ip/Enabot-EBO-Air-2S-FamilyBot-Home-Robot-Camera-2-5K-Indoor-Pet-Cam-Movable-Robot-Camera-2-Way-Video-Auto-Recharge-Long-Battery-Life-Custom-Facial-Imag/19468902104",
+      "lastResearched": "2026-05-16",
+      "manufacturerSources": [
+        "https://www.enabot.com/products/ebo-air-2s-familybot",
         "https://mediakit.enabot.com/ebo/IOS/Intl/ebo_privacy_policy_en.html"
       ],
-      "privacyShutter": {
-        "value": "software-only",
-        "note": "Inherits Enabot's one-tap software privacy mode. No physical lens cover."
+      "thirdPartySources": [],
+      "fromManufacturer": {
+        "physicalShutter": {
+          "value": "not-specified",
+          "note": "Manufacturer does not document a physical lens cover."
+        },
+        "softwarePrivacyMode": {
+          "value": "not-specified",
+          "note": "Manufacturer product page describes the EBO Air 2S as a budget-friendly version of the EBO Air 2 Plus but does not directly document a one-tap camera disable for the 2S."
+        },
+        "indicatorLED": {
+          "value": "not-specified"
+        },
+        "twoFactorAuth": {
+          "value": "not-specified"
+        },
+        "storageLocation": {
+          "value": "local-first",
+          "note": "Manufacturer states: 'Videos can be stored on an SD card, so no subscription is required for local storage. We also offer an optional subscription for unlimited cloud storage.'"
+        },
+        "privacyPolicyAvailable": {
+          "value": "yes",
+          "note": "Privacy policy is published at mediakit.enabot.com."
+        },
+        "manufacturerDisclosedIncidents": {
+          "value": "none-disclosed"
+        }
       },
-      "indicatorLED": {
-        "value": "unknown",
-        "note": "Not explicitly documented."
-      },
-      "twoFactorAuth": {
-        "value": "unknown",
-        "note": "Not advertised in companion app description or privacy policy."
-      },
-      "privacyPolicyClarity": {
-        "value": "moderate",
-        "note": "Same policy as other Enabot products. Cloud video storage is opt-in."
-      },
-      "storageLocation": {
-        "value": "local-first",
-        "note": "32GB onboard storage with 256GB microSD support. Multi-user access with per-account permissions."
-      },
-      "knownIncidents": {
-        "value": "none-known"
-      },
-      "summary": "Same privacy profile as the EBO Air 2. Local-first storage with opt-in cloud is the most positive aspect. Software-only privacy mode is the main gap."
+      "fromThirdParty": [],
+      "summary": "Manufacturer documents local SD card storage as the default with optional cloud storage subscription."
     }
   },
   {
@@ -486,35 +529,41 @@ export const products: Product[] = [
       "affiliateAgreement": false
     },
     "privacy": {
-      "lastResearched": "2026-05-13",
-      "sources": [
-        "https://tech.yahoo.com/home/articles/enabot-ebo-air-2-review-143107873.html",
-        "https://mediakit.enabot.com/ebo/IOS/Intl/ebo_privacy_policy_en.html"
+      "lastResearched": "2026-05-16",
+      "manufacturerSources": [
+        "https://mediakit.enabot.com/ebohome/privacy_policy_en.html",
+        "https://mediakit.enabot.com/ebohome/service_agreement_for_users_en.html"
       ],
-      "privacyShutter": {
-        "value": "software-only",
-        "note": "One-tap privacy mode. No physical lens cover."
+      "thirdPartySources": [],
+      "fromManufacturer": {
+        "physicalShutter": {
+          "value": "not-specified",
+          "note": "Manufacturer does not document a physical lens cover."
+        },
+        "softwarePrivacyMode": {
+          "value": "not-specified",
+          "note": "EBO HOME Robot service agreement and privacy policy apply, but a specific one-tap camera disable is not directly documented for the EBO X."
+        },
+        "indicatorLED": {
+          "value": "not-specified"
+        },
+        "twoFactorAuth": {
+          "value": "not-specified"
+        },
+        "storageLocation": {
+          "value": "hybrid",
+          "note": "Privacy policy states face data is 'saved on the robot locally rather than on the cloud,' and Wi-Fi credentials 'will not be saved on local or cloud terminal.' Camera notification data 'will only be transmitted on the cloud but not saved there.' Other video and audio may be saved on the cloud per the service agreement."
+        },
+        "privacyPolicyAvailable": {
+          "value": "yes",
+          "note": "EBO HOME ROBOT service agreement states the manufacturer will not use cloud-stored audio, video, and picture data for other purposes without express consent."
+        },
+        "manufacturerDisclosedIncidents": {
+          "value": "none-disclosed"
+        }
       },
-      "indicatorLED": {
-        "value": "unknown",
-        "note": "Not explicitly documented."
-      },
-      "twoFactorAuth": {
-        "value": "unknown",
-        "note": "Not advertised."
-      },
-      "privacyPolicyClarity": {
-        "value": "moderate",
-        "note": "Same Enabot policy. Cloud features for ChatGPT/Alexa integration imply additional third-party data flow when enabled."
-      },
-      "storageLocation": {
-        "value": "local-first",
-        "note": "Local storage for video by default. ChatGPT and Alexa integrations route through their respective cloud services when used."
-      },
-      "knownIncidents": {
-        "value": "none-known"
-      },
-      "summary": "Top of Enabot's line with 4K video, facial recognition, and ChatGPT/Alexa integration. The additional AI features depend on third-party cloud services (OpenAI, Amazon). Buyers comfortable with those companies' data practices will find the additional capability worthwhile; those who aren't should consider a lighter-feature model."
+      "fromThirdParty": [],
+      "summary": "Manufacturer documents local processing of face data, cloud-only transit (not storage) for camera notifications, and a service agreement limiting use of cloud-stored audio, video, and pictures."
     }
   },
   {
@@ -554,34 +603,47 @@ export const products: Product[] = [
       "affiliateAgreement": false
     },
     "privacy": {
-      "lastResearched": "2026-05-13",
-      "sources": [
-        "https://www.amazon.com/Indoor-Security-Camera-EBO-Air/dp/B0DZHDF7MD",
-        "https://mediakit.enabot.com/rola-petpal/rola-app-doc/privacy/ios/rola-privacy-policy-ios-en.html"
+      "lastResearched": "2026-05-16",
+      "manufacturerSources": [
+        "https://mediakit.enabot.com/ebo/IOS/Intl/ebo_privacy_policy_en.html"
       ],
-      "privacyShutter": {
-        "value": "software-only",
-        "note": "Software-only camera disable via the ROLA app. No physical lens cover."
+      "thirdPartySources": [],
+      "fromManufacturer": {
+        "physicalShutter": {
+          "value": "not-specified",
+          "note": "Manufacturer does not document a physical lens cover."
+        },
+        "softwarePrivacyMode": {
+          "value": "not-specified"
+        },
+        "indicatorLED": {
+          "value": "not-specified"
+        },
+        "twoFactorAuth": {
+          "value": "not-specified"
+        },
+        "storageLocation": {
+          "value": "local-first",
+          "note": "ROLA Mini is part of Enabot's EBO product family which uses local SD card storage. Specific storage capacity for ROLA Mini is documented as supporting microSD storage on the manufacturer's listings."
+        },
+        "privacyPolicyAvailable": {
+          "value": "yes",
+          "note": "Privacy policy is published at mediakit.enabot.com. States Wi-Fi credentials are not saved on local or cloud terminals."
+        },
+        "manufacturerDisclosedIncidents": {
+          "value": "none-disclosed"
+        }
       },
-      "indicatorLED": {
-        "value": "unknown"
-      },
-      "twoFactorAuth": {
-        "value": "unknown",
-        "note": "Not advertised in available materials."
-      },
-      "privacyPolicyClarity": {
-        "value": "moderate",
-        "note": "ROLA-specific privacy policy exists. Cloud video storage is opt-in."
-      },
-      "storageLocation": {
-        "value": "local-first",
-        "note": "Local-first storage; cloud requires manual activation."
-      },
-      "knownIncidents": {
-        "value": "none-known"
-      },
-      "summary": "Pet-focused variant of the Enabot platform with a treat dispenser. Same privacy profile as the EBO line: local-first, opt-in cloud, software privacy controls."
+      "fromThirdParty": [
+        {
+          "finding": "An earlier device in the EBO line (the EBO SE) was noted to lack a physical power button.",
+          "sourceName": "How-To Geek",
+          "sourceUrl": "https://www.howtogeek.com/80464/ebo-se-review-a-cute-fun-and-misguided-toy-for-cat-owners/",
+          "sourceDate": "2021-05-20",
+          "note": "This review is of an older Enabot model. Whether the ROLA Mini ships with a physical power button is not documented on the current product page."
+        }
+      ],
+      "summary": "Manufacturer documents local microSD card storage and a privacy policy stating Wi-Fi credentials are not saved on local or cloud terminals."
     }
   },
   {
@@ -880,36 +942,42 @@ export const products: Product[] = [
       "affiliateAgreement": false
     },
     "privacy": {
-      "lastResearched": "2026-05-13",
-      "sources": [
-        "https://us.keyirobot.com/products/loona",
+      "lastResearched": "2026-05-16",
+      "manufacturerSources": [
+        "https://us.keyirobot.com/pages/loonadetail",
         "https://keyitech.zendesk.com/hc/en-us/articles/8634617366301-Data-privacy",
         "https://loonaweb.keyirobot.cn/web/protocol/index?lan=en"
       ],
-      "privacyShutter": {
-        "value": "none",
-        "note": "No physical lens cover documented."
+      "thirdPartySources": [],
+      "fromManufacturer": {
+        "physicalShutter": {
+          "value": "not-specified",
+          "note": "Manufacturer does not document a physical lens cover."
+        },
+        "softwarePrivacyMode": {
+          "value": "not-specified",
+          "note": "Manufacturer product page does not explicitly document a one-tap camera-disable feature."
+        },
+        "indicatorLED": {
+          "value": "not-specified"
+        },
+        "twoFactorAuth": {
+          "value": "not-specified"
+        },
+        "storageLocation": {
+          "value": "local-first",
+          "note": "Manufacturer states: 'Loona has a powerful CPU, except for voice recognition, all other robot perception: including face data, human body data, and all other perception data are only processed locally in Loona, not uploaded to any cloud.' Voice is processed via AWS Lex cloud service with 'no user data stored in the cloud or locally, only real-time analysis is performed.' User account information and app settings are stored on AWS servers in the U.S. and Europe."
+        },
+        "privacyPolicyAvailable": {
+          "value": "yes",
+          "note": "Privacy policy is published at loonaweb.keyirobot.cn and a separate data-privacy support article is published at keyitech.zendesk.com. Policy lists supported security standards: PCI-DSS, HIPAA/HITECH, FedRAMP, GDPR, FIPS 140-2, and NIST 800-171."
+        },
+        "manufacturerDisclosedIncidents": {
+          "value": "none-disclosed"
+        }
       },
-      "indicatorLED": {
-        "value": "unknown"
-      },
-      "twoFactorAuth": {
-        "value": "unknown",
-        "note": "Not documented in available materials."
-      },
-      "privacyPolicyClarity": {
-        "value": "strong",
-        "note": "Detailed privacy policy with regional data storage commitments (EU data stored in EU, China data in China), children-under-16 protections requiring guardian consent, and explicit account deletion process. Among the more detailed in the category."
-      },
-      "storageLocation": {
-        "value": "local-first",
-        "note": "Face data, body data, and all other camera perception data are processed locally only. Voice analysis uses AWS Lex with real-time analysis and no storage. Remote monitoring uses AWS KVS with hardware encryption."
-      },
-      "knownIncidents": {
-        "value": "none-known",
-        "note": "No public incidents found. Multiple awards including CES Innovation Awards 2024 and iF Design Awards 2024."
-      },
-      "summary": "Strong technical privacy profile. Local processing for camera perception is best-in-class for the category. Cloud component (remote monitoring, voice) uses major-provider infrastructure with industry-standard compliance certifications. Main gap is the lack of a physical camera shutter."
+      "fromThirdParty": [],
+      "summary": "Manufacturer documents local-only processing of face and body perception data, AWS Lex voice processing with no data stored, regional AWS server storage for account data, and an encryption chip for remote-monitoring communication."
     }
   },
   {
@@ -1245,34 +1313,41 @@ export const products: Product[] = [
       "affiliateAgreement": false
     },
     "privacy": {
-      "lastResearched": "2026-05-13",
-      "sources": [
+      "lastResearched": "2026-05-16",
+      "manufacturerSources": [
         "https://ropetai.com/products/ropet%E2%84%A2-ai-comfort-companion-plush-robot",
         "https://www.prnewswire.com/news-releases/ropet-is-showcasing-ai-powered-robot-companion-at-ces-2025-302343085.html"
       ],
-      "privacyShutter": {
-        "value": "none",
-        "note": "Camera is described as 'near-invisible' and embedded in the nose. No documented physical cover; also no visible camera, which is a transparency trade-off."
+      "thirdPartySources": [],
+      "fromManufacturer": {
+        "physicalShutter": {
+          "value": "not-specified",
+          "note": "Manufacturer describes 'a near-invisible camera nestled in its nose' but does not document a physical lens cover."
+        },
+        "softwarePrivacyMode": {
+          "value": "yes",
+          "note": "Manufacturer states the 'Dream Sketch' photo feature 'must be manually enabled in the app. The feature is completely optional and will only work if the user chooses to turn it on.' Daily interactions are described as using a local offline AI model with no data uploaded."
+        },
+        "indicatorLED": {
+          "value": "not-specified"
+        },
+        "twoFactorAuth": {
+          "value": "not-specified"
+        },
+        "storageLocation": {
+          "value": "local-first",
+          "note": "Manufacturer states: 'During normal interactions with Ropet, it continues to use a local offline AI model, meaning it does not depend on cloud servers and no data is uploaded during everyday use.' When photos are taken via the Dream Sketch feature, the manufacturer states: 'Photos are encrypted before leaving the device... Only the encrypted data is then uploaded to the cloud AI model.'"
+        },
+        "privacyPolicyAvailable": {
+          "value": "yes",
+          "note": "Manufacturer publishes a privacy statement on the product page describing the Dream Sketch data flow and the local-first model for daily interactions."
+        },
+        "manufacturerDisclosedIncidents": {
+          "value": "none-disclosed"
+        }
       },
-      "indicatorLED": {
-        "value": "unknown"
-      },
-      "twoFactorAuth": {
-        "value": "unknown"
-      },
-      "privacyPolicyClarity": {
-        "value": "strong",
-        "note": "Manufacturer documents the privacy model clearly: optional cloud features (Dream Sketch AI Art) must be manually enabled, photos are encrypted before leaving the device, daily interactions use a local offline AI model and upload no data."
-      },
-      "storageLocation": {
-        "value": "local-only",
-        "note": "Daily interactions are processed locally with no cloud upload. Optional Dream Sketch AI Art uploads encrypted images only when the user explicitly invokes the feature."
-      },
-      "knownIncidents": {
-        "value": "none-known",
-        "note": "New product introduced at CES 2025; no public incidents yet."
-      },
-      "summary": "Best-in-class privacy profile for daily interaction in this catalog: local-only AI processing for everyday use, opt-in encrypted cloud for the specific Dream Sketch feature. The lack of a physical camera shutter is the main residual gap; the camera is also not visibly placed, which some buyers prefer and others find concerning."
+      "fromThirdParty": [],
+      "summary": "Manufacturer documents a local offline AI model for daily interactions with no data uploaded, an opt-in cloud photo feature with on-device encryption before upload, and a near-invisible camera in the nose without a documented physical shutter."
     }
   },
   {
