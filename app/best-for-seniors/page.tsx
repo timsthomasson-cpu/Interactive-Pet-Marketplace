@@ -52,7 +52,7 @@ export default function SeniorsPage() {
             .)
           </>,
           <>
-            <strong className="text-slate-900">Why this matters for older adults.</strong>{" "}
+            <strong className="text-slate-900">Why do interactive pets help older adults?</strong>{" "}
             The research linked on this site consistently points to a few specific benefits of companion pets and robotic companions for older adults: reduced loneliness in people living alone, calmer behavior and less agitation in dementia care, and small but measurable improvements in mood for residents of memory care facilities. The mechanism is straightforward — gentle, predictable interaction with something that feels alive provides comfort without requiring the cognitive effort of a conversation. None of this is a substitute for human connection or professional care, but as a supplemental presence in someone&rsquo;s day, the evidence is encouraging enough that many assisted-living facilities now use these products as part of their resident care toolkit.
           </>
         ]}

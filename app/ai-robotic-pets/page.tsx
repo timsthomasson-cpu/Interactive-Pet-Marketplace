@@ -41,15 +41,15 @@ export default function Page() {
         rotatorTitle="Our Top AI & Robotic Pet Picks"
         body={[
           <>
-            <strong className="text-slate-900">What AI and robotic pets are.</strong>{" "}
+            <strong className="text-slate-900">What are AI and robotic pets?</strong>{" "}
             AI and robotic pets are physically articulated companions that move, respond, and adapt over time. Unlike plushy companions, which are soft and stationary, robotic pets walk, roll, look around, and react to their environment. Many include sensors for touch and sound, cameras for navigation, and software that gives each pet a distinct personality. The most advanced models are app-connected and learn the household over time.
           </>,
           <>
-            <strong className="text-slate-900">Who they&rsquo;re for.</strong>{" "}
+            <strong className="text-slate-900">Who are AI and robotic pets for?</strong>{" "}
             This category appeals to tech-curious adults, families with older children who want a more interactive experience than a plush companion offers, and buyers shopping for a &ldquo;wow&rdquo; gift. They&rsquo;re also increasingly chosen by people who want a substantial robotic presence — something that moves around the house, recognizes faces, and can interact through voice — without the responsibility of feeding, training, or veterinary care. Robotic pets carry a steeper learning curve than plushy companions, so they tend to be a better fit when the recipient is comfortable charging a device, opening an app, and updating firmware occasionally.
           </>,
           <>
-            <strong className="text-slate-900">A note on cameras and privacy.</strong>{" "}
+            <strong className="text-slate-900">What should I know about cameras and privacy?</strong>{" "}
             Many of these models include cameras — sometimes as a main feature (home monitoring, check-on-pets-from-work) and sometimes for navigation. A camera-equipped robot that moves around the house is a different kind of device than a stationary security camera: it can travel into bedrooms, bathrooms, and other spaces a fixed camera wouldn&rsquo;t see. This isn&rsquo;t a reason to avoid these products, but it is a reason to take the privacy questions seriously before buying. We&rsquo;ve written a{" "}
             <Link href="/questions#privacy" className="underline text-trust-700 hover:text-trust-900">
               buyer&rsquo;s guide to camera and privacy questions

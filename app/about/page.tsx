@@ -2,6 +2,7 @@ import { PageShell } from "@/components/layout";
 import { SectionHeading } from "@/components/ui";
 import Link from "next/link";
 import { JsonLd, breadcrumbListSchema } from "@/components/json-ld";
+import { PageUpdated } from "@/components/page-updated";
 
 export const metadata = {
   title: "About",
@@ -12,10 +13,28 @@ export default function AboutPage() {
   return (
     <PageShell>
       <JsonLd
-        schema={breadcrumbListSchema([
-          { name: "Home", path: "/" },
-          { name: "About", path: "/about" }
-        ])}
+        schema={[
+          breadcrumbListSchema([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" }
+          ]),
+          {
+            "@context": "https://schema.org/",
+            "@type": "AboutPage",
+            "name": "About Interactive Pet Marketplace",
+            "url": "https://interactivepetmarketplace.com/about",
+            "author": {
+              "@type": "Person",
+              "name": "Tim Thomasson",
+              "jobTitle": "Curator and researcher",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Interactive Pet Marketplace",
+                "url": "https://interactivepetmarketplace.com"
+              }
+            }
+          }
+        ]}
       />
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
         <div className="container-shell">
@@ -167,6 +186,41 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Who runs this site */}
+      <section className="pb-12">
+        <div className="container-shell">
+          <div className="card p-6 sm:p-10">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+              Who runs this site
+            </h2>
+            <div className="mt-4 space-y-4 text-base leading-8 text-slate-700">
+              <p>
+                Interactive Pet Marketplace is curated and researched by{" "}
+                <span className="font-semibold text-slate-900">Tim Thomasson</span>.
+                Product research, privacy reviews, and editorial decisions are
+                made by a single person — not an anonymous team or an AI content
+                pipeline. Every product on this site has been chosen, reviewed,
+                and written about by hand.
+              </p>
+              {/*
+                TIM: If you'd like to expand this with a short bio
+                (background, why you started the site, etc.), edit the
+                paragraph below. Keep it factual — don't claim credentials
+                you don't have. AI search engines reward attributable authors,
+                not invented expertise.
+
+                Example:
+                <p>
+                  Tim started Interactive Pet Marketplace after [reason]. He
+                  has [background, if relevant to the topic]. He can be
+                  reached at <a href="/contact">/contact</a>.
+                </p>
+              */}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact CTA */}
       <section className="pb-16 sm:pb-20">
         <div className="container-shell">
@@ -185,6 +239,9 @@ export default function AboutPage() {
             >
               Contact us
             </Link>
+          </div>
+          <div className="mt-8 text-center">
+            <PageUpdated date="2026-05-17" />
           </div>
         </div>
       </section>

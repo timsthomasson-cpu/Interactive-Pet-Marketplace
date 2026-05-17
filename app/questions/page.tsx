@@ -3,6 +3,7 @@ import { FAQSection } from "@/components/faq";
 import { InteractivePetsInfo } from "@/components/interactive-pets-info";
 import { PrivacySecuritySection } from "@/components/privacy-security-section";
 import { PageShell } from "@/components/layout";
+import { PageUpdated } from "@/components/page-updated";
 import { faqs } from "@/components/site-data";
 import { PRIVACY_FAQ_FOR_SCHEMA } from "@/components/privacy-faq-data";
 import { JsonLd, faqPageSchema, breadcrumbListSchema } from "@/components/json-ld";
@@ -32,6 +33,23 @@ export default function QuestionsPage() {
           faqPageSchema(faqItems)
         ]}
       />
+      <section className="pt-10 pb-2 sm:pt-12 sm:pb-3 lg:pt-14 lg:pb-3">
+        <div className="container-shell max-w-4xl">
+          <div className="rounded-2xl border border-trust-200 bg-trust-50 p-5 sm:p-6">
+            <p className="text-xs font-semibold uppercase tracking-wide text-trust-700">
+              Quick answer
+            </p>
+            <p className="mt-2 text-base leading-7 text-slate-800 sm:text-lg sm:leading-8">
+              Interactive pets are companion devices that respond to touch, sound, or movement
+              without the demands of a live pet. They&rsquo;re most often chosen for older adults
+              facing loneliness, children not ready for a real pet, or adults who can&rsquo;t have one.
+              Research suggests they can reduce loneliness, agitation, and depression in older adults,
+              and support empathy and engagement in children. Camera-equipped models add privacy
+              considerations covered below.
+            </p>
+          </div>
+        </div>
+      </section>
       <InteractivePetsInfo />
       <PrivacySecuritySection />
       <FAQSection />
@@ -51,6 +69,9 @@ export default function QuestionsPage() {
             >
               Contact us
             </Link>
+          </div>
+          <div className="mt-8 text-center">
+            <PageUpdated date="2026-05-17" />
           </div>
         </div>
       </section>

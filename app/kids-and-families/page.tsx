@@ -52,7 +52,7 @@ export default function FamiliesPage() {
             .)
           </>,
           <>
-            <strong className="text-slate-900">Why families choose interactive pets.</strong>{" "}
+            <strong className="text-slate-900">Why do families choose interactive pets?</strong>{" "}
             For many families, an interactive pet is the bridge between &ldquo;wanting a pet&rdquo; and &ldquo;being ready for one.&rdquo; The research on children and AI companions suggests they can support empathy, nurturing behavior, and basic technology fluency — especially with models that respond when cared for. Parents also gravitate toward this category for practical reasons: no shedding, no allergies, no training, and no veterinary bills. Younger children get a companion they can talk to and look after; older children with an interest in technology get an introduction to robotics that&rsquo;s more engaging than a static toy.
           </>
         ]}

@@ -43,15 +43,15 @@ export default function PremiumPage() {
         rotatorTitle="Our Top Premium Picks"
         body={[
           <>
-            <strong className="text-slate-900">What &ldquo;premium&rdquo; means on this site.</strong>{" "}
+            <strong className="text-slate-900">What does &ldquo;premium&rdquo; mean on this site?</strong>{" "}
             Premium interactive pets are the products in our catalog that cross the $200 threshold — typically because they offer something that lower-priced options don&rsquo;t. That might be a more capable AI assistant, a camera-enabled monitoring feature, a more lifelike movement system, an app-connected experience, or higher build quality. Premium models generally sit in the $250&ndash;$800 range, where the differences between products start to matter — not just in what they cost, but in what they actually do day to day.
           </>,
           <>
-            <strong className="text-slate-900">Who they&rsquo;re for.</strong>{" "}
+            <strong className="text-slate-900">Who are premium interactive pets for?</strong>{" "}
             This category suits buyers for whom the experience matters more than the price tag — gift-givers shopping for a significant occasion, adults who want the closest available analog to a live pet, families with strong interest in robotics, or care facilities investing in residents&rsquo; wellbeing. Premium picks are also a good fit for people who tried an entry-level interactive pet and found themselves wanting more — more responsiveness, more presence, more capability.
           </>,
           <>
-            <strong className="text-slate-900">A note on cameras and privacy.</strong>{" "}
+            <strong className="text-slate-900">What should I know about cameras and privacy?</strong>{" "}
             Many premium models in this category include cameras — sometimes as a main feature (home monitoring, check-on-pets-from-work) and sometimes for navigation. A camera-equipped robot that moves around the house is a different kind of device than a stationary security camera: it can travel into bedrooms, bathrooms, and other spaces a fixed camera wouldn&rsquo;t see. This isn&rsquo;t a reason to avoid these products, but it is a reason to take the privacy questions seriously before buying. See our{" "}
             <Link href="/questions#privacy" className="underline text-trust-700 hover:text-trust-900">
               buyer&rsquo;s guide to camera and privacy questions

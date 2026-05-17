@@ -42,11 +42,11 @@ export default function GiftsPage() {
         rotatorTitle="Our Top Gift Picks"
         body={[
           <>
-            <strong className="text-slate-900">Why interactive pets make memorable gifts.</strong>{" "}
+            <strong className="text-slate-900">Why do interactive pets make memorable gifts?</strong>{" "}
             Gifts that get used tend to be the ones recipients reach for in unstructured moments — quiet evenings, anxious afternoons, downtime between activities. Interactive pets fit that profile better than most categories: they&rsquo;re tactile, they respond when handled, and they don&rsquo;t require ongoing care from the giver or the recipient. They also signal something that more generic gifts can&rsquo;t — that you noticed someone&rsquo;s situation and chose a present that addresses it specifically. A robotic cat for a grandparent who lost theirs, a plush therapy dog for a friend going through a hard year, an AI companion for a child who&rsquo;s curious about how things work.
           </>,
           <>
-            <strong className="text-slate-900">Who they tend to suit.</strong>{" "}
+            <strong className="text-slate-900">Who are interactive pets best as a gift for?</strong>{" "}
             The most successful gift recipients in this category are people who would benefit from a pet but can&rsquo;t have one (or another one): older adults living alone, people in assisted living, children whose families aren&rsquo;t ready for a live pet, adults in apartments or with allergies. They also work for gift-giving moments that feel weighty — birthdays for grandparents, the holidays after someone has lost a beloved pet, milestone birthdays for kids. Less ideal for casual gift exchanges where the recipient won&rsquo;t feel comfortable opening something visibly personal in front of a group.
           </>
         ]}
