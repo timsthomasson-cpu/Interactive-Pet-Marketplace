@@ -1,0 +1,51 @@
+# Interactive Pet Marketplace
+
+> Honest comparisons of interactive pets, plushy companions, and AI & robotic pets — curated for seniors, families, and gift buyers. All product data is verified against manufacturer sources; customer review content is never reproduced from third-party sites.
+
+This site reviews companion robots and interactive pets across three categories: soft plushy companions, AI and robotic pets, and pocket pets. Every product card carries verified manufacturer, model, blurb, features, price, and rating sourced from Amazon or the manufacturer's own site. Camera-equipped products carry per-product privacy research pages with manufacturer-direct facts and third-party findings.
+
+## Categories
+
+- [Plushy Companions](/plushy-companions): Comfort-first soft pets for tactile interaction. Most often chosen for seniors in memory care, children, and adults who can't have a live pet.
+- [AI & Robotic Pets](/ai-robotic-pets): Articulated companions that move, respond, and adapt over time. Includes app-connected and camera-equipped models.
+- [Best for Seniors](/best-for-seniors): Senior-friendly picks with research-backed benefits for loneliness and dementia care.
+- [Kids & Families](/kids-and-families): Playful interactive pets and AI companions for novelty, learning, and family fun.
+- [Best for Gifts](/best-for-gifts): Curated picks that make memorable gifts for parents, grandparents, kids, and pet lovers.
+- [Premium Picks](/premium-picks): Higher-end interactive pets over $200 with advanced AI, cameras, or movement.
+
+## Top picks and comparisons
+
+- [Top Picks](/top-picks): The site's overall best picks across all categories.
+- [Compare](/compare): Side-by-side comparison of every product on the site.
+
+## Research
+
+- [Senior Research](/senior-research): Peer-reviewed articles on companion pets, loneliness reduction, and dementia care for older adults.
+- [Senior Research Summaries](/senior-research/summaries): Plain-language summaries of the linked research.
+- [Kids Research](/kids-research): Peer-reviewed articles on children, interactive pets, and AI companions.
+- [Kids Research Summaries](/kids-research/summaries): Plain-language summaries.
+
+## Buyer's guide and FAQ
+
+- [Questions](/questions): Common questions about interactive pets — who they help, what they offer, how to choose, and how to think about camera privacy. Includes a buyer's guide to privacy and security questions for any connected pet robot.
+
+## Per-product privacy research
+
+Camera-equipped products on this site have dedicated privacy pages with manufacturer-direct facts (storage location, software privacy controls, two-factor authentication, privacy policy availability, manufacturer-disclosed incidents) and independent review findings where applicable:
+
+- [EBO Air 2 Privacy Details](/privacy/ebo-air-2-familybot)
+- [EBO Air 2S Privacy Details](/privacy/ebo-air-2s-familybot)
+- [EBO Air 2 Plus Privacy Details](/privacy/ebo-air-2-plus-familybot)
+- [EBO X Privacy Details](/privacy/ebo-x-familybot)
+- [ROLA Mini Privacy Details](/privacy/rola-mini-pet-monitor)
+- [KAMOMO Privacy Details](/privacy/kamomo)
+- [Loona Robot Pet Dog Privacy Details](/privacy/robot-pet-dog)
+
+## About the site
+
+- [About](/about): How the site selects and reviews products, editorial standards, and affiliate disclosure.
+- [Contact](/contact): For questions, corrections, or product suggestions.
+
+## Editorial standards
+
+Product specifications, features, prices, ratings, and review counts are verified against manufacturer sources or Amazon. The site never reproduces customer review text. Product blurbs paraphrase manufacturer marketing copy without introducing claims the manufacturer didn't make. Privacy pages distinguish between manufacturer-direct facts and third-party reported findings, with source attribution and dates throughout.

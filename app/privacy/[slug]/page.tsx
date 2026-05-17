@@ -23,8 +23,11 @@ export function generateStaticParams(): Params[] {
 // Per-page metadata: title and description derived from the product name
 // and the neutral summary line. Helps search engines and AI assistants
 // understand what each page is about.
-export function generateMetadata({ params }: { params: Params }): Metadata {
-  const product = products.find((p) => p.slug === params.slug);
+//
+// Next.js 15+: `params` is now a Promise and must be awaited before use.
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
   if (!product || !product.privacy) return {};
   return {
     title: `${product.name} privacy details — ${product.manufacturer}`,
@@ -32,8 +35,10 @@ export function generateMetadata({ params }: { params: Params }): Metadata {
   };
 }
 
-export default function PrivacyDetailPage({ params }: { params: Params }) {
-  const product = products.find((p) => p.slug === params.slug);
+// Next.js 15+: `params` is now a Promise and must be awaited before use.
+export default async function PrivacyDetailPage({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
   if (!product || !product.privacy) {
     notFound();
   }
