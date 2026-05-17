@@ -120,7 +120,7 @@ export function PrivacySecuritySection() {
           <details className="group card p-5 sm:p-6">
             <summary className="cursor-pointer list-none flex items-center justify-between gap-4">
               <span className="text-base font-semibold text-slate-900 sm:text-lg">
-                Where to research privacy questions for a specific product
+                Where can I research privacy questions for a specific product?
               </span>
               <span aria-hidden className="shrink-0 text-trust-700 text-lg transition-transform group-open:rotate-45">+</span>
             </summary>
@@ -172,7 +172,7 @@ export function PrivacySecuritySection() {
           <details className="group card p-5 sm:p-6">
             <summary className="cursor-pointer list-none flex items-center justify-between gap-4">
               <span className="text-base font-semibold text-slate-900 sm:text-lg">
-                Camera-equipped products on this site
+                Which products on this site have cameras?
               </span>
               <span aria-hidden className="shrink-0 text-trust-700 text-lg transition-transform group-open:rotate-45">+</span>
             </summary>
