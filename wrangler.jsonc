@@ -25,7 +25,7 @@
 			// NEXT_CACHE_WORKERS_KV is required by @opennextjs/cloudflare's
 			// kvIncrementalCache and must not be renamed.
 			// see https://opennext.js.org/cloudflare/caching
-			"binding": "NEXT_CACHE_WORKERS_KV",
+			"binding": "NEXT_INC_CACHE_KV",
 			"id": "037969ec2ac14cb58c54358b65f7743a"
 		}
 	],
