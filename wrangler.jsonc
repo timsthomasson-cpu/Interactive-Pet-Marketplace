@@ -19,6 +19,16 @@
 			"service": "interactive-pet-marketplace"
 		}
 	],
+	"kv_namespaces": [
+		{
+			// KV-backed incremental cache for OpenNext. The binding name
+			// NEXT_CACHE_WORKERS_KV is required by @opennextjs/cloudflare's
+			// kvIncrementalCache and must not be renamed.
+			// see https://opennext.js.org/cloudflare/caching
+			"binding": "NEXT_CACHE_WORKERS_KV",
+			"id": "037969ec2ac14cb58c54358b65f7743a"
+		}
+	],
 	"images": {
 		// Enable image optimization
 		// see https://opennext.js.org/cloudflare/howtos/image
