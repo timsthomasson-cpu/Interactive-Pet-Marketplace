@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-20T16:42:57.631Z
+// Generated: 2026-05-20T16:46:46.911Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -296,7 +296,7 @@ export const products: Product[] = [
     "priceLastChecked": "2026-05-19",
     "priceCategory": "Best Value",
     "productUrl": "https://chongker.com/products/breathing-calico-percy-2-0-heartbeat-pur-voice-robonic-cat?ref=qhsxizxw",
-    "imageUrl": "/images/products/ Chongker-Breathing-Calico-Percy 2.0.png",
+    "imageUrl": "/images/products/ Chongker-Breathing-Calico-Percy-2.0.png",
     "flags": {
       "gifts": true,
       "topPick": true,
