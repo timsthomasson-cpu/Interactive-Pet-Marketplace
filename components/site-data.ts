@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-16T18:41:25.344Z
+// Generated: 2026-05-20T16:21:26.219Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -110,7 +110,7 @@ export const products: Product[] = [
     "priceSource": "Chongker Website",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "https://chongker.com/products/breathing-red-panda",
+    "productUrl": "https://chongker.com/products/breathing-red-panda?ref=qhsxizxw",
     "imageUrl": "/images/products/red_panda.png",
     "flags": {
       "gifts": true,
@@ -147,7 +147,7 @@ export const products: Product[] = [
     "priceSource": "Chongker Website",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "https://chongker.com/products/matecat10-interactive-cat",
+    "productUrl": "https://chongker.com/products/matecat10-interactive-cat?ref=qhsxizxw",
     "imageUrl": "/images/products/Chongker-Percy-Mate-Cat-1.1.jpg",
     "flags": {
       "gifts": true,
@@ -184,7 +184,7 @@ export const products: Product[] = [
     "priceSource": "Chongker Website",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "https://chongker.com/products/matecat-pro-hyper-realistic-bionic-cat",
+    "productUrl": "https://chongker.com/products/matecat-pro-hyper-realistic-bionic-cat?ref=qhsxizxw",
     "imageUrl": "/images/products/Chongker-Percy-Pro-Mate-Cat.jpg",
     "flags": {
       "gifts": true,
@@ -221,7 +221,7 @@ export const products: Product[] = [
     "priceSource": "Chongker Website",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "https://chongker.com/products/percy-robotic-dog-companion-designed-for-comfort",
+    "productUrl": "https://chongker.com/products/percy-robotic-dog-companion-designed-for-comfort?ref=qhsxizxw",
     "imageUrl": "/images/products/Percy-1.1-Robotic-Companion-Dog.png",
     "flags": {
       "gifts": true,
@@ -258,11 +258,48 @@ export const products: Product[] = [
     "priceSource": "Chongker Website",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "https://chongker.com/products/percy-interactive-cat",
+    "productUrl": "https://chongker.com/products/percy-interactive-cat?ref=qhsxizxw",
     "imageUrl": "/images/products/Chongker-Percy-Robot-Cat.jpg",
     "flags": {
       "gifts": true,
       "topPick": false,
+      "camera": false,
+      "internetAccess": false,
+      "affiliateAgreement": false
+    }
+  },
+  {
+    "slug": "breathing-calico-percy-2-0",
+    "name": "Breathing Calico Percy 2.0",
+    "manufacturer": "Chongker",
+    "manufacturerAndProduct": "Chongker Breathing Calico Percy 2.0",
+    "type": "Interactive",
+    "category": "Cat",
+    "bestFor": [
+      "Seniors",
+      "Children"
+    ],
+    "blurb": "Fully interactive breathing, purring and meowing cat. Just like the real thing without the care and respnsilities of a real pet",
+    "features": [
+      "Breathes",
+      "Voice Interaction",
+      "Helps with Sleep"
+    ],
+    "highlight": "",
+    "rating": 5,
+    "reviewCount": 10,
+    "ratingSource": "Chongker website",
+    "ratingLastChecked": "2026-05-19",
+    "ratingUrl": "Breathing Calico Percy 2.0- Heartbeat Pur,Voice Robonic Cat – Chongker",
+    "price": "$109.00",
+    "priceSource": "Chongker Website",
+    "priceLastChecked": "2026-05-19",
+    "priceCategory": "Best Value",
+    "productUrl": "https://chongker.com/products/breathing-calico-percy-2-0-heartbeat-pur-voice-robonic-cat?ref=qhsxizxw",
+    "imageUrl": "/images/products/ Chongker Breathing Calico Percy 2.0",
+    "flags": {
+      "gifts": true,
+      "topPick": true,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
