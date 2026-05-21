@@ -1,0 +1,18 @@
+node_modules/
+.next/
+.env
+.env*.local
+.vercel
+
+# Cloudflare / OpenNext build output and generated files
+.open-next/
+.wrangler/
+cloudflare-env.d.ts
+.dev.vars
+
+# Office lock files (created when Excel/Word has a file open)
+~$*
+
+# OS-generated files
+.DS_Store
+Thumbs.db
