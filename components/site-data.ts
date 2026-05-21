@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-20T16:49:29.762Z
+// Generated: 2026-05-21T21:36:19.462Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -1321,7 +1321,7 @@ export const products: Product[] = [
     "type": "Interactive",
     "category": "Robot",
     "bestFor": [
-      "children",
+      "Children",
       "Families"
     ],
     "blurb": "Ropet KAMOMO AI Robot Pet is an interactive AI robot pet with lifelike emotions, touch response, and voice interaction. Designed for companionship, stress relief, and family fun, it reacts to attention and creates engaging daily interactions.",
@@ -1336,11 +1336,11 @@ export const products: Product[] = [
     "ratingSource": "Amazon",
     "ratingLastChecked": "2026-05-10",
     "ratingUrl": "https://www.amazon.com/ropet-Companion-Interactive-Emotional-Support/dp/B0GTPZ4N4M/ref=sr_1_1_sspa?crid=X2VCF2RXTW0X&dib=eyJ2IjoiMSJ9.9kRHdzgs52yEbstiCw5zkAPTqsRrmdj6gtNMFXMLDlJkGhu-bMFjN2LPlQeMj_e5sIeb5ythEPfeSxEXaQ7SJNt6miVnmQauQGaBVBQr-uHpeqC0g9-FoCvhSY-M0M0g_ViUa98yIz9hfQ6zBvbvtKtEGq5_c9U6vgqbi7-bmgOjUxCEjM0undxnj77JdOTRshgmW-1cJJGhBPKrkqh8zJAa5LvZ8CA-_HfQmfk-R06uBcBkELLdF6WaOOON7xE2dQPBH2QaCNB93wVYWobCpXjdRSQwghIJV3xYyxknb7E.UfBT7o_7AglidAtI5mfWXYBglVtblPYmTisiFlaKA3M&dib_tag=se&keywords=ropet&qid=1778538905&s=toys-and-games&sprefix=ropet+%2Ctoys-and-games%2C220&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
-    "price": "$329.00",
-    "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-10",
+    "price": "$349.00",
+    "priceSource": "Ropetai.com",
+    "priceLastChecked": "2026-05-21",
     "priceCategory": "Premium",
-    "productUrl": "https://ropetai.com/products/ropet%E2%84%A2-ai-comfort-companion-plush-robot",
+    "productUrl": "https://ropetai.com/products/ropet%E2%84%A2-ai-comfort-companion-plush-robot?ref=bbtrkjsp",
     "imageUrl": "/images/products/Ropet-Kamomo.png",
     "flags": {
       "gifts": true,
