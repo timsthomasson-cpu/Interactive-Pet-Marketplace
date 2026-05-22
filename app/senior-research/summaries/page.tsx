@@ -90,6 +90,35 @@ const summaries: { title: string; source: string; url: string; intro?: string; s
     sectionLabel: "Important findings — AI social robots appear especially helpful for:",
     bullets: ["Persistent loneliness", "Emotionally isolated seniors", "Older adults seeking regular interaction", "Individuals with limited mobility"],
     closing: "The study also notes outcomes vary depending on personality and emotional needs."
+  },
+  {
+    title: "Intelligent Robot Interventions for People With Dementia: Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+    source: "Journal of Medical Internet Research",
+    url: "https://www.jmir.org/2025/1/e59892",
+    intro: "A rigorous 2025 systematic review and meta-analysis of 15 randomized controlled trials covering 705 dementia patients. Conducted to PRISMA standards, drawing on PubMed, Cochrane Library, Embase, and other major databases.",
+    sectionLabel: "Main findings",
+    bullets: [
+      "Robot interventions significantly reduced agitation in dementia patients",
+      "Meaningful reduction in depression, especially in interventions lasting 12+ weeks",
+      "Benefits grew stronger the longer the intervention continued",
+      "Multisensory stimulation — touch, sound, and movement — is the likely mechanism",
+      "Robot shape had no significant effect on outcomes; other design factors matter more"
+    ],
+    closing: "One of the strongest clinical evidence summaries available, based entirely on randomized controlled trials. Fan W, Zhao R, Liu X, Ge L — China Medical University, 2025."
+  },
+  {
+    title: "Implementing Robotic Pets in Continuing Care Settings: A Scoping Review of Barriers and Facilitators",
+    source: "Journal of the American Geriatrics Society",
+    url: "https://agsjournals.onlinelibrary.wiley.com/doi/10.1111/jgs.19510",
+    intro: "A 2025 University of Calgary scoping review of 42 research articles examining what helps — and what gets in the way — when care facilities introduce robotic pet programs for older adults.",
+    sectionLabel: "Key facilitators (what makes programs succeed)",
+    bullets: [
+      "Staff who understand the benefits and know how to introduce the pets",
+      "Resident involvement in choosing when and how to use them",
+      "Clear guidance for families on what to expect",
+      "Supportive facility leadership"
+    ],
+    closing: "Common barriers include staff concerns about infantilization, hygiene uncertainty, and lack of institutional support. Practical takeaway: the technology works, but implementation planning matters as much as the product itself. Fernandes et al. — University of Calgary, 2025."
   }
 ];
 
