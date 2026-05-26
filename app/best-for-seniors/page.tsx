@@ -4,6 +4,7 @@ import { products } from "@/components/site-data";
 import { CompareTable, GroupedProducts, TrustBoxesRow } from "@/components/sections";
 import { CategoryHeader } from "@/components/category-header";
 import { JsonLd, productSchema, breadcrumbListSchema } from "@/components/json-ld";
+import { BeehiivEmbed } from "@/components/beehiiv-embed";
 
 export const metadata = {
   title: "Best Interactive Pets for Seniors and Senior Loved Ones",
@@ -28,14 +29,31 @@ export default function SeniorsPage() {
       />
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
         <div className="container-shell">
-          <div className="max-w-3xl">
-            <p className="eyebrow">Senior-friendly picks</p>
-            <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Best interactive pets for seniors and senior loved ones.
-            </h1>
-            <p className="mt-4 text-lg leading-8 text-slate-600">
-              This page is structured for adult children shopping for parents, as well as older buyers who want companionship with minimal complexity.
-            </p>
+          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-10">
+
+            {/* Digest box — first on mobile, second on desktop */}
+            <div className="order-first lg:order-last lg:w-80 xl:w-96 shrink-0 rounded-2xl border-[3px] border-trust-600 bg-trust-50 p-5 mb-8 lg:mb-0" id="research-digest">
+              <p className="text-xs font-semibold uppercase tracking-widest text-trust-700 mb-1">Free Newsletter</p>
+              <h2 className="text-lg font-bold text-trust-900 leading-snug mb-2">
+                The Interactive Pet Research Digest
+              </h2>
+              <p className="text-sm text-slate-600 leading-6 mb-4">
+                Biweekly summaries of the latest research on robotic and AI companion pets for seniors — plain-English, no fluff. Join free.
+              </p>
+              <BeehiivEmbed />
+            </div>
+
+            {/* Heading — second on mobile, first on desktop */}
+            <div className="order-last lg:order-first max-w-2xl">
+              <p className="eyebrow">Senior-friendly picks</p>
+              <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                Best interactive pets for seniors and senior loved ones.
+              </h1>
+              <p className="mt-4 text-lg leading-8 text-slate-600">
+                This page is structured for adult children shopping for parents, as well as older buyers who want companionship with minimal complexity.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>

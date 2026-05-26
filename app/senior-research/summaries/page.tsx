@@ -119,6 +119,20 @@ const summaries: { title: string; source: string; url: string; intro?: string; s
       "Supportive facility leadership"
     ],
     closing: "Common barriers include staff concerns about infantilization, hygiene uncertainty, and lack of institutional support. Practical takeaway: the technology works, but implementation planning matters as much as the product itself. Fernandes et al. — University of Calgary, 2025."
+  },
+  {
+    title: "Loneliness, Social Isolation, and Effects on Cognitive Decline in Patients With Dementia",
+    source: "Alzheimer's & Dementia: Diagnosis, Assessment & Disease Monitoring",
+    url: "https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/dad2.70149",
+    intro: "A 2025 Oxford/Sheffield study analyzing anonymized medical records from 34,469 dementia patients to measure how loneliness and social isolation affect the speed of cognitive decline. One of the largest real-world datasets applied to this question.",
+    sectionLabel: "Key findings",
+    bullets: [
+      "Lonely patients scored measurably lower on cognitive assessments at diagnosis — and the gap persisted throughout the disease",
+      "Socially isolated patients declined faster in the 6 months before diagnosis",
+      "Effects were independent of other health factors, suggesting isolation itself is a driver — not just a byproduct",
+      "Natural language processing was used to identify loneliness and isolation from clinical notes, not self-report"
+    ],
+    closing: "This study doesn't involve robotic pets, but it reinforces why addressing isolation matters so much in dementia care — and why companion interventions of any kind have value. Myers et al. — Alzheimer's & Dementia, July 2025."
   }
 ];
 
