@@ -37,7 +37,7 @@ export default function SeniorsPage() {
               {/* Header row */}
               <div className="flex items-center justify-between gap-2 mb-2">
                 <h2 className="text-[11px] font-bold tracking-tight text-trust-900 uppercase">
-                  Research Digest
+                  Senior Companion Digest — What&rsquo;s new?
                 </h2>
                 <Link
                   href="/senior-research"
@@ -46,9 +46,6 @@ export default function SeniorsPage() {
                   All articles →
                 </Link>
               </div>
-
-              {/* What's New label */}
-              <p className="text-[9px] text-trust-700 font-semibold mb-2 uppercase tracking-wide">What&rsquo;s New</p>
 
               {/* Article */}
               <div className="grow">
@@ -60,7 +57,7 @@ export default function SeniorsPage() {
                 >
                   Loneliness, Social Isolation, and Effects on Cognitive Decline
                 </Link>
-                <p className="mt-1 text-[9px] leading-relaxed text-slate-600">
+                <p className="mt-1 text-[13px] leading-relaxed text-slate-600">
                   A 2025 study of 34,469 adults found that loneliness and social isolation independently accelerate cognitive decline — with combined exposure nearly doubling the risk of dementia.
                 </p>
                 <p className="mt-1 text-[9px] text-slate-400">Alzheimer's &amp; Dementia · July 2025</p>
@@ -68,7 +65,7 @@ export default function SeniorsPage() {
 
               {/* Divider + Beehiiv form */}
               <div className="border-t border-trust-200 mt-3 pt-2">
-                <p className="text-[9px] font-semibold text-trust-700 uppercase tracking-wide mb-1">Get the digest free</p>
+                <p className="text-[11px] font-bold text-slate-900 uppercase tracking-wide mb-1">Get the digest free</p>
                 {/* Negative margin clips Beehiiv iframe's internal padding; overflow-hidden keeps rounded corners clean */}
                 <div className="w-full overflow-hidden -mx-1">
                   <BeehiivEmbed />
@@ -84,7 +81,10 @@ export default function SeniorsPage() {
                 Best interactive pets for seniors and senior loved ones.
               </h1>
               <p className="mt-4 text-lg leading-8 text-slate-600">
-                This page is structured for adult children shopping for parents, as well as older buyers who want companionship with minimal complexity.
+                This page is for adult children shopping for parents, as well as older buyers who want companionship with minimal responsibilities.
+              </p>
+              <p className="mt-4 text-lg leading-8 text-slate-600">
+                Research has shown that interactive pets can improve the lives of seniors by reducing loneliness and social isolation, as well as decreasing agitation and anxiety.
               </p>
             </div>
 
@@ -96,13 +96,6 @@ export default function SeniorsPage() {
         topPicks={topPicks}
         rotatorTitle="Our Top Picks for Seniors"
         body={[
-          <>
-            Research has shown that interactive pets can improve the lives of seniors by reducing loneliness and social isolation, as well as decreasing agitation and anxiety. (
-            <Link href="/senior-research" className="underline text-trust-700 hover:text-trust-900">
-              See a list of articles
-            </Link>
-            .)
-          </>,
           <>
             <strong className="text-slate-900">Why do interactive pets help older adults?</strong>{" "}
             The research linked on this site consistently points to a few specific benefits of companion pets and robotic companions for older adults: reduced loneliness in people living alone, calmer behavior and less agitation in dementia care, and small but measurable improvements in mood for residents of memory care facilities. The mechanism is straightforward — gentle, predictable interaction with something that feels alive provides comfort without requiring the cognitive effort of a conversation. None of this is a substitute for human connection or professional care, but as a supplemental presence in someone&rsquo;s day, the evidence is encouraging enough that many assisted-living facilities now use these products as part of their resident care toolkit.

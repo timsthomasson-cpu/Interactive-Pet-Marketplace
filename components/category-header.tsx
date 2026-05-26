@@ -60,27 +60,21 @@ export function CategoryHeader({
             {body.map((p, i) => (
               <div key={i}>{p}</div>
             ))}
+            {checklist && (
+              <div>
+                <p className="font-semibold text-slate-900">{checklist.title}</p>
+                <ul className="mt-3 list-disc list-inside space-y-0">
+                  {checklist.items.map(([label, text]) => (
+                    <li key={label}>
+                      <span className="font-semibold text-slate-900">{label}.</span>{" "}
+                      {text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
-
-        {checklist && (
-          <div className="mt-10 max-w-3xl rounded-3xl border border-trust-200 bg-trust-50 p-6 sm:p-8">
-            <h2 className="text-xl font-bold tracking-tight text-trust-900 sm:text-2xl">
-              {checklist.title}
-            </h2>
-            <ul className="mt-4 space-y-3">
-              {checklist.items.map(([label, text]) => (
-                <li
-                  key={label}
-                  className="text-sm leading-7 text-slate-700 sm:text-base sm:leading-8"
-                >
-                  <span className="font-semibold text-slate-900">{label}.</span>{" "}
-                  {text}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
       </div>
     </section>
   );
