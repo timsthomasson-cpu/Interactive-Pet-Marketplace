@@ -32,15 +32,46 @@ export default function SeniorsPage() {
           <div className="flex flex-col lg:flex-row lg:items-start lg:gap-10">
 
             {/* Digest box — first on mobile, second on desktop */}
-            <div className="order-first lg:order-last lg:w-80 xl:w-96 shrink-0 rounded-2xl border-[3px] border-trust-600 bg-trust-50 p-5 mb-8 lg:mb-0" id="research-digest">
-              <p className="text-xs font-semibold uppercase tracking-widest text-trust-700 mb-1">Free Newsletter</p>
-              <h2 className="text-lg font-bold text-trust-900 leading-snug mb-2">
-                The Interactive Pet Research Digest
-              </h2>
-              <p className="text-sm text-slate-600 leading-6 mb-4">
-                Biweekly summaries of the latest research on robotic and AI companion pets for seniors — plain-English, no fluff. Join free.
-              </p>
-              <BeehiivEmbed />
+            <div className="order-first lg:order-last lg:w-80 xl:w-96 shrink-0 rounded-2xl border-[3px] border-trust-600 bg-trust-50 p-5 mb-8 lg:mb-0 flex flex-col" id="research-digest">
+
+              {/* Header row */}
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <h2 className="text-base font-bold tracking-tight text-trust-900 uppercase">
+                  Research Digest
+                </h2>
+                <Link
+                  href="/senior-research"
+                  className="text-xs font-semibold text-trust-600 hover:text-trust-800 underline whitespace-nowrap"
+                >
+                  All articles →
+                </Link>
+              </div>
+
+              {/* What's New label */}
+              <p className="text-xs text-trust-700 font-semibold mb-3 uppercase tracking-wide">What&rsquo;s New</p>
+
+              {/* Article */}
+              <div className="grow">
+                <Link
+                  href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.70149"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold text-trust-700 hover:text-trust-900 underline leading-snug"
+                >
+                  Loneliness, Social Isolation, and Effects on Cognitive Decline
+                </Link>
+                <p className="mt-1 text-xs leading-relaxed text-slate-600">
+                  A 2025 study of 34,469 adults found that loneliness and social isolation independently accelerate cognitive decline — with combined exposure nearly doubling the risk of dementia.
+                </p>
+                <p className="mt-2 text-xs text-slate-400">Alzheimer's &amp; Dementia · July 2025</p>
+              </div>
+
+              {/* Divider */}
+              <div className="border-t border-trust-200 mt-4 pt-4">
+                <p className="text-xs font-semibold text-trust-700 uppercase tracking-wide mb-2">Get the digest free</p>
+                <BeehiivEmbed />
+              </div>
+
             </div>
 
             {/* Heading — second on mobile, first on desktop */}
