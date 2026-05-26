@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-21T21:36:19.462Z
+// Generated: 2026-05-26T22:02:26.866Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -332,11 +332,11 @@ export const products: Product[] = [
     "priceSource": "Enabot Store",
     "priceLastChecked": "2026-05-10",
     "priceCategory": "Best Value",
-    "productUrl": "https://www.enabot.com/home-robot/ebo-air-2",
+    "productUrl": "https://www.enabot.com/home-robot/ebo-air-2?ref=sgpedoaa",
     "imageUrl": "/images/products/EBO-Air-2.png",
     "flags": {
       "gifts": true,
-      "topPick": true,
+      "topPick": false,
       "camera": true,
       "internetAccess": true,
       "affiliateAgreement": false
@@ -406,7 +406,7 @@ export const products: Product[] = [
     "priceSource": "Enabot Store",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Premium",
-    "productUrl": "https://www.enabot.com/home-robot/ebo-air-2-plus",
+    "productUrl": "https://www.enabot.com/home-robot/ebo-air-2-plus?ref=sgpedoaa",
     "imageUrl": "/images/products/EBO-Air-2-Plus.png",
     "flags": {
       "gifts": true,
@@ -482,7 +482,7 @@ export const products: Product[] = [
     "priceSource": "Enabot Store",
     "priceLastChecked": "2026-05-09",
     "priceCategory": "Premium",
-    "productUrl": "https://www.enabot.com/home-robot/ebo-air-2s",
+    "productUrl": "https://www.enabot.com/home-robot/ebo-air-2s?ref=sgpedoaa",
     "imageUrl": "/images/products/EBO-Air-2S.png",
     "flags": {
       "gifts": true,
@@ -556,7 +556,7 @@ export const products: Product[] = [
     "priceSource": "Enabot Store",
     "priceLastChecked": "2026-05-07",
     "priceCategory": "Premium",
-    "productUrl": "https://www.enabot.com/home-robot/ebo-x",
+    "productUrl": "https://www.enabot.com/home-robot/ebo-x?ref=sgpedoaa",
     "imageUrl": "/images/products/EBO-X.png",
     "flags": {
       "gifts": true,
@@ -630,7 +630,7 @@ export const products: Product[] = [
     "priceSource": "Enabot Store",
     "priceLastChecked": "2026-05-11",
     "priceCategory": "Best Value",
-    "productUrl": "https://www.enabot.com/pet-robot/rola-mini",
+    "productUrl": "https://www.enabot.com/pet-robot/rola-mini?ref=sgpedoaa",
     "imageUrl": "/images/products/Enabot-ROLA-Mini.png",
     "flags": {
       "gifts": true,
@@ -1318,11 +1318,11 @@ export const products: Product[] = [
     "name": "KAMOMO",
     "manufacturer": "Ropet",
     "manufacturerAndProduct": "Ropet KAMOMO",
-    "type": "Interactive",
+    "type": "AI & Robotic",
     "category": "Robot",
     "bestFor": [
-      "Children",
-      "Families"
+      "Families",
+      "Children"
     ],
     "blurb": "Ropet KAMOMO AI Robot Pet is an interactive AI robot pet with lifelike emotions, touch response, and voice interaction. Designed for companionship, stress relief, and family fun, it reacts to attention and creates engaging daily interactions.",
     "features": [
