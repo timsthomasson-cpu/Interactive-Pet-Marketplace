@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="140" viewBox="0 0 120 140" role="img" aria-label="Interactive Pet Marketplace">
+  <title>Interactive Pet Marketplace</title>
+
+  <ellipse cx="60" cy="90" rx="26" ry="22" fill="none" stroke="#8B5E3C" stroke-width="1.4" opacity="0.5"  transform="scale(1.18) translate(-9 -12)"/>
+  <ellipse cx="60" cy="90" rx="26" ry="22" fill="none" stroke="#8B5E3C" stroke-width="1"   opacity="0.28" transform="scale(1.38) translate(-18 -24)"/>
+
+  <ellipse cx="49" cy="93" rx="13" ry="13" fill="#8B5E3C"/>
+  <ellipse cx="71" cy="93" rx="13" ry="13" fill="#8B5E3C"/>
+  <ellipse cx="60" cy="85" rx="13" ry="13" fill="#8B5E3C"/>
+  <path d="M37 93 L83 93 L83 96 Q83 111 60 111 Q37 111 37 96 Z" fill="#8B5E3C"/>
+
+  <ellipse cx="40" cy="62" rx="4.5" ry="5.5" fill="#8B5E3C"/>
+  <ellipse cx="52" cy="55" rx="5"   ry="6"   fill="#8B5E3C"/>
+  <ellipse cx="66" cy="55" rx="5"   ry="6"   fill="#8B5E3C"/>
+  <ellipse cx="79" cy="62" rx="4.5" ry="5.5" fill="#8B5E3C"/>
+</svg>
