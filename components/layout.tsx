@@ -121,13 +121,9 @@ export function SiteHeader() {
 
   return (
     <header ref={headerRef} className="sticky top-0 z-40 border-b border-coral-200 bg-white/95 backdrop-blur">
-      <div className="container-shell flex items-center justify-between gap-6 py-4">
-        <Link href="/" className="flex items-center gap-3">
-          <img src="/logo-mark.svg" alt="" width="44" height="44" className="h-11 w-11" />
-          <div>
-            <div className="text-sm font-semibold text-brand-700">Interactive Pet Marketplace</div>
-            <div className="hidden sm:block text-xs text-slate-500">Interactive &amp; AI companion guides</div>
-          </div>
+      <div className="container-shell flex items-center justify-between gap-6 py-2">
+        <Link href="/" className="flex items-center">
+          <img src="/logo.svg" alt="Interactive Pet Marketplace" width="360" height="155" className="h-28 w-auto" />
         </Link>
         <nav className="hidden items-center gap-5 lg:flex">
           {mainNav.map((item) => {
@@ -240,7 +236,7 @@ export function SiteFooter() {
       <div className="container-shell py-12">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
-            <p className="text-base font-semibold text-brand-900">Interactive Pet Marketplace</p>
+            <img src="/logo.svg" alt="Interactive Pet Marketplace" width="220" height="95" className="h-14 w-auto" />
             <p className="mt-3 max-w-sm text-sm leading-7 text-slate-600">
               A cleaner way to compare companion-style plushy companions and AI &amp; robotic pets for seniors, families, and gift buyers.
             </p>
