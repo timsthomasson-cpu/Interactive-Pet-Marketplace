@@ -36,7 +36,7 @@ export default function SeniorsPage() {
 
               {/* Header row */}
               <div className="flex items-center justify-between gap-2 mb-2">
-                <h2 className="text-[11px] font-bold tracking-tight text-trust-900 uppercase">
+                <h2 className="text-[12px] font-bold tracking-tight text-trust-900 uppercase">
                   Senior Companion Digest — What&rsquo;s new?
                 </h2>
                 <Link
@@ -52,17 +52,17 @@ export default function SeniorsPage() {
               {/* Article */}
               <div className="grow">
                 <Link
-                  href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.70149"
+                  href="https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/dad2.70149"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] font-semibold text-trust-700 hover:text-trust-900 underline leading-snug"
+                  className="text-[13px] font-bold text-trust-700 hover:text-trust-900 underline leading-snug"
                 >
                   Loneliness, Social Isolation, and Effects on Cognitive Decline
                 </Link>
                 <p className="mt-1 text-[13px] leading-relaxed text-slate-600">
                   A 2025 study of 34,469 adults found that loneliness and social isolation independently accelerate cognitive decline — with combined exposure nearly doubling the risk of dementia.
                 </p>
-                <p className="mt-1 text-[9px] text-slate-400">Alzheimer's &amp; Dementia · July 2025</p>
+                <p className="mt-1 text-[9px] text-slate-400">Alzheimer's Association · 2025</p>
               </div>
 
               {/* Divider + Beehiiv form */}
@@ -100,7 +100,7 @@ export default function SeniorsPage() {
         body={[
           <>
             <strong className="text-slate-900">Why do interactive pets help older adults?</strong>{" "}
-            The research linked on this site consistently points to a few specific benefits of companion pets and robotic companions for older adults: reduced loneliness in people living alone, calmer behavior and less agitation in dementia care, and small but measurable improvements in mood for residents of memory care facilities. The mechanism is straightforward — gentle, predictable interaction with something that feels alive provides comfort without requiring the cognitive effort of a conversation. None of this is a substitute for human connection or professional care, but as a supplemental presence in someone&rsquo;s day, the evidence is encouraging enough that many assisted-living facilities now use these products as part of their resident care toolkit.
+            The research linked on this site (see <a href="/senior-research" className="underline text-trust-700 hover:text-trust-900">articles</a>) consistently points to a few specific benefits of companion pets and robotic companions for older adults: reduced loneliness in people living alone, calmer behavior and less agitation in dementia care, and small but measurable improvements in mood for residents of memory care facilities. The mechanism is straightforward — gentle, predictable interaction with something that feels alive provides comfort without requiring the cognitive effort of a conversation. None of this is a substitute for human connection or professional care, but as a supplemental presence in someone&rsquo;s day, the evidence is encouraging enough that many assisted-living facilities now use these products as part of their resident care toolkit.
           </>
         ]}
         checklist={{
