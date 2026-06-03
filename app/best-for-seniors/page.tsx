@@ -32,21 +32,14 @@ export default function SeniorsPage() {
           <div className="flex flex-col lg:flex-row lg:items-start lg:gap-10">
 
             {/* Digest box — first on mobile, second on desktop */}
-            <div className="order-first lg:order-last lg:w-80 xl:w-96 shrink-0 rounded-2xl border-[3px] border-trust-600 bg-trust-50 p-4 mb-8 lg:mb-0 flex flex-col" id="research-digest">
+            <div className="order-first lg:order-last lg:w-96 xl:w-[440px] shrink-0 rounded-2xl border-[3px] border-trust-600 bg-trust-50 p-4 mb-8 lg:mb-0 flex flex-col" id="research-digest">
 
               {/* Header row */}
               <div className="flex items-center justify-between gap-2 mb-2">
-                <h2 className="text-[12px] font-bold tracking-tight text-trust-900 uppercase">
+                <h2 className="text-[15px] font-extrabold tracking-wide text-trust-900 uppercase">
                   Senior Companion Digest — What&rsquo;s new?
                 </h2>
-                <Link
-                  href="https://interactivepetmarketplace.beehiiv.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[10px] font-semibold text-trust-600 hover:text-trust-800 underline whitespace-nowrap"
-                >
-                  See all Digests →
-                </Link>
+
               </div>
 
               {/* Article */}
