@@ -40,7 +40,7 @@ export default function SeniorsPage() {
                   Senior Companion Digest — What&rsquo;s new?
                 </h2>
                 <Link
-                  href="https://interactivepetmarketplace.beehiiv.com/archive"
+                  href="https://interactivepetmarketplace.beehiiv.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[10px] font-semibold text-trust-600 hover:text-trust-800 underline whitespace-nowrap"
