@@ -52,17 +52,16 @@ export default function SeniorsPage() {
               {/* Article */}
               <div className="grow">
                 <Link
-                  href="https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/dad2.70149"
+                  href="https://interactivepetmarketplace.beehiiv.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[13px] font-bold text-trust-700 hover:text-trust-900 underline leading-snug"
                 >
-                  Loneliness, Social Isolation, and Effects on Cognitive Decline
+                  Senior Companion Digest - June 3, 2026
                 </Link>
                 <p className="mt-1 text-[13px] leading-relaxed text-slate-600">
-                  A 2025 study of 34,469 adults found that loneliness and social isolation independently accelerate cognitive decline — with combined exposure nearly doubling the risk of dementia.
+                  This week: the science of loneliness, a companion cat worth knowing about, and questions worth asking before considering an Interactive Pet.
                 </p>
-                <p className="mt-1 text-[9px] text-slate-400">Alzheimer's Association · 2025</p>
               </div>
 
               {/* Divider + Beehiiv form */}
