@@ -156,13 +156,16 @@ export default function AboutPage() {
             </h2>
             <div className="mt-5 space-y-4 text-base leading-7 text-slate-700">
               <p>
-                Interactive Pet Marketplace may participate in affiliate programs.
-                If you click a "View Details" or product link on this site and
-                go on to buy, we may earn a small commission at no extra cost
-                to you. Any commissions help fund the time it takes to research
-                products, verify prices, and keep the site running. Specific
-                affiliate programs we participate in will be listed here once
-                they are active.
+                Interactive Pet Marketplace participates in affiliate programs
+                including the Amazon Associates Program and the GoAffPro Affiliate
+                Program. Interactive Pet Marketplace is a participant in the
+                GoAffPro Affiliate Program, an affiliate advertising program
+                designed to provide a means for sites to earn advertising fees
+                by advertising and linking to the partner site. If you click a
+                "View Details" or product link on this site and go on to buy,
+                we may earn a small commission at no extra cost to you. Any
+                commissions help fund the time it takes to research products,
+                verify prices, and keep the site running.
               </p>
               <p>
                 Earning a commission does not change which products appear on

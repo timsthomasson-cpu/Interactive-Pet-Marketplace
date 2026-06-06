@@ -64,6 +64,10 @@ export default function SeniorsPage() {
                 <div className="w-full overflow-hidden -mx-1">
                   <BeehiivEmbed />
                 </div>
+                <p className="mt-2 text-[9px] text-slate-400 leading-relaxed">
+                  We respect your privacy. No spam, ever. Unsubscribe anytime. See our{" "}
+                  <Link href="/privacy" className="underline hover:text-slate-600">privacy policy</Link>.
+                </p>
               </div>
 
             </div>
