@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import FacebookPixel from "@/components/FacebookPixel";
 
 // Update this once you have a live domain so OG/Twitter previews resolve to
 // absolute URLs. Until then, social platforms still render the preview but
@@ -59,6 +60,7 @@ export default function RootLayout({
       <body>
         {children}
         <GoogleAnalytics />
+        <FacebookPixel />
       </body>
     </html>
   );
