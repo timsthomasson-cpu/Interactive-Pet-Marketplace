@@ -5,10 +5,12 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 
 const mainNav = [
   { href:"/", label:"Home" },
-  { href:"/plushy-companions", label:"Plushy Companions" },
-  { href:"/ai-robotic-pets", label:"AI & Robotic Pets" }
+  { href:"/best-for-seniors", label:"Seniors" },
+  { href:"/kids-and-families", label:"Children and Families" }
 ];
 const shopForNav = [
+  { href:"/plushy-companions", label:"Plushy Companions" },
+  { href:"/ai-robotic-pets", label:"AI & Robotic Pets" },
   { href:"/best-for-gifts", label:"Gifts" },
   { href:"/premium-picks", label:"Premium Picks" }
 ];
