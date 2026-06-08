@@ -154,7 +154,9 @@ When working with this codebase, Claude must:
 
 &#x20; link out instead.
 
-## 
+## Command Line
+
+when recommending terminal commands present Command Line Interface commands. Do not present Power Shell commands.
 
 ## Run locally
 

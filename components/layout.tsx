@@ -9,8 +9,6 @@ const mainNav = [
   { href:"/ai-robotic-pets", label:"AI & Robotic Pets" }
 ];
 const shopForNav = [
-  { href:"/best-for-seniors", label:"Seniors" },
-  { href:"/kids-and-families", label:"Kids & Families" },
   { href:"/best-for-gifts", label:"Gifts" },
   { href:"/premium-picks", label:"Premium Picks" }
 ];
@@ -93,7 +91,16 @@ function ShopForDropdown() {
 }
 
 export function SiteHeader() {
-  const allMobileNav = [...mainNav, ...shopForNav, ...tailNav];
+  const allMobileNav = [
+    { href:"/", label:"Home" },
+    { href:"/best-for-seniors", label:"Seniors" },
+    { href:"/kids-and-families", label:"Kids & Families" },
+    { href:"/best-for-gifts", label:"Gifts" },
+    { href:"/plushy-companions", label:"Plushy Companions" },
+    { href:"/ai-robotic-pets", label:"AI & Robotic Pets" },
+    { href:"/premium-picks", label:"Premium Picks" },
+    ...tailNav
+  ];
   const headerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
 

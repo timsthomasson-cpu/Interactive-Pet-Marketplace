@@ -49,7 +49,7 @@ export function MobileShopPills() {
     </section>
   );
 }
-export function GroupedProducts({ items, pageName }: { items: typeof products; pageName?: string }) {
+export function GroupedProducts({ items, pageName, hideTopPad }: { items: typeof products; pageName?: string; hideTopPad?: boolean }) {
   if (items.length === 0) return null;
   const sections: { title: string; products: typeof items }[] = [
     { title: "Top Picks", products: items.filter((p) => p.flags?.topPick) },
@@ -58,7 +58,7 @@ export function GroupedProducts({ items, pageName }: { items: typeof products; p
     { title: "Budget Friendly", products: items.filter((p) => p.priceCategory === "Budget Friendly") }
   ];
   const nonEmpty = sections.filter((s) => s.products.length > 0);
-  return <section className="section-pad pt-10 sm:pt-12"><IllustrativeImagesNote /><div className="container-shell space-y-14 mt-3">{nonEmpty.map((section) => <div key={section.title}>
+  return <section className={`section-pad ${hideTopPad ? "pt-4 sm:pt-6" : "pt-10 sm:pt-12"}`}><IllustrativeImagesNote /><div className="container-shell space-y-14 mt-3">{nonEmpty.map((section) => <div key={section.title}>
     {/* MOBILE: heading sticks below the pills nav while its cards scroll past.
         Next heading pushes this one out of view when it enters the same zone. */}
     <h3
