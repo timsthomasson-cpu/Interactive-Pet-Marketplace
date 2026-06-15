@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-05-26T22:02:26.866Z
+// Generated: 2026-06-15T15:47:58.145Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -279,7 +279,7 @@ export const products: Product[] = [
       "Seniors",
       "Children"
     ],
-    "blurb": "Fully interactive breathing, purring and meowing cat. Just like the real thing without the care and respnsilities of a real pet",
+    "blurb": "Fully interactive breathing, purring and meowing cat. Just like the real thing without the care and responsibilities of a real pet.",
     "features": [
       "Breathes",
       "Voice Interaction",
@@ -1028,7 +1028,7 @@ export const products: Product[] = [
       "Children",
       "Seniors"
     ],
-    "blurb": "Perfect Petzzz Original Calico Cat is a lifelike breathing plush cat with soft fur and realistic sleeping motions. Provides calming companionship for seniors, children, and cat lovers without the care and upkeep of a live pet.",
+    "blurb": "Perfect Petzzz Grey Tabby Cat is a lifelike breathing plush cat with soft fur and realistic sleeping motions. Provides calming companionship for seniors, children, and cat lovers without the care and upkeep of a live pet.",
     "features": [
       "Very affordable",
       "Breathes",
