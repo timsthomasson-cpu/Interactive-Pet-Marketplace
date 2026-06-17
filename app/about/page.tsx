@@ -199,7 +199,8 @@ export default function AboutPage() {
             <div className="mt-4 space-y-4 text-base leading-8 text-slate-700">
               <p>
                 Interactive Pet Marketplace is curated and researched by{" "}
-                <span className="font-semibold text-slate-900">Tim Thomasson</span>.
+                <span className="font-semibold text-slate-900">Tim Thomasson</span>{" "}
+                (<a href="mailto:tim.thomasson@interactivepetmarketplace.com" className="text-trust-600 hover:text-trust-800 underline">tim.thomasson@interactivepetmarketplace.com</a>).
                 Product research, privacy reviews, and editorial decisions are
                 made by a single person — not an anonymous team or an AI content
                 pipeline. Every product on this site has been chosen, reviewed,
