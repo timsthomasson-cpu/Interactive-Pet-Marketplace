@@ -32,11 +32,11 @@ export default function SeniorsPage() {
           <div className="flex flex-col lg:flex-row lg:items-start lg:gap-10">
 
             {/* Digest box — first on mobile, second on desktop */}
-            <div className="order-first lg:order-last lg:w-96 xl:w-[440px] shrink-0 rounded-2xl border-[3px] border-trust-600 bg-trust-50 p-4 mb-8 lg:mb-0 flex flex-col" id="research-digest">
+            <div className="order-first lg:order-last lg:w-96 xl:w-[440px] shrink-0 rounded-2xl border-[3px] border-[#20568D] bg-trust-500 p-4 mb-8 lg:mb-0 flex flex-col" id="research-digest">
 
               {/* Header row */}
               <div className="flex items-center justify-between gap-2 mb-2">
-                <h2 className="text-[15px] font-extrabold tracking-wide text-trust-900 uppercase">
+                <h2 className="text-[15px] font-extrabold tracking-wide text-white uppercase">
                   Senior Companion Digest — What&rsquo;s new?
                 </h2>
 
@@ -48,25 +48,25 @@ export default function SeniorsPage() {
                   href="https://interactivepetmarketplace.beehiiv.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] font-bold text-trust-700 hover:text-trust-900 underline leading-snug"
+                  className="text-[13px] font-bold text-white hover:text-[#D0DFEE] underline leading-snug"
                 >
                   Senior Companion Digest - June 3, 2026
                 </Link>
-                <p className="mt-1 text-[13px] leading-relaxed text-slate-600">
+                <p className="mt-1 text-[13px] leading-relaxed text-[#D0DFEE]">
                   This week: the science of loneliness, a companion cat worth knowing about, and questions worth asking before considering an Interactive Pet.
                 </p>
               </div>
 
               {/* Divider + Beehiiv form */}
-              <div className="border-t border-trust-200 mt-3 pt-2">
-                <p className="text-[11px] font-bold text-slate-900 uppercase tracking-wide mb-1">Get the digest free</p>
+              <div className="border-t border-[#74A1CE] mt-3 pt-2">
+                <p className="text-[11px] font-bold text-white uppercase tracking-wide mb-1">Get the digest free</p>
                 {/* Negative margin clips Beehiiv iframe's internal padding; overflow-hidden keeps rounded corners clean */}
                 <div className="w-full overflow-hidden -mx-1">
                   <BeehiivEmbed />
                 </div>
-                <p className="mt-2 text-[9px] text-slate-400 leading-relaxed">
+                <p className="mt-2 text-[9px] text-[#B4CCE5] leading-relaxed">
                   We respect your privacy. No spam, ever. Unsubscribe anytime. See our{" "}
-                  <Link href="/privacy" className="underline hover:text-slate-600">privacy policy</Link>.
+                  <Link href="/privacy" className="underline hover:text-white">privacy policy</Link>.
                 </p>
               </div>
 
