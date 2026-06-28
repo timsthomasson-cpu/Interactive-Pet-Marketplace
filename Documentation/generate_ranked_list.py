@@ -164,6 +164,7 @@ def load_rubric(path):
 FILTER_FIELD_MAP = {
     "price category":  "price_cat",
     "animal category": "category",
+    "category":        "category",
     "rating":          "rating",
     "reviews":         "reviews",
     "price":           "price",
