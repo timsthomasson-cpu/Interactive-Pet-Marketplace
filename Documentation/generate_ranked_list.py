@@ -29,6 +29,8 @@ Filter rule (per Product_Data_Rules.md §4):
 
 import sys
 import os
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
@@ -320,7 +322,7 @@ def write_output(winners, eliminated, pre_filtered, weights, filters,
     hdr_row = data_start_row + 1
     fixed_cols = [
         ("Rank", 5), ("Manufacturer", 20), ("Product", 32),
-        ("Price\nCategory", 12), ("Animal\nType", 10), ("Price", 9),
+        ("Price\nCategory", 12), ("Category", 10), ("Price", 9),
         ("Rating", 8), ("Reviews", 9), ("Overall\nScore", 10),
     ]
     notes_col_def = [("Notes / Flags", 40)]
@@ -382,7 +384,7 @@ def write_output(winners, eliminated, pre_filtered, weights, filters,
     ws2.row_dimensions[1].height = 22
 
     e_hdrs = [("Manufacturer",18),("Product",32),("Price Category",14),
-              ("Animal",10),("Score",9),("Rating",8),("Kept Instead",32),("Reason",30)]
+              ("Category",10),("Score",9),("Rating",8),("Kept Instead",32),("Reason",30)]
     for ci, (h, w) in enumerate(e_hdrs, 1):
         c = ws2.cell(row=2, column=ci, value=h)
         c.font = hdr_font; c.fill = hdr_fill
@@ -447,7 +449,14 @@ def write_output(winners, eliminated, pre_filtered, weights, filters,
     ws3.cell(row=tr, column=2, value=f"{total_wt:.0%}").font = Font(name="Calibri", size=10, bold=True)
 
     os.makedirs(OUT_DIR, exist_ok=True)
-    wb.save(out_path)
+    try:
+        wb.save(out_path)
+    except PermissionError:
+        print()
+        print('ERROR: Cannot save output file — it is open in Excel.')
+        print(f'  Close this file in Excel and run the script again:')
+        print(f'  {out_path}')
+        raise SystemExit(1)
 
 # ── Main ───────────────────────────────────────────────────────────────────
 def main():
@@ -536,10 +545,10 @@ def main():
     print(f"  {list_name}")
     print(f"  {len(winners)} products in list  |  {len(eliminated)} eliminated by dedup rule")
     print(f"{'='*80}")
-    print(f"{'#':<4}{'Score':<7}{'Price Cat':<16}{'Animal':<8}{'Rating':<7}{'Manufacturer':<18}Product")
+    print(f"{'#':<4}{'Score':<7}{'Price Cat':<16}{'Category':<10}{'Rating':<7}{'Manufacturer':<18}Product")
     print("-" * 95)
     for i, w in enumerate(winners, 1):
-        print(f"{i:<4}{w['score']:<7.2f}{str(w['price_cat']):<16}{str(w['animal_cat']):<8}"
+        print(f"{i:<4}{w['score']:<7.2f}{str(w['price_cat']):<16}{str(w['animal_cat']):<10}"
               f"{str(w['rating']):<7}{w['mfr_clean']:<18}{w['prod_clean']}")
 
     if eliminated:
