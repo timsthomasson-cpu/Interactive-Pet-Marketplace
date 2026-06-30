@@ -14,6 +14,7 @@ import {
   featureIcon,
 } from "@/components/best-for-icons";
 import { products } from "@/components/site-data";
+import { CustomizeRankings } from "@/components/customize-rankings";
 import Link from "next/link";
 
 // Top 5 ranked products for Seniors in Memory Care Facilities.
@@ -238,6 +239,9 @@ export default function MemoryCarePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Customize These Rankings: live filter across all 29 products ── */}
+      <CustomizeRankings />
 
       {/* ── Ranks 2–5 side by side ── */}
       <section className="section-pad bg-white">
