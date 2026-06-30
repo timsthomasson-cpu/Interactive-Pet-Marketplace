@@ -6,14 +6,20 @@ import { PRODUCT_LINK_REL, RATING_LINK_REL } from "./link-rel";
 // Variant of ProductCard used on Best For ranking pages.
 // Differences from the standard card:
 //   1. Type / Best For / Camera pills are removed.
-//   2. The "Top Pick" pill is replaced by a custom note (e.g. price category).
+//   2. The "Top Pick" pill is replaced by a custom note (e.g. "★ Top Pick", "Best Value").
 //   3. "Customer Ratings:" label is prepended to the star rating line.
+//   4. Optional `featured` prop renders a square 1:1 image (matching the home page
+//      TopPicksRotator) with proportionally larger padding and text throughout.
 export function BestForCard({
   product,
   note,
+  className,
+  featured,
 }: {
   product: Product;
   note?: string;
+  className?: string;
+  featured?: boolean;
 }) {
   const hasRating =
     product.rating !== undefined &&
@@ -22,45 +28,58 @@ export function BestForCard({
     product.reviewCount > 0;
 
   return (
-    <div className="card flex flex-col overflow-hidden relative">
-      {/* Note pill — shows price category or other short label */}
+    <div className={`card flex flex-col overflow-hidden relative${className ? ` ${className}` : ""}`}>
+      {/* Note pill */}
       {note && (
-        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 z-10 inline-flex items-center rounded-full bg-trust-500 px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-bold text-white shadow-soft">
+        <div className={`absolute z-10 inline-flex items-center rounded-full bg-trust-500 font-bold text-white shadow-soft
+          ${featured
+            ? "top-3 right-3 sm:top-4 sm:right-4 px-3 py-1.5 text-xs sm:text-sm"
+            : "top-2 right-2 sm:top-3 sm:right-3 px-2 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs"
+          }`}>
           {note}
         </div>
       )}
-      <div className="p-2 sm:p-4">
+
+      {/* Image */}
+      <div className={featured ? "p-3 sm:p-5" : "p-2 sm:p-4"}>
         {product.imageUrl ? (
-          <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-coral-200 bg-cream-100">
+          <div
+            className="overflow-hidden rounded-2xl sm:rounded-3xl border border-coral-200 bg-cream-100"
+            style={featured ? { aspectRatio: "1 / 1" } : undefined}
+          >
             {/* TODO: replace with licensed manufacturer image before publishing */}
             <img
               src={product.imageUrl}
               alt={product.name}
-              className="block h-44 sm:h-56 w-full object-contain"
+              className={featured
+                ? "block h-full w-full object-cover"
+                : "block h-44 sm:h-56 w-full object-contain"}
             />
           </div>
         ) : (
           <PlaceholderVisual label={product.name} />
         )}
       </div>
-      <div className="flex flex-1 flex-col space-y-3 sm:space-y-4 p-3 pt-1 sm:p-6 sm:pt-1">
+
+      {/* Text body */}
+      <div className={`flex flex-1 flex-col ${featured ? "space-y-4 p-5 pt-2 sm:p-8 sm:pt-3" : "space-y-3 sm:space-y-4 p-3 pt-1 sm:p-6 sm:pt-1"}`}>
         {/* Pills (type / bestFor / camera) intentionally omitted on Best For cards */}
         <div>
-          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-brand-700">
+          <p className={`font-semibold uppercase tracking-wide text-brand-700 ${featured ? "text-xs sm:text-sm" : "text-[10px] sm:text-xs"}`}>
             {product.manufacturer}
           </p>
-          <p className="mt-1 text-base sm:text-xl font-semibold text-slate-900 leading-tight">
+          <p className={`mt-1 font-semibold text-slate-900 leading-tight ${featured ? "text-xl sm:text-2xl" : "text-base sm:text-xl"}`}>
             {product.name}
           </p>
           {hasRating && (
-            <div className="mt-1.5 sm:mt-2">
+            <div className={featured ? "mt-2 sm:mt-3" : "mt-1.5 sm:mt-2"}>
               {(() => {
                 const tooltipParts: string[] = [];
                 if (product.ratingSource) tooltipParts.push(`Rating from ${product.ratingSource}`);
                 if (product.ratingLastChecked) tooltipParts.push(`last verified ${product.ratingLastChecked}`);
                 const tooltip = tooltipParts.join(", ");
                 const ratingText = (
-                  <span className="inline-flex flex-wrap items-baseline gap-1 text-xs sm:text-sm">
+                  <span className={`inline-flex flex-wrap items-baseline gap-1 ${featured ? "text-sm sm:text-base" : "text-xs sm:text-sm"}`}>
                     <span className="font-normal text-slate-600">Customer Ratings:</span>
                     <span className="font-semibold text-red-600">★</span>
                     <span className="font-semibold text-slate-900">{product.rating!.toFixed(1)}</span>
@@ -71,13 +90,7 @@ export function BestForCard({
                   </span>
                 );
                 return product.ratingUrl ? (
-                  <a
-                    href={product.ratingUrl}
-                    target="_blank"
-                    rel={RATING_LINK_REL}
-                    title={tooltip || undefined}
-                    className="hover:underline"
-                  >
+                  <a href={product.ratingUrl} target="_blank" rel={RATING_LINK_REL} title={tooltip || undefined} className="hover:underline">
                     {ratingText}
                   </a>
                 ) : (
@@ -86,20 +99,25 @@ export function BestForCard({
               })()}
             </div>
           )}
-          <p className="mt-2 sm:mt-3 text-xs sm:text-sm leading-5 sm:leading-6 text-slate-600">
+          <p className={`text-slate-600 ${featured ? "mt-3 text-sm sm:text-base leading-6 sm:leading-7" : "mt-2 sm:mt-3 text-xs sm:text-sm leading-5 sm:leading-6"}`}>
             {product.blurb}
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-1.5 sm:gap-2 sm:grid-cols-3">
+
+        {/* Feature chips */}
+        <div className={`grid grid-cols-1 gap-2 sm:grid-cols-3 ${featured ? "sm:gap-3" : "gap-1.5"}`}>
           {product.features.map((feature) => (
             <div
               key={feature}
-              className="rounded-xl sm:rounded-2xl bg-cream-100 border border-coral-200 px-1.5 py-1.5 sm:py-2 text-center text-[10px] leading-tight font-medium text-brand-900 min-w-0"
+              className={`rounded-xl sm:rounded-2xl bg-cream-100 border border-coral-200 text-center font-medium text-brand-900 min-w-0
+                ${featured ? "px-2 py-2 sm:py-2.5 text-xs sm:text-sm leading-tight" : "px-1.5 py-1.5 sm:py-2 text-[10px] leading-tight"}`}
             >
               {feature}
             </div>
           ))}
         </div>
+
+        {/* Price + CTA */}
         <div className="mt-auto flex items-end justify-between gap-2">
           {(() => {
             const parts: string[] = [];
@@ -108,10 +126,12 @@ export function BestForCard({
             const tooltip = parts.join(", ");
             return (
               <div title={tooltip || undefined}>
-                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-brand-700">
+                <p className={`font-semibold uppercase tracking-wide text-brand-700 ${featured ? "text-xs sm:text-sm" : "text-[10px] sm:text-xs"}`}>
                   Price
                 </p>
-                <p className="text-sm sm:text-lg font-bold text-slate-900">{product.price}</p>
+                <p className={`font-bold text-slate-900 ${featured ? "text-lg sm:text-2xl" : "text-sm sm:text-lg"}`}>
+                  {product.price}
+                </p>
               </div>
             );
           })()}
@@ -119,7 +139,8 @@ export function BestForCard({
             href={product.productUrl}
             target="_blank"
             rel={PRODUCT_LINK_REL}
-            className="inline-flex items-center justify-center rounded-full bg-trust-500 px-3 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600"
+            className={`inline-flex items-center justify-center rounded-full bg-trust-500 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600
+              ${featured ? "px-5 py-3 sm:px-7 sm:py-3.5 text-sm sm:text-base" : "px-3 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm"}`}
           >
             View Details
           </Link>
