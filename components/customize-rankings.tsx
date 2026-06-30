@@ -43,7 +43,20 @@ export function CustomizeRankings() {
       .filter((row) => types.has(row.type))
       .filter((row) => movements.has(movementBucket(row.movementLevel)))
       .filter((row) => (noise === "quiet" ? row.noiseSensitivityFit >= 4 : true))
-      .sort((a, b) => b.score - a.score)
+      .sort((a, b) => {
+        // Tiebreaker chain per our published rule:
+        // Score → Rating → Visual Contrast → Review Count (all descending).
+        if (b.score !== a.score) return b.score - a.score;
+        const pa = products.find((p) => p.slug === a.slug);
+        const pb = products.find((p) => p.slug === b.slug);
+        const ratingA = pa?.rating ?? 0;
+        const ratingB = pb?.rating ?? 0;
+        if (ratingB !== ratingA) return ratingB - ratingA;
+        if (b.visualContrast !== a.visualContrast) return b.visualContrast - a.visualContrast;
+        const reviewsA = pa?.reviewCount ?? 0;
+        const reviewsB = pb?.reviewCount ?? 0;
+        return reviewsB - reviewsA;
+      })
       .slice(0, 5);
   }, [budget, animals, types, movements, noise]);
 
