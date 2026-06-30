@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Product } from "./site-data";
 import { PlaceholderVisual } from "./ui";
 import { PRODUCT_LINK_REL, RATING_LINK_REL } from "./link-rel";
+import { featureIcon } from "./best-for-icons";
 
 // Variant of ProductCard used on Best For ranking pages.
 // Differences from the standard card:
@@ -15,11 +16,15 @@ export function BestForCard({
   note,
   className,
   featured,
+  scorePercent,
+  accentColor = "text-trust-600",
 }: {
   product: Product;
   note?: string;
   className?: string;
   featured?: boolean;
+  scorePercent?: number; // real weighted composite as % — shown as a small ring badge
+  accentColor?: string;
 }) {
   const hasRating =
     product.rating !== undefined &&
@@ -41,7 +46,12 @@ export function BestForCard({
       )}
 
       {/* Image */}
-      <div className={featured ? "p-3 sm:p-5" : "p-2 sm:p-4"}>
+      <div className={`relative ${featured ? "p-3 sm:p-5" : "p-2 sm:p-4"}`}>
+        {scorePercent !== undefined && (
+          <div className="absolute z-10 left-4 bottom-1 sm:left-6 sm:bottom-2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-white bg-white shadow-soft">
+            <span className={`text-xs sm:text-sm font-bold ${accentColor}`}>{scorePercent}</span>
+          </div>
+        )}
         {product.imageUrl ? (
           <div
             className="overflow-hidden rounded-2xl sm:rounded-3xl border border-coral-200 bg-cream-100"
@@ -109,10 +119,11 @@ export function BestForCard({
           {product.features.map((feature) => (
             <div
               key={feature}
-              className={`rounded-xl sm:rounded-2xl bg-cream-100 border border-coral-200 text-center font-medium text-brand-900 min-w-0
-                ${featured ? "px-2 py-2 sm:py-2.5 text-xs sm:text-sm leading-tight" : "px-1.5 py-1.5 sm:py-2 text-[10px] leading-tight"}`}
+              className={`flex flex-col items-center justify-center gap-1 rounded-xl sm:rounded-2xl bg-cream-100 border border-coral-200 text-center font-medium text-brand-900 min-w-0
+                ${featured ? "px-2 py-2.5 sm:py-3 text-xs sm:text-sm leading-tight" : "px-1.5 py-2 sm:py-2.5 text-[10px] leading-tight"}`}
             >
-              {feature}
+              {featureIcon(feature, `${featured ? "h-5 w-5 sm:h-6 sm:w-6" : "h-4 w-4"} text-brand-700`)}
+              <span>{feature}</span>
             </div>
           ))}
         </div>

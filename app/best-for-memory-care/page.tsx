@@ -1,6 +1,18 @@
 import { PageShell } from "@/components/layout";
 import { BestForCard } from "@/components/best-for-card";
 import { ScoreGauge, ScoreBar } from "@/components/score-gauge";
+import {
+  IconSparkleClean,
+  IconDurability,
+  IconUsers,
+  IconShieldCheck,
+  IconBattery,
+  IconPrivacy,
+  IconBrain,
+  IconHeartHands,
+  IconChat,
+  featureIcon,
+} from "@/components/best-for-icons";
 import { products } from "@/components/site-data";
 import Link from "next/link";
 
@@ -11,12 +23,24 @@ import Link from "next/link";
 const SPREADSHEET_UPDATED = "June 27, 2026";
 
 const RANKED_SLUGS = [
-  "percy-robot-cat",                        // Rank 1 — Score 3.95
-  "breathing-calico-percy-2-0",             // Rank 2 — Score 3.95
-  "percy-1-1-robotic-companion-dog",        // Rank 3 — Score 3.95
-  "original-black-and-white-shorthair-cat", // Rank 4 — Score 3.90
-  "original-beagle",                        // Rank 5 — Score 3.90
+  "percy-robot-cat",                        // Rank 1 — Score 3.95 (79%)
+  "breathing-calico-percy-2-0",             // Rank 2 — Score 3.95 (79%)
+  "percy-1-1-robotic-companion-dog",        // Rank 3 — Score 3.95 (79%)
+  "original-black-and-white-shorthair-cat", // Rank 4 — Score 3.90 (78%)
+  "original-beagle",                        // Rank 5 — Score 3.90 (78%)
 ];
+
+// Real weighted composite per product, as % (composite / 5 * 100).
+// Ranks 1–3 and ranks 4–5 are genuine ties on weighted score — broken by
+// our published tiebreaker order (Rating → Visual Contrast → Review Count).
+// These percentages are NOT a smooth gradient — that would be invented.
+const SCORE_PERCENT: Record<string, number> = {
+  "percy-robot-cat": 79,
+  "breathing-calico-percy-2-0": 79,
+  "percy-1-1-robotic-companion-dog": 79,
+  "original-black-and-white-shorthair-cat": 78,
+  "original-beagle": 78,
+};
 
 // Unique feature notes for runner-up cards.
 const RUNNER_NOTES: Record<string, string> = {
@@ -30,13 +54,13 @@ const RUNNER_NOTES: Record<string, string> = {
 // the /scoring detail page. Reversed criteria (Caregiver Burden, Safety Risk,
 // Privacy Risk) already have 5 = best outcome baked in.
 const TOP_PICK_CRITERIA = [
-  { label: "Cleanability",         weight: "20%", score: 3 },
-  { label: "Durability",           weight: "20%", score: 4 },
-  { label: "Caregiver Burden",     weight: "15%", score: 4 },
-  { label: "Safety Risk",          weight: "15%", score: 5 },
-  { label: "Charging Convenience", weight: "10%", score: 3 },
-  { label: "Privacy Risk",         weight: "10%", score: 5 },
-  { label: "Dementia Suitability", weight: "10%", score: 4 },
+  { label: "Cleanability",         weight: "20%", score: 3, Icon: IconSparkleClean },
+  { label: "Durability",           weight: "20%", score: 4, Icon: IconDurability },
+  { label: "Caregiver Burden",     weight: "15%", score: 4, Icon: IconUsers },
+  { label: "Safety Risk",          weight: "15%", score: 5, Icon: IconShieldCheck },
+  { label: "Charging Convenience", weight: "10%", score: 3, Icon: IconBattery },
+  { label: "Privacy Risk",         weight: "10%", score: 5, Icon: IconPrivacy },
+  { label: "Dementia Suitability", weight: "10%", score: 4, Icon: IconBrain },
 ];
 
 // Composite verified: 0.20(3)+0.20(4)+0.15(4)+0.15(5)+0.10(3)+0.10(5)+0.10(4) = 3.95
@@ -57,8 +81,8 @@ export default function MemoryCarePage() {
       <section className="bg-gradient-to-br from-cream-100 via-brand-100 to-brand-200 py-12 sm:py-16">
         <div className="container-shell">
           <div className="flex items-start gap-5">
-            <div className="hidden sm:flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-purple-100 text-2xl text-purple-600">
-              ♥
+            <div className="hidden sm:flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-purple-100 text-purple-600">
+              <IconHeartHands className="h-8 w-8" />
             </div>
             <div>
               <p className="eyebrow">Best For Rankings</p>
@@ -86,10 +110,19 @@ export default function MemoryCarePage() {
             <div className="overflow-hidden rounded-3xl border border-coral-200 shadow-soft">
               <div className="grid gap-0 lg:grid-cols-[1fr_1.2fr_0.9fr]">
 
-                {/* Image with ribbon */}
+                {/* Image with ribbon badge */}
                 <div className="relative bg-cream-100">
-                  <div className="absolute top-4 left-0 z-10 bg-trust-500 text-white text-xs font-bold px-3 py-2 rounded-r-full shadow-soft">
-                    #1 Top Pick
+                  {/* Folded-ribbon "#1 Top Pick" badge */}
+                  <div className="absolute top-0 left-5 z-10 w-14 sm:w-16">
+                    <div
+                      className="bg-trust-500 text-white text-center font-bold pt-3 pb-5 sm:pt-4 sm:pb-6 shadow-soft"
+                      style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%)" }}
+                    >
+                      <span className="block text-sm sm:text-base leading-none">#1</span>
+                      <span className="mt-1 block text-[8px] sm:text-[9px] leading-tight tracking-wide">
+                        TOP<br />PICK
+                      </span>
+                    </div>
                   </div>
                   {topPick.imageUrl ? (
                     <div className="h-full w-full" style={{ aspectRatio: "1 / 1" }}>
@@ -128,9 +161,10 @@ export default function MemoryCarePage() {
                     {topPick.features.map((f) => (
                       <div
                         key={f}
-                        className="rounded-xl bg-cream-100 border border-coral-200 px-2 py-2 text-center text-[10px] font-medium leading-tight text-brand-900"
+                        className="flex flex-col items-center justify-center gap-1 rounded-xl bg-cream-100 border border-coral-200 px-2 py-2.5 text-center text-[10px] font-medium leading-tight text-brand-900"
                       >
-                        {f}
+                        {featureIcon(f, "h-5 w-5 text-brand-700")}
+                        <span>{f}</span>
                       </div>
                     ))}
                   </div>
@@ -182,7 +216,7 @@ export default function MemoryCarePage() {
         </section>
       )}
 
-      {/* ── How We Ranked These Pets: real weights, real categories ── */}
+      {/* ── How We Ranked These Pets: real weights, real categories, icons ── */}
       <section className="section-pad bg-cream-50">
         <div className="container-shell">
           <h2 className="text-lg font-bold text-slate-900">How We Ranked These Pets</h2>
@@ -194,10 +228,11 @@ export default function MemoryCarePage() {
             </Link>
           </p>
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
-            {TOP_PICK_CRITERIA.map((c) => (
-              <div key={c.label} className="rounded-2xl border border-coral-200 bg-white p-4 text-center">
-                <p className="text-xl font-bold text-purple-600">{c.weight}</p>
-                <p className="mt-1 text-xs leading-tight text-slate-600">{c.label}</p>
+            {TOP_PICK_CRITERIA.map(({ label, weight, Icon }) => (
+              <div key={label} className="flex flex-col items-center gap-2 rounded-2xl border border-coral-200 bg-white p-4 text-center">
+                <Icon className="h-7 w-7 text-purple-600" />
+                <p className="text-xl font-bold text-purple-600">{weight}</p>
+                <p className="text-xs leading-tight text-slate-600">{label}</p>
               </div>
             ))}
           </div>
@@ -223,6 +258,8 @@ export default function MemoryCarePage() {
                   product={product}
                   note={RUNNER_NOTES[product.slug]}
                   className="flex-1"
+                  scorePercent={SCORE_PERCENT[product.slug]}
+                  accentColor="text-purple-600"
                 />
               </div>
             ))}
@@ -235,6 +272,45 @@ export default function MemoryCarePage() {
             >
               Show detailed scoring results →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Bottom CTA banner ── */}
+      <section className="pb-16 sm:pb-20">
+        <div className="container-shell">
+          <div className="grid gap-6 rounded-3xl border border-coral-200 bg-cream-100 p-6 sm:grid-cols-2 sm:p-8">
+            <div className="flex items-start gap-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-trust-100 text-trust-600">
+                <IconHeartHands className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-slate-900">Companionship That Makes a Difference</p>
+                <p className="mt-1 text-sm leading-6 text-slate-600">
+                  Interactive pets can offer comfort, encourage engagement, and bring moments of
+                  connection to residents in memory care. The right companion can make a real difference.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-trust-100 text-trust-600">
+                <IconChat className="h-5 w-5" />
+              </div>
+              <div className="flex flex-1 flex-wrap items-center justify-between gap-3">
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">Need help choosing the right pet?</p>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">
+                    Our recommendations are based on verified product data and caregiver needs.
+                  </p>
+                </div>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap"
+                >
+                  Contact Us →
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
