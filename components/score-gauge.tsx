@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 // Circular gauge showing a 0–100 percentage derived from our real weighted
 // composite score (composite / 5 * 100). Never an invented number — always
 // pass the actual computed percentage.
@@ -54,7 +52,7 @@ export function ScoreGauge({
           <span className="text-2xl font-bold text-slate-900">{percent}%</span>
         </div>
       </div>
-      <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+      <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
         Overall Score
       </p>
       <p className="text-[11px] text-slate-400">{rawScore.toFixed(2)} / 5</p>
@@ -65,38 +63,27 @@ export function ScoreGauge({
 // Horizontal bar showing one weighted criterion's score as a percentage of 5.
 // barColor accepts a Tailwind bg-color class for the fill — defaults to our
 // brand blue, can be overridden per category page.
-// href is optional — pass it when the criterion has a methodology page
-// explaining how the score is calculated (e.g. Dementia Suitability).
 export function ScoreBar({
   label,
   weight,
   score,
   barColor = "bg-trust-500",
-  href,
 }: {
   label: string;
   weight: string;
   score: number; // 1–5
   barColor?: string;
-  href?: string;
 }) {
   const pct = Math.round((score / 5) * 100);
   return (
     <div>
       <div className="flex items-baseline justify-between text-xs">
         <span className="font-medium text-slate-700">
-          {href ? (
-            <Link href={href} className="underline underline-offset-2 hover:text-trust-700">
-              {label}
-            </Link>
-          ) : (
-            label
-          )}{" "}
-          <span className="text-slate-400">({weight})</span>
+          {label} <span className="text-slate-400">({weight})</span>
         </span>
         <span className="font-semibold text-slate-900">{pct}%</span>
       </div>
-      <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-coral-100">
+      <div className="mt-0.5 h-1.5 w-full overflow-hidden rounded-full bg-coral-100">
         <div
           className={`h-full rounded-full ${barColor}`}
           style={{ width: `${pct}%` }}
