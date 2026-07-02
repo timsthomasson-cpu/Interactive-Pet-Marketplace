@@ -7,9 +7,15 @@ Generates a filtered "Best for" ranked list spreadsheet.
 Usage (run from repo root):
     python Documentation/generate_ranked_list.py "Best for Seniors Living Alone"
     python Documentation/generate_ranked_list.py "Best Budget Friendly Pets"
+    python Documentation/generate_ranked_list.py all
 
-The argument is the name of the weighting table file (with or without .xlsx).
-The file must exist in:  Documentation/Best For Weighting Tables/
+The argument is the name of the weighting table file (with or without .xlsx),
+or the word "all" to regenerate the Best For list for every weighting table
+found in:  Documentation/Best For Weighting Tables/
+In "all" mode, the Product Matrix, Product Feature Scores, and Rubric are
+loaded once and reused across every table for speed. Each table is processed
+independently — if one fails (e.g. a malformed sheet), the rest still run,
+and a pass/fail summary prints at the end.
 
 Output spreadsheet saved to:  Documentation/Best for Lists/<name> List.xlsx
 
@@ -460,36 +466,24 @@ def write_output(winners, eliminated, pre_filtered, weights, filters,
         raise SystemExit(1)
 
 # ── Main ───────────────────────────────────────────────────────────────────
-def main():
-    if len(sys.argv) < 2:
-        print(__doc__)
-        print('ERROR: provide the weighting table name.')
-        print('Example: python Documentation\\generate_ranked_list.py "Best for Seniors Living Alone"')
-        sys.exit(1)
+def generate_one(table_name, feat_hdrs, srows, pm, rubric, vis_col, notes_col):
+    """
+    Runs the full pipeline for a single weighting table and writes its
+    output spreadsheet. Returns True on success, False if it failed
+    (used by 'all' mode to keep going and report a summary at the end).
+    """
+    try:
+        weights_path, list_name = resolve_weights_path(table_name)
+    except FileNotFoundError as e:
+        print(f"ERROR: {e}")
+        return False
 
-    table_name = " ".join(sys.argv[1:])
-
-    for label, path in [("Product Matrix",        PM_FILE),
-                         ("Product Feature Scores", SCORES_FILE),
-                         ("Feature Scoring Rubric", RUBRIC_FILE)]:
-        if not os.path.exists(path):
-            print(f"ERROR: {label} not found:\n  {path}")
-            sys.exit(1)
-
-    weights_path, list_name = resolve_weights_path(table_name)
     out_path = os.path.join(OUT_DIR, f"{list_name} List.xlsx")
 
     print(f"\n  Weighting table : {weights_path}")
-    print(f"  Scores file     : {SCORES_FILE}")
-    print(f"  Product Matrix  : {PM_FILE}")
     print(f"  Output          : {out_path}\n")
 
-    weights, filters   = load_weights_and_filters(weights_path)
-    feat_hdrs, srows   = load_scores(SCORES_FILE)
-    pm                 = load_product_matrix(PM_FILE)
-    rubric             = load_rubric(RUBRIC_FILE)
-    vis_col            = next((h for h in feat_hdrs if h and "visual" in h.lower()), None)
-    notes_col          = next((h for h in feat_hdrs if h and "notes"  in h.lower()), None)
+    weights, filters = load_weights_and_filters(weights_path)
 
     if filters:
         print(f"Pre-filters (applied before scoring):")
@@ -561,6 +555,67 @@ def main():
     write_output(winners, eliminated, pre_filtered_count, weights, filters,
                  rubric, list_name, out_path)
     print(f"\n  Saved: {out_path}")
+    return True
+
+def main():
+    if len(sys.argv) < 2:
+        print(__doc__)
+        print('ERROR: provide the weighting table name, or "all" to regenerate every table.')
+        print('Example: python Documentation\\generate_ranked_list.py "Best for Seniors Living Alone"')
+        print('Example: python Documentation\\generate_ranked_list.py all')
+        sys.exit(1)
+
+    table_name = " ".join(sys.argv[1:])
+
+    for label, path in [("Product Matrix",        PM_FILE),
+                         ("Product Feature Scores", SCORES_FILE),
+                         ("Feature Scoring Rubric", RUBRIC_FILE)]:
+        if not os.path.exists(path):
+            print(f"ERROR: {label} not found:\n  {path}")
+            sys.exit(1)
+
+    print(f"  Scores file     : {SCORES_FILE}")
+    print(f"  Product Matrix  : {PM_FILE}")
+
+    feat_hdrs, srows = load_scores(SCORES_FILE)
+    pm               = load_product_matrix(PM_FILE)
+    rubric           = load_rubric(RUBRIC_FILE)
+    vis_col          = next((h for h in feat_hdrs if h and "visual" in h.lower()), None)
+    notes_col        = next((h for h in feat_hdrs if h and "notes"  in h.lower()), None)
+
+    if table_name.strip().lower() == "all":
+        if not os.path.isdir(WT_DIR):
+            print(f"ERROR: Best For Weighting Tables folder not found:\n  {WT_DIR}")
+            sys.exit(1)
+
+        table_files = sorted(f for f in os.listdir(WT_DIR) if f.endswith(".xlsx") and not f.startswith("~$"))
+        if not table_files:
+            print(f"ERROR: No .xlsx weighting tables found in:\n  {WT_DIR}")
+            sys.exit(1)
+
+        print(f"\n'all' mode — regenerating {len(table_files)} Best For list(s) from:\n  {WT_DIR}\n")
+
+        succeeded, failed = [], []
+        for f in table_files:
+            name = os.path.splitext(f)[0]
+            print(f"\n{'#'*80}\n#  {name}\n{'#'*80}")
+            ok = generate_one(name, feat_hdrs, srows, pm, rubric, vis_col, notes_col)
+            (succeeded if ok else failed).append(name)
+
+        print(f"\n{'='*80}")
+        print(f"  DONE — {len(succeeded)} succeeded, {len(failed)} failed")
+        print(f"{'='*80}")
+        for name in succeeded:
+            print(f"  OK    {name}")
+        for name in failed:
+            print(f"  FAIL  {name}")
+
+        if failed:
+            sys.exit(1)
+    else:
+        ok = generate_one(table_name, feat_hdrs, srows, pm, rubric, vis_col, notes_col)
+        if not ok:
+            sys.exit(1)
 
 if __name__ == "__main__":
     main()

@@ -11,7 +11,7 @@ const WEIGHTS = [
   { key: "charging",  label: "Charging Conv.",   weight: "10%", reversed: false },
   { key: "caregiver", label: "Caregiver Burden",  weight: "15%", reversed: true  },
   { key: "clean",     label: "Cleanability",      weight: "20%", reversed: false },
-  { key: "dementia",  label: "Dementia Fit",      weight: "10%", reversed: false },
+  { key: "dementia",  label: "Dementia Suitability", weight: "10%", reversed: false },
   { key: "durability",label: "Durability",         weight: "20%", reversed: false },
   { key: "privacy",   label: "Privacy Risk",      weight: "10%", reversed: true  },
   { key: "safety",    label: "Safety Risk",       weight: "15%", reversed: true  },
@@ -159,7 +159,16 @@ export default function MemoryCareScoring() {
                       key={w.key}
                       className="border border-trust-200 px-3 py-3 text-center font-semibold text-slate-700 whitespace-nowrap"
                     >
-                      {w.label}
+                      {w.key === "dementia" ? (
+                        <Link
+                          href="/best-for-memory-care/scoring/dementia-suitability"
+                          className="underline underline-offset-2 hover:text-trust-700"
+                        >
+                          {w.label}
+                        </Link>
+                      ) : (
+                        w.label
+                      )}
                       <br />
                       <span className="text-xs font-normal text-slate-500">{w.weight}</span>
                       {w.reversed && (

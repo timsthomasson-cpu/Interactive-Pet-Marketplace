@@ -6,6 +6,37 @@ type IconProps = { className?: string };
 
 const base = "stroke-current fill-none";
 
+// Renders filled/empty star characters in amber for a given rating (0–5).
+// Used in place of a single "★" text char — shows actual star count visually.
+// rating >= i → filled amber; rating >= i-0.5 → half (lighter); else gray.
+export function StarRating({ rating, className = "text-sm" }: { rating: number; className?: string }) {
+  return (
+    <span className={`inline-flex items-center gap-px ${className}`} aria-label={`${rating} out of 5 stars`}>
+      {[1, 2, 3, 4, 5].map((i) => (
+        <span
+          key={i}
+          className={
+            rating >= i
+              ? "text-amber-400"
+              : rating >= i - 0.5
+              ? "text-amber-200"
+              : "text-slate-300"
+          }
+        >★</span>
+      ))}
+    </span>
+  );
+}
+
+export function IconAward({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <circle className={base} cx="12" cy="8.5" r="5" />
+      <path className={base} d="M9 13.5 L6 21 L12 18 L18 21 L15 13.5" />
+    </svg>
+  );
+}
+
 export function IconHand({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" className={className} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -120,9 +151,11 @@ export function IconPrivacy({ className }: IconProps) {
 
 export function IconBrain({ className }: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" className={className} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path className={base} d="M9 4.5a2.5 2.5 0 0 0-2.5 2.5v.3A2.5 2.5 0 0 0 5 9.5v1A2.5 2.5 0 0 0 6.5 13v.5A3.5 3.5 0 0 0 10 17h.5v2.5h3V17H14a3.5 3.5 0 0 0 3.5-3.5V13A2.5 2.5 0 0 0 19 10.5v-1A2.5 2.5 0 0 0 17.5 7.3V7A2.5 2.5 0 0 0 15 4.5a2.5 2.5 0 0 0-3 .8 2.5 2.5 0 0 0-3-.8Z" />
-      <path className={base} d="M9.5 8v6M14.5 8v6" />
+    <svg viewBox="0 0 24 24" className={className} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      {/* Right hemisphere */}
+      <path className={base} d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z" />
+      {/* Left hemisphere */}
+      <path className={base} d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z" />
     </svg>
   );
 }

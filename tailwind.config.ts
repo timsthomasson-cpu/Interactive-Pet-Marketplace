@@ -3,6 +3,9 @@ const config: Config = {
   content: ["./app/**/*.{js,ts,jsx,tsx,mdx}","./components/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"]
+      },
       colors: {
         brand: {
           50:"#fdf6e3",100:"#fbecc4",200:"#f7dc92",300:"#f2c65c",400:"#edab30",

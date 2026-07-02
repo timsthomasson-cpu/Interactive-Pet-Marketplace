@@ -61,7 +61,7 @@ const TOP_PICK_CRITERIA = [
   { label: "Safety Risk",          weight: "15%", score: 5, Icon: IconShieldCheck },
   { label: "Charging Convenience", weight: "10%", score: 3, Icon: IconBattery },
   { label: "Privacy Risk",         weight: "10%", score: 5, Icon: IconPrivacy },
-  { label: "Dementia Suitability", weight: "10%", score: 4, Icon: IconBrain },
+  { label: "Dementia Suitability", weight: "10%", score: 4, Icon: IconBrain, href: "/best-for-memory-care/scoring/dementia-suitability" },
 ];
 
 // Composite verified: 0.20(3)+0.20(4)+0.15(4)+0.15(5)+0.10(3)+0.10(5)+0.10(4) = 3.95
@@ -194,7 +194,7 @@ export default function MemoryCarePage() {
                   />
                   <div className="w-full space-y-3">
                     {TOP_PICK_CRITERIA.map((c) => (
-                      <ScoreBar key={c.label} label={c.label} weight={c.weight} score={c.score} barColor="bg-purple-500" />
+                      <ScoreBar key={c.label} label={c.label} weight={c.weight} score={c.score} barColor="bg-purple-500" href={"href" in c ? c.href : undefined} />
                     ))}
                   </div>
                 </div>
@@ -229,13 +229,22 @@ export default function MemoryCarePage() {
             </Link>
           </p>
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
-            {TOP_PICK_CRITERIA.map(({ label, weight, Icon }) => (
-              <div key={label} className="flex flex-col items-center gap-2 rounded-2xl border border-coral-200 bg-white p-4 text-center">
-                <Icon className="h-7 w-7 text-purple-600" />
-                <p className="text-xl font-bold text-purple-600">{weight}</p>
-                <p className="text-xs leading-tight text-slate-600">{label}</p>
-              </div>
-            ))}
+            {TOP_PICK_CRITERIA.map(({ label, weight, Icon, ...rest }) => {
+              const href = "href" in rest ? (rest as { href?: string }).href : undefined;
+              return (
+                <div key={label} className="flex flex-col items-center gap-2 rounded-2xl border border-coral-200 bg-white p-4 text-center">
+                  <Icon className="h-7 w-7 text-purple-600" />
+                  <p className="text-xl font-bold text-purple-600">{weight}</p>
+                  {href ? (
+                    <Link href={href} className="text-xs leading-tight text-trust-600 underline underline-offset-2 hover:text-trust-800">
+                      {label}
+                    </Link>
+                  ) : (
+                    <p className="text-xs leading-tight text-slate-600">{label}</p>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
