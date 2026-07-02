@@ -200,6 +200,10 @@ export default function MemoryCarePage() {
             <p className="mt-2 text-xs text-slate-500 italic">
               Images shown are illustrative until manufacturer photos are available.
             </p>
+            <p className="mt-1 text-xs text-slate-500">
+              * Overall Score % is relative to the top-rated product in this category — not a percentage of a perfect score.
+              A 100% means this is the highest-ranked pet for seniors in memory care among the 29 products we evaluated.
+            </p>
             <div className="mt-1">
               <Link
                 href="/best-for-memory-care/scoring"

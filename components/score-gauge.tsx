@@ -53,7 +53,7 @@ export function ScoreGauge({
         </div>
       </div>
       <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
-        Overall Score
+        Overall Score *
       </p>
       <p className="text-[11px] text-slate-400">Score: {rawScore.toFixed(2)} / 5.0</p>
     </div>
