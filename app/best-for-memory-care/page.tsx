@@ -30,11 +30,11 @@ const RANKED_SLUGS = [
 ];
 
 const SCORE_PERCENT: Record<string, number> = {
-  "percy-robot-cat": 79,
-  "breathing-calico-percy-2-0": 79,
-  "percy-1-1-robotic-companion-dog": 79,
-  "original-black-and-white-shorthair-cat": 78,
-  "original-beagle": 78,
+  "percy-robot-cat": 100,
+  "breathing-calico-percy-2-0": 100,
+  "percy-1-1-robotic-companion-dog": 100,
+  "original-black-and-white-shorthair-cat": 99,
+  "original-beagle": 99,
 };
 
 const RUNNER_NOTES: Record<string, string> = {
@@ -53,7 +53,9 @@ const TOP_PICK_CRITERIA = [
 ];
 
 const TOP_PICK_RAW_SCORE = 3.95;
-const TOP_PICK_PERCENT = Math.round((TOP_PICK_RAW_SCORE / 5) * 100); // 79%
+// % of top scorer in group (3.95), not % of theoretical max (5.0).
+const TOP_SCORE_IN_GROUP = 3.95;
+const TOP_PICK_PERCENT = Math.round((TOP_PICK_RAW_SCORE / TOP_SCORE_IN_GROUP) * 100); // 100%
 
 // "Why Percy Robot Cat is Our Top Pick": top 6 scored criteria by score.
 // Bullet copy grounded in locked rubric anchor definitions — not invented claims.

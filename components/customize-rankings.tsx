@@ -7,7 +7,7 @@ import { MEMORY_CARE_SCORES, MemoryCareScoreRow } from "./memory-care-scores";
 
 type Budget = "any" | "100" | "200" | "300";
 type Movement = "calm" | "some" | "active"; // 1-2 / 3 / 4-5
-type Noise = "any" | "quiet"; // quiet = noiseSensitivityFit >= 4
+type Noise = "any" | "good"; // good = soundQuality >= 4
 
 const ANIMAL_OPTIONS: MemoryCareScoreRow["animalCategory"][] = ["Cat", "Dog", "Panda", "Robot"];
 const TYPE_OPTIONS: { value: MemoryCareScoreRow["type"]; label: string }[] = [
@@ -42,7 +42,7 @@ export function CustomizeRankings({ children }: { children?: ReactNode }) {
       .filter((row) => animals.has(row.animalCategory))
       .filter((row) => types.has(row.type))
       .filter((row) => movements.has(movementBucket(row.movementLevel)))
-      .filter((row) => (noise === "quiet" ? row.noiseSensitivityFit >= 4 : true))
+      .filter((row) => (noise === "good" ? row.soundQuality >= 4 : true))
       .sort((a, b) => {
         // Tiebreaker chain per our published rule:
         // Score → Rating → Visual Contrast → Review Count (all descending).
@@ -170,11 +170,11 @@ export function CustomizeRankings({ children }: { children?: ReactNode }) {
 
             {/* Noise Level */}
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Noise Level</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Sound Quality</p>
               <div className="mt-1 space-y-1 text-sm">
                 {([
                   ["any", "Any"],
-                  ["quiet", "Quiet Only"],
+                  ["good", "Good Quality (4+)"],
                 ] as [Noise, string][]).map(([val, label]) => (
                   <label key={val} className="flex items-center gap-1 cursor-pointer">
                     <input

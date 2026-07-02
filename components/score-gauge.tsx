@@ -1,11 +1,11 @@
-// Circular gauge showing a 0–100 percentage derived from our real weighted
-// composite score (composite / 5 * 100). Never an invented number — always
-// pass the actual computed percentage.
+// Circular gauge showing how this product compares to the top scorer in its
+// Best For group. percent = productScore / topScoreInGroup × 100.
+// The top scorer always shows 100%; other products show relative distance.
+// rawScore is shown as a subtitle so the underlying 1–5 score stays traceable.
 //
-// accentColor accepts any Tailwind text-color class (e.g. "text-purple-600").
+// accentColor accepts any Tailwind text-color class (e.g. "text-green-700").
 // Used for category-specific accents on Best For pages. Site-wide CTAs,
-// buttons, and badges should continue using our brand "trust" blue —
-// this prop is only for the score visualization on a given category page.
+// buttons, and badges continue using our brand "trust" blue.
 export function ScoreGauge({
   percent,
   rawScore,
@@ -55,7 +55,7 @@ export function ScoreGauge({
       <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
         Overall Score
       </p>
-      <p className="text-[11px] text-slate-400">{rawScore.toFixed(2)} / 5</p>
+      <p className="text-[11px] text-slate-400">Score: {rawScore.toFixed(2)} / 5.0</p>
     </div>
   );
 }
