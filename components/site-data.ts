@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-06-15T15:47:58.145Z
+// Generated: 2026-07-05T22:54:59.775Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -710,7 +710,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "https://joyforall.com/products/companion-cats?variant=10404273455147",
+    "productUrl": "https://amzn.to/4f7XaEW",
     "imageUrl": "/images/products/Joy-for-All-Companion-Cat-Orange-Tabby.png",
     "flags": {
       "gifts": true,
@@ -747,7 +747,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "https://joyforall.com/products/companion-cats?variant=10404273487915",
+    "productUrl": "https://amzn.to/3RfUq09",
     "imageUrl": "/images/products/Joy-for-All-Companion-Cat-Silver.png",
     "flags": {
       "gifts": true,
@@ -784,7 +784,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "https://joyforall.com/products/companion-cats?variant=12931092676651",
+    "productUrl": "",
     "imageUrl": "/images/products/Joy-for-All-Companion-Cat-Tuxedo.jpg",
     "flags": {
       "gifts": true,
@@ -821,7 +821,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "https://joyforall.com/products/companion-pet-pup?variant=37624426102967",
+    "productUrl": "https://amzn.to/3TifVxQ",
     "imageUrl": "/images/products/Joy-For-All-Freckled-Pup.png",
     "flags": {
       "gifts": true,
@@ -858,7 +858,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Best Value",
-    "productUrl": "https://joyforall.com/products/companion-pet-pup?variant=37624426102967",
+    "productUrl": "https://amzn.to/4fiFcRc",
     "imageUrl": "/images/products/Joy-For-All-Golden-Pup.png",
     "flags": {
       "gifts": true,
@@ -895,7 +895,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-09",
     "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/s?k=wuffy+robot+dog&crid=19CKEYDLEBH6A&sprefix=wuffy%2Caps%2C185&ref=nb_sb_ss_p13n-expert-pd-ops-ranker_1_5",
+    "productUrl": "https://amzn.to/4vPzP1R",
     "imageUrl": "/images/products/wuffy.png",
     "flags": {
       "gifts": true,
@@ -932,7 +932,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/s?k=furby+dj&crid=1U6BER2BCWJV5&sprefix=furby+%2Caps%2C205&ref=nb_sb_ss_p13n-expert-pd-ops-ranker_7_6",
+    "productUrl": "https://amzn.to/3SFzkJ3",
     "imageUrl": "/images/products/DJ-Furby.png",
     "flags": {
       "gifts": true,
@@ -969,7 +969,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Premium",
-    "productUrl": "https://www.amazon.com/Loona-ChatGPT-4o-AI-Powered-Interaction-Monitoring/dp/B0DCF53PCH/ref=sr_1_1_sspa?crid=2DBOX8S0Q2AR6&dib=eyJ2IjoiMSJ9.fRTz6IKj5O3hiZ4V3RbIiqzYkMvGWX1yxIfmBNQ2bPG8a8X70ewO_kByz-KXp50JfmUuJx9rrIjkexZxX4nWSVxWP_bUrHWGWHPfZnhgH5GMVf6Rltx3FiivEWa9A_74tX_ykUsCTRmHEZ_IwI-5pdDeOvDpmzf07kmD73czlJ5S56lz7gAFPcJ9cgVfwD2yW0a7rgFB4N8XbcF4FmsoLN4nTZhHdGzE2qW01-CozMdL5maZB9Wotwoz672FPyl4IOivur7Z3Gj71yWxlpzykJORSvNzc5nhys8YwW1Zl90.csUcqcC85C04azO69LCOq0bdtEXSzk6YfX_vospSKeE&dib_tag=se&keywords=loona%2Brobot%2Bdog&qid=1778524541&sprefix=loona%2Caps%2C177&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+    "productUrl": "https://amzn.to/3RfV7Xj",
     "imageUrl": "/images/products/Loona-Robot-Pet-Dog.png",
     "flags": {
       "gifts": true,
@@ -1044,85 +1044,11 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Grey-Tabby-Cat/dp/B001TEYF84/ref=sr_1_8?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-8",
+    "productUrl": "https://amzn.to/4fk1CBx",
     "imageUrl": "/images/products/Perfect-Petzzz-Grey-Tabby-Cat.png",
     "flags": {
       "gifts": true,
       "topPick": false,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "original-beagle",
-    "name": "Original Beagle",
-    "manufacturer": "Perfect Petzzz",
-    "manufacturerAndProduct": "Perfect Petzzz Original Beagle",
-    "type": "Interactive",
-    "category": "Dog",
-    "bestFor": [
-      "Children",
-      "Seniors"
-    ],
-    "blurb": "Perfect Petzzz Original Beagle is a lifelike breathing plush dog with soft fur, realistic sleeping motions, and calming companionship. Ideal for seniors, children, and pet lovers seeking comfort without the care of a live pet.",
-    "features": [
-      "Breathes",
-      "Soft and cuddly",
-      "Very affordable"
-    ],
-    "highlight": "Affordable  breathing, super cuddly dog.",
-    "rating": 4.4,
-    "reviewCount": 466,
-    "ratingSource": "Amazon",
-    "ratingLastChecked": "2026-05-08",
-    "ratingUrl": "https://www.amazon.com/s?k=perfect+petzzz&i=toys-and-games&crid=1Y0BRIT7Y8BFM&sprefix=perfect%2Ctoys-and-games%2C228&ref=nb_sb_ss_saint-nlq-prefix_ci_hl-bn-left_1_10",
-    "price": "$44.45",
-    "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-08",
-    "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Perfect-Pets-International-Sleeping-Beagle/dp/B00279NUFY/ref=sr_1_5_sspa?crid=2IOK13QU3Y39L&dib=eyJ2IjoiMSJ9.5idCvQyh45P0neoJ1RmhfCPIRFmNKkUOqHExgy1NckGrvJPqAP7UW2M-0R7w-CnSP0522PcNF1P9cGi6TuJZEAVtJlnkY2PmYS_wrdCeSKfTGSv6GfbTQM0UjROGll4DlZ9LriCiU1pkT0oRb0EwJS2dCOG4ve0cDOUiqTuKfDMowXf3c7LxGOEazm7ZZHiLCWBJIeELYJhg-Wz1MOIVPcxkzVB12ycX3FLjFpm-EGwEG31z63CiyoqW-3l1VRmRq2Q2M9uepGLq0sx0th6lTldAuBF8aww0-STwTsseZIs.gigFOXhWquu5yobhKyyoLwp_mkiYa01Ho9EEDEWgQHg&dib_tag=se&keywords=perfect+petzzz&qid=1778523937&sprefix=perfect+petzzz%2Caps%2C211&sr=8-5-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
-    "imageUrl": "/images/products/Mr-Beagle.png",
-    "flags": {
-      "gifts": true,
-      "topPick": false,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "original-black-and-white-shorthair-cat",
-    "name": "Original Black and White Shorthair Cat",
-    "manufacturer": "Perfect Petzzz",
-    "manufacturerAndProduct": "Perfect Petzzz Original Black and White Shorthair Cat",
-    "type": "Interactive",
-    "category": "Cat",
-    "bestFor": [
-      "Children",
-      "Seniors"
-    ],
-    "blurb": "Perfect Petzzz Original Black and White Shorthair Cat is a lifelike breathing plush cat with soft fur and realistic sleeping motions. Provides calming companionship for seniors, children, and cat lovers without the care and upkeep of a live pet.",
-    "features": [
-      "Very affordable",
-      "Breathes",
-      "Soft and cuddly"
-    ],
-    "highlight": "Affordable  breathing, super cuddly cat.",
-    "rating": 4.4,
-    "reviewCount": 1200,
-    "ratingSource": "Amazon",
-    "ratingLastChecked": "2026-05-08",
-    "ratingUrl": "https://www.amazon.com/s?k=perfect+petzzz&i=toys-and-games&crid=1Y0BRIT7Y8BFM&sprefix=perfect%2Ctoys-and-games%2C228&ref=nb_sb_ss_saint-nlq-prefix_ci_hl-bn-left_1_13",
-    "price": "$44.45",
-    "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-08",
-    "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Black-Shorthair-Kitten/dp/B003XSJ4YE/ref=sr_1_3_sspa?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
-    "imageUrl": "/images/products/Perfect-Petzzz-Original-Black-and-White-Shorthair-Cat.png",
-    "flags": {
-      "gifts": true,
-      "topPick": true,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -1155,7 +1081,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Realistic-Battery-Operated-Interactive/dp/B002PJ37XG/ref=sr_1_2_sspa?crid=2IOK13QU3Y39L&dib=eyJ2IjoiMSJ9.5idCvQyh45P0neoJ1RmhfCPIRFmNKkUOqHExgy1NckGrvJPqAP7UW2M-0R7w-CnSP0522PcNF1P9cGi6TuJZEAVtJlnkY2PmYS_wrdCeSKfTGSv6GfbTQM0UjROGll4DlZ9LriCiU1pkT0oRb0EwJS2dCOG4ve0cDOUiqTuKfDMowXf3c7LxGOEazm7ZZHiLCWBJIeELYJhg-Wz1MOIVPcxkzVB12ycX3FLjFpm-EGwEG31z63CiyoqW-3l1VRmRq2Q2M9uepGLq0sx0th6lTldAuBF8aww0-STwTsseZIs.gigFOXhWquu5yobhKyyoLwp_mkiYa01Ho9EEDEWgQHg&dib_tag=se&keywords=perfect+petzzz&qid=1778523937&sprefix=perfect+petzzz%2Caps%2C211&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    "productUrl": "https://amzn.to/4aEBmPL",
     "imageUrl": "/images/products/Mr-Border-Collie.png",
     "flags": {
       "gifts": true,
@@ -1192,7 +1118,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Chocolate-Lab-Plush/dp/B008Y0QTV2/ref=sr_1_8?crid=2IOK13QU3Y39L&dib=eyJ2IjoiMSJ9.5idCvQyh45P0neoJ1RmhfCPIRFmNKkUOqHExgy1NckGrvJPqAP7UW2M-0R7w-CnSP0522PcNF1P9cGi6TuJZEAVtJlnkY2PmYS_wrdCeSKfTGSv6GfbTQM0UjROGll4DlZ9LriCiU1pkT0oRb0EwJS2dCOG4ve0cDOUiqTuKfDMowXf3c7LxGOEazm7ZZHiLCWBJIeELYJhg-Wz1MOIVPcxkzVB12ycX3FLjFpm-EGwEG31z63CiyoqW-3l1VRmRq2Q2M9uepGLq0sx0th6lTldAuBF8aww0-STwTsseZIs.gigFOXhWquu5yobhKyyoLwp_mkiYa01Ho9EEDEWgQHg&dib_tag=se&keywords=perfect+petzzz&qid=1778523937&sprefix=perfect+petzzz%2Caps%2C211&sr=8-8",
+    "productUrl": "https://amzn.to/4eX2SJw",
     "imageUrl": "/images/products/Mr-Chocolate-Lab.png",
     "flags": {
       "gifts": true,
@@ -1229,48 +1155,11 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Perfect-Petzzz-4934-Peluche-Blanc/dp/B00CZC87Y2/ref=sr_1_7?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-7",
+    "productUrl": "https://amzn.to/4gnKxru",
     "imageUrl": "/images/products/Sweetie-White-Cat.png",
     "flags": {
       "gifts": true,
       "topPick": false,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "original-shih-tzu",
-    "name": "Original Shih Tzu",
-    "manufacturer": "Perfect Petzzz",
-    "manufacturerAndProduct": "Perfect Petzzz Original Shih Tzu",
-    "type": "Interactive",
-    "category": "Dog",
-    "bestFor": [
-      "Children",
-      "Seniors"
-    ],
-    "blurb": "Perfect Petzzz Shih Tzu is a lifelike breathing plush dog with soft fur, realistic sleeping motions, and calming companionship. Ideal for seniors, children, and pet lovers seeking comfort without the care of a live pet.",
-    "features": [
-      "Soft and cuddly",
-      "Very affordable",
-      "Breathes"
-    ],
-    "highlight": "Affordable  breathing, super cuddly dog.",
-    "rating": 4.2,
-    "reviewCount": 878,
-    "ratingSource": "Amazon",
-    "ratingLastChecked": "2026-05-08",
-    "ratingUrl": "https://www.amazon.com/s?k=perfect+petzzz&i=toys-and-games&crid=1Y0BRIT7Y8BFM&sprefix=perfect%2Ctoys-and-games%2C228&ref=nb_sb_ss_saint-nlq-prefix_ci_hl-bn-left_1_9",
-    "price": "$44.45",
-    "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-08",
-    "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Realistic-Interactive-Handcrafted/dp/B0040127N8/ref=sr_1_3_sspa?crid=2IOK13QU3Y39L&dib=eyJ2IjoiMSJ9.5idCvQyh45P0neoJ1RmhfCPIRFmNKkUOqHExgy1NckGrvJPqAP7UW2M-0R7w-CnSP0522PcNF1P9cGi6TuJZEAVtJlnkY2PmYS_wrdCeSKfTGSv6GfbTQM0UjROGll4DlZ9LriCiU1pkT0oRb0EwJS2dCOG4ve0cDOUiqTuKfDMowXf3c7LxGOEazm7ZZHiLCWBJIeELYJhg-Wz1MOIVPcxkzVB12ycX3FLjFpm-EGwEG31z63CiyoqW-3l1VRmRq2Q2M9uepGLq0sx0th6lTldAuBF8aww0-STwTsseZIs.gigFOXhWquu5yobhKyyoLwp_mkiYa01Ho9EEDEWgQHg&dib_tag=se&keywords=perfect%2Bpetzzz&qid=1778523937&sprefix=perfect%2Bpetzzz%2Caps%2C211&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
-    "imageUrl": "/images/products/Mr-Shih-Tzu.png",
-    "flags": {
-      "gifts": true,
-      "topPick": true,
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
@@ -1303,7 +1192,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Perfect-Petzzz-Siamese-Breathing-Puppy/dp/B06ZY3CYX4/ref=sr_1_6?crid=2T22Q9EUUJM90&dib=eyJ2IjoiMSJ9.hw6TypsZgESbto-buC1HDI4zkFKuEs_aZuDM1EyKtr6WMK5ujTDCsWqeBHo8NQXCQtSa2IvHEO7U7N5C9BqYswU3xQD4TTNS-o45TDdrU0HnP_VoaxAErFkDkTd1rvIrVmhSyuNik71aum-TjrRD2GX09FJnAP0OK02Hum5oU0BmsaEYvdvVa-8GYzPoFgs-oRfgW4NaXCGNL1Pq7yYK_t2KOpHjRz3ZY6vhT6O2HP4sYnESDaBDi5ox5WCZXFGJXfp-JCufCzCnRahRloAUi6PfXofSLhrC8i-96X4Vi3w.4yMBJHpLoLosQajGsVB3apXivL14iW3bkJBuB2GL6rI&dib_tag=se&keywords=perfect+petzzz+cat&qid=1778524149&sprefix=perfect+petzzz+cat%2Caps%2C158&sr=8-6",
+    "productUrl": "https://amzn.to/3QU8PPw",
     "imageUrl": "/images/products/Sweetie-Siamese-Cat.png",
     "flags": {
       "gifts": true,
@@ -1340,7 +1229,7 @@ export const products: Product[] = [
     "priceSource": "Ropetai.com",
     "priceLastChecked": "2026-05-21",
     "priceCategory": "Premium",
-    "productUrl": "https://ropetai.com/products/ropet%E2%84%A2-ai-comfort-companion-plush-robot?ref=bbtrkjsp",
+    "productUrl": "https://amzn.to/4wrEfvE",
     "imageUrl": "/images/products/Ropet-Kamomo.png",
     "flags": {
       "gifts": true,
@@ -1414,7 +1303,7 @@ export const products: Product[] = [
     "priceSource": "Amazon",
     "priceLastChecked": "2026-05-08",
     "priceCategory": "Budget Friendly",
-    "productUrl": "https://www.amazon.com/Ruko-18011-Interactive-Expressions-Programmable/dp/B0FLXCXPHD/ref=sr_1_2_sspa?crid=3Q84O44BMP4I1&dib=eyJ2IjoiMSJ9.5Gly7Ov9TtkvwLAe4rZwH2l-BTiwaFOMLi92o4eo2efL59RBhuAyz5dL1llQO9Oq3VOvL554UZdKGuCvEr0aULc0FuaW-0tXMv-Su3A0pJUYX216NZD-8OUNQh6gxNKl8ATh6D7HDFqXqh-HftmgAQSnm2CAImjyhEseHeartYBrk0RKnk_qongpk7N2LmhhFwKFgq-JlfQJBXAYeXfjdZ53H5tQAmhJmbXnYWxOCYV0NtCgyyMVmml1rR7tZkoyjG_4I2LrxuOnAJYrH2drb6GCU0NIUssYnsjouZhfUF4.-br2EkX1bjJZyuScMeKTaBh68fd6MSebkMG0MoeTeO0&dib_tag=se&keywords=ruko%2Brobot&qid=1778524458&sprefix=ruko%2Caps%2C210&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+    "productUrl": "https://amzn.to/3R3rOqG",
     "imageUrl": "/images/products/Ruko-18001-Smart-Robot-Dog.png",
     "flags": {
       "gifts": true,
