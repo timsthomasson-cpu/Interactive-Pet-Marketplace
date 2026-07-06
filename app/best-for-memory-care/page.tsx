@@ -272,43 +272,44 @@ export default function MemoryCarePage() {
         </div>
       </section>
 
-      {/* ── Customize These Rankings → Also Ranked directly below filter ── */}
-      <CustomizeRankings>
-        <section className="pb-4 sm:pb-5 bg-white">
-          <div className="container-shell">
-            <h2 className="text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">
-              Also Ranked — Top 5 Picks
-            </h2>
-            <p className="mt-0.5 text-sm text-slate-700">
-              Four more strong choices, ranked by the same criteria.
-            </p>
-            <div className="mt-2 grid gap-2.5 sm:grid-cols-2 xl:grid-cols-4">
-              {runners.map((product, i) => (
-                <div key={product.slug} className="flex flex-col">
-                  <p className="mb-1 text-xs font-bold uppercase tracking-wide text-slate-500">
-                    #{i + 2} Ranked
-                  </p>
-                  <BestForCard
-                    product={product}
-                    note={RUNNER_NOTES[product.slug]}
-                    className="flex-1"
-                    scorePercent={SCORE_PERCENT[product.slug]}
-                    accentColor="text-purple-600"
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="mt-4 border-t border-purple-200 pt-3 text-center">
-              <Link
-                href="/best-for-memory-care/scoring"
-                className="inline-flex items-center gap-1 text-sm font-semibold text-trust-600 underline underline-offset-4 hover:text-trust-800"
-              >
-                Show detailed scoring results →
-              </Link>
-            </div>
+      {/* ── Also Ranked — Top 5 Picks (static, always visible) ── */}
+      <section className="pb-4 sm:pb-5 bg-white">
+        <div className="container-shell">
+          <h2 className="text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">
+            Also Ranked — Top 5 Picks
+          </h2>
+          <p className="mt-0.5 text-sm text-slate-700">
+            Four more strong choices, ranked by the same criteria.
+          </p>
+          <div className="mt-2 grid gap-2.5 sm:grid-cols-2 xl:grid-cols-4">
+            {runners.map((product, i) => (
+              <div key={product.slug} className="flex flex-col">
+                <p className="mb-1 text-xs font-bold uppercase tracking-wide text-slate-500">
+                  #{i + 2} Ranked
+                </p>
+                <BestForCard
+                  product={product}
+                  note={RUNNER_NOTES[product.slug]}
+                  className="flex-1"
+                  scorePercent={SCORE_PERCENT[product.slug]}
+                  accentColor="text-purple-600"
+                />
+              </div>
+            ))}
           </div>
-        </section>
-      </CustomizeRankings>
+          <div className="mt-4 border-t border-purple-200 pt-3 text-center">
+            <Link
+              href="/best-for-memory-care/scoring"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-trust-600 underline underline-offset-4 hover:text-trust-800"
+            >
+              Show detailed scoring results →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Customize These Rankings (below Also Ranked) ── */}
+      <CustomizeRankings />
 
       {/* ── Bottom CTA banner ── */}
       <section className="pb-6 sm:pb-8">
