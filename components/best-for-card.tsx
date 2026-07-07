@@ -34,16 +34,25 @@ export function BestForCard({
 
   return (
     <div className={`rounded-3xl border-2 border-purple-200 bg-white shadow-soft flex flex-col overflow-hidden relative${className ? ` ${className}` : ""}`}>
-      {/* Note pill */}
-      {note && (
-        <div className={`absolute z-10 inline-flex items-center rounded-full bg-trust-500 font-bold text-white shadow-soft
-          ${featured
-            ? "top-3 right-3 sm:top-4 sm:right-4 px-3 py-1 text-xs sm:text-sm"
-            : "top-2 right-2 sm:top-3 sm:right-3 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs"
-          }`}>
-          {note}
-        </div>
-      )}
+      {/* Note pill — uses explicit note if provided, otherwise auto-derives from
+          priceCategory (Budget Friendly / Best Value). Source: Product Matrix →
+          site-data.ts. Premium products and explicit overrides are unaffected. */}
+      {(() => {
+        const displayNote = note ?? (
+          product.priceCategory === "Budget Friendly" ? "Budget Friendly" :
+          product.priceCategory === "Best Value"      ? "Best Value"      :
+          undefined
+        );
+        return displayNote ? (
+          <div className={`absolute z-10 inline-flex items-center rounded-full bg-trust-500 font-bold text-white shadow-soft
+            ${featured
+              ? "top-3 right-3 sm:top-4 sm:right-4 px-3 py-1 text-xs sm:text-sm"
+              : "top-2 right-2 sm:top-3 sm:right-3 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs"
+            }`}>
+            {displayNote}
+          </div>
+        ) : null;
+      })()}
 
       {/* Image */}
       <div className={`relative ${featured ? "p-1.5 sm:p-2.5" : "p-1 sm:p-2"}`}>
