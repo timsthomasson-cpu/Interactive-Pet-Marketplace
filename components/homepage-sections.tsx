@@ -135,34 +135,22 @@ export function HomepageHero() {
 
   return (
     /*
-     * LAYOUT STRATEGY
-     * The section has no overflow-hidden so the card can bleed below it.
-     * The background image lives in a nested absolute div (overflow-hidden) so
-     * it stays contained within the section while the card floats freely below.
+     * Background strategy:
+     *   backgroundColor fills the left with warm cream matching the pet photo bg.
+     *   Cropped pets-only image (hero-pets-crop.png, no baked-in text) is
+     *   positioned right-center. No gradient overlay needed.
+     *   overflow-visible so the MateCat Pro card bleeds below.
      */
-    <section className="relative">
-
-      {/* Background: full-width pet photo + cream gradient overlay for text readability */}
-      <div
-        className="absolute inset-0 overflow-hidden"
-        aria-hidden="true"
-        style={{
-          backgroundImage: [
-            "linear-gradient(to right,",
-            "  #fbecc4 0%,",
-            "  #fbecc4 30%,",
-            "  rgba(251,236,196,0.88) 47%,",
-            "  rgba(251,236,196,0.30) 63%,",
-            "  rgba(251,236,196,0.00) 78%",
-            "),",
-            "url('/hero-pets.png')",
-          ].join(" "),
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
-        }}
-      />
-
-      {/* Content sits above the background */}
+    <section
+      className="relative"
+      style={{
+        backgroundColor: "#f8f3ec",
+        backgroundImage: "url('/hero-pets-crop.png')",
+        backgroundSize: "auto 108%",
+        backgroundPosition: "right center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="relative z-10 container-shell">
         <div className="grid min-h-[420px] lg:grid-cols-[1fr_1fr]">
 
@@ -234,7 +222,7 @@ export function HomepageHero() {
               <div
                 className="absolute w-56"
                 style={{
-                  top: "250px",
+                  top: "330px",
                   right: "0",
                   zIndex: 50,
                   // Layered shadow: subtle ambient + deeper drop for UI-element feel
@@ -245,6 +233,7 @@ export function HomepageHero() {
                   product={featured}
                   note="★ Top Pick"
                   accentColor="text-trust-600"
+                  hideBlurb
                 />
               </div>
             </div>

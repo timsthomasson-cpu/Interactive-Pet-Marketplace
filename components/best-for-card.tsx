@@ -18,6 +18,7 @@ export function BestForCard({
   featured,
   scorePercent,
   accentColor = "text-trust-600",
+  hideBlurb = false,
 }: {
   product: Product;
   note?: string;
@@ -25,6 +26,7 @@ export function BestForCard({
   featured?: boolean;
   scorePercent?: number; // real weighted composite as % — shown as a small ring badge
   accentColor?: string;
+  hideBlurb?: boolean;  // omit blurb when card is used in space-constrained contexts
 }) {
   const hasRating =
     product.rating !== undefined &&
@@ -117,9 +119,11 @@ export function BestForCard({
               })()}
             </div>
           )}
-          <p className={`text-slate-700 ${featured ? "mt-1.5 text-sm sm:text-base leading-6 sm:leading-7" : "mt-1 sm:mt-1.5 text-xs sm:text-sm leading-5 sm:leading-6"}`}>
-            {product.blurb}
-          </p>
+          {!hideBlurb && (
+            <p className={`text-slate-700 ${featured ? "mt-1.5 text-sm sm:text-base leading-6 sm:leading-7" : "mt-1 sm:mt-1.5 text-xs sm:text-sm leading-5 sm:leading-6"}`}>
+              {product.blurb}
+            </p>
+          )}
         </div>
 
         {/* Feature chips */}
