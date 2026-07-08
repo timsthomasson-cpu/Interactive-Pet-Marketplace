@@ -233,7 +233,7 @@ export function HomepageHero() {
               <div
                 className="absolute w-80"
                 style={{
-                  top: "220px",
+                  top: "320px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   zIndex: 50,
