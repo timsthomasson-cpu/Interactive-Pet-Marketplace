@@ -1,0 +1,1 @@
+python documentation/generate_ranked_list.py "all"
