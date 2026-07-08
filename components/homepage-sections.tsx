@@ -131,7 +131,7 @@ function IconSearch({ className }: { className?: string }) {
 
 export function HomepageHero() {
   // MateCat Pro — pinned by slug, verified data from Product Matrix via site-data.ts
-  const featured = products.find((p) => p.slug === "matecat-pro");
+  const featured = products.find((p) => p.slug === "percy-robot-cat");
 
   return (
     /*
@@ -222,8 +222,8 @@ export function HomepageHero() {
            *   bottom bleeds → section has no overflow-hidden so the card extends
            *                    naturally below the hero background into the next section
            *   z-50          → floats above Popular Categories white background
-           *   w-56 (224px)  → matches runner-card aspect ratio
-           *   right-0       → flush with right edge of the column
+           *   w-80 (320px)  → wide enough for feature chip text to wrap cleanly
+           *   centered       → left:50% + translateX(-50%) centres within column
            *
            * Visual separation: layered shadow gives clear z-depth so the card reads
            * as interface chrome, not a label for the animals in the background.
@@ -231,10 +231,11 @@ export function HomepageHero() {
           {featured && (
             <div className="relative hidden lg:block">
               <div
-                className="absolute w-56"
+                className="absolute w-80"
                 style={{
-                  top: "330px",
-                  right: "0",
+                  top: "220px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
                   zIndex: 50,
                   // Layered shadow: subtle ambient + deeper drop for UI-element feel
                   filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.07)) drop-shadow(0 14px 44px rgba(0,0,0,0.17))",
