@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { products } from "./site-data";
+import { BestForCard } from "./best-for-card";
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
 
@@ -129,23 +130,51 @@ function IconSearch({ className }: { className?: string }) {
 // ── Hero Section ──────────────────────────────────────────────────────────────
 
 export function HomepageHero() {
-  // Pull first available top pick for the overlay card
-  const topPick = products.find((p) => p.flags?.topPick);
+  // MateCat Pro — pinned by slug, verified data from Product Matrix via site-data.ts
+  const featured = products.find((p) => p.slug === "matecat-pro");
 
   return (
-    <section className="overflow-hidden bg-white">
-      <div className="container-shell">
-        <div className="grid min-h-[480px] items-center gap-8 py-10 sm:py-14 lg:grid-cols-[1fr_1.15fr] lg:gap-0 lg:py-0">
+    /*
+     * LAYOUT STRATEGY
+     * The section has no overflow-hidden so the card can bleed below it.
+     * The background image lives in a nested absolute div (overflow-hidden) so
+     * it stays contained within the section while the card floats freely below.
+     */
+    <section className="relative">
 
-          {/* Left: copy */}
-          <div className="lg:py-14">
+      {/* Background: full-width pet photo + cream gradient overlay for text readability */}
+      <div
+        className="absolute inset-0 overflow-hidden"
+        aria-hidden="true"
+        style={{
+          backgroundImage: [
+            "linear-gradient(to right,",
+            "  #fbecc4 0%,",
+            "  #fbecc4 30%,",
+            "  rgba(251,236,196,0.88) 47%,",
+            "  rgba(251,236,196,0.30) 63%,",
+            "  rgba(251,236,196,0.00) 78%",
+            "),",
+            "url('/hero-pets.png')",
+          ].join(" "),
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+        }}
+      />
+
+      {/* Content sits above the background */}
+      <div className="relative z-10 container-shell">
+        <div className="grid min-h-[420px] lg:grid-cols-[1fr_1fr]">
+
+          {/* LEFT — text, buttons, trust badges */}
+          <div className="flex flex-col justify-center py-10 sm:py-14 lg:py-16 lg:pr-10">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-500">
               Companionship. Comfort. Connection.
             </p>
             <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
               Find the right interactive pet for comfort, companionship, and fun.
             </h1>
-            <p className="mt-4 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+            <p className="mt-4 max-w-lg text-base leading-7 text-slate-700 sm:text-lg sm:leading-8">
               Compare the best interactive pets and AI &amp; robotic pets for seniors, families,
               gift buyers, and premium shoppers — without a cluttered buying experience.
             </p>
@@ -156,83 +185,77 @@ export function HomepageHero() {
                 className="inline-flex items-center gap-2 rounded-full bg-trust-500 px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-600 sm:text-base"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 shrink-0">
-                  <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.5 6h13" />
+                  <path d="M3 6h18M3 12h18M3 18h18" />
                 </svg>
                 Let Us Help You find the Right Pet for You or Your Loved One
               </Link>
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-trust-300 sm:text-base"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-slate-300 bg-white/70 px-6 py-3.5 text-sm font-semibold text-slate-800 backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-trust-300 sm:text-base"
               >
                 Shop Top Picks
               </Link>
             </div>
 
             {/* Trust badges */}
-            <div className="mt-8 flex flex-wrap items-center gap-5 text-xs font-medium text-slate-500 sm:gap-8">
+            <div className="mt-8 flex flex-wrap items-start gap-6 text-xs font-medium text-slate-600 sm:gap-10">
               <div className="flex items-center gap-2">
-                <IconShield className="h-5 w-5 text-slate-400" />
-                <span>Expert Reviews<br className="sm:hidden" /> You Can Trust</span>
+                <IconShield className="h-5 w-5 shrink-0 text-slate-500" />
+                <span className="leading-tight">Expert Reviews<br />You Can Trust</span>
               </div>
               <div className="flex items-center gap-2">
-                <IconCheck className="h-5 w-5 text-slate-400" />
-                <span>Unbiased<br className="sm:hidden" /> Recommendations</span>
+                <IconCheck className="h-5 w-5 shrink-0 text-slate-500" />
+                <span className="leading-tight">Unbiased<br />Recommendations</span>
               </div>
               <div className="flex items-center gap-2">
-                <IconStar className="h-5 w-5 text-slate-400" />
-                <span>Ratings from<br className="sm:hidden" /> Verified Sources</span>
+                <IconStar className="h-5 w-5 shrink-0 text-slate-500" />
+                <span className="leading-tight">Ratings from<br />Verified Sources</span>
               </div>
             </div>
           </div>
 
-          {/* Right: image + TOP PICK card */}
-          <div className="relative hidden lg:block">
-            {/* Hero image — TODO: replace with licensed product photo */}
-            <div
-              className="relative ml-6 h-[460px] overflow-hidden rounded-3xl bg-gradient-to-br from-amber-50 via-cream-100 to-brand-100"
-              aria-hidden="true"
-            >
-              <div className="absolute inset-0 flex items-center justify-center text-center text-slate-400">
-                <div>
-                  <p className="text-4xl">🐾</p>
-                  <p className="mt-2 text-sm font-medium">Hero image</p>
-                  <p className="text-xs">TODO: replace with licensed pet photo</p>
-                </div>
+          {/*
+           * RIGHT — positioning context for the floating card.
+           *
+           * Card positioning intent:
+           *   top: ~250px   → card top aligns with where the Perfect Petzzz card
+           *                    top appeared in the mockup (≈55% down a 420px hero)
+           *   bottom bleeds → section has no overflow-hidden so the card extends
+           *                    naturally below the hero background into the next section
+           *   z-50          → floats above Popular Categories white background
+           *   w-56 (224px)  → matches runner-card aspect ratio
+           *   right-0       → flush with right edge of the column
+           *
+           * Visual separation: layered shadow gives clear z-depth so the card reads
+           * as interface chrome, not a label for the animals in the background.
+           */}
+          {featured && (
+            <div className="relative hidden lg:block">
+              <div
+                className="absolute w-56"
+                style={{
+                  top: "250px",
+                  right: "0",
+                  zIndex: 50,
+                  // Layered shadow: subtle ambient + deeper drop for UI-element feel
+                  filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.07)) drop-shadow(0 14px 44px rgba(0,0,0,0.17))",
+                }}
+              >
+                <BestForCard
+                  product={featured}
+                  note="★ Top Pick"
+                  accentColor="text-trust-600"
+                />
               </div>
             </div>
+          )}
 
-            {/* TOP PICK overlay card */}
-            {topPick && (
-              <div className="absolute bottom-6 right-0 w-56 rounded-2xl border border-slate-100 bg-white p-4 shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
-                <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-amber-500">
-                  <IconStar className="h-3.5 w-3.5 fill-amber-400 stroke-amber-400" />
-                  Top Pick
-                </div>
-                <p className="mt-1.5 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-                  {topPick.manufacturer}
-                </p>
-                <p className="text-sm font-bold leading-tight text-slate-900">{topPick.name}</p>
-                {topPick.rating && (
-                  <div className="mt-1.5 flex items-center gap-1.5 text-xs text-slate-600">
-                    <span className="text-amber-400">{"★".repeat(Math.round(topPick.rating))}</span>
-                    <span className="font-semibold">{topPick.rating.toFixed(1)}</span>
-                    {topPick.reviewCount && <span>({topPick.reviewCount} reviews)</span>}
-                  </div>
-                )}
-                <div className="mt-2 flex items-center justify-between">
-                  <p className="text-base font-bold text-slate-900">{topPick.price}</p>
-                  <Link href="#" className="text-xs font-semibold text-trust-600 hover:underline">
-                    View Review →
-                  </Link>
-                </div>
-              </div>
-            )}
-          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 // ── Popular Categories ────────────────────────────────────────────────────────
 
