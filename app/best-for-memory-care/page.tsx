@@ -75,7 +75,16 @@ export default function MemoryCarePage() {
     <PageShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON_LD }} />
       {/* ── Hero band ── */}
-      <section className="bg-purple-100 py-8 sm:py-10">
+      <section
+        className="relative overflow-hidden py-8 sm:py-10"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #ede9fe 40%, rgba(237,233,254,0.85) 60%, rgba(237,233,254,0.05) 100%), url('/memory-care-hero.png')",
+          backgroundPosition: "0 0, right center",
+          backgroundSize: "100% 100%, auto 100%",
+          backgroundRepeat: "no-repeat, no-repeat",
+        }}
+      >
         <div className="container-shell">
           <div className="flex items-start gap-4">
             <div className="hidden sm:flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-white text-purple-600 shadow-soft">

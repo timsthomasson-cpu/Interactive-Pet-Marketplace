@@ -1,6 +1,6 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best for Seniors with Dementia"
-// Generated: 2026-07-08
+// Generated: 2026-07-07
 
 export const TOP_SCORE_IN_GROUP = 4.7;
 

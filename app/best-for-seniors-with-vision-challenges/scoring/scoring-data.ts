@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best for Seniors with Vision Challenges"
-// Generated: 2026-07-08
+// Generated: 2026-07-07
 
-export const GENERATED_DATE = '2026-07-08';
+export const GENERATED_DATE = '2026-07-07';
 
 export const WEIGHTS = [
   { key: 'control', label: 'Control Accessibility', weight: "15%", reversed: false },
