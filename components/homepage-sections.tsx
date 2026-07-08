@@ -137,17 +137,28 @@ export function HomepageHero() {
     /*
      * Background strategy:
      *   backgroundColor fills the left with warm cream matching the pet photo bg.
-     *   Cropped pets-only image (hero-pets-crop.png, no baked-in text) is
+     *   Clean AI-generated pet photo (hero-pets-clean.png, no UI overlay) is
      *   positioned right-center. No gradient overlay needed.
      *   overflow-visible so the MateCat Pro card bleeds below.
      */
     <section
       className="relative"
       style={{
-        backgroundColor: "#f8f3ec",
-        backgroundImage: "url('/hero-pets-crop.png')",
-        backgroundSize: "auto 108%",
-        backgroundPosition: "right center",
+        backgroundColor: "#f0ebe3",
+        // Clean ChatGPT image — no baked-in text or UI elements.
+        // Left quarter is naturally a warm blurred background giving text contrast.
+        // Subtle white overlay on far-left ensures headline readability at all sizes.
+        backgroundImage: [
+          "linear-gradient(to right,",
+          "  rgba(255,255,255,0.55) 0%,",
+          "  rgba(255,255,255,0.55) 14%,",
+          "  rgba(255,255,255,0.20) 30%,",
+          "  rgba(255,255,255,0.00) 46%",
+          "),",
+          "url('/hero-pets-clean.png')",
+        ].join(" "),
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
       }}
     >
