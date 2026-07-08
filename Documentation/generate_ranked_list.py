@@ -479,26 +479,12 @@ import re as _re
 
 REPO_ROOT = os.path.dirname(DOC)  # one level up from Documentation/
 
-TS_PAGE_CONFIGS = {
-    "Best for Seniors in Memory Care Facilities": {
-        # Output file paths (relative to repo root)
-        "scores_ts":      os.path.join(REPO_ROOT, "components", "memory-care-scores.ts"),
-        "page_data_ts":   os.path.join(REPO_ROOT, "app", "best-for-memory-care", "page-data.ts"),
-        "scoring_data_ts":os.path.join(REPO_ROOT, "app", "best-for-memory-care", "scoring", "scoring-data.ts"),
-        # criteria_display: normalised feature name → scoring table config.
-        # reversed=True means score 5 = lowest risk/burden (↑ higher = better).
-        "criteria_display": {
-            "cleanability":         {"key": "clean",      "label": "Cleanability",    "short": "Cleanability",    "reversed": False},
-            "durability":           {"key": "durability",  "label": "Durability",       "short": "Durability",       "reversed": False},
-            "caregiver burden":     {"key": "caregiver",   "label": "Caregiver Burden", "short": "Caregiver Burden", "reversed": True},
-            "safety risk":          {"key": "safety",      "label": "Safety Risk",      "short": "Safety Risk",      "reversed": True},
-            "charging convenience": {"key": "charging",    "label": "Charging Convenience","short": "Charging Conv.", "reversed": False},
-            "privacy risk":         {"key": "privacy",     "label": "Privacy Risk",     "short": "Privacy Risk",     "reversed": True},
-            "dementia suitability": {"key": "dementia",    "label": "Dementia Suitability","short": "Dementia Fit",  "reversed": False},
-        },
-    },
-}
 
+SITE_URL = "https://interactivepetmarketplace.com"
+
+# Keywords that indicate a feature is "reversed" — score 5 = lowest risk/burden,
+# not highest amount of that property.
+_REVERSED_KEYWORDS = {"risk", "burden", "maintenance", "difficulty", "fall"}
 
 def _to_slug(name):
     """Match generate-products.js toSlug() exactly — keep in sync."""
@@ -506,6 +492,42 @@ def _to_slug(name):
     s = _re.sub(r"[^a-z0-9]+", "-", s)
     return s.strip("-")
 
+def _is_reversed(feature_name):
+    """Heuristic: features containing risk/burden/maintenance keywords are reversed."""
+    return bool(set(feature_name.lower().split()) & _REVERSED_KEYWORDS)
+
+def _auto_key(feature_name):
+    """Generate a short TypeScript-safe identifier from a normalised feature name.
+    'caregiver burden' → 'caregiver'   'safety risk' → 'safety'
+    'charging convenience' → 'charging'  'cleanability' → 'cleanability'
+    """
+    words = _re.sub(r"[^a-z0-9 ]+", "", feature_name.strip().lower()).split()
+    stop = {"the","a","an","of","for","and","or","in","with","level","type"}
+    sig = [w for w in words if w not in stop] or words
+    return sig[0][:12]  # first significant word, max 12 chars
+
+def _auto_label(feature_name):
+    """Title-case label from normalised name. 'caregiver burden' → 'Caregiver Burden'"""
+    return feature_name.strip().title()
+
+def _derive_criteria(weights):
+    """Auto-derive criteria_display from the weights dict (no manual config needed)."""
+    seen_keys = {}
+    result = {}
+    for fn_norm in weights:
+        key = _auto_key(fn_norm)
+        # Deduplicate keys if two features produce the same short key
+        if key in seen_keys:
+            key = _re.sub(r"[^a-z0-9]", "", fn_norm)[:14]
+        seen_keys[key] = fn_norm
+        label = _auto_label(fn_norm)
+        result[fn_norm] = {
+            "key":      key,
+            "label":    label,
+            "short":    label,
+            "reversed": _is_reversed(fn_norm),
+        }
+    return result
 
 def _load_existing_slugs():
     """Return the set of slugs in components/site-data.ts, or None if absent."""
@@ -516,13 +538,11 @@ def _load_existing_slugs():
     with open(path, encoding="utf-8") as f:
         return set(_re.findall(r'"slug":\s*"([^"]+)"', f.read()))
 
-
 def _date_display():
     today = date.today()
     months = ["January","February","March","April","May","June","July",
               "August","September","October","November","December"]
     return f"{months[today.month - 1]} {today.day}, {today.year}", today.isoformat()
-
 
 def _get_score(srow, feat_hdrs, substr):
     """Return an integer score from srow by matching a column name substring."""
@@ -532,23 +552,261 @@ def _get_score(srow, feat_hdrs, substr):
             return int(v) if isinstance(v, (int, float)) else 0
     return 0
 
+def _find_existing_page_dir(list_name):
+    """
+    Scan app/ for a Best For page directory that was previously generated for
+    this list. Detection: looks for page-data.ts containing the script marker.
+    Returns the directory path if found, None otherwise.
+    """
+    app_dir = os.path.join(REPO_ROOT, "app")
+    if not os.path.isdir(app_dir):
+        return None
+    marker = f'generate_ranked_list.py "{list_name}"'
+    for entry in sorted(os.listdir(app_dir)):
+        pd = os.path.join(app_dir, entry, "page-data.ts")
+        if os.path.isfile(pd):
+            with open(pd, encoding="utf-8") as f:
+                if marker in f.read():
+                    return os.path.join(app_dir, entry)
+    return None
+
+def _get_page_dir(list_name):
+    """Return (page_dir, page_slug, is_new_page)."""
+    existing = _find_existing_page_dir(list_name)
+    if existing:
+        return existing, os.path.basename(existing), False
+    slug = _to_slug(list_name)
+    return os.path.join(REPO_ROOT, "app", slug), slug, True
+
+def _build_json_ld(list_name, page_slug, ranked, top_score):
+    """Build the JSON-LD structured data string for this Best For page."""
+    import json
+    page_url = f"{SITE_URL}/{page_slug}"
+    items = []
+    for i, (slug, pct, w, p) in enumerate(ranked):
+        item = {
+            "@type": "ListItem",
+            "position": i + 1,
+            "item": {
+                "@type": "Product",
+                "name": w["prod_clean"],
+                "brand": {"@type": "Brand", "name": w["mfr_clean"]},
+                "offers": {
+                    "@type": "Offer",
+                    "price": f"{p['price']:.2f}",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock",
+                },
+            },
+        }
+        if p.get("rating") and float(p["rating"]) > 0:
+            item["item"]["aggregateRating"] = {
+                "@type": "AggregateRating",
+                "ratingValue": f"{float(p['rating']):.1f}",
+                "reviewCount": str(p["reviews"]),
+                "bestRating": "5",
+                "worstRating": "1",
+            }
+        items.append(item)
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": list_name,
+        "url": page_url,
+        "numberOfItems": len(items),
+        "itemListElement": items,
+    }
+    return json.dumps(schema, separators=(",", ":"))
+
+def _write_page_template(page_dir, page_slug, list_name, crit, accent="purple"):
+    """Create page.tsx and scoring/page.tsx templates for a brand-new Best For page."""
+    page_path = os.path.join(page_dir, "page.tsx")
+    if os.path.exists(page_path):
+        return  # Never overwrite an existing hand-crafted page
+
+    os.makedirs(os.path.join(page_dir, "scoring"), exist_ok=True)
+
+    # Scoring page — imports from ./scoring-data, identical structure to memory-care
+    scoring_tpl = (
+        'import { PageShell } from "@/components/layout";\n'
+        'import Link from "next/link";\n'
+        '// AUTO-GENERATED data\n'
+        'import { WEIGHTS, ROWS, GENERATED_DATE, type ScoreKey } from "./scoring-data";\n\n'
+        'function ScoreCell({ value, reversed }: { value: number; reversed: boolean }) {\n'
+        '  const isTop = value === 5;\n'
+        '  const isLow = value <= 2;\n'
+        '  return (\n'
+        '    <td className={`border border-trust-200 px-3 py-2 text-center text-sm font-semibold ${\n'
+        '      isTop ? "bg-trust-50 text-trust-700" : isLow ? "text-slate-400" : "text-slate-700"\n'
+        '    }`}>{value}</td>\n'
+        '  );\n'
+        '}\n\n'
+        'export default function BestForScoring() {\n'
+        '  return (\n'
+        '    <PageShell>\n'
+        '      <section className="section-pad">\n'
+        '        <div className="container-shell">\n'
+        f'          <div className="mb-8"><Link href="/{page_slug}" className="text-sm font-semibold text-trust-600 hover:underline">← Back to rankings</Link></div>\n'
+        '          <p className="eyebrow">Detailed Scoring</p>\n'
+        f'          <h1 className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">{list_name} — Top 5 Results</h1>\n'
+        '          <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-700">\n'
+        '            All scores are 1–5. Criteria marked <span className="font-semibold">(↑ higher = better outcome)</span> show 5 as lowest risk/burden.\n'
+        '            Generated {GENERATED_DATE}. Tiebreaker: Score → Rating → Visual Contrast → Review Count.\n'
+        '          </p>\n'
+        '          <div className="mt-8 overflow-x-auto rounded-2xl border border-trust-200 shadow-soft">\n'
+        '            <table className="w-full border-collapse text-sm">\n'
+        '              <thead><tr className="bg-trust-50">\n'
+        '                <th className="border border-trust-200 px-3 py-3 text-left font-semibold text-slate-900">Rank</th>\n'
+        '                <th className="border border-trust-200 px-3 py-3 text-left font-semibold text-slate-900">Product</th>\n'
+        '                <th className="border border-trust-200 px-3 py-3 text-right font-semibold text-slate-900">Price</th>\n'
+        '                <th className="border border-trust-200 px-3 py-3 text-right font-semibold text-slate-900">Rating</th>\n'
+        '                <th className="border border-trust-200 px-3 py-3 text-center font-bold text-trust-900">Overall</th>\n'
+        '                {WEIGHTS.map((w) => (\n'
+        '                  <th key={w.key} className="border border-trust-200 px-3 py-3 text-center font-semibold text-slate-700 whitespace-nowrap">\n'
+        '                    {w.label}<br/><span className="text-xs font-normal text-slate-500">{w.weight}</span>\n'
+        '                    {w.reversed && <><br/><span className="text-[10px] font-normal text-trust-600">↑ higher = better</span></>}\n'
+        '                  </th>\n'
+        '                ))}\n'
+        '              </tr></thead>\n'
+        '              <tbody>\n'
+        '                {ROWS.map((row, i) => (\n'
+        '                  <tr key={row.rank} className={i % 2 === 0 ? "bg-white" : "bg-cream-50"}>\n'
+        '                    <td className="border border-trust-200 px-3 py-3 font-bold text-trust-700">#{row.rank}</td>\n'
+        '                    <td className="border border-trust-200 px-3 py-3"><p className="font-semibold text-slate-900">{row.product}</p><p className="text-xs text-slate-500">{row.manufacturer} · {row.animal} · {row.priceCategory}</p></td>\n'
+        '                    <td className="border border-trust-200 px-3 py-3 text-right text-slate-700">{row.price}</td>\n'
+        '                    <td className="border border-trust-200 px-3 py-3 text-right text-slate-700">★ {row.rating}<br/><span className="text-xs text-slate-500">({row.reviews} reviews)</span></td>\n'
+        '                    <td className="border border-trust-200 px-3 py-3 text-center font-bold text-trust-900">{row.overall}</td>\n'
+        '                    {WEIGHTS.map((w) => <ScoreCell key={w.key} value={row.scores[w.key]} reversed={w.reversed} />)}\n'
+        '                  </tr>\n'
+        '                ))}\n'
+        '              </tbody>\n'
+        '            </table>\n'
+        '          </div>\n'
+        '          <p className="mt-6 text-xs text-slate-500">Full scoring methodology: Documentation/Feature_Scoring_Rubric.xlsx. Product data: Documentation/Product Matrix.xlsx.</p>\n'
+        '        </div>\n'
+        '      </section>\n'
+        '    </PageShell>\n'
+        '  );\n'
+        '}\n'
+    )
+    with open(os.path.join(page_dir, "scoring", "page.tsx"), "w", encoding="utf-8") as f:
+        f.write(scoring_tpl)
+
+    # Main page — minimal but functional template
+    page_tpl = (
+        'import { PageShell } from "@/components/layout";\n'
+        'import { BestForCard } from "@/components/best-for-card";\n'
+        'import { ScoreGauge, ScoreBar } from "@/components/score-gauge";\n'
+        'import {\n'
+        '  IconSparkleClean, IconDurability, IconUsers, IconShieldCheck,\n'
+        '  IconBattery, IconPrivacy, IconBrain, IconHeartHands, IconAward,\n'
+        '  featureIcon, StarRating,\n'
+        '} from "@/components/best-for-icons";\n'
+        'import { products } from "@/components/site-data";\n'
+        'import Link from "next/link";\n\n'
+        '// ── Auto-generated data (regenerated by generate_ranked_list.py) ─────────\n'
+        'import {\n'
+        '  SPREADSHEET_UPDATED, TOP_SCORE_IN_GROUP, TOP_PICK_RAW_SCORE, TOP_PICK_PERCENT,\n'
+        '  RANKED_SLUGS, SCORE_PERCENT, RUNNER_NOTES, TOP_PICK_CRITERIA_DATA, JSON_LD,\n'
+        '} from "./page-data";\n'
+        'import { SCORES } from "./scores";\n\n'
+        '// ── Icon mapping — update labels to match TOP_PICK_CRITERIA_DATA in page-data.ts ─\n'
+        'const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {\n'
+        '  "Cleanability": IconSparkleClean, "Durability": IconDurability,\n'
+        '  "Caregiver Burden": IconUsers,    "Safety Risk": IconShieldCheck,\n'
+        '  "Charging Convenience": IconBattery, "Privacy Risk": IconPrivacy,\n'
+        '  "Dementia Suitability": IconBrain,\n'
+        '  // TODO: add icons for any criteria specific to this list\n'
+        '};\n'
+        'const TOP_PICK_CRITERIA = TOP_PICK_CRITERIA_DATA.map((c) => ({\n'
+        '  ...c, Icon: ICON_MAP[c.label] ?? IconSparkleClean,\n'
+        '}));\n\n'
+        '// ── TODO: Review these bullets when the top pick changes ─────────────────\n'
+        '// Must be grounded in locked rubric anchors — never invented marketing claims.\n'
+        'const WHY_TOP_PICK_BULLETS: { label: string; note: string }[] = [\n'
+        '  // TODO: populate from top pick\'s highest-scoring criteria\n'
+        '];\n\n'
+        'export default function BestForPage() {\n'
+        '  const ranked = RANKED_SLUGS\n'
+        '    .map((slug) => products.find((p) => p.slug === slug))\n'
+        '    .filter(Boolean) as NonNullable<(typeof products)[number]>[];\n'
+        '  const topPick = ranked[0];\n'
+        '  const runners = ranked.slice(1);\n\n'
+        '  return (\n'
+        '    <PageShell>\n'
+        '      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON_LD }} />\n\n'
+        f'      {{/* Hero */}}\n'
+        f'      <section className="bg-{accent}-100 py-8 sm:py-10">\n'
+        '        <div className="container-shell">\n'
+        '          <div className="flex items-start gap-4">\n'
+        f'            <div className="hidden sm:flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-white text-{accent}-600 shadow-soft">\n'
+        '              <IconHeartHands className="h-10 w-10" />\n'
+        '            </div>\n'
+        '            <div>\n'
+        '              <p className="eyebrow">Best For Rankings</p>\n'
+        f'              <h1 className="mt-1 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">{list_name}</h1>\n'
+        '              <p className="mt-2 max-w-2xl text-base font-medium leading-7 text-slate-700">\n'
+        '                {/* TODO: add description */}\n'
+        '              </p>\n'
+        '              <p className="mt-2 inline-flex items-center gap-2 text-xs font-semibold text-trust-700">\n'
+        '                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-trust-500 text-white text-[10px]">✓</span>\n'
+        '                Ratings from Verified Sources · Updated {SPREADSHEET_UPDATED}\n'
+        '              </p>\n'
+        '            </div>\n'
+        '          </div>\n'
+        '        </div>\n'
+        '      </section>\n\n'
+        '      {/* See app/best-for-memory-care/page.tsx for the full Best For page template.\n'
+        '          TODO: add Top Pick card, Why Top Pick, How We Ranked, Customize, Also Ranked sections. */}\n\n'
+        '      {/* Also Ranked */}\n'
+        '      <section className="py-4 sm:py-5 bg-white">\n'
+        '        <div className="container-shell">\n'
+        '          <h2 className="text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">Top Picks</h2>\n'
+        '          <p className="mt-0.5 text-sm text-slate-700">Ranked by weighted criteria for this audience.</p>\n'
+        '          <div className="mt-2 grid gap-2.5 sm:grid-cols-2 xl:grid-cols-5">\n'
+        '            {ranked.map((product, i) => (\n'
+        '              <div key={product.slug} className="flex flex-col">\n'
+        '                <p className="mb-1 text-xs font-bold uppercase tracking-wide text-slate-500">#{i + 1} Ranked</p>\n'
+        f'                <BestForCard product={{product}} note={{RUNNER_NOTES[product.slug]}} className="flex-1"\n'
+        f'                             scorePercent={{SCORE_PERCENT[product.slug]}} accentColor="text-{accent}-600" />\n'
+        '              </div>\n'
+        '            ))}\n'
+        '          </div>\n'
+        f'          <div className="mt-4 border-t border-{accent}-200 pt-3 text-center">\n'
+        f'            <Link href="/{page_slug}/scoring" className="text-sm font-semibold text-trust-600 underline underline-offset-4 hover:text-trust-800">Show detailed scoring results →</Link>\n'
+        '          </div>\n'
+        '        </div>\n'
+        '      </section>\n'
+        '    </PageShell>\n'
+        '  );\n'
+        '}\n'
+    )
+    with open(page_path, "w", encoding="utf-8") as f:
+        f.write(page_tpl)
+
+    print(f"  ✓ (new template) {os.path.relpath(page_path, REPO_ROOT)}")
+    print(f"  ✓ (new template) {os.path.relpath(os.path.join(page_dir, 'scoring', 'page.tsx'), REPO_ROOT)}")
+
 
 def generate_ts_files(list_name, winners, candidates, weights, feat_hdrs, srows, pm):
-    """Regenerate TS data files for a Best For page. Called from generate_one()."""
-    cfg = TS_PAGE_CONFIGS.get(list_name)
-    if cfg is None:
-        return  # No TS config for this list — xlsx-only output
+    """
+    Regenerate TypeScript data files for a Best For page.
+    Called automatically from generate_one() for every weighting table.
 
+    Auto-discovers the existing page directory by scanning app/ for page-data.ts
+    files containing the list name. If no existing page is found, creates a new
+    directory at the canonical slug path (slugified list name) with template files.
+    """
     print(f"\n  Generating TypeScript data files …")
     date_display, date_iso = _date_display()
-    existing = _load_existing_slugs()
-    crit = cfg["criteria_display"]
+    existing_slugs = _load_existing_slugs()
+    page_dir, page_slug, is_new = _get_page_dir(list_name)
 
-    # ── Build per-product dataset ──────────────────────────────────────────
+    # ── Build per-product dataset (all evaluated, not just winners) ──────────
     all_prods, skipped = [], []
     for p in candidates:
         slug = _to_slug(p["prod_clean"])
-        if existing is not None and slug not in existing:
+        if existing_slugs is not None and slug not in existing_slugs:
             skipped.append((p["prod_clean"], slug))
             continue
         mfr_l  = p["mfr_clean"].lower().lstrip()
@@ -565,40 +823,49 @@ def generate_ts_files(list_name, winners, candidates, weights, feat_hdrs, srows,
             "movement":  _get_score(srow, feat_hdrs, "movement level"),
             "sound":     _get_score(srow, feat_hdrs, "sound quality"),
             "visual":    p.get("vis_contrast") or _get_score(srow, feat_hdrs, "visual contrast"),
-            "rating":    pm_d.get("rating") or 0,
+            "rating":    float(pm_d.get("rating") or 0),
             "reviews":   int(pm_d.get("reviews") or 0),
             "srow":      srow,
         })
 
     if skipped:
         print(f"  WARNING: {len(skipped)} product(s) not in site-data.ts — excluded:")
-        for name, slug in skipped:
-            print(f"    {name!r}  →  slug {slug!r}")
+        for name, sl in skipped:
+            print(f"    {name!r}  →  {sl!r}")
         print("  Run npm run generate:products after updating Product Matrix.")
 
-    top_score = max((p["score"] for p in all_prods), default=1.0)
+    if not all_prods:
+        print("  SKIP: no products match site-data.ts — TS files not updated.")
+        return
+
+    top_score = max(p["score"] for p in all_prods)
     for p in all_prods:
         p["pct"] = round(p["score"] / top_score * 100)
 
-    # Ranked top 5 (deduped winners that exist in site-data.ts)
+    # Deduped top 5 (winners that exist in site-data.ts)
     ranked = []
     for w in winners:
-        slug = _to_slug(w["prod_clean"])
-        hit  = next((p for p in all_prods if p["slug"] == slug), None)
+        sl = _to_slug(w["prod_clean"])
+        hit = next((p for p in all_prods if p["slug"] == sl), None)
         if hit:
-            ranked.append((slug, hit["pct"], w, hit))
+            ranked.append((sl, hit["pct"], w, hit))
         if len(ranked) == 5:
             break
+
+    if not ranked:
+        print("  SKIP: no ranked products found in site-data.ts.")
+        return
+
     top_pick_slug, top_pick_pct, top_pick_w, top_pick_p = ranked[0]
 
-    # ── 1. memory-care-scores.ts ───────────────────────────────────────────
-    pc_vals = sorted(set(p["price_cat"] for p in all_prods) - {"Unknown"})
-    ac_vals = sorted(set(p["animal"]    for p in all_prods) - {"Unknown"})
-    ty_vals = sorted(set(p["type"]      for p in all_prods) - {"Unknown"})
-    pc_union = " | ".join(f'"{v}"' for v in pc_vals)
-    ac_union = " | ".join(f'"{v}"' for v in ac_vals)
-    ty_union = " | ".join(f'"{v}"' for v in ty_vals)
+    # Auto-derive criteria display from weights
+    crit = _derive_criteria(weights)
 
+    # ── scores.ts (in page directory) ─────────────────────────────────────
+    os.makedirs(page_dir, exist_ok=True)
+    pc_vals = sorted({p["price_cat"] for p in all_prods} - {"Unknown"})
+    ac_vals = sorted({p["animal"]    for p in all_prods} - {"Unknown"})
+    ty_vals = sorted({p["type"]      for p in all_prods} - {"Unknown"})
     rows_ts = "\n".join(
         f'  {{ slug: {p["slug"]!r}, score: {p["score"]:.2f}, scorePercent: {p["pct"]},'
         f' price: {p["price"]:.2f}, priceCategory: {p["price_cat"]!r},'
@@ -607,77 +874,84 @@ def generate_ts_files(list_name, winners, candidates, weights, feat_hdrs, srows,
         f' visualContrast: {p["visual"]} }},'
         for p in all_prods
     )
-    scores_ts_content = (
+    pc_u = " | ".join(f'"{v}"' for v in pc_vals)
+    ac_u = " | ".join(f'"{v}"' for v in ac_vals)
+    ty_u = " | ".join(f'"{v}"' for v in ty_vals)
+    scores_content = (
         f'// AUTO-GENERATED — do not edit by hand.\n'
         f'// Run: python Documentation/generate_ranked_list.py "{list_name}"\n'
         f'// Generated: {date_iso}\n\n'
         f'export const TOP_SCORE_IN_GROUP = {top_score};\n\n'
-        f'export type MemoryCareScoreRow = {{\n'
-        f'  slug: string;\n  score: number;\n  scorePercent: number;\n  price: number;\n'
-        f'  priceCategory: {pc_union};\n  animalCategory: {ac_union};\n  type: {ty_union};\n'
-        f'  movementLevel: number;\n  soundQuality: number;\n  visualContrast: number;\n}};\n\n'
-        f'export const MEMORY_CARE_SCORES: MemoryCareScoreRow[] = [\n{rows_ts}\n];\n'
+        f'export type BestForScoreRow = {{\n'
+        f'  slug: string; score: number; scorePercent: number; price: number;\n'
+        f'  priceCategory: {pc_u}; animalCategory: {ac_u}; type: {ty_u};\n'
+        f'  movementLevel: number; soundQuality: number; visualContrast: number;\n}};\n\n'
+        f'// Alias used by CustomizeRankings\n'
+        f'// Legacy alias\nexport type MemoryCareScoreRow = BestForScoreRow;\n'
+        f'export const SCORES: BestForScoreRow[] = [\n{rows_ts}\n];\n'
+        f'// Legacy alias for existing imports\nexport const MEMORY_CARE_SCORES = SCORES;\n'
     )
-    path = cfg["scores_ts"]
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(scores_ts_content)
-    print(f"  ✓  {os.path.relpath(path, REPO_ROOT)}")
+    scores_path = os.path.join(page_dir, "scores.ts")
+    with open(scores_path, "w", encoding="utf-8") as f:
+        f.write(scores_content)
+    print(f"  ✓  {os.path.relpath(scores_path, REPO_ROOT)}")
 
-    # ── 2. page-data.ts ───────────────────────────────────────────────────
-    ranked_lines  = "\n".join(f'  {s!r},  // Rank {i+1} — {pct}%' for i,(s,pct,_,__) in enumerate(ranked))
-    pct_lines     = "\n".join(f'  {s!r}: {pct},' for s,pct,_,__ in ranked)
-    crit_lines    = "\n".join(
+    # ── page-data.ts ──────────────────────────────────────────────────────
+    ranked_lines = "\n".join(f'  {s!r},  // Rank {i+1} — {pct}%'
+                             for i,(s,pct,_,__) in enumerate(ranked))
+    pct_lines    = "\n".join(f'  {s!r}: {pct},' for s,pct,_,__ in ranked)
+    crit_lines   = "\n".join(
         f'  {{ label: {crit[fn]["label"]!r}, weight: "{wt:.0%}", score: {_get_score(top_pick_p["srow"], feat_hdrs, fn)} }},'
         for fn, wt in weights.items() if fn in crit
     )
+    json_ld_str = _build_json_ld(list_name, page_slug, ranked, top_score)
     page_data_content = (
         f'// AUTO-GENERATED — do not edit by hand.\n'
         f'// Run: python Documentation/generate_ranked_list.py "{list_name}"\n'
         f'// Generated: {date_iso}\n//\n'
-        f'// WHY_TOP_PICK_BULLETS lives in page.tsx as editorial copy —\n'
-        f'// review and update it manually whenever the top pick changes.\n\n'
-        f'export const SPREADSHEET_UPDATED = {date_display!r};\n\n'
+        f'// WHY_TOP_PICK_BULLETS lives in page.tsx — review manually when top pick changes.\n\n'
+        f'export const SPREADSHEET_UPDATED = {date_display!r};\n'
         f'export const TOP_SCORE_IN_GROUP = {top_score};\n'
         f'export const TOP_PICK_RAW_SCORE = {top_pick_p["score"]:.2f};\n'
         f'export const TOP_PICK_PERCENT = {top_pick_pct};\n\n'
         f'export const RANKED_SLUGS: string[] = [\n{ranked_lines}\n];\n\n'
         f'export const SCORE_PERCENT: Record<string, number> = {{\n{pct_lines}\n}};\n\n'
-        f'// Add special editorial notes only (e.g. "Most Reviewed").\n'
-        f'// Budget Friendly / Best Value are auto-derived by BestForCard from priceCategory.\n'
+        f'// Add special editorial notes only. Price category tags are auto-derived by BestForCard.\n'
         f'export const RUNNER_NOTES: Record<string, string> = {{}};\n\n'
         f'export const TOP_PICK_CRITERIA_DATA: {{ label: string; weight: string; score: number }}[] = [\n'
-        f'{crit_lines}\n];\n'
+        f'{crit_lines}\n];\n\n'
+        f'// JSON-LD structured data — rendered as <script type="application/ld+json"> in page.tsx\n'
+        f'export const JSON_LD = {json_ld_str!r};\n'
     )
-    path = cfg["page_data_ts"]
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f:
+    pd_path = os.path.join(page_dir, "page-data.ts")
+    with open(pd_path, "w", encoding="utf-8") as f:
         f.write(page_data_content)
-    print(f"  ✓  {os.path.relpath(path, REPO_ROOT)}")
+    print(f"  ✓  {os.path.relpath(pd_path, REPO_ROOT)}")
 
-    # ── 3. scoring-data.ts ────────────────────────────────────────────────
+    # ── scoring/scoring-data.ts ───────────────────────────────────────────
+    os.makedirs(os.path.join(page_dir, "scoring"), exist_ok=True)
     wt_lines = "\n".join(
         f'  {{ key: {crit[fn]["key"]!r}, label: {crit[fn]["short"]!r},'
         f' weight: "{wt:.0%}", reversed: {"true" if crit[fn]["reversed"] else "false"} }},'
         for fn, wt in weights.items() if fn in crit
     )
     row_lines = []
-    for i, (slug, pct, w, p) in enumerate(ranked):
+    for i, (sl, pct, w, p) in enumerate(ranked):
         score_parts = ", ".join(
             f'{crit[fn]["key"]}: {_get_score(p["srow"], feat_hdrs, fn)}'
             for fn in weights if fn in crit
         )
-        price_str = f"${p['price']:.2f}"
-        rating_str = f"{p['rating']:.1f}"
-        reviews_str = "{:,}".format(p["reviews"])
         row_lines.append(
-            f"  {{\n    rank: {i+1},\n    manufacturer: {w['mfr_clean']!r},\n"
-            f"    product: {w['prod_clean']!r},\n    priceCategory: {w.get('price_cat','')!r},\n"
-            f"    animal: {w.get('animal_cat','')!r},\n    price: {price_str!r},\n"
-            f"    rating: {rating_str!r},\n    reviews: {reviews_str!r},\n"
-            f"    overall: {str(round(w['score'],2))!r},\n    scores: {{ {score_parts} }},\n  }},"
+            f"  {{\n    rank: {i+1}, manufacturer: {w['mfr_clean']!r},"
+            f" product: {w['prod_clean']!r},\n"
+            f"    priceCategory: {w.get('price_cat','')!r}, animal: {w.get('animal_cat','')!r},"
+            f" price: {'${:.2f}'.format(p['price'])!r},\n"
+            f"    rating: {'{:.1f}'.format(p['rating'])!r},"
+            f" reviews: {'{:,}'.format(p['reviews'])!r},"
+            f" overall: {str(round(w['score'],2))!r},\n"
+            f"    scores: {{ {score_parts} }},\n  }},"
         )
-    scoring_data_content = (
+    sd_content = (
         f'// AUTO-GENERATED — do not edit by hand.\n'
         f'// Run: python Documentation/generate_ranked_list.py "{list_name}"\n'
         f'// Generated: {date_iso}\n\n'
@@ -691,11 +965,15 @@ def generate_ts_files(list_name, winners, candidates, weights, feat_hdrs, srows,
         f'  scores: Record<ScoreKey, number>;\n}};\n\n'
         f'export const ROWS: RankedRow[] = [\n' + "\n".join(row_lines) + '\n];\n'
     )
-    path = cfg["scoring_data_ts"]
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(scoring_data_content)
-    print(f"  ✓  {os.path.relpath(path, REPO_ROOT)}")
+    sd_path = os.path.join(page_dir, "scoring", "scoring-data.ts")
+    with open(sd_path, "w", encoding="utf-8") as f:
+        f.write(sd_content)
+    print(f"  ✓  {os.path.relpath(sd_path, REPO_ROOT)}")
+
+    # ── Template files (new pages only, never overwrite existing) ─────────
+    if is_new:
+        _write_page_template(page_dir, page_slug, list_name, crit)
+        print(f"  → New page created at /{page_slug} — review page.tsx and add content.")
 
 
 # ── Main ───────────────────────────────────────────────────────────────────

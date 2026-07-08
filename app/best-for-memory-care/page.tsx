@@ -30,7 +30,9 @@ import {
   SCORE_PERCENT,
   RUNNER_NOTES,
   TOP_PICK_CRITERIA_DATA,
+  JSON_LD,
 } from "./page-data";
+import { SCORES } from "./scores";
 
 // ── Icon mapping for criteria (add new criteria icons here if weights change) ─
 // Labels must match the label values in page-data.ts exactly.
@@ -71,6 +73,7 @@ export default function MemoryCarePage() {
 
   return (
     <PageShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON_LD }} />
       {/* ── Hero band ── */}
       <section className="bg-purple-100 py-8 sm:py-10">
         <div className="container-shell">
