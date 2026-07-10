@@ -144,25 +144,28 @@ export function HomepageHero() {
     <div className="bg-[#f0ebe3]">
     <section
       className="relative mx-auto max-w-[1440px]"
-      style={{
-        backgroundColor: "#f0ebe3",
-        // Clean ChatGPT image — no baked-in text or UI elements.
-        // Left quarter is naturally a warm blurred background giving text contrast.
-        // Subtle white overlay on far-left ensures headline readability at all sizes.
-        backgroundImage: [
-          "linear-gradient(to right,",
-          "  rgba(255,255,255,0.55) 0%,",
-          "  rgba(255,255,255,0.55) 14%,",
-          "  rgba(255,255,255,0.20) 30%,",
-          "  rgba(255,255,255,0.00) 46%",
-          "),",
-          "url('/hero-pets-clean.png')",
-        ].join(" "),
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        backgroundRepeat: "no-repeat",
-      }}
+      style={{ backgroundColor: "#f0ebe3" }}
     >
+      {/* Background image: hidden on mobile so pets don't overlap text;
+          on lg+ the image fills the section with a cream gradient on the left */}
+      <div
+        className="absolute inset-0 hidden lg:block"
+        aria-hidden="true"
+        style={{
+          backgroundImage: [
+            "linear-gradient(to right,",
+            "  rgba(255,255,255,0.55) 0%,",
+            "  rgba(255,255,255,0.55) 14%,",
+            "  rgba(255,255,255,0.20) 30%,",
+            "  rgba(255,255,255,0.00) 46%",
+            "),",
+            "url('/hero-pets-clean.png')",
+          ].join(" "),
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
       <div className="relative z-10 container-shell">
         <div className="grid min-h-[420px] lg:grid-cols-[1fr_1fr]">
 
@@ -172,9 +175,9 @@ export function HomepageHero() {
               Companionship. Comfort. Connection.
             </p>
             <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
-              Find the right interactive pet for<br />
-              comfort, companionship,<br />
-              and fun.
+              Find the right interactive pet for<br className="hidden sm:block" />
+              {" "}comfort, companionship,<br className="hidden sm:block" />
+              {" "}and fun.
             </h1>
             <p className="mt-4 max-w-lg text-base leading-7 text-slate-700 sm:text-lg sm:leading-8">
               Compare the best interactive pets and AI &amp; robotic pets for seniors, families,
@@ -185,9 +188,9 @@ export function HomepageHero() {
               {/* Primary CTA — 500×120px, text-xl, icon h-12 to fill the larger button */}
               <Link
                 href="#"
-                className="inline-flex h-[120px] w-[500px] shrink-0 items-center gap-5 rounded-xl bg-trust-500 px-8 text-xl font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-600"
+                className="inline-flex w-full lg:w-[500px] min-h-[60px] lg:h-[120px] shrink-0 items-center gap-3 lg:gap-5 rounded-xl bg-trust-500 px-5 lg:px-8 py-4 lg:py-0 text-base lg:text-xl font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-600"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-12 w-12 shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 lg:h-12 lg:w-12 shrink-0">
                   <path d="M12 3v18M8 21h8" />
                   <path d="M3 6h18" />
                   <path d="M5 6L2 13h6L5 6Z" />
@@ -235,7 +238,7 @@ export function HomepageHero() {
                 className="absolute w-80"
                 style={{
                   top: "320px",
-                  left: "calc(50% - 200px)",
+                  left: "calc(50% - 125px)",
                   transform: "translateX(-50%)",
                   zIndex: 50,
                   // Layered shadow: subtle ambient + deeper drop for UI-element feel
