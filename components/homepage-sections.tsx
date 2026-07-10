@@ -135,14 +135,15 @@ export function HomepageHero() {
 
   return (
     /*
-     * Background strategy:
-     *   backgroundColor fills the left with warm cream matching the pet photo bg.
-     *   Clean AI-generated pet photo (hero-pets-clean.png, no UI overlay) is
-     *   positioned right-center. No gradient overlay needed.
-     *   overflow-visible so the MateCat Pro card bleeds below.
+     * The full-width wrapper provides the cream background beyond the max-width.
+     * max-w-[1440px] on the section ensures the background image crop is
+     * identical at every browser zoom level — without it, cover scales to the
+     * full CSS viewport width (which doubles at 50% zoom), making the crop
+     * completely different between zoom levels.
      */
+    <div className="bg-[#f0ebe3]">
     <section
-      className="relative"
+      className="relative mx-auto max-w-[1440px]"
       style={{
         backgroundColor: "#f0ebe3",
         // Clean ChatGPT image — no baked-in text or UI elements.
@@ -184,7 +185,7 @@ export function HomepageHero() {
               {/* Primary — 240×65px, scales icon doubled, text wraps inside fixed width */}
               <Link
                 href="#"
-                className="inline-flex h-[65px] w-[240px] shrink-0 items-start gap-2 rounded-xl bg-trust-500 px-4 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-600"
+                className="inline-flex min-h-[65px] w-[240px] shrink-0 items-start gap-2 rounded-xl bg-trust-500 px-4 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-600"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10 shrink-0">
                   <path d="M12 3v18M8 21h8" />
@@ -261,6 +262,7 @@ export function HomepageHero() {
         </div>
       </div>
     </section>
+    </div>
   );
 }
 
