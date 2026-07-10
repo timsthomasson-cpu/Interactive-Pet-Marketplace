@@ -176,7 +176,7 @@ export function HomepageHero() {
             </p>
             <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
               Find the right interactive pet for<br className="hidden sm:block" />
-              {" "}comfort, companionship,<br className="hidden sm:block" />
+              {" "}companionship, comfort,<br className="hidden sm:block" />
               {" "}and fun.
             </h1>
             <p className="mt-4 max-w-lg text-base leading-7 text-slate-700 sm:text-lg sm:leading-8">
@@ -184,8 +184,23 @@ export function HomepageHero() {
               gift buyers, and premium shoppers — without a cluttered buying experience.
             </p>
 
-            <div className="mt-7">
-              {/* Primary CTA — 500×120px, text-xl, icon h-12 to fill the larger button */}
+            <div className="mt-7 flex flex-col gap-4">
+              {/* Shop Our Top Picks — same size, outlined style */}
+              <Link
+                href="#"
+                className="inline-flex w-full lg:w-[500px] min-h-[60px] lg:h-[120px] shrink-0 items-center justify-center rounded-xl border-2 border-trust-500 bg-white px-5 lg:px-8 py-4 lg:py-0 text-base lg:text-xl font-semibold text-trust-500 shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-50"
+              >
+                Shop Our Top Picks
+              </Link>
+
+              {/* or divider */}
+              <div className="flex items-center gap-3 w-full lg:w-[500px]">
+                <div className="flex-1 h-px bg-slate-300" />
+                <span className="text-sm font-medium text-slate-500">or</span>
+                <div className="flex-1 h-px bg-slate-300" />
+              </div>
+
+              {/* Let Us Help CTA */}
               <Link
                 href="#"
                 className="inline-flex w-full lg:w-[500px] min-h-[60px] lg:h-[120px] shrink-0 items-center gap-3 lg:gap-5 rounded-xl bg-trust-500 px-5 lg:px-8 py-4 lg:py-0 text-base lg:text-xl font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-600"
