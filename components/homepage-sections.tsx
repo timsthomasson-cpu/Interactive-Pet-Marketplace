@@ -181,26 +181,19 @@ export function HomepageHero() {
               gift buyers, and premium shoppers — without a cluttered buying experience.
             </p>
 
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              {/* Primary — 240×65px, scales icon doubled, text wraps inside fixed width */}
+            <div className="mt-7">
+              {/* Primary CTA — 500×120px, text-xl, icon h-12 to fill the larger button */}
               <Link
                 href="#"
-                className="inline-flex min-h-[65px] w-[240px] shrink-0 items-start gap-2 rounded-xl bg-trust-500 px-4 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-600"
+                className="inline-flex h-[120px] w-[500px] shrink-0 items-center gap-5 rounded-xl bg-trust-500 px-8 text-xl font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-600"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10 shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-12 w-12 shrink-0">
                   <path d="M12 3v18M8 21h8" />
                   <path d="M3 6h18" />
                   <path d="M5 6L2 13h6L5 6Z" />
                   <path d="M19 6l-3 7h6l-3-7Z" />
                 </svg>
-                Let Us Help You find the Right Pet for You or Your Loved One
-              </Link>
-              {/* Secondary — 130×50px, trust-colour text matching mockup */}
-              <Link
-                href="#"
-                className="inline-flex h-[50px] w-[130px] shrink-0 items-center justify-center rounded-xl border-2 border-slate-300 bg-white text-sm font-semibold text-trust-500 transition hover:-translate-y-0.5 hover:border-trust-400"
-              >
-                Shop Top Picks
+                <span>Let Us Help You find the Right Pet for You or Your Loved One</span>
               </Link>
             </div>
 
@@ -242,7 +235,7 @@ export function HomepageHero() {
                 className="absolute w-80"
                 style={{
                   top: "320px",
-                  left: "50%",
+                  left: "calc(50% - 200px)",
                   transform: "translateX(-50%)",
                   zIndex: 50,
                   // Layered shadow: subtle ambient + deeper drop for UI-element feel
