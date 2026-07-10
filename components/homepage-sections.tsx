@@ -171,43 +171,50 @@ export function HomepageHero() {
               Companionship. Comfort. Connection.
             </p>
             <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
-              Find the right interactive pet for comfort, companionship, and fun.
+              Find the right interactive pet for<br />
+              comfort, companionship,<br />
+              and fun.
             </h1>
             <p className="mt-4 max-w-lg text-base leading-7 text-slate-700 sm:text-lg sm:leading-8">
               Compare the best interactive pets and AI &amp; robotic pets for seniors, families,
               gift buyers, and premium shoppers — without a cluttered buying experience.
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              {/* Primary — 240×65px, scales icon doubled, text wraps inside fixed width */}
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 rounded-full bg-trust-500 px-6 py-3.5 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-600 sm:text-base"
+                className="inline-flex h-[65px] w-[240px] shrink-0 items-start gap-2 rounded-xl bg-trust-500 px-4 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-600"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 shrink-0">
-                  <path d="M3 6h18M3 12h18M3 18h18" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10 shrink-0">
+                  <path d="M12 3v18M8 21h8" />
+                  <path d="M3 6h18" />
+                  <path d="M5 6L2 13h6L5 6Z" />
+                  <path d="M19 6l-3 7h6l-3-7Z" />
                 </svg>
                 Let Us Help You find the Right Pet for You or Your Loved One
               </Link>
+              {/* Secondary — 130×50px, trust-colour text matching mockup */}
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-slate-300 bg-white/70 px-6 py-3.5 text-sm font-semibold text-slate-800 backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-trust-300 sm:text-base"
+                className="inline-flex h-[50px] w-[130px] shrink-0 items-center justify-center rounded-xl border-2 border-slate-300 bg-white text-sm font-semibold text-trust-500 transition hover:-translate-y-0.5 hover:border-trust-400"
               >
                 Shop Top Picks
               </Link>
             </div>
 
-            {/* Trust badges */}
-            <div className="mt-8 flex flex-wrap items-start gap-6 text-xs font-medium text-slate-600 sm:gap-10">
+            {/* Trust badges — dark text matching mockup */}
+            <div className="mt-8 flex flex-wrap items-center gap-8 text-xs font-medium text-slate-800">
               <div className="flex items-center gap-2">
-                <IconShield className="h-5 w-5 shrink-0 text-slate-500" />
+                <IconShield className="h-5 w-5 shrink-0 text-slate-600" />
                 <span className="leading-tight">Expert Reviews<br />You Can Trust</span>
               </div>
               <div className="flex items-center gap-2">
-                <IconCheck className="h-5 w-5 shrink-0 text-slate-500" />
+                <IconCheck className="h-5 w-5 shrink-0 text-slate-600" />
                 <span className="leading-tight">Unbiased<br />Recommendations</span>
               </div>
               <div className="flex items-center gap-2">
-                <IconStar className="h-5 w-5 shrink-0 text-slate-500" />
+                <IconStar className="h-5 w-5 shrink-0 text-slate-600" />
                 <span className="leading-tight">Ratings from<br />Verified Sources</span>
               </div>
             </div>
