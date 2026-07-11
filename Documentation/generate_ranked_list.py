@@ -93,10 +93,17 @@ def load_weights_and_filters(path):
             if key != "total":
                 weights[key] = float(wt)
 
-    # ── Filters (optional sheet named "Filters") ───────────────────────────
-    filters = []   # list of (field, operator, value) tuples
-    if "Filters" in wb.sheetnames:
-        ws_f = wb["Filters"]
+    # ── Filters (optional sheet — accepts "Filters" or "Filter", case-insensitive) ─
+    _filter_sheet = next(
+        (s for s in wb.sheetnames if s.strip().lower() in ("filters", "filter")),
+        None
+    )
+    filters = []
+    if _filter_sheet:
+        if _filter_sheet != "Filters":
+            print(f"  NOTE: Found filter sheet named '{_filter_sheet}' — treating as 'Filters'. "
+                  f"Rename to 'Filters' to suppress this message.")
+        ws_f = wb[_filter_sheet]
         for row in ws_f.iter_rows(min_row=2, values_only=True):
             if not row[0]:
                 continue
