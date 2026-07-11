@@ -8,6 +8,7 @@ function IconShield({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
       <path d="M12 3 4.5 6v5.5c0 4.4 3 7.7 7.5 9.5 4.5-1.8 7.5-5.1 7.5-9.5V6L12 3Z" />
+      <path d="M9 12l2 2 4-4" />
     </svg>
   );
 }
@@ -171,8 +172,8 @@ export function HomepageHero() {
 
           {/* LEFT — text, buttons, trust badges */}
           <div className="flex flex-col justify-center py-10 sm:py-14 lg:py-16 lg:pr-10">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-500">
-              Companionship. Comfort. Connection.
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700">
+              Companionship Comfort Connection
             </p>
             <h1 className="mt-3 text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
               Find the right interactive pet for<br className="hidden sm:block" />
@@ -188,9 +189,13 @@ export function HomepageHero() {
               {/* Shop Our Top Picks — same size, outlined style */}
               <Link
                 href="#"
-                className="inline-flex w-full lg:w-[500px] min-h-[60px] lg:h-[120px] shrink-0 items-center justify-center rounded-xl border-2 border-trust-500 bg-white px-5 lg:px-8 py-4 lg:py-0 text-base lg:text-xl font-semibold text-trust-500 shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-50"
+                className="inline-flex w-full lg:w-[500px] min-h-[60px] lg:h-[120px] shrink-0 items-center gap-3 lg:gap-5 rounded-xl border-2 border-trust-500 bg-white px-5 lg:px-8 py-4 lg:py-0 text-base lg:text-xl font-semibold text-trust-500 shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-50"
               >
-                Shop Our Top Picks
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 lg:h-12 lg:w-12 shrink-0">
+                  <circle cx="12" cy="8.5" r="5" />
+                  <path d="M9 13.5L6 21l6-3 6 3-3-7.5" />
+                </svg>
+                <span>Shop Our Top Picks</span>
               </Link>
 
               {/* or divider */}
@@ -218,15 +223,15 @@ export function HomepageHero() {
             {/* Trust badges — dark text matching mockup */}
             <div className="mt-8 flex flex-wrap items-center gap-8 text-xs font-medium text-slate-800">
               <div className="flex items-center gap-2">
-                <IconShield className="h-5 w-5 shrink-0 text-slate-600" />
+                <IconShield className="h-5 w-5 shrink-0 text-green-600" />
                 <span className="leading-tight">Expert Reviews<br />You Can Trust</span>
               </div>
               <div className="flex items-center gap-2">
-                <IconCheck className="h-5 w-5 shrink-0 text-slate-600" />
+                <IconCheck className="h-5 w-5 shrink-0 text-purple-600" />
                 <span className="leading-tight">Unbiased<br />Recommendations</span>
               </div>
               <div className="flex items-center gap-2">
-                <IconStar className="h-5 w-5 shrink-0 text-slate-600" />
+                <IconStar className="h-5 w-5 shrink-0 text-amber-400" />
                 <span className="leading-tight">Ratings from<br />Verified Sources</span>
               </div>
             </div>
