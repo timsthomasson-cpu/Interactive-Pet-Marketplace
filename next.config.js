@@ -26,3 +26,6 @@ const nextConfig = {
   },
 };
 module.exports = nextConfig;
+module.exports = {
+  allowedDevOrigins: ['donor-scallion-urging.ngrok-free.dev'],
+}

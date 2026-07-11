@@ -162,8 +162,8 @@ export function HomepageHero() {
             "),",
             "url('/hero-pets-clean.png')",
           ].join(" "),
-          backgroundSize: "cover",
-          backgroundPosition: "center center",
+          backgroundSize: "100% auto",
+          backgroundPosition: "center top",
           backgroundRepeat: "no-repeat",
         }}
       />
@@ -257,8 +257,8 @@ export function HomepageHero() {
               <div
                 className="absolute w-80"
                 style={{
-                  top: "325px",
-                  left: "calc(50% - 125px)",
+                  top: "490px",
+                  left: "calc(50% - 160px)",
                   transform: "translateX(-50%)",
                   zIndex: 50,
                   // Layered shadow: subtle ambient + deeper drop for UI-element feel
