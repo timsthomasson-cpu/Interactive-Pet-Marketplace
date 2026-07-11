@@ -221,7 +221,7 @@ export function HomepageHero() {
             </div>
 
             {/* Trust badges — dark text matching mockup */}
-            <div className="mt-8 flex items-center gap-3 sm:gap-8 text-[9px] sm:text-xs font-medium text-slate-800">
+            <div className="mt-8 flex items-center justify-center sm:justify-start gap-3 sm:gap-8 text-[9px] sm:text-xs font-medium text-slate-800">
               <div className="flex items-center gap-1 sm:gap-2">
                 <IconShield className="h-5 w-5 sm:h-8 sm:w-8 shrink-0 text-green-600" />
                 <span className="leading-tight">Expert Reviews<br />You Can Trust</span>
@@ -257,8 +257,8 @@ export function HomepageHero() {
               <div
                 className="absolute w-80"
                 style={{
-                  top: "320px",
-                  left: "calc(50% - 125px)",
+                  top: "375px",
+                  left: "calc(50% - 50px)",
                   transform: "translateX(-50%)",
                   zIndex: 50,
                   // Layered shadow: subtle ambient + deeper drop for UI-element feel
