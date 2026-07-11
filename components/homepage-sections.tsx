@@ -257,8 +257,8 @@ export function HomepageHero() {
               <div
                 className="absolute w-80"
                 style={{
-                  top: "375px",
-                  left: "calc(50% - 50px)",
+                  top: "325px",
+                  left: "calc(50% - 125px)",
                   transform: "translateX(-50%)",
                   zIndex: 50,
                   // Layered shadow: subtle ambient + deeper drop for UI-element feel
