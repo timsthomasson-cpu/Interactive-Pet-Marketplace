@@ -221,17 +221,17 @@ export function HomepageHero() {
             </div>
 
             {/* Trust badges — dark text matching mockup */}
-            <div className="mt-8 flex flex-wrap items-center gap-8 text-xs font-medium text-slate-800">
-              <div className="flex items-center gap-2">
-                <IconShield className="h-8 w-8 shrink-0 text-green-600" />
+            <div className="mt-8 flex items-center gap-3 sm:gap-8 text-[9px] sm:text-xs font-medium text-slate-800">
+              <div className="flex items-center gap-1 sm:gap-2">
+                <IconShield className="h-5 w-5 sm:h-8 sm:w-8 shrink-0 text-green-600" />
                 <span className="leading-tight">Expert Reviews<br />You Can Trust</span>
               </div>
-              <div className="flex items-center gap-2">
-                <IconCheck className="h-8 w-8 shrink-0 text-purple-600" />
+              <div className="flex items-center gap-1 sm:gap-2">
+                <IconCheck className="h-5 w-5 sm:h-8 sm:w-8 shrink-0 text-purple-600" />
                 <span className="leading-tight">Unbiased<br />Recommendations</span>
               </div>
-              <div className="flex items-center gap-2">
-                <IconStar className="h-8 w-8 shrink-0 text-amber-400" />
+              <div className="flex items-center gap-1 sm:gap-2">
+                <IconStar className="h-5 w-5 sm:h-8 sm:w-8 shrink-0 text-amber-400" />
                 <span className="leading-tight">Ratings from<br />Verified Sources</span>
               </div>
             </div>
