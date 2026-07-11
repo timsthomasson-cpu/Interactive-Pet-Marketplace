@@ -1,10 +1,10 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best For Former Dog Owners"
-// Generated: 2026-07-11
+// Generated: 2026-07-07
 //
 // WHY_TOP_PICK_BULLETS lives in page.tsx — review manually when top pick changes.
 
-export const SPREADSHEET_UPDATED = 'July 11, 2026';
+export const SPREADSHEET_UPDATED = 'July 7, 2026';
 export const TOP_SCORE_IN_GROUP = 4.5;
 export const TOP_PICK_RAW_SCORE = 4.50;
 export const TOP_PICK_PERCENT = 100;

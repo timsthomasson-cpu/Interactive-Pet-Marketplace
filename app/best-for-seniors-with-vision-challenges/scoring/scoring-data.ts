@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best for Seniors with Vision Challenges"
-// Generated: 2026-07-11
+// Generated: 2026-07-07
 
-export const GENERATED_DATE = '2026-07-11';
+export const GENERATED_DATE = '2026-07-07';
 
 export const WEIGHTS = [
   { key: 'control', label: 'Control Accessibility', weight: "15%", reversed: false },
@@ -27,7 +27,7 @@ export type RankedRow = {
 export const ROWS: RankedRow[] = [
   {
     rank: 1, manufacturer: 'Furby', product: 'DJ Furby',
-    priceCategory: 'Budget Friendly', animal: 'Other', price: '$50.11',
+    priceCategory: 'Budget Friendly', animal: 'Robot', price: '$50.11',
     rating: '4.8', reviews: '772', overall: '4.2',
     scores: { control: 4, fallrisk: 4, safety: 5, size: 5, sound: 2, soundquality: 3, tactile: 4, visual: 5 },
   },

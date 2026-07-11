@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best for Seniors Living Alone"
-// Generated: 2026-07-11
+// Generated: 2026-07-07
 
-export const GENERATED_DATE = '2026-07-11';
+export const GENERATED_DATE = '2026-07-07';
 
 export const WEIGHTS = [
   { key: 'charging', label: 'Charging Convenience', weight: "5%", reversed: false },
