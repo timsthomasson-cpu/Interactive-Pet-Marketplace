@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best for Privacy Conscious Families"
-// Generated: 2026-07-07
+// Generated: 2026-07-11
 
-export const GENERATED_DATE = '2026-07-07';
+export const GENERATED_DATE = '2026-07-11';
 
 export const WEIGHTS = [
   { key: 'ai', label: 'Ai / Advanced Interaction Level', weight: "10%", reversed: false },
@@ -45,7 +45,7 @@ export const ROWS: RankedRow[] = [
   },
   {
     rank: 4, manufacturer: 'Furby', product: 'DJ Furby',
-    priceCategory: 'Budget Friendly', animal: 'Robot', price: '$50.11',
+    priceCategory: 'Budget Friendly', animal: 'Other', price: '$50.11',
     rating: '4.8', reviews: '772', overall: '3.9',
     scores: { ai: 2, autonomous: 2, brand: 5, maintenance: 4, privacy: 5, safety: 5, simplicity: 4, value: 4 },
   },
