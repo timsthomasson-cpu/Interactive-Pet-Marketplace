@@ -139,7 +139,8 @@ def load_product_matrix(path):
         mfr  = str(row[1]).strip() if row[1] else ""
         prod = str(row[2]).strip() if row[2] else ""
         if mfr or prod:
-            pm[(mfr.lower(), prod.lower())] = {
+            # Normalised aliases kept for backward compatibility
+            entry = {
                 "category":  row[3],   # Animal Category
                 "type":      row[4],   # Product Type (Fluffy Companion / Ai & Robotic Pets)
                 "price_cat": row[20],  # Price Category
@@ -147,6 +148,11 @@ def load_product_matrix(path):
                 "reviews":   row[13],  # Review Count
                 "price":     row[17],  # Price
             }
+            # All columns by their exact header name so any PM field works as a filter
+            for i, header in enumerate(h):
+                if header:
+                    entry[str(header).strip()] = row[i]
+            pm[(mfr.lower(), prod.lower())] = entry
     return pm
 
 def load_rubric(path):
@@ -181,38 +187,66 @@ def _compare(actual, operator, target):
     """
     Compare actual vs target using the given operator.
     Tries numeric comparison first; falls back to case-insensitive string.
-    Operators: equal | not equal | greater than | less than
+    Operators: equal | not equal | greater than | less than | contains |
+               is blank | is not blank
     """
+    op = operator.strip().lower()
+    # Blank / not-blank — check before any string conversion
+    if op in ("is blank", "blank", "empty"):
+        return actual is None or str(actual).strip().lower() in ("", "none", "nan")
+    if op in ("is not blank", "not blank", "not empty"):
+        return actual is not None and str(actual).strip().lower() not in ("", "none", "nan")
+    # Contains
+    if op == "contains":
+        return target.strip().lower() in str(actual).strip().lower()
     # Attempt numeric
     try:
         a = float(str(actual).replace("$","").replace(",","").strip())
         t = float(str(target).replace("$","").replace(",","").strip())
-        if operator == "equal":        return a == t
-        if operator == "not equal":    return a != t
-        if operator == "greater than": return a >  t
-        if operator == "less than":    return a <  t
+        if op == "equal":        return a == t
+        if op == "not equal":    return a != t
+        if op == "greater than": return a >  t
+        if op == "less than":    return a <  t
     except (ValueError, TypeError):
         pass
     # String comparison (case-insensitive)
     a = str(actual).strip().lower()
     t = str(target).strip().lower()
-    if operator == "equal":     return a == t
-    if operator == "not equal": return a != t
-    # gt/lt on strings: alphabetical — valid but flag to user if unexpected
-    if operator == "greater than": return a > t
-    if operator == "less than":    return a < t
-    return True   # unknown operator: pass through
+    if op == "equal":        return a == t
+    if op == "not equal":    return a != t
+    if op == "greater than": return a > t
+    if op == "less than":    return a < t
+    print(f"  WARNING: Unknown filter operator '{operator}' — row passes by default.")
+    return True
 
 def passes_filters(pm_data, filters):
     """
     Returns True if the product passes all filter rules.
     filters is a list of (field, operator, value) tuples.
+
+    Lookup order for each field:
+    1. FILTER_FIELD_MAP normalised alias (backward compat)
+    2. Exact match against PM column header stored in pm_data
+    3. Case-insensitive match against PM column headers
+    If the field genuinely cannot be found, a warning is printed and the
+    filter is skipped (pass-through) rather than silently ignored.
     """
     for field, operator, value in filters:
+        # 1. Normalised alias
         pm_key = FILTER_FIELD_MAP.get(field.lower())
-        if pm_key is None:
-            continue   # unknown field — skip silently
-        actual = pm_data.get(pm_key)
+        if pm_key is not None:
+            actual = pm_data.get(pm_key)
+        # 2. Exact header name
+        elif field in pm_data:
+            actual = pm_data[field]
+        # 3. Case-insensitive header name
+        else:
+            match = next((v for k, v in pm_data.items() if k.lower() == field.lower()), None)
+            if match is not None:
+                actual = match
+            else:
+                print(f"  WARNING: Filter field '{field}' not found in Product Matrix columns — filter skipped.")
+                continue
         if not _compare(actual, operator, value):
             return False
     return True

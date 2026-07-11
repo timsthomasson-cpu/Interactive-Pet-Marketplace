@@ -257,8 +257,8 @@ export function HomepageHero() {
               <div
                 className="absolute w-80"
                 style={{
-                  top: "260px",
-                  right: "0",
+                  top: "460px",
+                  right: "80px",
                   zIndex: 50,
                   // Layered shadow: subtle ambient + deeper drop for UI-element feel
                   filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.07)) drop-shadow(0 14px 44px rgba(0,0,0,0.17))",
