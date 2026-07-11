@@ -65,6 +65,14 @@ function IconBrain({ className }: { className?: string }) {
     </svg>
   );
 }
+function IconCamera({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+      <circle cx="12" cy="13" r="4" />
+    </svg>
+  );
+}
 function IconHome({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -289,33 +297,33 @@ const CATEGORIES = [
     title: "Best Pets for Seniors Living Alone",
     desc: "Calming choices with simple interaction and lower learning curve.",
     href: "#",
-    iconColor: "bg-purple-100 text-purple-600",
+    iconColor: "bg-purple-100 text-purple-500",
     Icon: IconUser,
     imageNote: "Fluffy dog",
   },
   {
-    title: "Best Pets for Tech Savvy Seniors",
-    desc: "Innovative pets that pair perfectly with modern lifestyles.",
+    title: "Best Pets for Seniors in Memory Care Facilities",
+    desc: "Gentle, familiar companions for seniors with memory challenges.",
     href: "#",
-    iconColor: "bg-emerald-100 text-emerald-600",
-    Icon: IconGear,
-    imageNote: "Robot dog",
+    iconColor: "bg-teal-100 text-teal-500",
+    Icon: IconBrain,
+    imageNote: "Robotic cat",
   },
   {
-    title: "Best for Kids & Families",
-    desc: "Playful options built for novelty and everyday entertainment.",
+    title: "Best Pets for Remote Monitoring",
+    desc: "Camera-equipped pets that let families stay connected from anywhere.",
     href: "#",
-    iconColor: "bg-orange-100 text-orange-600",
+    iconColor: "bg-sky-100 text-sky-500",
+    Icon: IconCamera,
+    imageNote: "Camera pet",
+  },
+  {
+    title: "Best Pets for Children and Families",
+    desc: "Playful, safe companions for kids and the whole family to enjoy.",
+    href: "#",
+    iconColor: "bg-orange-100 text-orange-500",
     Icon: IconPeople,
     imageNote: "Brown dog",
-  },
-  {
-    title: "Best Premium Picks",
-    desc: "Higher-end robotic pets with more advanced movement and sensors.",
-    href: "#",
-    iconColor: "bg-trust-100 text-trust-600",
-    Icon: IconStar,
-    imageNote: "Premium robot",
   },
 ];
 
