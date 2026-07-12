@@ -296,34 +296,34 @@ const CATEGORIES = [
   {
     title: "Best Pets for Seniors Living Alone",
     desc: "Calming choices with simple interaction and lower learning curve.",
-    href: "#",
+    href: "/best-pets-for-seniors-living-alone",
     iconColor: "bg-purple-100 text-purple-500",
     Icon: IconUser,
-    imageNote: "Fluffy dog",
+    topPickSlug: "matecat-pro",
   },
   {
     title: "Best Pets for Seniors in Memory Care Facilities",
     desc: "Gentle, familiar companions for seniors with memory challenges.",
-    href: "#",
+    href: "/best-pets-for-seniors-in-memory-care-facilities",
     iconColor: "bg-teal-100 text-teal-500",
     Icon: IconBrain,
-    imageNote: "Robotic cat",
+    topPickSlug: "percy-robot-cat",
   },
   {
     title: "Best Pets for Remote Monitoring",
     desc: "Camera-equipped pets that let families stay connected from anywhere.",
-    href: "#",
+    href: "/best-pets-for-remote-monitoring",
     iconColor: "bg-sky-100 text-sky-500",
     Icon: IconCamera,
-    imageNote: "Camera pet",
+    topPickSlug: "robot-pet-dog",
   },
   {
     title: "Best Pets for Children and Families",
     desc: "Playful, safe companions for kids and the whole family to enjoy.",
-    href: "#",
+    href: "/best-pets-for-children-and-families",
     iconColor: "bg-orange-100 text-orange-500",
     Icon: IconPeople,
-    imageNote: "Brown dog",
+    topPickSlug: "percy-1-1-robotic-companion-dog",
   },
 ];
 
@@ -335,7 +335,9 @@ export function PopularCategories() {
           Popular Categories
         </h2>
         <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-          {CATEGORIES.map(({ title, desc, href, iconColor, Icon, imageNote }) => (
+          {CATEGORIES.map(({ title, desc, href, iconColor, Icon, topPickSlug }) => {
+            const topPick = products.find((p) => p.slug === topPickSlug);
+            return (
             <div
               key={title}
               className="flex flex-col rounded-3xl border border-slate-100 bg-white p-5 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md"
@@ -349,12 +351,26 @@ export function PopularCategories() {
               </div>
               {/* Description */}
               <p className="mt-3 text-sm leading-6 text-slate-600">{desc}</p>
-              {/* Product image placeholder */}
-              <div className="mt-4 flex-1 overflow-hidden rounded-2xl bg-gradient-to-br from-cream-50 to-brand-50">
-                <div className="flex h-32 items-center justify-center text-slate-300 text-xs">
-                  {/* TODO: replace with licensed product image */}
-                  {imageNote}
-                </div>
+              {/* Top Pick card */}
+              <div className="mt-4 flex-1 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50">
+                {topPick ? (
+                  <div className="flex h-full flex-col p-3">
+                    <p className="text-[10px] font-bold uppercase tracking-wide text-amber-500">★ Top Pick</p>
+                    {topPick.imageUrl && (
+                      <div className="mt-1.5 overflow-hidden rounded-xl" style={{ aspectRatio: "4/3" }}>
+                        <img src={topPick.imageUrl} alt={topPick.name} className="h-full w-full object-cover" />
+                      </div>
+                    )}
+                    <p className="mt-1.5 text-[10px] font-semibold uppercase tracking-wide text-slate-400">{topPick.manufacturer}</p>
+                    <p className="text-sm font-bold leading-tight text-slate-900">{topPick.name}</p>
+                    {topPick.rating && (
+                      <p className="mt-0.5 text-[10px] text-amber-400">{"★".repeat(Math.round(topPick.rating))} <span className="text-slate-500">{topPick.rating.toFixed(1)}</span></p>
+                    )}
+                    <p className="mt-auto pt-1 text-sm font-bold text-slate-900">{topPick.price}</p>
+                  </div>
+                ) : (
+                  <div className="flex h-32 items-center justify-center text-slate-300 text-xs">No data</div>
+                )}
               </div>
               {/* Link */}
               <Link
@@ -364,7 +380,8 @@ export function PopularCategories() {
                 View Rankings →
               </Link>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
