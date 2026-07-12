@@ -367,6 +367,14 @@ export function PopularCategories() {
                       <p className="mt-0.5 text-[10px] text-amber-400">{"★".repeat(Math.round(topPick.rating))} <span className="text-slate-500">{topPick.rating.toFixed(1)}</span></p>
                     )}
                     <p className="mt-auto pt-1 text-sm font-bold text-slate-900">{topPick.price}</p>
+                    <a
+                      href={topPick.productUrl ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow sponsored"
+                      className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-trust-500 py-1.5 text-xs font-semibold text-white transition hover:bg-trust-600"
+                    >
+                      View Details
+                    </a>
                   </div>
                 ) : (
                   <div className="flex h-32 items-center justify-center text-slate-300 text-xs">No data</div>
@@ -375,7 +383,7 @@ export function PopularCategories() {
               {/* Link */}
               <Link
                 href={href}
-                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-trust-600 hover:text-trust-700"
+                className="mt-4 inline-flex items-center gap-1 text-2xl font-semibold text-teal-500 hover:text-teal-600"
               >
                 View Rankings →
               </Link>

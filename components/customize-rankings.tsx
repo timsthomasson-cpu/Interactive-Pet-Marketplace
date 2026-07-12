@@ -3,7 +3,12 @@
 import { useMemo, useState } from "react";
 import { products } from "./site-data";
 import { BestForCard } from "./best-for-card";
-import { MEMORY_CARE_SCORES, MemoryCareScoreRow, TOP_SCORE_IN_GROUP } from "./memory-care-scores";
+// ScoreRow is compatible with every Best For page's BestForScoreRow / MemoryCareScoreRow type
+type ScoreRow = {
+  slug: string; score: number; scorePercent: number; price: number;
+  priceCategory: string; animalCategory: string; type: string;
+  movementLevel: number; soundQuality: number; visualContrast: number;
+};
 
 // Movement level buckets, sourced from the locked Movement level rubric score:
 //   Stationary (1–2): breathing/vibration only — no locomotion
@@ -12,8 +17,8 @@ import { MEMORY_CARE_SCORES, MemoryCareScoreRow, TOP_SCORE_IN_GROUP } from "./me
 type Budget   = "any" | "100" | "200" | "300";
 type Movement = "stationary" | "some" | "active";
 
-const ANIMAL_OPTIONS: MemoryCareScoreRow["animalCategory"][] = ["Cat", "Dog", "Panda", "Robot"];
-const TYPE_OPTIONS: { value: MemoryCareScoreRow["type"]; label: string }[] = [
+const ANIMAL_OPTIONS = ["Cat", "Dog", "Panda", "Robot"] as const;
+const TYPE_OPTIONS: { value: string; label: string }[] = [
   { value: "Fluffy Companion", label: "Fluffy Companion" },
   { value: "Ai & Robotic Pets", label: "AI & Robotic Pets" },
 ];
@@ -33,13 +38,14 @@ function movementBucket(level: number): Movement {
 }
 
 function rankFiltered(
+  scores: ScoreRow[],
   budget: Budget,
   animals: Set<string>,
   types: Set<string>,
   movements: Set<Movement>
 ) {
   const budgetMax = budget === "any" ? Infinity : Number(budget);
-  return MEMORY_CARE_SCORES
+  return scores
     .filter((row) => row.price <= budgetMax)
     .filter((row) => animals.has(row.animalCategory))
     .filter((row) => types.has(row.type))
@@ -56,7 +62,7 @@ function rankFiltered(
     .slice(0, 5);
 }
 
-export function CustomizeRankings() {
+export function CustomizeRankings({ scores, topScore }: { scores: ScoreRow[]; topScore: number }) {
   // ── Editing state (live, updates immediately for count feedback) ──
   const [budget,    setBudget]    = useState<Budget>(DEFAULT_BUDGET);
   const [animals,   setAnimals]   = useState<Set<string>>(new Set(DEFAULT_ANIMALS));
@@ -64,7 +70,7 @@ export function CustomizeRankings() {
   const [movements, setMovements] = useState<Set<Movement>>(new Set(DEFAULT_MOVEMENTS));
 
   // ── Committed results — null until "Generate New List" is pressed ──
-  const [customResults, setCustomResults] = useState<ReturnType<typeof rankFiltered> | null>(null);
+  const [customResults, setCustomResults] = useState<ScoreRow[] | null>(null);
 
   function toggleSet<T>(set: Set<T>, value: T, setter: (s: Set<T>) => void) {
     const next = new Set(set);
@@ -75,17 +81,17 @@ export function CustomizeRankings() {
 
   // Live count — updates as user changes filters, before pressing button
   const liveCount = useMemo(
-    () => rankFiltered(budget, animals, types, movements).length,
-    [budget, animals, types, movements]
+    () => rankFiltered(scores, budget, animals, types, movements).length,
+    [scores, budget, animals, types, movements]
   );
 
   function handleGenerate() {
-    setCustomResults(rankFiltered(budget, animals, types, movements));
+    setCustomResults(rankFiltered(scores, budget, animals, types, movements));
   }
 
   const customResultProducts = (customResults ?? [])
     .map((row) => ({ row, product: products.find((p) => p.slug === row.slug) }))
-    .filter((r): r is { row: MemoryCareScoreRow; product: NonNullable<(typeof products)[number]> } => !!r.product);
+    .filter((r): r is { row: ScoreRow; product: NonNullable<(typeof products)[number]> } => !!r.product);
 
   return (
     <section className="pt-4 sm:pt-5 pb-4 sm:pb-5 bg-white">
@@ -236,7 +242,7 @@ export function CustomizeRankings() {
                         product={product}
                         note={i === 0 ? "★ Top Match" : undefined}
                         className="flex-1"
-                        scorePercent={Math.round((row.score / TOP_SCORE_IN_GROUP) * 100)}
+                        scorePercent={Math.round((row.score / topScore) * 100)}
                         accentColor="text-purple-600"
                       />
                     </div>
