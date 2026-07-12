@@ -260,7 +260,7 @@ export function SiteFooter() {
               <Link href="/plushy-companions" className="block hover:text-brand-700">Plushy Companions</Link>
               <Link href="/ai-robotic-pets" className="block hover:text-brand-700">AI &amp; Robotic Pets</Link>
               <Link href="/best-for-seniors" className="block hover:text-brand-700">Seniors</Link>
-              <Link href="/best-for-memory-care" className="block hover:text-brand-700">Memory Care (testing)</Link>
+              <Link href="/best-pets-for-seniors-in-memory-care-facilities" className="block hover:text-brand-700">Memory Care (testing)</Link>
               <Link href="/compare" className="block hover:text-brand-700">Compare</Link>
             </div>
           </div>
