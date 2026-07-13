@@ -297,7 +297,7 @@ const CATEGORIES = [
     title: "Best Pets for Seniors Living Alone",
     desc: "Calming choices with simple interaction and lower learning curve.",
     href: "/best-pets-for-seniors-living-alone",
-    iconColor: "bg-purple-100 text-purple-500",
+    iconColor: "bg-purple-500 text-white",
     Icon: IconUser,
     topPickSlug: "matecat-pro",
   },
@@ -305,7 +305,7 @@ const CATEGORIES = [
     title: "Best Pets for Seniors in Memory Care Facilities",
     desc: "Gentle, familiar companions for seniors with memory challenges.",
     href: "/best-pets-for-seniors-in-memory-care-facilities",
-    iconColor: "bg-teal-100 text-teal-500",
+    iconColor: "bg-teal-500 text-white",
     Icon: IconBrain,
     topPickSlug: "percy-robot-cat",
   },
@@ -313,7 +313,7 @@ const CATEGORIES = [
     title: "Best Pets for Remote Monitoring",
     desc: "Camera-equipped pets that let families stay connected from anywhere.",
     href: "/best-pets-for-remote-monitoring",
-    iconColor: "bg-sky-100 text-sky-500",
+    iconColor: "bg-sky-500 text-white",
     Icon: IconCamera,
     topPickSlug: "robot-pet-dog",
   },
@@ -321,7 +321,7 @@ const CATEGORIES = [
     title: "Best Pets for Children and Families",
     desc: "Playful, safe companions for kids and the whole family to enjoy.",
     href: "/best-pets-for-children-and-families",
-    iconColor: "bg-orange-100 text-orange-500",
+    iconColor: "bg-orange-500 text-white",
     Icon: IconPeople,
     topPickSlug: "percy-1-1-robotic-companion-dog",
   },
@@ -344,8 +344,8 @@ export function PopularCategories() {
             >
               {/* Icon + title */}
               <div className="flex items-start gap-3">
-                <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${iconColor}`}>
-                  <Icon className="h-5 w-5" />
+                <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${iconColor}`}>
+                  <Icon className="h-7 w-7" />
                 </div>
                 <p className="text-xl font-bold leading-tight text-slate-900">{title}</p>
               </div>
