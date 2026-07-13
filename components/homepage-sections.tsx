@@ -355,7 +355,13 @@ export function PopularCategories() {
               <div className="mt-4 flex-1 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50">
                 {topPick ? (
                   <div className="flex h-full flex-col p-3">
-                    <p className="text-[10px] font-bold uppercase tracking-wide text-amber-500">★ Top Pick</p>
+                    <div className="flex items-center gap-1.5 text-xl font-bold uppercase tracking-wide text-trust-500">
+                      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" className="h-5 w-5 shrink-0">
+                        <circle cx="12" cy="8.5" r="5" />
+                        <path d="M9 13.5L6 21l6-3 6 3-3-7.5Z" />
+                      </svg>
+                      Top Pick
+                    </div>
                     {topPick.imageUrl && (
                       <div className="mt-1.5 overflow-hidden rounded-xl" style={{ aspectRatio: "4/3" }}>
                         <img src={topPick.imageUrl} alt={topPick.name} className="h-full w-full object-cover" />
