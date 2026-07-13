@@ -128,6 +128,14 @@ function IconGrid({ className }: { className?: string }) {
     </svg>
   );
 }
+function IconEye({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
 function IconSearch({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -405,14 +413,12 @@ export function PopularCategories() {
 // ── Best For Finder ───────────────────────────────────────────────────────────
 
 const FINDER_ICONS = [
-  { label: "Emotional\nSupport",          Icon: IconHeart,   color: "text-red-500",     bg: "bg-red-50"      },
-  { label: "Dementia\nCare",              Icon: IconBrain,   color: "text-teal-600",    bg: "bg-teal-50"     },
-  { label: "Living\nAlone",              Icon: IconHome,    color: "text-purple-600",  bg: "bg-purple-50"   },
-  { label: "Walking\nPets",              Icon: IconWalk,    color: "text-orange-500",  bg: "bg-orange-50"   },
-  { label: "Lap\nPets",                  Icon: IconCat,     color: "text-orange-500",  bg: "bg-orange-50"   },
-  { label: "AI & Robot\nPets",           Icon: IconRobot,   color: "text-emerald-600", bg: "bg-emerald-50"  },
-  { label: "Best Interactive\nPets Under $100", Icon: IconDollar, color: "text-emerald-600", bg: "bg-emerald-50" },
-  { label: "All Interactive\nPet Ratings",      Icon: IconGrid,   color: "text-purple-600",  bg: "bg-purple-50"   },
+  { label: "Best Budget\nFriendly Pets",             Icon: IconDollar, bg: "bg-green-500",   href: "/best-budget-friendly-pets" },
+  { label: "Seniors with\nVision Challenges",        Icon: IconEye,    bg: "bg-blue-500",    href: "/best-pets-for-seniors-with-vision-challenges" },
+  { label: "Former Cat\nOwners",                     Icon: IconCat,    bg: "bg-orange-500",  href: "/best-pets-for-former-cat-owners" },
+  { label: "Tech Savvy\nSeniors",                    Icon: IconGear,   bg: "bg-purple-500",  href: "/best-pets-for-tech-savvy-seniors" },
+  { label: "Best Premium\nRobotic Pets",             Icon: IconRobot,  bg: "bg-indigo-500",  href: "/best-premium-robotic-pets" },
+  { label: "All Interactive\nPet Ratings",           Icon: IconGrid,   bg: "bg-trust-500",   href: "#" },
 ];
 
 export function BestForFinder() {
@@ -437,14 +443,14 @@ export function BestForFinder() {
 
           {/* Center: icon grid */}
           <div className="flex flex-1 flex-wrap gap-5">
-            {FINDER_ICONS.map(({ label, Icon, color, bg }) => (
+            {FINDER_ICONS.map(({ label, Icon, bg, href }) => (
               <Link
                 key={label}
-                href="#"
+                href={href}
                 className="flex flex-col items-center gap-1.5 text-center transition hover:-translate-y-0.5"
               >
-                <div className={`flex h-11 w-11 items-center justify-center rounded-full ${bg}`}>
-                  <Icon className={`h-5 w-5 ${color}`} />
+                <div className={`flex h-14 w-14 items-center justify-center rounded-full ${bg}`}>
+                  <Icon className="h-7 w-7 text-white" />
                 </div>
                 <span className="whitespace-pre-line text-[10px] font-semibold leading-tight text-slate-600 sm:text-[11px]">
                   {label}
