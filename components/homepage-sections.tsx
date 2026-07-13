@@ -347,7 +347,7 @@ export function PopularCategories() {
                 <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${iconColor}`}>
                   <Icon className="h-5 w-5" />
                 </div>
-                <p className="text-sm font-bold leading-tight text-slate-900">{title}</p>
+                <p className="text-xl font-bold leading-tight text-slate-900">{title}</p>
               </div>
               {/* Description */}
               <p className="mt-3 text-sm leading-6 text-slate-600">{desc}</p>
@@ -383,7 +383,7 @@ export function PopularCategories() {
               {/* Link */}
               <Link
                 href={href}
-                className="mt-4 inline-flex items-center gap-1 text-2xl font-semibold text-teal-500 hover:text-teal-600"
+                className="mt-4 inline-flex items-center gap-1 text-2xl font-semibold text-blue-600 hover:text-blue-700"
               >
                 View Rankings →
               </Link>
