@@ -442,7 +442,7 @@ export function BestForFinder() {
           </div>
 
           {/* Center: icon grid */}
-          <div className="flex flex-1 flex-wrap gap-5">
+          <div className="flex flex-1 flex-wrap justify-center gap-5 lg:justify-start">
             {FINDER_ICONS.map(({ label, Icon, bg, href }) => (
               <Link
                 key={label}
