@@ -171,7 +171,13 @@ export function SiteHeader() {
             );
           })}
         </nav>
-        <Link href="/top-picks" className="hidden sm:inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600">Shop Top Picks</Link>
+        <Link href="https://interactivepetmarketplace.beehiiv.com/" target="_blank" rel="noopener noreferrer" className="hidden sm:inline-flex items-center gap-2 justify-center rounded-full bg-amber-500 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-amber-600">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 shrink-0">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          Senior Companion Digest
+        </Link>
       </div>
       {/* Mobile pills nav: horizontally scrollable */}
       <MobilePillsNav items={allMobileNav} pathname={pathname} />
