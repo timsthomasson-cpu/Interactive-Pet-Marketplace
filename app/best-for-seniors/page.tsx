@@ -133,7 +133,6 @@ export default function SeniorsPage() {
             { name: "Home", path: "/" },
             { name: "Best for Seniors", path: "/best-for-seniors" }
           ]),
-          ...picks.map(productSchema)
         ]}
       />
       <section className="pt-14 pb-6 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-10">
