@@ -418,7 +418,6 @@ const FINDER_ICONS = [
   { label: "Former Cat\nOwners",                     Icon: IconCat,    bg: "bg-orange-500",  href: "/best-pets-for-former-cat-owners" },
   { label: "Tech Savvy\nSeniors",                    Icon: IconGear,   bg: "bg-purple-500",  href: "/best-pets-for-tech-savvy-seniors" },
   { label: "Best Premium\nRobotic Pets",             Icon: IconRobot,  bg: "bg-indigo-500",  href: "/best-premium-robotic-pets" },
-  { label: "All Interactive\nPet Ratings",           Icon: IconGrid,   bg: "bg-trust-500",   href: "#" },
 ];
 
 export function BestForFinder() {
@@ -462,10 +461,10 @@ export function BestForFinder() {
           {/* Right: CTA */}
           <div className="flex flex-col items-start gap-2 lg:w-52 lg:shrink-0 lg:items-end">
             <Link
-              href="#"
+              href="/all-best-for-rankings"
               className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap"
             >
-              Explore All Best For Rankings →
+              Explore All &ldquo;Best For&rdquo; Rankings →
             </Link>
             <p className="text-xs text-slate-500">Find the perfect pet for your situation.</p>
           </div>
