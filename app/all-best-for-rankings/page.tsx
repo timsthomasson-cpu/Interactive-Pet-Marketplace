@@ -183,10 +183,10 @@ export default function AllBestForRankings() {
               return (
                 <div key={href} className="relative flex flex-col rounded-3xl border border-slate-100 bg-white p-5 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md hover:border-blue-200">
                   {/* Full-card link — sits under content but covers the whole card */}
-                  <Link href={href} className="absolute inset-0 z-0 rounded-3xl" aria-label={`View ${title} rankings`} />
+                  <Link href={href} className="absolute inset-0 z-10 rounded-3xl" aria-label={`View ${title} rankings`} />
 
                   {/* Header */}
-                  <div className="relative z-10 flex items-start gap-3">
+                  <div className="flex items-start gap-3">
                     <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${bg}`}>
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"
                            strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7 text-white">
@@ -199,10 +199,10 @@ export default function AllBestForRankings() {
                   </div>
 
                   {/* Description */}
-                  <p className="relative z-10 mt-3 text-sm leading-6 text-slate-600">{desc}</p>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{desc}</p>
 
                   {/* Top Pick mini-card */}
-                  <div className="relative z-10 mt-4 flex-1 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50">
+                  <div className="mt-4 flex-1 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50">
                     {topPick ? (
                       <div className="flex h-full flex-col p-3">
                         <div className="flex items-center gap-1.5 text-xl font-bold uppercase tracking-wide text-trust-500">
@@ -239,7 +239,7 @@ export default function AllBestForRankings() {
                   </div>
 
                   {/* Link */}
-                  <span className="relative z-10 mt-4 inline-flex items-center gap-1 text-2xl font-semibold text-blue-600">
+                  <span className="mt-4 inline-flex items-center gap-1 text-2xl font-semibold text-blue-600">
                     View Rankings →
                   </span>
                 </div>
