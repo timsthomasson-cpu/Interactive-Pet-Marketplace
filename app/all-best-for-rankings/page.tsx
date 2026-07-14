@@ -181,9 +181,12 @@ export default function AllBestForRankings() {
             {ALL_CATEGORIES.map(({ title, desc, href, bg, topPickSlug, iconPath, iconPath2, iconCircle }) => {
               const topPick = products.find((p) => p.slug === topPickSlug);
               return (
-                <div key={href} className="flex flex-col rounded-3xl border border-slate-100 bg-white p-5 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md">
+                <div key={href} className="relative flex flex-col rounded-3xl border border-slate-100 bg-white p-5 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md hover:border-blue-200">
+                  {/* Full-card link — sits under content but covers the whole card */}
+                  <Link href={href} className="absolute inset-0 z-0 rounded-3xl" aria-label={`View ${title} rankings`} />
+
                   {/* Header */}
-                  <div className="flex items-start gap-3">
+                  <div className="relative z-10 flex items-start gap-3">
                     <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${bg}`}>
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"
                            strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7 text-white">
@@ -196,10 +199,10 @@ export default function AllBestForRankings() {
                   </div>
 
                   {/* Description */}
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{desc}</p>
+                  <p className="relative z-10 mt-3 text-sm leading-6 text-slate-600">{desc}</p>
 
                   {/* Top Pick mini-card */}
-                  <div className="mt-4 flex-1 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50">
+                  <div className="relative z-10 mt-4 flex-1 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50">
                     {topPick ? (
                       <div className="flex h-full flex-col p-3">
                         <div className="flex items-center gap-1.5 text-xl font-bold uppercase tracking-wide text-trust-500">
@@ -225,7 +228,7 @@ export default function AllBestForRankings() {
                         <div className="mt-auto flex items-center justify-between pt-2">
                           <p className="text-sm font-bold text-slate-900">{topPick.price}</p>
                           <a href={topPick.productUrl ?? "#"} target="_blank" rel="noopener noreferrer nofollow sponsored"
-                             className="inline-flex items-center justify-center rounded-full bg-trust-500 px-3 py-1 text-xs font-semibold text-white hover:bg-trust-600">
+                             className="relative z-20 inline-flex items-center justify-center rounded-full bg-trust-500 px-3 py-1 text-xs font-semibold text-white hover:bg-trust-600">
                             View Details
                           </a>
                         </div>
@@ -236,9 +239,9 @@ export default function AllBestForRankings() {
                   </div>
 
                   {/* Link */}
-                  <Link href={href} className="mt-4 inline-flex items-center gap-1 text-2xl font-semibold text-blue-600 hover:text-blue-700">
+                  <span className="relative z-10 mt-4 inline-flex items-center gap-1 text-2xl font-semibold text-blue-600">
                     View Rankings →
-                  </Link>
+                  </span>
                 </div>
               );
             })}
