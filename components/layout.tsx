@@ -16,7 +16,6 @@ const shopForNav = [
 ];
 const tailNav = [
   { href:"/compare", label:"Compare" },
-  { href:"/questions", label:"FAQ" },
   { href:"/about", label:"About" },
   { href:"/contact", label:"Contact" }
 ];
@@ -92,6 +91,70 @@ function ShopForDropdown() {
   );
 }
 
+
+const learnNav = [
+  { href: "/questions",         label: "FAQ" },
+  { href: "/digest",            label: "Interactive Companion Digest" },
+  { href: "/research-articles", label: "Research Library" },
+];
+
+function LearnDropdown() {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const containsActive = learnNav.some((item) => pathname.startsWith(item.href));
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (ref.current && !ref.current.contains(event.target as Node)) setOpen(false);
+    }
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleEscape);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [open]);
+
+  return (
+    <div ref={ref} className="relative">
+      <button onClick={() => setOpen(!open)} aria-expanded={open} aria-haspopup="true"
+        className={`flex items-center gap-1 text-sm transition hover:text-brand-700 ${
+          containsActive ? "font-semibold text-trust-700" : "font-medium text-slate-700"
+        }`}>
+        Learn
+        <svg className={`h-3 w-3 transition-transform ${open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      {open && (
+        <div className="absolute left-1/2 top-full z-50 mt-2 w-56 -translate-x-1/2">
+          <div className="rounded-xl border border-slate-200 bg-white py-2 shadow-soft">
+            {learnNav.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link key={item.href} href={item.href} onClick={() => setOpen(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={`block px-4 py-2 text-sm ${
+                    active ? "bg-trust-50 font-semibold text-trust-700"
+                           : "text-slate-700 hover:bg-trust-50 hover:text-trust-700"
+                  }`}>
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function SiteHeader() {
   const allMobileNav = [
     { href:"/", label:"Home" },
@@ -155,6 +218,7 @@ export function SiteHeader() {
             );
           })}
           <ShopForDropdown />
+          <LearnDropdown />
           {tailNav.map((item) => {
             const active = pathname === item.href;
             return (
