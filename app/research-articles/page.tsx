@@ -56,8 +56,8 @@ export default function ResearchArticlesPage() {
                 { title: "Robotic Pets Can Dramatically Improve the Lives of Older Adults With Dementia and Depression", source: "Forbes (Feb 2025)", url: "https://www.forbes.com/sites/tomchiodo/2025/02/26/robotic-pets-can-dramatically-improve-the-lives-of-older-adults-with-dementia-and-depression/" },
                 { title: "2024 National Poll on Aging — Loneliness Among Adults 50–80", source: "University of Michigan", url: "https://www.healthyagingpoll.org/" },
                 { title: "Robot Pets: A New Frontier in Combating Loneliness Among Older Adults", source: "Impact Lab", url: "https://www.impactlab.com/2024/07/07/robot-pets-a-new-frontier-in-combating-loneliness-among-older-adults/" },
-              ].map(a => (
-                <li key={a.url} className="text-slate-700">
+              ].map((a, i) => (
+                <li key={i} className="text-slate-700">
                   <Link href={a.url} target="_blank" rel="noopener noreferrer"
                     className="font-semibold text-blue-600 underline hover:text-blue-700">&ldquo;{a.title}&rdquo;</Link>
                   <span className="text-slate-500"> — {a.source}</span>
@@ -80,8 +80,8 @@ export default function ResearchArticlesPage() {
                 { title: "Pet Caregiving, Social Well-being and Nature Connection Among Children (2024)", source: "VetNote / Taiwan Study", url: "https://www.vetnote.pl/en/blog/children-and-pets-development-benefits" },
                 { title: "The Relationship Between Humane Interactions with Animals, Empathy, and Prosocial Behavior among Children", source: "Human-Animal Interaction Bulletin", url: "https://www.cabidigitallibrary.org/doi/full/10.1079/hai.2020.0006" },
                 { title: "Benefits of Pets for Kids", source: "Children's Hospital Colorado", url: "https://www.childrenscolorado.org/just-ask-childrens/articles/benefits-of-pets/" },
-              ].map(a => (
-                <li key={a.url} className="text-slate-700">
+              ].map((a, i) => (
+                <li key={i} className="text-slate-700">
                   <Link href={a.url} target="_blank" rel="noopener noreferrer"
                     className="font-semibold text-blue-600 underline hover:text-blue-700">&ldquo;{a.title}&rdquo;</Link>
                   <span className="text-slate-500"> — {a.source}</span>
@@ -103,8 +103,8 @@ export default function ResearchArticlesPage() {
                 { title: "The Use of Robotic Pets by Community-Dwelling Older Adults: A Scoping Review", source: "International Journal of Social Robotics (2022)", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8082946/" },
                 { title: "Caring's 2024 Dementia Care Survey", source: "Caring.com", url: "https://www.caring.com/resources/robotic-pets-for-seniors" },
                 { title: "PARO Therapeutic Robot — Clinical Evidence Summary", source: "Pacific Neuroscience Institute", url: "https://www.pacificneuroscienceinstitute.org/blog/brain-health/robotic-pets-provide-comfort-to-dementia-patients/" },
-              ].map(a => (
-                <li key={a.url} className="text-slate-700">
+              ].map((a, i) => (
+                <li key={i} className="text-slate-700">
                   <Link href={a.url} target="_blank" rel="noopener noreferrer"
                     className="font-semibold text-blue-600 underline hover:text-blue-700">&ldquo;{a.title}&rdquo;</Link>
                   <span className="text-slate-500"> — {a.source}</span>
@@ -118,8 +118,8 @@ export default function ResearchArticlesPage() {
           <div id="senior-research">
             <h2 className="text-xl font-bold text-slate-900 mb-3">Full Research Library — Senior Wellbeing</h2>
             <ol className="space-y-4 list-decimal pl-6">
-              {existingArticles.map(a => (
-                <li key={a.url} className="text-slate-700">
+              {existingArticles.map((a, i) => (
+                <li key={i} className="text-slate-700">
                   <Link href={a.url} target="_blank" rel="noopener noreferrer"
                     className="font-semibold text-blue-600 underline hover:text-blue-700">&ldquo;{a.title}&rdquo;</Link>
                   <span className="text-slate-500"> — {a.source}</span>
