@@ -140,20 +140,27 @@ def load_product_matrix(path):
     wb = openpyxl.load_workbook(path, data_only=True)
     ws = wb["Product Matrix"]
     h = [c.value for c in ws[1]]
+    # Build a case-insensitive header → index map so column order never matters
+    hmap = {str(v).strip().lower(): i for i, v in enumerate(h) if v}
     pm = {}
     for r in range(2, ws.max_row + 1):
         row  = [ws.cell(row=r, column=c + 1).value for c in range(len(h))]
         mfr  = str(row[1]).strip() if row[1] else ""
         prod = str(row[2]).strip() if row[2] else ""
         if mfr or prod:
-            # Normalised aliases kept for backward compatibility
+            def _col(name):
+                """Return cell value by header name (case-insensitive), or None."""
+                idx = hmap.get(name.lower())
+                return row[idx] if idx is not None and idx < len(row) else None
+
+            # Normalised aliases — looked up by header name, immune to column shifts
             entry = {
-                "category":  row[3],   # Animal Category
-                "type":      row[4],   # Product Type (Fluffy Companion / Ai & Robotic Pets)
-                "price_cat": row[20],  # Price Category
-                "rating":    row[12],  # Rating
-                "reviews":   row[13],  # Review Count
-                "price":     row[17],  # Price
+                "category":  _col("Category"),       # Animal Category
+                "type":      _col("Type"),            # Product Type
+                "price_cat": _col("Price Category"),  # Price Category
+                "rating":    _col("Rating"),          # Rating
+                "reviews":   _col("Review Count"),    # Review Count
+                "price":     _col("Price"),           # Price
             }
             # All columns by their exact header name so any PM field works as a filter
             for i, header in enumerate(h):
@@ -1084,7 +1091,12 @@ def generate_one(table_name, feat_hdrs, srows, pm, rubric, vis_col, notes_col):
         print(f"  {len(candidates)} products remaining for scoring")
 
     winners, eliminated = apply_filter(candidates)
-    winners.sort(key=lambda x: (x["score"], x["rating"], x["vis_contrast"], x["reviews"]),
+    winners.sort(key=lambda x: (
+        x["score"],
+        float(x["rating"])   if x["rating"]   not in (None, "", "None") else 0.0,
+        float(x["vis_contrast"]) if x["vis_contrast"] not in (None, "", "None") else 0.0,
+        int(float(x["reviews"])) if x["reviews"] not in (None, "", "None") else 0
+    ),
                  reverse=True)
 
     # Console output
