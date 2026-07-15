@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Tech Savvy Seniors"
-// Generated: 2026-07-12
+// Generated: 2026-07-15
 
-export const GENERATED_DATE = '2026-07-12';
+export const GENERATED_DATE = '2026-07-15';
 
 export const WEIGHTS = [
   { key: 'ai', label: 'Ai / Advanced Interaction Level', weight: "25%", reversed: false },

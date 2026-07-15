@@ -1,10 +1,10 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Seniors with Vision Challenges"
-// Generated: 2026-07-12
+// Generated: 2026-07-15
 //
 // WHY_TOP_PICK_BULLETS lives in page.tsx — review manually when top pick changes.
 
-export const SPREADSHEET_UPDATED = 'July 12, 2026';
+export const SPREADSHEET_UPDATED = 'July 15, 2026';
 export const TOP_SCORE_IN_GROUP = 4.2;
 export const TOP_PICK_RAW_SCORE = 4.20;
 export const TOP_PICK_PERCENT = 100;

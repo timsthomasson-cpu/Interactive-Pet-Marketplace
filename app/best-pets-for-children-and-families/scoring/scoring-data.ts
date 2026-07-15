@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Children and Families"
-// Generated: 2026-07-12
+// Generated: 2026-07-15
 
-export const GENERATED_DATE = '2026-07-12';
+export const GENERATED_DATE = '2026-07-15';
 
 export const WEIGHTS = [
   { key: 'durability', label: 'Durability', weight: "20%", reversed: false },

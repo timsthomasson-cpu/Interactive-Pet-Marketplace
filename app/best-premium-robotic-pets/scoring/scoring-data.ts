@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Premium Robotic Pets"
-// Generated: 2026-07-07
+// Generated: 2026-07-15
 
-export const GENERATED_DATE = '2026-07-07';
+export const GENERATED_DATE = '2026-07-15';
 
 export const WEIGHTS = [
   { key: 'ai', label: 'Ai / Advanced Interaction Level', weight: "20%", reversed: false },
