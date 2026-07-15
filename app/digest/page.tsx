@@ -8,6 +8,8 @@ const ARTICLES = [
     title: "Do Robotic Pets Actually Help with Loneliness? Here's What the Research Says",
     desc: "New peer-reviewed studies show measurable reductions in depression and loneliness among seniors who use robotic companion pets — with some important caveats.",
     href: "/digest/do-robotic-pets-help-with-loneliness",
+    sourcesHref: "/research-articles#loneliness",
+    sourcesLabel: "Loneliness & senior wellbeing research",
     date: "July 2026",
     readTime: "5 min read",
   },
@@ -17,6 +19,8 @@ const ARTICLES = [
     title: "Why Interactive Pets Are Good for Kids (And What to Look For)",
     desc: "Research shows regular pet interaction builds empathy, emotional intelligence, and social confidence in children — and interactive robotic pets can fill the gap when a real pet isn't practical.",
     href: "/digest/interactive-pets-for-kids",
+    sourcesHref: "/research-articles#children",
+    sourcesLabel: "Children & development research",
     date: "July 2026",
     readTime: "5 min read",
   },
@@ -26,6 +30,8 @@ const ARTICLES = [
     title: "Real Pet vs. Robotic Pet: When Does a Robotic Pet Actually Make Sense?",
     desc: "Robotic pets aren't right for everyone. Here's an honest decision framework for the situations where they genuinely make sense — and the ones where they don't.",
     href: "/digest/real-pet-vs-robotic-pet",
+    sourcesHref: "/research-articles#comparison",
+    sourcesLabel: "Robotic vs. real pet research",
     date: "July 2026",
     readTime: "6 min read",
   },
@@ -61,6 +67,10 @@ export default function DigestIndex() {
             Guides, research, and honest reviews on interactive and robotic companion pets —
             for seniors, families, caregivers, and anyone looking for a smarter way to choose.
           </p>
+          <Link href="/research-articles"
+            className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-blue-600 underline hover:text-blue-700">
+            View full research library →
+          </Link>
         </div>
       </section>
 
@@ -82,9 +92,17 @@ export default function DigestIndex() {
                 </h2>
                 <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">{a.desc}</p>
                 <p className="mt-4 text-xs text-slate-400">{a.date}</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-trust-600">
-                  Read article →
-                </span>
+                {/* Source link */}
+                <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-3">
+                  <span className="text-sm font-semibold text-trust-600">Read article →</span>
+                  <span
+                    onClick={(e) => { e.preventDefault(); window.location.href = a.sourcesHref; }}
+                    className="text-xs font-medium text-blue-600 underline hover:text-blue-700 cursor-pointer"
+                    role="link"
+                  >
+                    View sources
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
