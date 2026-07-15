@@ -79,8 +79,10 @@ export default function DigestIndex() {
         <div className="container-shell">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {ARTICLES.map((a) => (
-              <Link key={a.href} href={a.href}
-                className="group flex flex-col rounded-3xl border border-slate-100 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md hover:border-slate-200">
+              <div key={a.href}
+                className="group relative flex flex-col rounded-3xl border border-slate-100 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md hover:border-slate-200">
+                {/* Full-card link — behind content */}
+                <Link href={a.href} className="absolute inset-0 z-10 rounded-3xl" aria-label={a.title} />
                 <div className="flex items-center justify-between gap-2">
                   <span className={`inline-block rounded px-2 py-0.5 text-xs font-bold uppercase tracking-wide ${a.tagColor}`}>
                     {a.tag}
@@ -92,18 +94,15 @@ export default function DigestIndex() {
                 </h2>
                 <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">{a.desc}</p>
                 <p className="mt-4 text-xs text-slate-400">{a.date}</p>
-                {/* Source link */}
                 <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-3">
                   <span className="text-sm font-semibold text-trust-600">Read article →</span>
-                  <span
-                    onClick={(e) => { e.preventDefault(); window.location.href = a.sourcesHref; }}
-                    className="text-xs font-medium text-blue-600 underline hover:text-blue-700 cursor-pointer"
-                    role="link"
-                  >
+                  {/* z-20 so it's above the card overlay and independently clickable */}
+                  <a href={a.sourcesHref}
+                     className="relative z-20 text-xs font-medium text-blue-600 underline hover:text-blue-700">
                     View sources
-                  </span>
+                  </a>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
