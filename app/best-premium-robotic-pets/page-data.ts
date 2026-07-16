@@ -1,10 +1,10 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Premium Robotic Pets"
-// Generated: 2026-07-07
+// Generated: 2026-07-16
 //
 // WHY_TOP_PICK_BULLETS lives in page.tsx — review manually when top pick changes.
 
-export const SPREADSHEET_UPDATED = 'July 7, 2026';
+export const SPREADSHEET_UPDATED = 'July 16, 2026';
 export const TOP_SCORE_IN_GROUP = 4.1;
 export const TOP_PICK_RAW_SCORE = 4.10;
 export const TOP_PICK_PERCENT = 100;
@@ -12,13 +12,13 @@ export const TOP_PICK_PERCENT = 100;
 export const RANKED_SLUGS: string[] = [
   'robot-pet-dog',  // Rank 1 — 100%
   'ebo-air-2-plus-familybot',  // Rank 2 — 78%
-  'kamomo',  // Rank 3 — 73%
+  'kamomo',  // Rank 3 — 76%
 ];
 
 export const SCORE_PERCENT: Record<string, number> = {
   'robot-pet-dog': 100,
   'ebo-air-2-plus-familybot': 78,
-  'kamomo': 73,
+  'kamomo': 76,
 };
 
 // Add special editorial notes only. Price category tags are auto-derived by BestForCard.

@@ -37,7 +37,7 @@ export const SCORES: BestForScoreRow[] = [
   { slug: 'original-chocolate-lab', score: 3.75, scorePercent: 84, price: 44.45, priceCategory: 'Budget Friendly', animalCategory: 'Dog', type: 'Fluffy Companion', movementLevel: 1, soundQuality: 2, visualContrast: 3 },
   { slug: 'original-plush-white-cat', score: 3.75, scorePercent: 84, price: 53.90, priceCategory: 'Budget Friendly', animalCategory: 'Cat', type: 'Fluffy Companion', movementLevel: 1, soundQuality: 2, visualContrast: 4 },
   { slug: 'original-siamese-cat', score: 3.75, scorePercent: 84, price: 53.90, priceCategory: 'Budget Friendly', animalCategory: 'Cat', type: 'Fluffy Companion', movementLevel: 1, soundQuality: 2, visualContrast: 3 },
-  { slug: 'kamomo', score: 3.50, scorePercent: 79, price: 349.00, priceCategory: 'Premium', animalCategory: 'Robot', type: 'Ai & Robotic Pets', movementLevel: 1, soundQuality: 3, visualContrast: 2 },
+  { slug: 'kamomo', score: 3.60, scorePercent: 81, price: 349.00, priceCategory: 'Premium', animalCategory: 'Robot', type: 'Ai & Robotic Pets', movementLevel: 1, soundQuality: 3, visualContrast: 2 },
   { slug: '18011-smart-robot-dog', score: 2.60, scorePercent: 58, price: 69.99, priceCategory: 'Budget Friendly', animalCategory: 'Dog', type: 'Ai & Robotic Pets', movementLevel: 4, soundQuality: 2, visualContrast: 3 },
 ];
 // Legacy alias for existing imports

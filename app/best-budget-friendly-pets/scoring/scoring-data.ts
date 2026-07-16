@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Budget Friendly Pets"
-// Generated: 2026-07-07
+// Generated: 2026-07-16
 
-export const GENERATED_DATE = '2026-07-07';
+export const GENERATED_DATE = '2026-07-16';
 
 export const WEIGHTS = [
   { key: 'durability', label: 'Durability', weight: "10%", reversed: false },
@@ -33,7 +33,7 @@ export const ROWS: RankedRow[] = [
   },
   {
     rank: 2, manufacturer: 'Furby', product: 'DJ Furby',
-    priceCategory: 'Budget Friendly', animal: 'Robot', price: '$50.11',
+    priceCategory: 'Budget Friendly', animal: 'Other', price: '$50.11',
     rating: '4.8', reviews: '772', overall: '3.9',
     scores: { durability: 4, emotional: 3, maintenance: 4, return: 5, review: 4, simplicity: 4, tactile: 4, value: 4 },
   },

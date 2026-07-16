@@ -29,16 +29,16 @@ export type RankedRow = {
 
 export const ROWS: RankedRow[] = [
   {
-    rank: 1, manufacturer: 'Loona', product: 'Robot Pet Dog',
+    rank: 1, manufacturer: 'Ropet', product: 'KAMOMO',
+    priceCategory: 'Premium', animal: 'Robot', price: '$349.00',
+    rating: '4.3', reviews: '17', overall: '3.6',
+    scores: { ai: 4, brand: 3, charging: 5, customizatio: 4, movement: 1, privacy: 3, cleanability: 3, durability: 3, fallrisk: 5, maintenance: 4, simplicity: 3 },
+  },
+  {
+    rank: 2, manufacturer: 'Loona', product: 'Robot Pet Dog',
     priceCategory: 'Premium', animal: 'Dog', price: '$499.00',
     rating: '4.2', reviews: '1,199', overall: '3.5',
     scores: { ai: 5, brand: 4, charging: 5, customizatio: 5, movement: 5, privacy: 1, cleanability: 4, durability: 4, fallrisk: 2, maintenance: 2, simplicity: 1 },
-  },
-  {
-    rank: 2, manufacturer: 'Ropet', product: 'KAMOMO',
-    priceCategory: 'Premium', animal: 'Robot', price: '$349.00',
-    rating: '4.3', reviews: '17', overall: '3.4',
-    scores: { ai: 4, brand: 3, charging: 3, customizatio: 4, movement: 1, privacy: 3, cleanability: 3, durability: 3, fallrisk: 5, maintenance: 4, simplicity: 3 },
   },
   {
     rank: 3, manufacturer: 'Furby', product: 'DJ Furby',
