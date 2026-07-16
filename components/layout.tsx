@@ -53,7 +53,7 @@ function ShopForDropdown() {
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-haspopup="true"
-        className={`flex items-center gap-1 text-sm transition hover:text-brand-700 ${
+        className={`whitespace-nowrap flex items-center gap-1 text-sm transition hover:text-brand-700 ${
           containsActive ? "font-semibold text-trust-700" : "font-medium text-slate-700"
         }`}
       >
@@ -123,7 +123,7 @@ function LearnDropdown() {
   return (
     <div ref={ref} className="relative">
       <button onClick={() => setOpen(!open)} aria-expanded={open} aria-haspopup="true"
-        className={`flex items-center gap-1 text-sm transition hover:text-brand-700 ${
+        className={`whitespace-nowrap flex items-center gap-1 text-sm transition hover:text-brand-700 ${
           containsActive ? "font-semibold text-trust-700" : "font-medium text-slate-700"
         }`}>
         Learn
@@ -186,7 +186,7 @@ function FindCompareDropdown() {
   return (
     <div ref={ref} className="relative">
       <button onClick={() => setOpen(!open)} aria-expanded={open} aria-haspopup="true"
-        className={`flex items-center gap-1 text-sm transition hover:text-brand-700 ${
+        className={`whitespace-nowrap flex items-center gap-1 text-sm transition hover:text-brand-700 ${
           containsActive ? "font-semibold text-trust-700" : "font-medium text-slate-700"
         }`}>
         Find &amp; Compare
@@ -226,6 +226,8 @@ export function SiteHeader() {
     { href:"/plushy-companions", label:"Plushy Companions" },
     { href:"/ai-robotic-pets", label:"AI & Robotic Pets" },
     { href:"/premium-picks", label:"Premium Picks" },
+    { href:"/find-your-pet", label:"Find My Pet" },
+    { href:"/compare",       label:"Compare" },
     ...tailNav
   ];
   const headerRef = useRef<HTMLElement>(null);
@@ -263,7 +265,7 @@ export function SiteHeader() {
             <div className="hidden sm:block text-xs text-slate-500">Interactive &amp; AI companion guides</div>
           </div>
         </Link>
-        <nav className="hidden items-start gap-5 lg:flex">
+        <nav className="hidden items-start gap-4 lg:flex">
           {mainNav.map((item) => {
             const active = pathname === item.href;
             return (
@@ -271,7 +273,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`text-sm transition hover:text-brand-700 ${
+                className={`whitespace-nowrap text-sm transition hover:text-brand-700 ${
                   active ? "font-semibold text-trust-700" : "font-medium text-slate-700"
                 }`}
               >
@@ -289,7 +291,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`text-sm transition hover:text-brand-700 ${
+                className={`whitespace-nowrap text-sm transition hover:text-brand-700 ${
                   active ? "font-semibold text-trust-700" : "font-medium text-slate-700"
                 }`}
               >
