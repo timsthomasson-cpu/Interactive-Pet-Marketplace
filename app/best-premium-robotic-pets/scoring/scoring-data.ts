@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Premium Robotic Pets"
-// Generated: 2026-07-16
+// Generated: 2026-07-07
 
-export const GENERATED_DATE = '2026-07-16';
+export const GENERATED_DATE = '2026-07-07';
 
 export const WEIGHTS = [
   { key: 'ai', label: 'Ai / Advanced Interaction Level', weight: "20%", reversed: false },
@@ -42,7 +42,7 @@ export const ROWS: RankedRow[] = [
   {
     rank: 3, manufacturer: 'Ropet', product: 'KAMOMO',
     priceCategory: 'Premium', animal: 'Robot', price: '$349.00',
-    rating: '4.3', reviews: '17', overall: '3.1',
-    scores: { ai: 4, autonomous: 3, brand: 3, charging: 5, customizatio: 4, movement: 1, privacy: 3, realism: 2, touch: 4, value: 3 },
+    rating: '4.3', reviews: '17', overall: '3.0',
+    scores: { ai: 4, autonomous: 3, brand: 3, charging: 3, customizatio: 4, movement: 1, privacy: 3, realism: 2, touch: 4, value: 3 },
   },
 ];
