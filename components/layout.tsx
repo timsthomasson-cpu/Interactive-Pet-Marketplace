@@ -15,8 +15,6 @@ const shopForNav = [
   { href:"/premium-picks", label:"Premium Picks" }
 ];
 const tailNav = [
-  { href:"/find-your-pet", label:"Find My Pet" },
-  { href:"/compare", label:"Compare Pets" },
   { href:"/about", label:"About" },
   { href:"/contact", label:"Contact" }
 ];
@@ -265,7 +263,7 @@ export function SiteHeader() {
             <div className="hidden sm:block text-xs text-slate-500">Interactive &amp; AI companion guides</div>
           </div>
         </Link>
-        <nav className="hidden items-center gap-5 lg:flex">
+        <nav className="hidden items-start gap-5 lg:flex">
           {mainNav.map((item) => {
             const active = pathname === item.href;
             return (
