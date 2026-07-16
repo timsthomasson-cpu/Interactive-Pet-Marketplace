@@ -512,10 +512,10 @@ const ARTICLES = [
   {
     tag: "Review",
     tagColor: "text-trust-600 bg-trust-50",
-    title: "Enabot EBO Air 2S Review",
-    desc: "AI home companion with camera, tracking, and family connectivity.",
-    href: "/digest",
-    imageNote: "Enabot EBO Air 2S",
+    title: "Enabot EBO FamilyBot Product Review",
+    desc: "AI home companions with camera, tracking, and family connectivity — compared across all 5 EBO models.",
+    href: "/digest/enabot-ebo-familybot-review",
+    imageNote: "Enabot EBO FamilyBot",
     imageBg: "from-slate-50 to-blue-50",
   },
 ];

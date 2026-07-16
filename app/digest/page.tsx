@@ -35,6 +35,17 @@ const ARTICLES = [
     date: "July 2026",
     readTime: "6 min read",
   },
+  {
+    tag: "Review",
+    tagColor: "text-trust-600 bg-trust-50",
+    title: "Enabot EBO FamilyBot Product Review",
+    desc: "A full comparison of the EBO Air 2, EBO Air 2 Plus, EBO Air 2S, EBO X, and EBO Max — features, pricing, and honest cons for each model.",
+    href: "/digest/enabot-ebo-familybot-review",
+    sourcesHref: "/research-articles",
+    sourcesLabel: "Enabot EBO product research",
+    date: "July 2026",
+    readTime: "9 min read",
+  },
 ];
 
 export const metadata = {
