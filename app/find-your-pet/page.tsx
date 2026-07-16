@@ -1,3 +1,4 @@
+import { PageShell } from "@/components/layout";
 import { PetWizard } from "@/components/pet-wizard";
 
 export const metadata = {
@@ -6,5 +7,9 @@ export const metadata = {
 };
 
 export default function FindYourPetPage() {
-  return <PetWizard />;
+  return (
+    <PageShell>
+      <PetWizard />
+    </PageShell>
+  );
 }

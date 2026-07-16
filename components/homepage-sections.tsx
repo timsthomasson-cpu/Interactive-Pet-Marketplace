@@ -204,7 +204,7 @@ export function HomepageHero() {
             <div className="mt-7 flex flex-col gap-4">
               {/* Shop Our Top Picks — same size, outlined style */}
               <Link
-                href="#"
+                href="/all-best-for-rankings"
                 className="inline-flex w-full lg:w-[500px] min-h-[60px] lg:h-[120px] shrink-0 items-center gap-3 lg:gap-5 rounded-xl border-2 border-trust-500 bg-white px-5 lg:px-8 py-4 lg:py-0 text-2xl lg:text-4xl font-bold text-trust-500 shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-50"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" className="h-8 w-8 lg:h-12 lg:w-12 shrink-0">

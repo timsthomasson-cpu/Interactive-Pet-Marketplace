@@ -226,7 +226,7 @@ export function PetWizard() {
   const bfLink  = useMemo(() => current === "results" ? bestForLink(s) : null, [current, s]);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="bg-slate-50">
       {/* Header */}
       <div className="bg-white border-b border-slate-100 px-4 py-4 sm:px-6">
         <div className="mx-auto max-w-2xl flex items-center justify-between">
