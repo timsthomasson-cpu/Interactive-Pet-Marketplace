@@ -198,7 +198,10 @@ for (const row of rows) {
       camera: isYes(row["Camera"]),
       internetAccess: isYes(row["Internet Access"]),
       affiliateAgreement: isYes(row["Affiliate Agreement"])
-    }
+    },
+    stationary:        clean(row["Stationary/Mobile"]) || undefined,
+    soundLevelControl: toNumber(row["Sound Level Control"]),
+    minimumAge:        clean(row["Suggested Age Range"]) || undefined,
   };
 
   // Attach privacy research if present for this slug.

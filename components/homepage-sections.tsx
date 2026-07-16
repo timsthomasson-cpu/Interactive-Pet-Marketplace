@@ -223,7 +223,7 @@ export function HomepageHero() {
 
               {/* Let Us Help CTA */}
               <Link
-                href="#"
+                href="/find-your-pet"
                 className="inline-flex w-full lg:w-[500px] min-h-[60px] lg:h-[120px] shrink-0 items-center gap-3 lg:gap-5 rounded-xl bg-trust-500 px-5 lg:px-8 py-4 lg:py-0 text-base lg:text-xl font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-trust-600"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 lg:h-12 lg:w-12 shrink-0">

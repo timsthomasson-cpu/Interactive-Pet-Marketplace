@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-07-08T16:21:54.108Z
+// Generated: 2026-07-16T00:34:22.546Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -118,7 +118,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 5,
+    "minimumAge": "3+"
   },
   {
     "slug": "matecat-1-1",
@@ -155,7 +158,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 4,
+    "minimumAge": "3+"
   },
   {
     "slug": "matecat-pro",
@@ -192,7 +198,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 5,
+    "minimumAge": "3+"
   },
   {
     "slug": "percy-1-1-robotic-companion-dog",
@@ -229,7 +238,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 5,
+    "minimumAge": "3+"
   },
   {
     "slug": "percy-robot-cat",
@@ -266,7 +278,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 5,
+    "minimumAge": "3+"
   },
   {
     "slug": "breathing-calico-percy-2-0",
@@ -303,7 +318,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 5,
+    "minimumAge": "3+"
   },
   {
     "slug": "ebo-air-2-familybot",
@@ -341,6 +359,9 @@ export const products: Product[] = [
       "internetAccess": true,
       "affiliateAgreement": false
     },
+    "stationary": "Mobile",
+    "soundLevelControl": 4,
+    "minimumAge": "5+",
     "privacy": {
       "lastResearched": "2026-05-16",
       "manufacturerSources": [
@@ -415,6 +436,9 @@ export const products: Product[] = [
       "internetAccess": true,
       "affiliateAgreement": false
     },
+    "stationary": "Mobile",
+    "soundLevelControl": 4,
+    "minimumAge": "5+",
     "privacy": {
       "lastResearched": "2026-05-16",
       "manufacturerSources": [
@@ -491,6 +515,9 @@ export const products: Product[] = [
       "internetAccess": true,
       "affiliateAgreement": false
     },
+    "stationary": "Mobile",
+    "soundLevelControl": 4,
+    "minimumAge": "5+",
     "privacy": {
       "lastResearched": "2026-05-16",
       "manufacturerSources": [
@@ -565,6 +592,9 @@ export const products: Product[] = [
       "internetAccess": true,
       "affiliateAgreement": false
     },
+    "stationary": "Mobile",
+    "soundLevelControl": 4,
+    "minimumAge": "5+",
     "privacy": {
       "lastResearched": "2026-05-16",
       "manufacturerSources": [
@@ -639,6 +669,9 @@ export const products: Product[] = [
       "internetAccess": true,
       "affiliateAgreement": false
     },
+    "stationary": "Mobile",
+    "soundLevelControl": 4,
+    "minimumAge": "5+",
     "privacy": {
       "lastResearched": "2026-05-16",
       "manufacturerSources": [
@@ -718,7 +751,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 5,
+    "minimumAge": "5+"
   },
   {
     "slug": "companion-pet-cat-silver",
@@ -755,7 +791,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 5,
+    "minimumAge": "5+"
   },
   {
     "slug": "companion-pet-cat-tuxedo",
@@ -792,7 +831,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 5,
+    "minimumAge": "5+"
   },
   {
     "slug": "companion-pet-pup-freckled",
@@ -829,7 +871,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 5,
+    "minimumAge": "5+"
   },
   {
     "slug": "companion-pet-pup-golden",
@@ -866,44 +911,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
-  },
-  {
-    "slug": "wuffy-robot-puppy",
-    "name": "Wuffy Robot Puppy",
-    "manufacturer": "Wuffy",
-    "manufacturerAndProduct": "Wuffy Wuffy Robot Puppy",
-    "type": "Interactive",
-    "category": "Dog",
-    "bestFor": [
-      "Children",
-      "Families"
-    ],
-    "blurb": "Affordable interactive robot puppy featuring touch sensors, walking, barking, and tail wagging. Runs on AA batteries with no app or Wi-Fi setup needed — instant out-of-box play. A kid-friendly starter pet alternative.",
-    "features": [
-      "Touch sensor responses",
-      "Walks, barks, wags",
-      "AA batteries — no app"
-    ],
-    "highlight": "Best price for interactive pet",
-    "rating": 3,
-    "reviewCount": 80,
-    "ratingSource": "Amazon",
-    "ratingLastChecked": "2026-05-09",
-    "ratingUrl": "https://www.amazon.com/chinatera-Wuffy-Robot-Dog-Lifelike/dp/B0GBVGT2TT/ref=sr_1_4?crid=MNXD8CZH5YEV&dib=eyJ2IjoiMSJ9.i_tCHpgxpk0FPJlKxc8tmurS2drN-O1cFpparDV-5dl35TwFC6ems-tsDiAyskF_9B3xvBbUvjP5x56dyVD6f5sGhY-qSNHcZyvjgSmxMAYieOB52GM1W-1z4-2NgoN3.a7Ck7KBmtYBU37IrxfgTYHNpJnij0qyKGBGoj0bq5Pk&dib_tag=se&keywords=wuffy&qid=1778538852&s=toys-and-games&sprefix=wuffy%2Ctoys-and-games%2C198&sr=1-4&th=1",
-    "price": "$25.99",
-    "priceSource": "Amazon",
-    "priceLastChecked": "2026-05-09",
-    "priceCategory": "Budget Friendly",
-    "productUrl": "https://amzn.to/4vPzP1R",
-    "imageUrl": "/images/products/wuffy.png",
-    "flags": {
-      "gifts": true,
-      "topPick": false,
-      "camera": false,
-      "internetAccess": false,
-      "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 5,
+    "minimumAge": "5+"
   },
   {
     "slug": "dj-furby",
@@ -911,7 +922,7 @@ export const products: Product[] = [
     "manufacturer": "Furby",
     "manufacturerAndProduct": "Furby DJ Furby",
     "type": "AI & Robotic",
-    "category": "Robot",
+    "category": "Other",
     "bestFor": [
       "Children",
       "Families"
@@ -940,7 +951,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 2,
+    "minimumAge": "6+"
   },
   {
     "slug": "robot-pet-dog",
@@ -978,6 +992,9 @@ export const products: Product[] = [
       "internetAccess": true,
       "affiliateAgreement": false
     },
+    "stationary": "Mobile",
+    "soundLevelControl": 3,
+    "minimumAge": "6+",
     "privacy": {
       "lastResearched": "2026-05-16",
       "manufacturerSources": [
@@ -1052,7 +1069,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 1,
+    "minimumAge": "3+"
   },
   {
     "slug": "original-border-collie",
@@ -1089,7 +1109,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 1,
+    "minimumAge": "3+"
   },
   {
     "slug": "original-chocolate-lab",
@@ -1126,7 +1149,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 1,
+    "minimumAge": "3+"
   },
   {
     "slug": "original-plush-white-cat",
@@ -1163,7 +1189,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 1,
+    "minimumAge": "3+"
   },
   {
     "slug": "original-siamese-cat",
@@ -1200,7 +1229,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Stationary",
+    "soundLevelControl": 1,
+    "minimumAge": "3+"
   },
   {
     "slug": "kamomo",
@@ -1238,6 +1270,9 @@ export const products: Product[] = [
       "internetAccess": true,
       "affiliateAgreement": false
     },
+    "stationary": "Stationary",
+    "soundLevelControl": 4,
+    "minimumAge": "3+",
     "privacy": {
       "lastResearched": "2026-05-16",
       "manufacturerSources": [
@@ -1311,7 +1346,10 @@ export const products: Product[] = [
       "camera": false,
       "internetAccess": false,
       "affiliateAgreement": false
-    }
+    },
+    "stationary": "Mobile",
+    "soundLevelControl": 2,
+    "minimumAge": "Sun Mar 08 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
   }
 ];
 
