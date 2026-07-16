@@ -1,4 +1,10 @@
 import Link from "next/link";
+import { RANKED_SLUGS as _seniorsAlone }  from "../best-pets-for-seniors-living-alone/page-data";
+import { RANKED_SLUGS as _memoryCare }    from "../best-pets-for-seniors-in-memory-care-facilities/page-data";
+import { RANKED_SLUGS as _dementia }      from "../best-pets-for-seniors-with-dementia/page-data";
+import { RANKED_SLUGS as _vision }        from "../best-pets-for-seniors-with-vision-challenges/page-data";
+import { RANKED_SLUGS as _techSavvy }     from "../best-pets-for-tech-savvy-seniors/page-data";
+
 import { PageShell } from "@/components/layout";
 import { products } from "@/components/site-data";
 import { TrustBoxesRow } from "@/components/sections";
@@ -18,7 +24,7 @@ const SENIOR_CATEGORIES = [
     desc: "Calming choices with simple interaction and a low learning curve.",
     href: "/best-pets-for-seniors-living-alone",
     bg: "bg-purple-500",
-    topPickSlug: "matecat-pro",
+    topPickSlug: _seniorsAlone[0],
     iconPath: "M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2",
     iconCircle: "12,7,4",
   },
@@ -27,7 +33,7 @@ const SENIOR_CATEGORIES = [
     desc: "Gentle, familiar companions for seniors with memory challenges.",
     href: "/best-pets-for-seniors-in-memory-care-facilities",
     bg: "bg-teal-500",
-    topPickSlug: "percy-robot-cat",
+    topPickSlug: _memoryCare[0],
     iconPath: "M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z",
     iconPath2: "M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z",
   },
@@ -36,7 +42,7 @@ const SENIOR_CATEGORIES = [
     desc: "Safe, soothing companions chosen specifically for dementia care.",
     href: "/best-pets-for-seniors-with-dementia",
     bg: "bg-cyan-500",
-    topPickSlug: "companion-pet-cat-orange-tabby",
+    topPickSlug: _dementia[0],
     iconPath: "M20.8 4.6a4.5 4.5 0 0 0-6.4 0L12 7l-2.4-2.4a4.5 4.5 0 0 0-6.4 6.4l2.4 2.4L12 20l6.4-6.6 2.4-2.4a4.5 4.5 0 0 0 0-6.4Z",
   },
   {
@@ -44,7 +50,7 @@ const SENIOR_CATEGORIES = [
     desc: "High-contrast, audio-rich companions for low or impaired vision.",
     href: "/best-pets-for-seniors-with-vision-challenges",
     bg: "bg-blue-500",
-    topPickSlug: "dj-furby",
+    topPickSlug: _vision[0],
     iconPath: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z",
     iconCircle: "12,12,3",
   },
@@ -53,7 +59,7 @@ const SENIOR_CATEGORIES = [
     desc: "AI-powered companions for seniors who love technology.",
     href: "/best-pets-for-tech-savvy-seniors",
     bg: "bg-indigo-500",
-    topPickSlug: "robot-pet-dog",
+    topPickSlug: _techSavvy[0],
     iconPath: "M12 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4.22 19.78a10 10 0 0 1 0-14.14M19.78 19.78a10 10 0 0 0 0-14.14",
   },
 ] as const;

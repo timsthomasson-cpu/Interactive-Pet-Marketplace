@@ -1,4 +1,9 @@
 import Link from "next/link";
+import { RANKED_SLUGS as _seniorsAlone }     from "@/app/best-pets-for-seniors-living-alone/page-data";
+import { RANKED_SLUGS as _memoryCare }       from "@/app/best-pets-for-seniors-in-memory-care-facilities/page-data";
+import { RANKED_SLUGS as _remote }           from "@/app/best-pets-for-remote-monitoring/page-data";
+import { RANKED_SLUGS as _childrenFamilies } from "@/app/best-pets-for-children-and-families/page-data";
+
 import { products } from "./site-data";
 import { BestForCard } from "./best-for-card";
 
@@ -307,7 +312,7 @@ const CATEGORIES = [
     href: "/best-pets-for-seniors-living-alone",
     iconColor: "bg-purple-500 text-white",
     Icon: IconUser,
-    topPickSlug: "matecat-pro",
+    topPickSlug: _seniorsAlone[0],
   },
   {
     title: "Best Pets for Seniors in Memory Care Facilities",
@@ -315,7 +320,7 @@ const CATEGORIES = [
     href: "/best-pets-for-seniors-in-memory-care-facilities",
     iconColor: "bg-teal-500 text-white",
     Icon: IconBrain,
-    topPickSlug: "percy-robot-cat",
+    topPickSlug: _memoryCare[0],
   },
   {
     title: "Best Pets for Remote Monitoring",
@@ -323,7 +328,7 @@ const CATEGORIES = [
     href: "/best-pets-for-remote-monitoring",
     iconColor: "bg-sky-500 text-white",
     Icon: IconCamera,
-    topPickSlug: "robot-pet-dog",
+    topPickSlug: _remote[0],
   },
   {
     title: "Best Pets for Children and Families",
@@ -331,7 +336,7 @@ const CATEGORIES = [
     href: "/best-pets-for-children-and-families",
     iconColor: "bg-orange-500 text-white",
     Icon: IconPeople,
-    topPickSlug: "percy-1-1-robotic-companion-dog",
+    topPickSlug: _childrenFamilies[0],
   },
 ];
 
