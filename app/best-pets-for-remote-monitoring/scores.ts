@@ -19,6 +19,7 @@ export const SCORES: BestForScoreRow[] = [
   { slug: 'ebo-air-2s-familybot', score: 3.10, scorePercent: 89, price: 279.00, priceCategory: 'Premium', animalCategory: 'Robot', type: 'Ai & Robotic Pets', movementLevel: 4, soundQuality: 3, visualContrast: 3 },
   { slug: 'ebo-x-familybot', score: 3.10, scorePercent: 89, price: 789.00, priceCategory: 'Premium', animalCategory: 'Robot', type: 'Ai & Robotic Pets', movementLevel: 4, soundQuality: 3, visualContrast: 3 },
   { slug: 'rola-mini-pet-monitor', score: 2.70, scorePercent: 77, price: 139.00, priceCategory: 'Best Value', animalCategory: 'Robot', type: 'Ai & Robotic Pets', movementLevel: 3, soundQuality: 3, visualContrast: 3 },
+  { slug: 'wuffy-robot-puppy', score: 2.65, scorePercent: 76, price: 0.00, priceCategory: 'Unknown', animalCategory: 'Unknown', type: 'Unknown', movementLevel: 3, soundQuality: 2, visualContrast: 3 },
   { slug: 'dj-furby', score: 3.35, scorePercent: 96, price: 50.11, priceCategory: 'Budget Friendly', animalCategory: 'Other', type: 'Ai & Robotic Pets', movementLevel: 2, soundQuality: 3, visualContrast: 5 },
   { slug: 'robot-pet-dog', score: 3.50, scorePercent: 100, price: 499.00, priceCategory: 'Premium', animalCategory: 'Dog', type: 'Ai & Robotic Pets', movementLevel: 5, soundQuality: 3, visualContrast: 3 },
   { slug: 'kamomo', score: 3.40, scorePercent: 97, price: 349.00, priceCategory: 'Premium', animalCategory: 'Robot', type: 'Ai & Robotic Pets', movementLevel: 1, soundQuality: 3, visualContrast: 2 },

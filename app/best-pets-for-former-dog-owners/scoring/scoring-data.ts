@@ -43,15 +43,15 @@ export const ROWS: RankedRow[] = [
     scores: { emotional: 3, realism: 1, recognizable: 4, simplicity: 5, sound: 2, tactile: 5, touch: 1 },
   },
   {
-    rank: 4, manufacturer: 'Wuffy', product: 'Wuffy Robot Puppy',
-    priceCategory: 'Budget Friendly', animal: 'Dog', price: '$25.99',
-    rating: '3.0', reviews: '80', overall: '2.7',
-    scores: { emotional: 3, realism: 2, recognizable: 3, simplicity: 3, sound: 2, tactile: 3, touch: 3 },
-  },
-  {
-    rank: 5, manufacturer: 'Loona', product: 'Robot Pet Dog',
+    rank: 4, manufacturer: 'Loona', product: 'Robot Pet Dog',
     priceCategory: 'Premium', animal: 'Dog', price: '$499.00',
     rating: '4.2', reviews: '1,199', overall: '2.5',
     scores: { emotional: 3, realism: 2, recognizable: 2, simplicity: 1, sound: 3, tactile: 2, touch: 4 },
+  },
+  {
+    rank: 5, manufacturer: 'Ruko', product: '18011 Smart Robot Dog',
+    priceCategory: 'Budget Friendly', animal: 'Dog', price: '$69.99',
+    rating: '4.4', reviews: '283', overall: '2.4',
+    scores: { emotional: 2, realism: 2, recognizable: 3, simplicity: 3, sound: 2, tactile: 2, touch: 3 },
   },
 ];

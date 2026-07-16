@@ -30,7 +30,7 @@ export const SCORES: BestForScoreRow[] = [
   { slug: 'companion-pet-cat-tuxedo', score: 2.35, scorePercent: 55, price: 159.99, priceCategory: 'Best Value', animalCategory: 'Cat', type: 'Fluffy Companion', movementLevel: 2, soundQuality: 3, visualContrast: 4 },
   { slug: 'companion-pet-pup-freckled', score: 2.35, scorePercent: 55, price: 179.00, priceCategory: 'Best Value', animalCategory: 'Dog', type: 'Fluffy Companion', movementLevel: 2, soundQuality: 3, visualContrast: 3 },
   { slug: 'companion-pet-pup-golden', score: 2.35, scorePercent: 55, price: 179.00, priceCategory: 'Best Value', animalCategory: 'Dog', type: 'Fluffy Companion', movementLevel: 2, soundQuality: 3, visualContrast: 4 },
-  { slug: 'wuffy-robot-puppy', score: 2.50, scorePercent: 59, price: 25.99, priceCategory: 'Budget Friendly', animalCategory: 'Dog', type: 'Fluffy Companion', movementLevel: 3, soundQuality: 2, visualContrast: 3 },
+  { slug: 'wuffy-robot-puppy', score: 2.50, scorePercent: 59, price: 0.00, priceCategory: 'Unknown', animalCategory: 'Unknown', type: 'Unknown', movementLevel: 3, soundQuality: 2, visualContrast: 3 },
   { slug: 'dj-furby', score: 2.80, scorePercent: 66, price: 50.11, priceCategory: 'Budget Friendly', animalCategory: 'Other', type: 'Ai & Robotic Pets', movementLevel: 2, soundQuality: 3, visualContrast: 5 },
   { slug: 'robot-pet-dog', score: 4.25, scorePercent: 100, price: 499.00, priceCategory: 'Premium', animalCategory: 'Dog', type: 'Ai & Robotic Pets', movementLevel: 5, soundQuality: 3, visualContrast: 3 },
   { slug: 'grey-tabby-cat', score: 1.90, scorePercent: 45, price: 44.45, priceCategory: 'Budget Friendly', animalCategory: 'Cat', type: 'Fluffy Companion', movementLevel: 1, soundQuality: 2, visualContrast: 3 },
