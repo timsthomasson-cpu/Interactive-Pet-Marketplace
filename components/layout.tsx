@@ -219,16 +219,24 @@ function FindCompareDropdown() {
 
 export function SiteHeader() {
   const allMobileNav = [
-    { href:"/", label:"Home" },
-    { href:"/best-for-seniors", label:"Seniors" },
-    { href:"/kids-and-families", label:"Kids & Families" },
-    { href:"/best-for-gifts", label:"Gifts" },
-    { href:"/plushy-companions", label:"Plushy Companions" },
-    { href:"/ai-robotic-pets", label:"AI & Robotic Pets" },
-    { href:"/premium-picks", label:"Premium Picks" },
-    { href:"/find-your-pet", label:"Find My Pet" },
-    { href:"/compare",       label:"Compare" },
-    ...tailNav
+    // mainNav
+    { href:"/",                   label:"Home" },
+    { href:"/best-for-seniors",   label:"Seniors" },
+    { href:"/kids-and-families",  label:"Children & Families" },
+    // Find & Compare dropdown items
+    { href:"/find-your-pet",      label:"Find My Pet" },
+    { href:"/compare",            label:"Compare" },
+    // Shop for dropdown items
+    { href:"/plushy-companions",  label:"Plushy Companions" },
+    { href:"/ai-robotic-pets",    label:"AI & Robotic Pets" },
+    { href:"/premium-picks",      label:"Premium Picks" },
+    // Learn dropdown items
+    { href:"/questions",          label:"FAQ" },
+    { href:"/digest",             label:"Digest" },
+    { href:"/research-articles",  label:"Research" },
+    // tailNav
+    { href:"/about",              label:"About" },
+    { href:"/contact",            label:"Contact" },
   ];
   const headerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
