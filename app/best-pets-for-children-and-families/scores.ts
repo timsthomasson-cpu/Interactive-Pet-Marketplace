@@ -1,6 +1,6 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Children and Families"
-// Generated: 2026-07-15
+// Generated: 2026-07-16
 
 export const TOP_SCORE_IN_GROUP = 4.4;
 
@@ -30,7 +30,6 @@ export const SCORES: BestForScoreRow[] = [
   { slug: 'companion-pet-cat-tuxedo', score: 4.10, scorePercent: 93, price: 159.99, priceCategory: 'Best Value', animalCategory: 'Cat', type: 'Fluffy Companion', movementLevel: 2, soundQuality: 3, visualContrast: 4 },
   { slug: 'companion-pet-pup-freckled', score: 4.10, scorePercent: 93, price: 179.00, priceCategory: 'Best Value', animalCategory: 'Dog', type: 'Fluffy Companion', movementLevel: 2, soundQuality: 3, visualContrast: 3 },
   { slug: 'companion-pet-pup-golden', score: 4.10, scorePercent: 93, price: 179.00, priceCategory: 'Best Value', animalCategory: 'Dog', type: 'Fluffy Companion', movementLevel: 2, soundQuality: 3, visualContrast: 4 },
-  { slug: 'wuffy-robot-puppy', score: 2.80, scorePercent: 64, price: 0.00, priceCategory: 'Unknown', animalCategory: 'Unknown', type: 'Unknown', movementLevel: 3, soundQuality: 2, visualContrast: 3 },
   { slug: 'dj-furby', score: 3.75, scorePercent: 85, price: 50.11, priceCategory: 'Budget Friendly', animalCategory: 'Other', type: 'Ai & Robotic Pets', movementLevel: 2, soundQuality: 3, visualContrast: 5 },
   { slug: 'robot-pet-dog', score: 3.35, scorePercent: 76, price: 499.00, priceCategory: 'Premium', animalCategory: 'Dog', type: 'Ai & Robotic Pets', movementLevel: 5, soundQuality: 3, visualContrast: 3 },
   { slug: 'grey-tabby-cat', score: 3.00, scorePercent: 68, price: 44.45, priceCategory: 'Budget Friendly', animalCategory: 'Cat', type: 'Fluffy Companion', movementLevel: 1, soundQuality: 2, visualContrast: 3 },

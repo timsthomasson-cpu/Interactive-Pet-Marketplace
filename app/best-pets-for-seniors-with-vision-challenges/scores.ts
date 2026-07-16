@@ -1,12 +1,12 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Seniors with Vision Challenges"
-// Generated: 2026-07-15
+// Generated: 2026-07-16
 
 export const TOP_SCORE_IN_GROUP = 4.2;
 
 export type BestForScoreRow = {
   slug: string; score: number; scorePercent: number; price: number;
-  priceCategory: "Best Value" | "Budget Friendly" | "Premium"; animalCategory: "Cat" | "Dog" | "Other" | "Panda" | "Robot"; type: "Ai & Robotic Pets" | "Fluffy Companion";
+  priceCategory: "Best Value" | "Budget Friendly" | "Premium"; animalCategory: "Cat" | "Dog" | "Panda" | "Robot"; type: "Ai & Robotic Pets" | "Fluffy Companion";
   movementLevel: number; soundQuality: number; visualContrast: number;
 };
 
@@ -30,16 +30,7 @@ export const SCORES: BestForScoreRow[] = [
   { slug: 'companion-pet-cat-tuxedo', score: 4.20, scorePercent: 100, price: 159.99, priceCategory: 'Best Value', animalCategory: 'Cat', type: 'Fluffy Companion', movementLevel: 2, soundQuality: 3, visualContrast: 4 },
   { slug: 'companion-pet-pup-freckled', score: 3.95, scorePercent: 94, price: 179.00, priceCategory: 'Best Value', animalCategory: 'Dog', type: 'Fluffy Companion', movementLevel: 2, soundQuality: 3, visualContrast: 3 },
   { slug: 'companion-pet-pup-golden', score: 4.20, scorePercent: 100, price: 179.00, priceCategory: 'Best Value', animalCategory: 'Dog', type: 'Fluffy Companion', movementLevel: 2, soundQuality: 3, visualContrast: 4 },
-  { slug: 'wuffy-robot-puppy', score: 3.00, scorePercent: 71, price: 0.00, priceCategory: 'Unknown', animalCategory: 'Unknown', type: 'Unknown', movementLevel: 3, soundQuality: 2, visualContrast: 3 },
-  { slug: 'dj-furby', score: 4.20, scorePercent: 100, price: 50.11, priceCategory: 'Budget Friendly', animalCategory: 'Other', type: 'Ai & Robotic Pets', movementLevel: 2, soundQuality: 3, visualContrast: 5 },
-  { slug: 'robot-pet-dog', score: 2.45, scorePercent: 58, price: 499.00, priceCategory: 'Premium', animalCategory: 'Dog', type: 'Ai & Robotic Pets', movementLevel: 5, soundQuality: 3, visualContrast: 3 },
-  { slug: 'grey-tabby-cat', score: 3.65, scorePercent: 87, price: 44.45, priceCategory: 'Budget Friendly', animalCategory: 'Cat', type: 'Fluffy Companion', movementLevel: 1, soundQuality: 2, visualContrast: 3 },
-  { slug: 'original-border-collie', score: 3.65, scorePercent: 87, price: 44.45, priceCategory: 'Budget Friendly', animalCategory: 'Dog', type: 'Fluffy Companion', movementLevel: 1, soundQuality: 2, visualContrast: 3 },
-  { slug: 'original-chocolate-lab', score: 3.65, scorePercent: 87, price: 44.45, priceCategory: 'Budget Friendly', animalCategory: 'Dog', type: 'Fluffy Companion', movementLevel: 1, soundQuality: 2, visualContrast: 3 },
-  { slug: 'original-plush-white-cat', score: 3.90, scorePercent: 93, price: 53.90, priceCategory: 'Budget Friendly', animalCategory: 'Cat', type: 'Fluffy Companion', movementLevel: 1, soundQuality: 2, visualContrast: 4 },
-  { slug: 'original-siamese-cat', score: 3.65, scorePercent: 87, price: 53.90, priceCategory: 'Budget Friendly', animalCategory: 'Cat', type: 'Fluffy Companion', movementLevel: 1, soundQuality: 2, visualContrast: 3 },
   { slug: 'kamomo', score: 3.60, scorePercent: 86, price: 349.00, priceCategory: 'Premium', animalCategory: 'Robot', type: 'Ai & Robotic Pets', movementLevel: 1, soundQuality: 3, visualContrast: 2 },
-  { slug: '18011-smart-robot-dog', score: 2.85, scorePercent: 68, price: 69.99, priceCategory: 'Budget Friendly', animalCategory: 'Dog', type: 'Ai & Robotic Pets', movementLevel: 4, soundQuality: 2, visualContrast: 3 },
 ];
 // Legacy alias for existing imports
 export const MEMORY_CARE_SCORES = SCORES;

@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Former Dog Owners"
-// Generated: 2026-07-15
+// Generated: 2026-07-16
 
-export const GENERATED_DATE = '2026-07-15';
+export const GENERATED_DATE = '2026-07-16';
 
 export const WEIGHTS = [
   { key: 'emotional', label: 'Emotional Comfort Potential', weight: "15%", reversed: false },

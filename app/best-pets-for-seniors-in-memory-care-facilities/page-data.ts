@@ -1,10 +1,10 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Seniors in Memory Care Facilities"
-// Generated: 2026-07-15
+// Generated: 2026-07-16
 //
 // WHY_TOP_PICK_BULLETS lives in page.tsx — review manually when top pick changes.
 
-export const SPREADSHEET_UPDATED = 'July 15, 2026';
+export const SPREADSHEET_UPDATED = 'July 16, 2026';
 export const TOP_SCORE_IN_GROUP = 3.95;
 export const TOP_PICK_RAW_SCORE = 3.95;
 export const TOP_PICK_PERCENT = 100;

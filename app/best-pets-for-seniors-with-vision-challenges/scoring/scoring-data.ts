@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Seniors with Vision Challenges"
-// Generated: 2026-07-15
+// Generated: 2026-07-16
 
-export const GENERATED_DATE = '2026-07-15';
+export const GENERATED_DATE = '2026-07-16';
 
 export const WEIGHTS = [
   { key: 'control', label: 'Control Accessibility', weight: "15%", reversed: false },
@@ -26,33 +26,33 @@ export type RankedRow = {
 
 export const ROWS: RankedRow[] = [
   {
-    rank: 1, manufacturer: 'Furby', product: 'DJ Furby',
-    priceCategory: 'Budget Friendly', animal: 'Other', price: '$50.11',
-    rating: '4.8', reviews: '772', overall: '4.2',
-    scores: { control: 4, fallrisk: 4, safety: 5, size: 5, sound: 2, soundquality: 3, tactile: 4, visual: 5 },
-  },
-  {
-    rank: 2, manufacturer: 'Joy for All', product: 'Companion Pet Cat Orange Tabby',
+    rank: 1, manufacturer: 'Joy for All', product: 'Companion Pet Cat Orange Tabby',
     priceCategory: 'Best Value', animal: 'Cat', price: '$159.99',
     rating: '4.5', reviews: '11,640', overall: '4.2',
     scores: { control: 5, fallrisk: 5, safety: 5, size: 4, sound: 5, soundquality: 3, tactile: 3, visual: 4 },
   },
   {
-    rank: 3, manufacturer: 'Joy for All', product: 'Companion Pet Pup Golden',
+    rank: 2, manufacturer: 'Joy for All', product: 'Companion Pet Pup Golden',
     priceCategory: 'Best Value', animal: 'Dog', price: '$179.00',
     rating: '4.3', reviews: '5,164', overall: '4.2',
     scores: { control: 5, fallrisk: 5, safety: 5, size: 4, sound: 5, soundquality: 3, tactile: 3, visual: 4 },
   },
   {
-    rank: 4, manufacturer: 'Chongker', product: 'Breathing Red Panda Plush',
+    rank: 3, manufacturer: 'Chongker', product: 'Breathing Red Panda Plush',
     priceCategory: 'Best Value', animal: 'Panda', price: '$119.00',
     rating: '5.0', reviews: '2', overall: '4.1',
     scores: { control: 3, fallrisk: 5, safety: 4, size: 4, sound: 5, soundquality: 4, tactile: 5, visual: 4 },
   },
   {
-    rank: 5, manufacturer: 'Chongker', product: 'MateCat Pro',
+    rank: 4, manufacturer: 'Chongker', product: 'MateCat Pro',
     priceCategory: 'Best Value', animal: 'Cat', price: '$178.00',
     rating: '4.6', reviews: '456', overall: '4.1',
     scores: { control: 4, fallrisk: 5, safety: 5, size: 4, sound: 5, soundquality: 4, tactile: 5, visual: 3 },
+  },
+  {
+    rank: 5, manufacturer: 'Chongker', product: 'Percy Robot Cat',
+    priceCategory: 'Budget Friendly', animal: 'Cat', price: '$89.00',
+    rating: '5.0', reviews: '16', overall: '4.0',
+    scores: { control: 4, fallrisk: 5, safety: 5, size: 4, sound: 5, soundquality: 4, tactile: 4, visual: 3 },
   },
 ];
