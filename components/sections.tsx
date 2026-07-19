@@ -18,7 +18,6 @@ export function TwoCategoryCards() {
 export function ShopByNeed() {
   const items: [string, string, string][] = [
     ["Best for Seniors", "Calming choices with simple interaction and lower learning curve.", "/best-for-seniors"],
-    ["Best for Gifts", "Friendly, memorable picks with broad appeal and easy setup.", "/best-for-gifts"],
     ["Best for Kids & Families", "Playful options built for novelty and everyday entertainment.", "/kids-and-families"],
     ["Best Premium Picks", "Higher-end robotic pets with more advanced movement and sensors.", "/premium-picks"]
   ];
@@ -29,7 +28,6 @@ export function MobileShopPills() {
     ["Plushy Companions", "/plushy-companions"],
     ["AI & Robotic Pets", "/ai-robotic-pets"],
     ["Best for Seniors", "/best-for-seniors"],
-    ["Best for Gifts", "/best-for-gifts"],
     ["Best for Kids & Families", "/kids-and-families"],
     ["Best Premium Picks", "/premium-picks"]
   ];
@@ -51,11 +49,14 @@ export function MobileShopPills() {
 }
 export function GroupedProducts({ items, pageName, hideTopPad }: { items: typeof products; pageName?: string; hideTopPad?: boolean }) {
   if (items.length === 0) return null;
+  // Each product should render as exactly one card on this page. Top Picks
+  // get their own section up front; the price-tier sections below exclude
+  // whichever products already appeared there so nothing is shown twice.
   const sections: { title: string; products: typeof items }[] = [
     { title: "Top Picks", products: items.filter((p) => p.flags?.topPick) },
-    { title: "Premium", products: items.filter((p) => p.priceCategory === "Premium") },
-    { title: "Best Value", products: items.filter((p) => p.priceCategory === "Best Value") },
-    { title: "Budget Friendly", products: items.filter((p) => p.priceCategory === "Budget Friendly") }
+    { title: "Premium", products: items.filter((p) => p.priceCategory === "Premium" && !p.flags?.topPick) },
+    { title: "Best Value", products: items.filter((p) => p.priceCategory === "Best Value" && !p.flags?.topPick) },
+    { title: "Budget Friendly", products: items.filter((p) => p.priceCategory === "Budget Friendly" && !p.flags?.topPick) }
   ];
   const nonEmpty = sections.filter((s) => s.products.length > 0);
   return <section className={`section-pad ${hideTopPad ? "pt-4 sm:pt-6" : "pt-10 sm:pt-12"}`}><IllustrativeImagesNote /><div className="container-shell space-y-14 mt-3">{nonEmpty.map((section) => <div key={section.title}>

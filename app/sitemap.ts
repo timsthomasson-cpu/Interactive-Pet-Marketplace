@@ -14,7 +14,6 @@ const ROUTES: { path: string; changeFreq: MetadataRoute.Sitemap[number]["changeF
   { path: "/ai-robotic-pets", changeFreq: "weekly", priority: 0.9 },
   { path: "/best-for-seniors", changeFreq: "weekly", priority: 0.9 },
   { path: "/kids-and-families", changeFreq: "weekly", priority: 0.8 },
-  { path: "/best-for-gifts", changeFreq: "weekly", priority: 0.8 },
   { path: "/premium-picks", changeFreq: "weekly", priority: 0.8 },
   { path: "/top-picks", changeFreq: "weekly", priority: 0.9 },
   { path: "/compare", changeFreq: "weekly", priority: 0.7 },

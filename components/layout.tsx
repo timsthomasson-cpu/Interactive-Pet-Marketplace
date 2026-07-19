@@ -11,7 +11,6 @@ const mainNav = [
 const shopForNav = [
   { href:"/plushy-companions", label:"Plushy Companions" },
   { href:"/ai-robotic-pets", label:"AI & Robotic Pets" },
-  { href:"/best-for-gifts", label:"Gifts" },
   { href:"/premium-picks", label:"Premium Picks" }
 ];
 const tailNav = [
