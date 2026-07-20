@@ -51,8 +51,29 @@ export default function BestForPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON_LD }} />
 
       {/* ── Hero ── */}
-      <section className="bg-orange-100 py-8 sm:py-10">
-        <div className="container-shell">
+      <section className="relative overflow-hidden bg-orange-100 py-8 sm:py-10">
+        {/* Background photo: confined to the right third of the hero, hidden on
+            mobile so it doesn't fight the text. A left-edge gradient fades it
+            into the orange-100 panel so the headline stays fully readable. */}
+        <div
+          className="absolute inset-y-0 right-0 hidden w-1/3 sm:block"
+          aria-hidden="true"
+          style={{
+            backgroundImage: [
+              "linear-gradient(to right,",
+              "  rgba(255,237,213,1) 0%,",
+              "  rgba(255,237,213,0.85) 15%,",
+              "  rgba(255,237,213,0.15) 45%,",
+              "  rgba(255,237,213,0) 65%",
+              "),",
+              "url('/children-families-hero.png')",
+            ].join(" "),
+            backgroundSize: "cover",
+            backgroundPosition: "center 20%",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        <div className="container-shell relative z-10">
           <p className="eyebrow">Best For Rankings</p>
           <h1 className="mt-1 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
             Best Pets for Children and Families
