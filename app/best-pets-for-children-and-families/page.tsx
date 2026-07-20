@@ -56,7 +56,7 @@ export default function BestForPage() {
             mobile so it doesn't fight the text. A left-edge gradient fades it
             into the orange-100 panel so the headline stays fully readable. */}
         <div
-          className="absolute inset-y-0 right-0 hidden w-[calc(33.333%+320px)] sm:block"
+          className="absolute inset-y-0 right-0 hidden w-1/3 sm:block"
           aria-hidden="true"
           style={{
             // Fixed-pixel fade zone: solid orange through 53px (marked at
