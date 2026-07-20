@@ -59,14 +59,15 @@ export default function BestForPage() {
           className="absolute inset-y-0 right-0 hidden w-1/3 sm:block"
           aria-hidden="true"
           style={{
-            // Fixed-pixel fade zone: solid orange through 53px (marked at
-            // x=1200 on the 2200px-wide reference preview), then fades out
-            // completely by 253px — right at the left woman's shoulder.
+            // Long, gradual fade across most of the panel: solid orange right
+            // next to the text, easing out across the middle, and fully clear
+            // by the last quarter of the panel so her shoulder reads clean.
             backgroundImage: [
               "linear-gradient(to right,",
-              "  rgba(255,237,213,1) 0px,",
-              "  rgba(255,237,213,1) 53px,",
-              "  rgba(255,237,213,0) 253px",
+              "  rgba(255,237,213,1) 0%,",
+              "  rgba(255,237,213,0.9) 20%,",
+              "  rgba(255,237,213,0.4) 55%,",
+              "  rgba(255,237,213,0) 75%",
               "),",
               "url('/children-families-hero.png')",
             ].join(" "),
