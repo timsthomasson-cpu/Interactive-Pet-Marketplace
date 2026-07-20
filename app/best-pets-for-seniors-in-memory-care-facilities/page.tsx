@@ -51,8 +51,29 @@ export default function BestForPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON_LD }} />
 
       {/* ── Hero ── */}
-      <section className="bg-teal-100 py-8 sm:py-10">
-        <div className="container-shell">
+      <section className="relative overflow-hidden bg-teal-100 py-8 sm:py-10">
+        {/* Background photo: hidden on mobile so it doesn't fight the text;
+            on sm+ it fills the section with a teal-100 gradient fade on the left
+            so the headline stays readable, matching the homepage hero treatment. */}
+        <div
+          className="absolute inset-0 hidden sm:block"
+          aria-hidden="true"
+          style={{
+            backgroundImage: [
+              "linear-gradient(to right,",
+              "  rgba(204,251,241,1) 0%,",
+              "  rgba(204,251,241,0.92) 32%,",
+              "  rgba(204,251,241,0.55) 55%,",
+              "  rgba(204,251,241,0.15) 75%",
+              "),",
+              "url('/memory-care-hero.png')",
+            ].join(" "),
+            backgroundSize: "cover",
+            backgroundPosition: "center 25%",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        <div className="container-shell relative z-10">
           <p className="eyebrow">Best For Rankings</p>
           <h1 className="mt-1 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
             Best Pets for Seniors in Memory Care Facilities
