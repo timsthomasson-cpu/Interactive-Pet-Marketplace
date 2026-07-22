@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-07-16T00:34:22.546Z
+// Generated: 2026-07-22T16:21:53.036Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -80,6 +80,9 @@ export type Product = {
   imageUrl?: string;
   flags: ProductFlags;
   privacy?: ProductPrivacy;
+  stationary?: string;
+  soundLevelControl?: number;
+  minimumAge?: string;
 };
 
 export const products: Product[] = [
@@ -1349,7 +1352,7 @@ export const products: Product[] = [
     },
     "stationary": "Mobile",
     "soundLevelControl": 2,
-    "minimumAge": "Sun Mar 08 2026 00:00:00 GMT+0000 (Coordinated Universal Time)"
+    "minimumAge": "Sun Mar 08 2026 00:00:00 GMT-0600 (Central Standard Time)"
   }
 ];
 

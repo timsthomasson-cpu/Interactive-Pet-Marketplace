@@ -18,7 +18,18 @@ export const metadata = {
 };
 
 
-const SENIOR_CATEGORIES = [
+type SeniorCategory = {
+  title: string;
+  desc: string;
+  href: string;
+  bg: string;
+  topPickSlug: string;
+  iconPath: string;
+  iconPath2?: string;
+  iconCircle?: string;
+};
+
+const SENIOR_CATEGORIES: SeniorCategory[] = [
   {
     title: "Best Pets for Seniors Living Alone",
     desc: "Calming choices with simple interaction and a low learning curve.",
@@ -62,7 +73,7 @@ const SENIOR_CATEGORIES = [
     topPickSlug: _techSavvy[0],
     iconPath: "M12 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4.22 19.78a10 10 0 0 1 0-14.14M19.78 19.78a10 10 0 0 0 0-14.14",
   },
-] as const;
+];
 
 function FindTheRightFit({ topPicks }: { topPicks: typeof products }) {
   void topPicks; // available if needed for future use

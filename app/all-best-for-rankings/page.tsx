@@ -32,7 +32,18 @@ function Icon({ path, path2, circle }: { path?: string; path2?: string; circle?:
   );
 }
 
-const ALL_CATEGORIES = [
+type Category = {
+  title: string;
+  desc: string;
+  href: string;
+  bg: string;
+  topPickSlug: string;
+  iconPath: string;
+  iconPath2?: string;
+  iconCircle?: string;
+};
+
+const ALL_CATEGORIES: Category[] = [
   // ── Seniors ──────────────────────────────────────────────────────────────
   {
     title: "Best Pets for Seniors Living Alone",
@@ -171,7 +182,7 @@ const ALL_CATEGORIES = [
     topPickSlug: _premium[0],
     iconPath: "M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8 5.8 21.1 7 14.2 2 9.3l6.9-1L12 2Z",
   },
-] as const;
+];
 
 export default function AllBestForRankings() {
   return (

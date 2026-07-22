@@ -298,6 +298,9 @@ export type Product = {
   imageUrl?: string;
   flags: ProductFlags;
   privacy?: ProductPrivacy;
+  stationary?: string;
+  soundLevelControl?: number;
+  minimumAge?: string;
 };
 
 export const products: Product[] = ${JSON.stringify(products, null, 2)};
