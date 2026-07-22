@@ -25,6 +25,6 @@ const config: Config = {
       boxShadow: { soft:"0 10px 30px rgba(120,72,15,0.08)"}
     }
   },
-  plugins: []
+  plugins: [require("@tailwindcss/typography")]
 };
 export default config;

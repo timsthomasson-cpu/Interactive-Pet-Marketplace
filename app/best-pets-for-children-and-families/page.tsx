@@ -59,15 +59,16 @@ export default function BestForPage() {
           className="absolute inset-y-0 right-0 hidden w-1/3 sm:block"
           aria-hidden="true"
           style={{
-            // Long, gradual fade across most of the panel: solid orange right
-            // next to the text, easing out across the middle, and fully clear
-            // by the last quarter of the panel so her shoulder reads clean.
+            // Fade compressed into the first fifth of the panel (the part
+            // closest to the text): solid orange at the very edge, fully
+            // clear by 20% across, so the rest of the panel — including her
+            // shoulder — reads with zero tint.
             backgroundImage: [
               "linear-gradient(to right,",
               "  rgba(255,237,213,1) 0%,",
-              "  rgba(255,237,213,0.9) 20%,",
-              "  rgba(255,237,213,0.4) 55%,",
-              "  rgba(255,237,213,0) 75%",
+              "  rgba(255,237,213,0.7) 6%,",
+              "  rgba(255,237,213,0.2) 13%,",
+              "  rgba(255,237,213,0) 20%",
               "),",
               "url('/children-families-hero.png')",
             ].join(" "),

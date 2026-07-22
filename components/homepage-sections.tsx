@@ -353,8 +353,10 @@ export function PopularCategories() {
             return (
             <div
               key={title}
-              className="flex flex-col rounded-3xl border border-slate-100 bg-white p-5 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md"
+              className="relative flex flex-col rounded-3xl border border-slate-100 bg-white p-5 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md"
             >
+              {/* Full-card link — behind content; everything except "View Details" goes to the ranking page */}
+              <Link href={href} className="absolute inset-0 z-10 rounded-3xl" aria-label={title} />
               {/* Icon + title */}
               <div className="flex items-start gap-3">
                 <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${iconColor}`}>
@@ -390,7 +392,7 @@ export function PopularCategories() {
                       href={topPick.productUrl ?? "#"}
                       target="_blank"
                       rel="noopener noreferrer nofollow sponsored"
-                      className="mt-2 inline-flex w-full items-center justify-center rounded-full bg-trust-500 py-1.5 text-xs font-semibold text-white transition hover:bg-trust-600"
+                      className="relative z-20 mt-2 inline-flex w-full items-center justify-center rounded-full bg-trust-500 py-1.5 text-xs font-semibold text-white transition hover:bg-trust-600"
                     >
                       View Details
                     </a>
@@ -402,7 +404,7 @@ export function PopularCategories() {
               {/* Link */}
               <Link
                 href={href}
-                className="mt-4 inline-flex items-center gap-1 text-2xl font-semibold text-blue-600 hover:text-blue-700"
+                className="relative z-20 mt-4 inline-flex items-center gap-1 text-2xl font-semibold text-blue-600 hover:text-blue-700"
               >
                 View Rankings →
               </Link>

@@ -51,8 +51,26 @@ export default function BestForPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON_LD }} />
 
       {/* ── Hero ── */}
-      <section className="bg-sky-100 py-8 sm:py-10">
-        <div className="container-shell">
+      <section className="relative overflow-hidden bg-sky-100 py-8 sm:py-10">
+        <div
+          className="absolute inset-y-0 right-0 hidden w-1/3 sm:block"
+          aria-hidden="true"
+          style={{
+            backgroundImage: [
+              "linear-gradient(to right,",
+              "  rgba(224,242,254,1) 0%,",
+              "  rgba(224,242,254,0.7) 6%,",
+              "  rgba(224,242,254,0.2) 13%,",
+              "  rgba(224,242,254,0) 20%",
+              "),",
+              "url('/remote-monitoring-hero.png')",
+            ].join(" "),
+            backgroundSize: "auto, cover",
+            backgroundPosition: "left, center 20%",
+            backgroundRepeat: "no-repeat, no-repeat",
+          }}
+        />
+        <div className="container-shell relative z-10">
           <p className="eyebrow">Best For Rankings</p>
           <h1 className="mt-1 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
             Best Pets for Remote Monitoring

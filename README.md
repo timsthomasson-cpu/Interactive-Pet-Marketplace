@@ -154,6 +154,37 @@ When working with this codebase, Claude must:
 
 &#x20; link out instead.
 
+## Digest article formatting
+
+All Interactive Companion Digest articles (`app/digest/*/page.tsx`) use the
+shared `DigestArticle` template and its companion components in
+`components/digest-layout.tsx`. These already enforce the current standard —
+do not re-derive per-article styling; use the components below.
+
+- **Column width, paragraph spacing, typography:** built into `DigestArticle`
+  itself (`max-w-2xl` column, `prose-p:mb-8` for a full blank-line gap between
+  paragraphs, `prose-p:leading-8`). Nothing to add per article — just wrap
+  content in `<DigestArticle meta={{...}}>`.
+- **Fonts:** site default (Inter) — do not introduce per-article fonts.
+- **Hero image:** pass `meta.heroImage = { src, alt, caption? }` when a
+  suitable photo exists for the article's topic. Not mandatory if no fitting
+  image is available, but preferred when one is.
+- **FAQ sections:** use `<ArticleFAQ items={[{ q, a }, ...]} />` — bold
+  question, answer below, full blank-line gap between pairs. Don't hand-roll
+  `<h3>`/`<p>` pairs.
+- **"See our related rankings" links:** use
+  `<RelatedRankings links={[{ href, label }, ...]} />` — royal blue
+  (`#4169E1`), bold, underlined. Don't use `prose-a` defaults or `Link`
+  directly for this section.
+- **In-article product recommendations:** use `<ArticleProductCard slug=...
+  reason=... products={products} />` (add `tint="blue"` for the light-blue
+  variant) plus `<ArticleProductJsonLd slug=... products={products} />`.
+  Price and rating always come from `components/site-data.ts` (sourced from
+  the Product Matrix) — never hardcode a price or rating in article prose.
+  The card automatically shows "Price checked [date] / Rating checked
+  [date]" from the spreadsheet's last-checked fields, and the JSON-LD block
+  makes both machine-readable to search engines.
+
 ## Command Line
 
 when recommending terminal commands present Command Line Interface commands. Do not present Power Shell commands.
@@ -166,6 +197,61 @@ npm run dev
 ```
 
 Open `http://localhost:3000`.
+
+## "Best For" hero background photos
+
+When adding a background photo to a "Best For" hero section (the
+`bg-{color}-100 py-8 sm:py-10` section at the top of each
+`app/best-pets-for-*/page.tsx`), use this exact pattern so every page looks
+and behaves the same:
+
+1. Save the photo to `public/{page-slug}-hero.png` (full resolution, no
+   pre-baked tint — tinting is done live via CSS so it can be tuned).
+2. Add `relative overflow-hidden` to the hero `<section>`, and add
+   `relative z-10` to the inner `container-shell` div so the text always
+   renders above the photo.
+3. Add a background layer `<div>` right before the text container:
+
+```tsx
+<div
+  className="absolute inset-y-0 right-0 hidden w-1/3 sm:block"
+  aria-hidden="true"
+  style={{
+    backgroundImage: [
+      "linear-gradient(to right,",
+      "  rgba(R,G,B,1) 0%,",
+      "  rgba(R,G,B,0.7) 6%,",
+      "  rgba(R,G,B,0.2) 13%,",
+      "  rgba(R,G,B,0) 20%",
+      "),",
+      "url('/{page-slug}-hero.png')",
+    ].join(" "),
+    backgroundSize: "auto, cover",
+    backgroundPosition: "left, center 20%",
+    backgroundRepeat: "no-repeat, no-repeat",
+  }}
+/>
+```
+
+- `rgba(R,G,B,...)` must match the hero section's own background color
+  (e.g. `rgba(255,237,213,...)` for `bg-orange-100`, `rgba(204,251,241,...)`
+  for `bg-teal-100`) so the fade blends into the panel instead of showing a
+  seam.
+- The gradient stops (`0% / 6% / 13% / 20%`) fade out quickly, right next to
+  the text — full clarity is reached by 20% across the panel, so the subject
+  of the photo (the person's face/shoulder) reads with zero tint. Nudge the
+  percentages if a specific photo's subject sits closer to the panel's left
+  edge, but keep the fade confined to roughly the first fifth of the panel
+  as the default.
+- `backgroundPosition`'s `center 20%` controls vertical framing (crops
+  toward the top of the photo, where faces usually are) — adjust per photo
+  if needed, but keep the "left" position for the gradient layer unchanged.
+- Hidden below the `sm` breakpoint so the photo never fights the text on
+  mobile.
+
+**Exception:** `best-pets-for-seniors-in-memory-care-facilities` predates
+this convention and uses a wider, more gradual fade across most of the
+panel. Leave it as-is — do not retrofit it to this pattern.
 
 ## Edit content
 
