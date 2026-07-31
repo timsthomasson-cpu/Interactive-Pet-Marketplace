@@ -15,3 +15,7 @@ cloudflare-env.d.ts
 # OS-generated files
 .DS_Store
 Thumbs.db
+
+# Local-only debug capture of Meta Pixel events (dev debugging only,
+# never written to in production — see app/api/debug/view-content).
+Data/*.jsonl

@@ -59,9 +59,7 @@ export function getAffiliateName(productUrl: string): string {
  * every outbound "View Details" style button.
  */
 export function trackViewContent(product: Product): void {
-  if (typeof window === "undefined" || !window.fbq) return;
-
-  window.fbq("track", "ViewContent", {
+  const payload = {
     content_name: product.name,
     content_category: getAffiliateName(product.productUrl),
     content_ids: [product.slug],
@@ -70,5 +68,23 @@ export function trackViewContent(product: Product): void {
     // exact outbound destination visible in Events Manager / Test Events
     // for each event, without having to cross-reference content_ids.
     destination_url: product.productUrl,
-  });
+  };
+
+  // Debug-only: log the exact payload our code attempts to send, so it can
+  // be compared against what Meta's dashboard actually shows. No-ops
+  // safely in production (see app/api/debug/view-content/route.ts).
+  if (typeof window !== "undefined") {
+    fetch("/api/debug/view-content", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ event: "ViewContent", page: window.location.href, payload }),
+      keepalive: true,
+    }).catch(() => {
+      /* debug logging is best-effort only */
+    });
+  }
+
+  if (typeof window === "undefined" || !window.fbq) return;
+
+  window.fbq("track", "ViewContent", payload);
 }
