@@ -70,21 +70,29 @@ export function trackViewContent(product: Product): void {
     destination_url: product.productUrl,
   };
 
-  // Debug-only: log the exact payload our code attempts to send, so it can
-  // be compared against what Meta's dashboard actually shows. No-ops
-  // safely in production (see app/api/debug/view-content/route.ts).
+  const fbqAvailable = typeof window !== "undefined" && !!window.fbq;
+
+  // Debug-only: log the exact payload our code attempts to send, plus
+  // whether window.fbq actually existed at call time — so we can tell
+  // "fbq never fired" apart from "fbq fired but Meta only kept 2 fields".
+  // No-ops safely in production (see app/api/debug/view-content/route.ts).
   if (typeof window !== "undefined") {
     fetch("/api/debug/view-content", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ event: "ViewContent", page: window.location.href, payload }),
+      body: JSON.stringify({
+        event: "ViewContent",
+        page: window.location.href,
+        fbqAvailable,
+        payload,
+      }),
       keepalive: true,
     }).catch(() => {
       /* debug logging is best-effort only */
     });
   }
 
-  if (typeof window === "undefined" || !window.fbq) return;
+  if (!fbqAvailable) return;
 
-  window.fbq("track", "ViewContent", payload);
+  window.fbq!("track", "ViewContent", payload);
 }
