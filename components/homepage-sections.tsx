@@ -6,6 +6,7 @@ import { RANKED_SLUGS as _childrenFamilies } from "@/app/best-pets-for-children-
 
 import { products } from "./site-data";
 import { BestForCard } from "./best-for-card";
+import { ViewDetailsLink } from "./view-details-link";
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
 
@@ -388,14 +389,12 @@ export function PopularCategories() {
                       <p className="mt-0.5 text-[10px] text-amber-400">{"★".repeat(Math.round(topPick.rating))} <span className="text-slate-500">{topPick.rating.toFixed(1)}</span></p>
                     )}
                     <p className="mt-auto pt-1 text-sm font-bold text-slate-900">{topPick.price}</p>
-                    <a
-                      href={topPick.productUrl ?? "#"}
-                      target="_blank"
-                      rel="noopener noreferrer nofollow sponsored"
+                    <ViewDetailsLink
+                      product={topPick}
                       className="relative z-20 mt-2 inline-flex w-full items-center justify-center rounded-full bg-trust-500 py-1.5 text-xs font-semibold text-white transition hover:bg-trust-600"
                     >
                       View Details
-                    </a>
+                    </ViewDetailsLink>
                   </div>
                 ) : (
                   <div className="flex h-32 items-center justify-center text-slate-300 text-xs">No data</div>
