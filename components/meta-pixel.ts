@@ -66,5 +66,9 @@ export function trackViewContent(product: Product): void {
     content_category: getAffiliateName(product.productUrl),
     content_ids: [product.slug],
     content_type: "product",
+    // Not a Meta standard parameter, but passing it through makes the
+    // exact outbound destination visible in Events Manager / Test Events
+    // for each event, without having to cross-reference content_ids.
+    destination_url: product.productUrl,
   });
 }
