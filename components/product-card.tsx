@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Product } from "./site-data";
 import { Badge, PlaceholderVisual } from "./ui";
 import { PRODUCT_LINK_REL, RATING_LINK_REL } from "./link-rel";
+import { trackViewContent } from "./meta-pixel";
 
 // Optional prop: imageFit. The default (undefined) preserves the existing
 // behavior — object-contain on mobile (h-44) and object-cover on desktop
@@ -119,7 +120,13 @@ export function ProductCard({
               </div>
             );
           })()}
-          <Link href={product.productUrl} target="_blank" rel={PRODUCT_LINK_REL} className="inline-flex items-center justify-center rounded-full bg-trust-500 px-3 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600">
+          <Link
+            href={product.productUrl}
+            target="_blank"
+            rel={PRODUCT_LINK_REL}
+            onClick={() => trackViewContent(product)}
+            className="inline-flex items-center justify-center rounded-full bg-trust-500 px-3 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600"
+          >
             View Details
           </Link>
         </div>

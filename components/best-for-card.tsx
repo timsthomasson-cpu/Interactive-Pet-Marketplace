@@ -3,6 +3,7 @@ import { Product } from "./site-data";
 import { PlaceholderVisual } from "./ui";
 import { PRODUCT_LINK_REL, RATING_LINK_REL } from "./link-rel";
 import { featureIcon, StarRating } from "./best-for-icons";
+import { trackViewContent } from "./meta-pixel";
 
 // Variant of ProductCard used on Best For ranking pages.
 // Differences from the standard card:
@@ -162,6 +163,7 @@ export function BestForCard({
             href={product.productUrl}
             target="_blank"
             rel={PRODUCT_LINK_REL}
+            onClick={() => trackViewContent(product)}
             className={`inline-flex items-center justify-center rounded-full bg-trust-500 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600
               ${featured ? "px-10 py-3 sm:px-12 sm:py-4 text-base sm:text-xl" : "px-3 py-1 sm:px-5 sm:py-1.5 text-xs sm:text-sm"}`}
           >
