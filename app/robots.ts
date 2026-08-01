@@ -10,9 +10,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        // No private/internal paths to disallow yet. If you ever add admin
-        // routes, /api/internal/*, /preview/*, etc., add them here.
-        disallow: []
+        disallow: ["/admin", "/admin/*"]
       }
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

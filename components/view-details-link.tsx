@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { PRODUCT_LINK_REL } from "./link-rel";
 import { trackViewContent, type TrackableProduct } from "./meta-pixel";
+import { trackOutboundClick } from "./click-tracking";
 
 // Isolated as its own client component so that ProductCard / BestForCard
 // (which render lots of static, server-rendered content) don't have to
@@ -21,7 +22,10 @@ export function ViewDetailsLink({
       href={product.productUrl ?? "#"}
       target="_blank"
       rel={PRODUCT_LINK_REL}
-      onClick={() => trackViewContent(product)}
+      onClick={() => {
+        trackViewContent(product);
+        trackOutboundClick(product.slug, product.productUrl ?? "#");
+      }}
       className={className}
     >
       {children}

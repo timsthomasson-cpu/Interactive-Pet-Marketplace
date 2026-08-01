@@ -185,47 +185,6 @@ do not re-derive per-article styling; use the components below.
   [date]" from the spreadsheet's last-checked fields, and the JSON-LD block
   makes both machine-readable to search engines.
 
-## Known Benign Warnings
-
-These console/terminal messages have been investigated and confirmed
-harmless. Still report them if you see them (in case something about the
-underlying cause has changed) — but they are not blockers for testing or
-deployment.
-
-### "Encountered a script tag while rendering React component"
-
-```
-[browser] Encountered a script tag while rendering React component. Scripts
-inside React components are never executed when rendering on the client.
-```
-
-**Cause:** Several pages embed SEO structured data (JSON-LD) via a raw
-`<script type="application/ld+json" dangerouslySetInnerHTML={...} />` tag —
-this is the standard, Next.js-recommended pattern for JSON-LD, including in
-the shared `<JsonLd>` component (`components/json-ld.tsx`). React 19 warns
-whenever a `<script>` tag gets reconciled during a **client-side**
-render — which happens on any Next.js `<Link>` "soft" navigation between
-pages (not full page reloads). It does not happen on a hard page load,
-which is why it may not show up if you're mostly refreshing/typing URLs
-rather than clicking between pages.
-
-**Why it's safe to ignore:** JSON-LD isn't meant to *execute* as
-JavaScript — it's inert structured data that search engine crawlers read
-directly from the page's HTML. It doesn't matter that React "doesn't
-execute" it during a client re-render, because it was never supposed to
-run in the first place. This only affects the dev console; it doesn't
-affect what search engines see (they read the full server-rendered HTML on
-first load) and doesn't affect site functionality.
-
-**First seen:** August 2026, likely surfaced by a Next.js upgrade (project
-is on Next.js 16.2.6 as of this writing) combined with testing that
-involved a lot of link-to-link navigation rather than hard reloads.
-
-**When to actually worry:** if the warning is accompanied by a real error
-(e.g. "Uncaught Error," a 500 response, a blank/broken page, or anything
-that changes what's visibly rendered) — that's a separate, real problem,
-not this one.
-
 ## Command Line
 
 when recommending terminal commands present Command Line Interface commands. Do not present Power Shell commands.

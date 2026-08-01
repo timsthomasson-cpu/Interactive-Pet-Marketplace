@@ -29,6 +29,19 @@
 			"id": "037969ec2ac14cb58c54358b65f7743a"
 		}
 	],
+	"d1_databases": [
+		{
+			// Internal outbound-click audit log (separate from GA4/Meta Pixel).
+			// See schema.sql for the table definition and Documentation for setup steps.
+			//
+			// TODO(Tim): replace "REPLACE_WITH_DATABASE_ID" below with the id
+			// printed by `wrangler d1 create interactive-pet-marketplace-clicks`.
+			"binding": "CLICKS_DB",
+			"database_name": "interactive-pet-marketplace-clicks",
+			"database_id": "b29b54c8-d931-4d46-899d-98d228a402b5"
+		}
+	],
+
 	"images": {
 		// Enable image optimization
 		// see https://opennext.js.org/cloudflare/howtos/image
