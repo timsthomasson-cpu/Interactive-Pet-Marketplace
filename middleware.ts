@@ -4,9 +4,13 @@ import { ADMIN_SESSION_COOKIE, isValidSessionToken } from "@/lib/admin-auth";
 // Protects everything under /admin (except the login page itself) behind
 // a single shared password. See lib/admin-auth.ts for the session model.
 //
-// Note: this is named `proxy.ts` (not `middleware.ts`) per the Next.js 16
-// convention — see https://nextjs.org/docs/messages/middleware-to-proxy.
-export async function proxy(request: NextRequest) {
+// Note: this uses the deprecated `middleware.ts` convention (not the newer
+// `proxy.ts`) intentionally. Next.js 16's `proxy.ts` always runs on the
+// Node.js runtime, but @opennextjs/cloudflare doesn't support Node.js
+// middleware/proxy yet — only Edge Middleware, i.e. this file. Switch back
+// to proxy.ts once OpenNext adds that support.
+// See: https://github.com/cloudflare/workers-sdk/issues/13755
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname === "/admin/login") {
