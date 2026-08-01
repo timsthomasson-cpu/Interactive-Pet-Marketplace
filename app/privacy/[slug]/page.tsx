@@ -5,6 +5,7 @@ import { PageShell } from "@/components/layout";
 import { products } from "@/components/site-data";
 import { ManufacturerZone, ThirdPartyZone } from "@/components/product-privacy-details";
 import { JsonLd, breadcrumbListSchema } from "@/components/json-ld";
+import { ViewDetailsLink } from "@/components/view-details-link";
 
 // One static page per camera-equipped product. Only products with
 // product.privacy data get a page; everything else 404s. Generated at build
@@ -122,14 +123,12 @@ export default async function PrivacyDetailPage({ params }: { params: Promise<Pa
             </p>
             <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:gap-3">
               {product.productUrl && (
-                <a
-                  href={product.productUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <ViewDetailsLink
+                  product={product}
                   className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600"
                 >
                   View {product.name}
-                </a>
+                </ViewDetailsLink>
               )}
               <Link
                 href="/questions#privacy"

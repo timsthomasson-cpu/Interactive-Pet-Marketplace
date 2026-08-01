@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { products } from "./site-data";
 import { PRODUCT_LINK_REL } from "./link-rel";
+import { trackViewContent } from "./meta-pixel";
 
 const ROTATION_MS = 5000;
 
@@ -92,6 +93,7 @@ export function TopPicksRotator() {
                 href={product.productUrl || "#"}
                 target={product.productUrl ? "_blank" : undefined}
                 rel={PRODUCT_LINK_REL}
+                onClick={() => trackViewContent(product)}
                 className="relative block overflow-hidden rounded-2xl border border-coral-200 bg-cream-100"
                 style={{ aspectRatio: "1 / 1" }}
               >
@@ -145,6 +147,7 @@ export function TopPicksRotator() {
               href={product.productUrl || "#"}
               target={product.productUrl ? "_blank" : undefined}
               rel={PRODUCT_LINK_REL}
+              onClick={() => trackViewContent(product)}
               className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
                 i === index ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
               }`}

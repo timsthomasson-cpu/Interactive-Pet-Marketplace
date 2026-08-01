@@ -1,9 +1,9 @@
 "use client";
 import { useState, useMemo } from "react";
-import Link from "next/link";
 import { Product } from "./site-data";
 import { InfoPopover } from "./info-popover";
-import { PRODUCT_LINK_REL, RATING_LINK_REL } from "./link-rel";
+import { RATING_LINK_REL } from "./link-rel";
+import { ViewDetailsLink } from "./view-details-link";
 
 const PRICE_BUCKETS = [
   { label: "<$50", test: (n: number) => n < 50 },
@@ -179,7 +179,7 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
                     </span>
                   </td>
                   <td className="px-3 py-4">
-                    <Link href={product.productUrl} target="_blank" rel={PRODUCT_LINK_REL} className="inline-flex items-center justify-center rounded-full bg-trust-500 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap">View</Link>
+                    <ViewDetailsLink product={product} className="inline-flex items-center justify-center rounded-full bg-trust-500 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap">View</ViewDetailsLink>
                   </td>
                 </tr>
                 );
