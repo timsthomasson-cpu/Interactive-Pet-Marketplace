@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { products } from "./site-data";
+import { ViewDetailsLink } from "./view-details-link";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type State = {
@@ -195,10 +196,12 @@ function ResultCard({ p }: { p: (typeof products)[number] }) {
       )}
       <div className="mt-auto flex items-center justify-between pt-3">
         <p className="text-sm font-bold text-slate-900">{p.price}</p>
-        <a href={p.productUrl ?? "#"} target="_blank" rel="noopener noreferrer nofollow sponsored"
-           className="inline-flex items-center justify-center rounded-full bg-trust-500 px-4 py-1.5 text-xs font-semibold text-white hover:bg-trust-600">
+        <ViewDetailsLink
+          product={p}
+          className="inline-flex items-center justify-center rounded-full bg-trust-500 px-4 py-1.5 text-xs font-semibold text-white hover:bg-trust-600"
+        >
           View Details
-        </a>
+        </ViewDetailsLink>
       </div>
     </div>
   );

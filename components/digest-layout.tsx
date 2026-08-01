@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageShell } from "./layout";
+import { ViewDetailsLink } from "./view-details-link";
 
 export type ArticleMeta = {
   tag: "Guide" | "Review" | "Research";
@@ -182,10 +183,12 @@ export function ArticleProductCard({
               </p>
             )}
           </div>
-          <a href={p.productUrl ?? "#"} target="_blank" rel="noopener noreferrer nofollow sponsored"
-             className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-2 text-sm font-semibold text-white hover:bg-trust-600">
+          <ViewDetailsLink
+            product={p}
+            className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-2 text-sm font-semibold text-white hover:bg-trust-600"
+          >
             View Details
-          </a>
+          </ViewDetailsLink>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { PageShell } from "@/components/layout";
 import { BestForCard } from "@/components/best-for-card";
+import { ViewDetailsLink } from "@/components/view-details-link";
 import { ScoreGauge, ScoreBar } from "@/components/score-gauge";
 import {
   IconSparkleClean, IconDurability, IconUsers, IconShieldCheck,
@@ -127,10 +128,12 @@ export default function BestForPage() {
                       <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">Price</p>
                       <p className="text-xl font-bold text-slate-900">{topPick.price}</p>
                     </div>
-                    <a href={topPick.productUrl ?? "#"} target="_blank" rel="noopener noreferrer nofollow sponsored"
-                       className="inline-flex items-center justify-center rounded-full bg-trust-500 px-8 py-3 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600">
+                    <ViewDetailsLink
+                      product={topPick}
+                      className="inline-flex items-center justify-center rounded-full bg-trust-500 px-8 py-3 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600"
+                    >
                       View Details
-                    </a>
+                    </ViewDetailsLink>
                   </div>
                 </div>
                 <div className="flex flex-col items-center gap-2 border-t-2 border-amber-200 bg-white p-2.5 sm:p-3 lg:border-l-2 lg:border-t-0">

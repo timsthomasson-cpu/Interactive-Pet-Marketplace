@@ -1,5 +1,6 @@
 import { PageShell } from "@/components/layout";
 import { products } from "@/components/site-data";
+import { ViewDetailsLink } from "@/components/view-details-link";
 import Link from "next/link";
 import { RANKED_SLUGS as _budgetFriendly }   from "../best-budget-friendly-pets/page-data";
 import { RANKED_SLUGS as _anxiety }           from "../best-pets-for-anxiety/page-data";
@@ -254,10 +255,12 @@ export default function AllBestForRankings() {
                         )}
                         <div className="mt-auto flex items-center justify-between pt-2">
                           <p className="text-sm font-bold text-slate-900">{topPick.price}</p>
-                          <a href={topPick.productUrl ?? "#"} target="_blank" rel="noopener noreferrer nofollow sponsored"
-                             className="relative z-20 inline-flex items-center justify-center rounded-full bg-trust-500 px-3 py-1 text-xs font-semibold text-white hover:bg-trust-600">
+                          <ViewDetailsLink
+                            product={topPick}
+                            className="relative z-20 inline-flex items-center justify-center rounded-full bg-trust-500 px-3 py-1 text-xs font-semibold text-white hover:bg-trust-600"
+                          >
                             View Details
-                          </a>
+                          </ViewDetailsLink>
                         </div>
                       </div>
                     ) : (
