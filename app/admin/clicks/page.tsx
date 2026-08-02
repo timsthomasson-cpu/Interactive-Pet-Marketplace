@@ -13,6 +13,9 @@ type ClickRow = {
   source_page: string | null;
   referrer: string | null;
   session_id: string | null;
+  city: string | null;
+  region: string | null;
+  country: string | null;
 };
 
 export default async function AdminClicksPage({
@@ -113,6 +116,7 @@ export default async function AdminClicksPage({
               <th className="px-3 py-2">Timestamp</th>
               <th className="px-3 py-2">Product</th>
               <th className="px-3 py-2">Program</th>
+              <th className="px-3 py-2">Location</th>
               <th className="px-3 py-2">Source Page</th>
               <th className="px-3 py-2">Destination</th>
             </tr>
@@ -125,6 +129,10 @@ export default async function AdminClicksPage({
                 </td>
                 <td className="px-3 py-2 font-medium text-trust-800">{row.product_slug}</td>
                 <td className="px-3 py-2">{row.affiliate_program ?? "—"}</td>
+                <td className="whitespace-nowrap px-3 py-2 text-gray-500">
+                  {row.city ? `${row.city}, ${row.region ?? "—"}` : "—"}
+                  {row.country ? ` (${row.country})` : ""}
+                </td>
                 <td className="max-w-xs truncate px-3 py-2 text-gray-500">
                   {row.source_page ?? "—"}
                 </td>
@@ -142,7 +150,7 @@ export default async function AdminClicksPage({
             ))}
             {rows.length === 0 && !error && (
               <tr>
-                <td colSpan={5} className="px-3 py-6 text-center text-gray-400">
+                <td colSpan={6} className="px-3 py-6 text-center text-gray-400">
                   No clicks in this range yet.
                 </td>
               </tr>

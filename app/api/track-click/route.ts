@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { env } = getCloudflareContext();
+    const { env, cf } = getCloudflareContext();
     const db = env.CLICKS_DB;
 
     if (!db) {
@@ -51,11 +51,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ ok: false, note: "D1 binding unavailable in this environment" });
     }
 
+    // Cloudflare attaches this geo data to every request for free — no
+    // external IP lookup needed. Lets Tim filter out his own testing
+    // clicks (e.g. everything from Coppell, TX) on the admin page.
+    const city = typeof cf?.city === "string" ? cf.city : null;
+    const region = typeof cf?.region === "string" ? cf.region : null;
+    const country = typeof cf?.country === "string" ? cf.country : null;
+
     await db
       .prepare(
         `INSERT INTO outbound_clicks
-           (timestamp, product_slug, affiliate_program, destination_url, source_page, referrer, session_id)
-         VALUES (?, ?, ?, ?, ?, ?, ?)`
+           (timestamp, product_slug, affiliate_program, destination_url, source_page, referrer, session_id, city, region, country)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
       )
       .bind(
         new Date().toISOString(),
@@ -64,7 +71,10 @@ export async function POST(request: NextRequest) {
         destinationUrl,
         typeof sourcePage === "string" ? sourcePage : null,
         typeof referrer === "string" ? referrer : null,
-        typeof sessionId === "string" ? sessionId : null
+        typeof sessionId === "string" ? sessionId : null,
+        city,
+        region,
+        country
       )
       .run();
 
