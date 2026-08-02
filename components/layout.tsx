@@ -265,12 +265,14 @@ export function SiteHeader() {
   return (
     <header ref={headerRef} className="sticky top-0 z-40 border-b border-coral-200 bg-white/95 backdrop-blur">
       <div className="container-shell flex items-start justify-between gap-6 py-4">
-        <Link href="/" className="flex items-center gap-3">
-          <img src="/logo-mark.svg" alt="" width="44" height="44" className="h-11 w-11" />
-          <div>
-            <div className="text-sm font-semibold text-brand-700">Interactive Pet Marketplace</div>
-            <div className="hidden sm:block text-xs text-slate-500">Interactive &amp; AI companion guides</div>
-          </div>
+        <Link href="/" className="flex items-center">
+          <img
+            src="/logo-full.svg"
+            alt="Interactive Pet Marketplace"
+            width="194"
+            height="44"
+            className="h-11 w-auto"
+          />
         </Link>
         <nav className="hidden items-start gap-4 lg:flex">
           {mainNav.map((item) => {

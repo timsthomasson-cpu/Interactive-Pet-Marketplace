@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="37.44" viewBox="86.456 408.432 217.200 184.802">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="416.06" height="94.08" viewBox="84.776 406.752 832.114 188.162">
 <defs>
 <g>
 <g id="glyph-0-0">
@@ -106,7 +106,6 @@
 </g>
 </g>
 </defs>
-<path fill-rule="evenodd" fill="rgb(100%, 100%, 100%)" fill-opacity="1" d="M 1 1 L 1001 1 L 1001 1001 L 1 1001 Z M 1 1 "/>
 <g fill="rgb(10.195923%, 27.058411%, 46.273804%)" fill-opacity="1">
 <use xlink:href="#glyph-0-0" x="313.838837" y="477.252105"/>
 <use xlink:href="#glyph-0-1" x="334.394709" y="477.252105"/>
