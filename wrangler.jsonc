@@ -42,14 +42,7 @@
 		}
 	],
 
-	"vars": {
-		// TEMPORARY: routes Meta Conversions API events into Meta's Test
-		// Events tool (Events Manager > Test Events) instead of live
-		// reporting. Once you've confirmed test events are showing up
-		// correctly there, DELETE this whole "vars" block (or just this
-		// line) and redeploy to send real events.
-		"META_CAPI_TEST_EVENT_CODE": "TEST52849"
-	},
+	
 
 	"images": {
 		// Enable image optimization
