@@ -95,8 +95,9 @@ export function TopPicksRotator() {
                 target={product.productUrl ? "_blank" : undefined}
                 rel={PRODUCT_LINK_REL}
                 onClick={() => {
-                  trackViewContent(product);
-                  trackOutboundClick(product.slug, product.productUrl || "#");
+                  const eventId = crypto.randomUUID();
+                  trackViewContent(product, eventId);
+                  trackOutboundClick(product.slug, product.productUrl || "#", eventId);
                 }}
                 className="relative block overflow-hidden rounded-2xl border border-coral-200 bg-cream-100"
                 style={{ aspectRatio: "1 / 1" }}
@@ -152,8 +153,9 @@ export function TopPicksRotator() {
               target={product.productUrl ? "_blank" : undefined}
               rel={PRODUCT_LINK_REL}
               onClick={() => {
-                  trackViewContent(product);
-                  trackOutboundClick(product.slug, product.productUrl || "#");
+                  const eventId = crypto.randomUUID();
+                  trackViewContent(product, eventId);
+                  trackOutboundClick(product.slug, product.productUrl || "#", eventId);
                 }}
               className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
                 i === index ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"

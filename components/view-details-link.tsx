@@ -23,8 +23,9 @@ export function ViewDetailsLink({
       target="_blank"
       rel={PRODUCT_LINK_REL}
       onClick={() => {
-        trackViewContent(product);
-        trackOutboundClick(product.slug, product.productUrl ?? "#");
+        const eventId = crypto.randomUUID();
+        trackViewContent(product, eventId);
+        trackOutboundClick(product.slug, product.productUrl ?? "#", eventId);
       }}
       className={className}
     >
