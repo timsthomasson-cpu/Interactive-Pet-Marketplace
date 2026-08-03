@@ -41,7 +41,7 @@ export default function AboutPage() {
           <SectionHeading
             as="h1"
             eyebrow="About"
-            title="A cleaner way to compare interactive pets."
+            title="An easier way to compare interactive pets."
             text="Interactive Pet Marketplace exists to make it easier to find the right interactive pet, AI & robotic pet, or plushy companion — without wading through cluttered review sites."
           />
         </div>
@@ -54,7 +54,7 @@ export default function AboutPage() {
             <div>
               <p className="eyebrow">What we do</p>
               <h2 className="mt-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-                Honest comparisons, organized by who you're shopping for.
+                Objective comparisons, organized by who you're shopping for.
               </h2>
             </div>
             <div className="space-y-4 text-base leading-7 text-slate-700">
@@ -201,10 +201,15 @@ export default function AboutPage() {
                 Interactive Pet Marketplace is curated and researched by{" "}
                 <span className="font-semibold text-slate-900">Tim Thomasson</span>{" "}
                 (<a href="mailto:tim.thomasson@interactivepetmarketplace.com" className="text-trust-600 hover:text-trust-800 underline">tim.thomasson@interactivepetmarketplace.com</a>).
-                Product research, privacy reviews, and editorial decisions are
-                made by a single person — not an anonymous team or an AI content
-                pipeline. Every product on this site has been chosen, reviewed,
-                and written about by hand.
+                Product research, privacy reviews, and editorial decisions
+                are made by Interactive Pet Marketplace. Every product on
+                this site has been chosen, reviewed, and written about with
+                care.
+              </p>
+              <p className="text-sm text-slate-600">
+                AI tools may be used to help draft text or generate images on
+                this site, but all content is reviewed and approved by
+                Interactive Pet Marketplace before publishing.
               </p>
               {/*
                 TIM: If you'd like to expand this with a short bio
