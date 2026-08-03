@@ -395,7 +395,7 @@ export function SiteFooter() {
           <div className="md:col-span-2">
             <p className="text-base font-semibold text-brand-900">Interactive Pet Marketplace</p>
             <p className="mt-3 max-w-sm text-sm leading-7 text-slate-600">
-              A cleaner way to compare companion-style plushy companions and AI &amp; robotic pets for seniors, families, and gift buyers.
+              An easier way to compare companion-style plushy companions and AI &amp; robotic pets for seniors, families, and gift buyers.
             </p>
           </div>
           <div>
