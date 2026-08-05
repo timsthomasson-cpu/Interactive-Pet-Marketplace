@@ -38,11 +38,17 @@ on this project must follow these rules without exception.
 
 
 
-3\. \*\*Never automate scraping of Amazon, manufacturer sites, or any third
+3\. \*\*Never automate scraping of Amazon.\*\* Manual lookups by a human are
 
-&#x20;  party.\*\* Manual lookups by a human are fine; bots, scripts, or scheduled
+&#x20;  fine; bots, scripts, or scheduled fetchers that hit Amazon are not, per
 
-&#x20;  fetchers that hit those sites are not.
+&#x20;  Amazon's Associates terms. Automated fetching of non-Amazon manufacturer
+
+&#x20;  or third-party sites is allowed, but must still comply with each site's
+
+&#x20;  own terms of service, and with rule 1 (never invent data) and rule 4
+
+&#x20;  (never present invented data as verified) if a value can't be confirmed.
 
 
 
