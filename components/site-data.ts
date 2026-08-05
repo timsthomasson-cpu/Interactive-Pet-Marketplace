@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-08-05T20:15:05.796Z
+// Generated: 2026-08-05T20:23:16.635Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -1260,7 +1260,7 @@ export const products: Product[] = [
     "ratingSource": "Amazon",
     "ratingLastChecked": "2026-08-05",
     "ratingUrl": "https://ropetai.com/products/ropet™-ai-comfort-companion-plush-robot",
-    "price": "$34900.00",
+    "price": "$349.00",
     "priceSource": "Ropetai.com",
     "priceLastChecked": "2026-08-05",
     "priceCategory": "Premium",
