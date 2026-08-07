@@ -106,7 +106,9 @@ When asked to create a Facebook video ad from approved images or slides:
 7. **Encode the final video as a Facebook-compatible MP4** using H.264 video, yuv420p, AAC audio, and faststart/web optimization.
 8. **Verify the output before delivery.** Confirm duration, dimensions, video stream, audio stream, and successful MP4 creation.
 9. **Create a ZIP archive containing the final MP4.** ZIP delivery is required for campaign video deliverables because direct MP4 downloads may stall in some ChatGPT/browser sessions.
-10. **Present the ZIP download link as the primary user-facing deliverable.** Also provide the direct MP4 link as a secondary option when available.
+10. **Send the user an active download link to the ZIP file in the final response.** The ZIP link is the primary deliverable and must be presented as a clickable download link, not merely as a file path.
+11. **Also provide the direct MP4 link as a secondary option when available.** If the direct MP4 download stalls, instruct the user to use the ZIP link instead.
+12. **Verify the downloadable files exist at the exact paths being linked before responding.** Never claim a download link is available unless the file was actually created and the link points to that exact file.
 
 Recommended naming pattern:
 
@@ -257,7 +259,9 @@ Before approval or export, confirm that:
 * The final Facebook video is approximately 15 seconds, 9:16, and 720 × 1280 unless another format was approved.
 * The MP4 contains an H.264 video stream and, when music is included, an AAC audio stream.
 * A ZIP containing the final MP4 has been created.
-* The final response presents the ZIP link prominently, with the direct MP4 link as an optional secondary link.
+* The final response sends an active, clickable ZIP download link prominently.
+* The direct MP4 link is included as an optional secondary link when available.
+* The linked ZIP and MP4 paths are verified to exist before the response is sent.
 
 ## Digest article formatting
 
