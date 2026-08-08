@@ -62,62 +62,81 @@ These standards apply to Facebook and Instagram advertising for Interactive Pet 
 * Primary placements: Facebook Feed and Instagram Feed
 * Deliverable: one individual PNG per ad
 
-#### Reels, Stories, and short-video slides
+#### Reels and Stories video
 
-* Creative aspect ratio: **9:16**
-* Preferred design canvas for individual source slides: **1080 × 1920 px**
+* Aspect ratio: **9:16**
+* Final video export: **720 × 1280 px**
+* Preferred design canvas for source slides: **1080 × 1920 px**
 * Primary placements: Facebook Reels, Instagram Reels, Facebook Stories, and Instagram Stories
-* Deliverables: one individual PNG per slide and an MP4 when assembly is requested
-* Typical informational video: three slides, approximately five seconds per slide
 
-When a campaign will run in both feed and full-screen placements, create separate 4:5 and 9:16 versions. Do not rely on automatic cropping or add blank padding to turn a 4:5 design into 9:16.
+#### Feed video
 
-### Current Facebook video export standard
+* Aspect ratio: **4:5**
+* Final video export: **1080 × 1350 px**
+* Primary placements: Facebook Feed, Instagram Feed, Instagram Explore, and Instagram Profile Feed
 
-Unless the campaign brief explicitly requests another format, use this production standard for finished Facebook/Instagram video ads:
+For every Facebook/Meta video ad, create **both** the 9:16 Reels/Stories version and the 4:5 Feed version unless the campaign brief explicitly limits placements. Do not rely on Meta to crop or mask one aspect ratio for the other.
+
+### Current Facebook/Meta video export standard
+
+Unless the campaign brief explicitly requests another format, every finished Facebook/Instagram video ad must include two placement-specific versions using the same approved content, sequence, timing, transitions, and audio:
+
+**Reels/Stories version**
 
 * Total duration: **15 seconds**
 * Aspect ratio: **9:16 vertical**
 * Final export size: **720 × 1280 px**
-* Slide count: **3 slides**
+* Intended placements: Facebook Reels, Instagram Reels, Facebook Stories, and Instagram Stories
+
+**Feed version**
+
+* Total duration: **15 seconds**
+* Aspect ratio: **4:5 vertical**
+* Final export size: **1080 × 1350 px**
+* Intended placements: Facebook Feed, Instagram Feed, Instagram Explore, and Instagram Profile Feed
+
+**Standards shared by both versions**
+
+* Slide count: **3 slides** unless the campaign brief specifies otherwise
 * Timing: approximately **5 seconds per slide**
 * Frame rate: **24 fps**
 * Video codec: **H.264**
-* Compatibility profile: **Baseline/Constrained Baseline**, Facebook-compatible
 * Pixel format: **yuv420p**
 * Audio codec: **AAC**, stereo
 * Use `faststart`/web-optimized MP4 output when available
 * Use soft fades of roughly **0.3–0.5 seconds** between slides
-* Background music is optional, but when included it should be gentle, unobtrusive, properly licensed or original, and mixed below the visual message
-* Keep all important text, logos, and qualifications inside the mobile-safe area
+* Background music is optional, but when included it should be gentle, unobtrusive, properly licensed or original, and the same music should be used in both placement versions
+* Keep all important text, logos, qualifications, and focal imagery inside the safe area for the intended placement
 
-The final MP4 should be optimized for reliable upload and playback rather than unnecessarily high bitrate. If a larger 1080 × 1920 master is also created, the **720 × 1280 Facebook-compatible MP4 remains the standard delivery copy for this campaign unless requested otherwise**.
+The two exports are separate final deliverables. Do not create the 4:5 version by simply allowing Meta to mask the 9:16 file, and do not create the 9:16 version by adding blank padding to a shorter layout.
 
-### Facebook video ad creation process
+### Facebook/Meta video ad creation process
 
-When asked to create a Facebook video ad from approved images or slides:
+When asked to create a Facebook/Meta video ad from approved images or slides:
 
 1. **Use the approved images as the source.** Do not redraw or rewrite them unless the user explicitly requests changes.
-2. **Confirm the three images are true 9:16 layouts.** Do not create a 9:16 frame by placing a shorter image on a taller canvas with a blank band.
-3. **Resize/export each source slide to 720 × 1280 px** for the compatibility version while preserving the full layout.
-4. **Sequence the slides in the user-provided order.** Default to approximately five seconds per slide for a 15-second three-slide video.
-5. **Use soft transitions.** The default is a gentle crossfade of approximately 0.4 seconds between slides.
-6. **Add background music when requested.** Use original or properly licensed music, keep the mix understated, and do not let audio compete with readability.
-7. **Encode the final video as a Facebook-compatible MP4** using H.264 video, yuv420p, AAC audio, and faststart/web optimization.
-8. **Verify the output before delivery.** Confirm duration, dimensions, video stream, audio stream, and successful MP4 creation.
-9. **Create a ZIP archive containing the final MP4.** ZIP delivery is required for campaign video deliverables because direct MP4 downloads may stall in some ChatGPT/browser sessions.
-10. **Send the user an active download link to the ZIP file in the final response.** The ZIP link is the primary deliverable and must be presented as a clickable download link, not merely as a file path.
-11. **Also provide the direct MP4 link as a secondary option when available.** If the direct MP4 download stalls, instruct the user to use the ZIP link instead.
+2. **Create a true 9:16 Reels/Stories version.** Build or adapt the source slides for the full vertical frame without blank bands or important content outside the mobile-safe area.
+3. **Create a separate true 4:5 Feed version.** Recompose the approved creative for 1080 × 1350 so the logo, headline, body copy, qualifications, icons, and focal image remain readable without Meta masking or cropping important content.
+4. **Keep the two videos equivalent in message and sequence.** Use the same three slides, approximately five seconds per slide, unless a campaign brief explicitly specifies otherwise.
+5. **Use the same soft transitions in both files.** The default is a gentle crossfade of approximately 0.4 seconds between slides.
+6. **Add background music when requested.** Use original or properly licensed music, keep the mix understated, and use the same audio track in both aspect-ratio versions.
+7. **Encode both files as Facebook-compatible MP4s** using H.264 video, yuv420p, AAC audio, and faststart/web optimization.
+8. **Verify both outputs before delivery.** Confirm duration, dimensions, aspect ratio, video stream, audio stream, and successful MP4 creation for each file.
+9. **Create a separate ZIP archive for each final MP4.** ZIP delivery is required for campaign video deliverables because direct MP4 downloads may stall in some ChatGPT/browser sessions.
+10. **Send the user active download links to both ZIP files in the final response.** Clearly identify which link is for Reels/Stories and which is for Feed.
+11. **Also provide direct MP4 links as secondary options when available.** If a direct MP4 download stalls, instruct the user to use the corresponding ZIP link instead.
 12. **Verify the downloadable files exist at the exact paths being linked before responding.** Never claim a download link is available unless the file was actually created and the link points to that exact file.
 
 Recommended naming pattern:
 
 ```text
-{campaign}-facebook-video-15sec-720x1280.mp4
-{campaign}-facebook-video-15sec-720x1280.zip
+{campaign}-meta-video-reels-stories-15sec-720x1280.mp4
+{campaign}-meta-video-reels-stories-15sec-720x1280.zip
+{campaign}-meta-video-feed-15sec-1080x1350.mp4
+{campaign}-meta-video-feed-15sec-1080x1350.zip
 ```
 
-The ZIP should contain the final MP4 with the same descriptive base name. Do not use generic names such as `video.mp4`, `final.mp4`, or `output.zip`.
+Use the placement name and dimensions in every final filename. Do not deliver files with ambiguous names such as `video.mp4`, `final.mp4`, `4x5.mp4`, `9x16.mp4`, or `output.zip`.
 
 ### Mobile-first layout
 
@@ -128,6 +147,7 @@ The ZIP should contain the final MP4 with the same descriptive base name. Do not
 * Review final creative at actual phone size before approval.
 * Keep essential text, logos, disclaimers, and calls to action away from the outer edges.
 * For 9:16 creative, leave generous clear space at the top, bottom, and far right for Meta interface overlays.
+* For 4:5 Feed creative, keep essential content comfortably inside the frame so it remains readable across Facebook Feed, Instagram Feed, Explore, and Profile Feed placements.
 
 ### Brand identity
 
@@ -192,7 +212,7 @@ A typical 4:5 static informational paid Meta ad should contain:
 
 Do not add a redundant URL banner to paid Meta creative when the ad will already use a clickable destination and Meta CTA button.
 
-A typical three-slide 9:16 informational video should use:
+A typical three-slide informational video should use the same content structure in both the 9:16 and 4:5 versions:
 
 1. **Context:** introduce the issue or one audience-relevant statistic.
 2. **Evidence:** state what the research suggests and include a qualification.
@@ -233,8 +253,10 @@ loneliness-video-slide-01-1080x1920.png
 loneliness-video-slide-02-1080x1920.png
 loneliness-video-slide-03-1080x1920.png
 real-vs-robotic-static-feed-1080x1350.png
-loneliness-facebook-video-15sec-720x1280.mp4
-loneliness-facebook-video-15sec-720x1280.zip
+loneliness-meta-video-reels-stories-15sec-720x1280.mp4
+loneliness-meta-video-reels-stories-15sec-720x1280.zip
+loneliness-meta-video-feed-15sec-1080x1350.mp4
+loneliness-meta-video-feed-15sec-1080x1350.zip
 ```
 
 Do not deliver files with generic names such as `imagegen.png`, `final.png`, `edit.png`, `image-1.png`, `video.mp4`, or `output.zip`.
@@ -256,12 +278,13 @@ Before approval or export, confirm that:
 * General informational campaigns remain educational and soft sell.
 * Each static ad and each video slide is delivered as an individual PNG when requested.
 * Paid Meta creative does not contain a redundant website URL or globe icon unless specifically requested.
-* The final Facebook video is approximately 15 seconds, 9:16, and 720 × 1280 unless another format was approved.
-* The MP4 contains an H.264 video stream and, when music is included, an AAC audio stream.
-* A ZIP containing the final MP4 has been created.
-* The final response sends an active, clickable ZIP download link prominently.
-* The direct MP4 link is included as an optional secondary link when available.
-* The linked ZIP and MP4 paths are verified to exist before the response is sent.
+* Every Facebook/Meta video ad includes both a **9:16 Reels/Stories version at 720 × 1280** and a **4:5 Feed version at 1080 × 1350**, unless the campaign brief explicitly limits placements.
+* Both placement versions use the same approved message, slide order, timing, transitions, and audio unless a campaign-specific exception is approved.
+* Each MP4 contains an H.264 video stream and, when music is included, an AAC audio stream.
+* A separate ZIP has been created for each final MP4.
+* The final response sends active, clickable ZIP download links for both the Reels/Stories and Feed versions.
+* Direct MP4 links are included as optional secondary links when available.
+* All linked ZIP and MP4 paths are verified to exist before the response is sent.
 
 ## Digest article formatting
 
