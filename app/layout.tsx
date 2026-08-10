@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import DevScriptWarningSuppressor from "@/components/DevScriptWarningSuppressor";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -65,6 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans antialiased">
+        <DevScriptWarningSuppressor />
         {children}
         <GoogleAnalytics />
         <FacebookPixel />
