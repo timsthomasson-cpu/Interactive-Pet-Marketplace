@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Tech Savvy Seniors"
-// Generated: 2026-07-16
+// Generated: 2026-08-10
 
-export const GENERATED_DATE = '2026-07-16';
+export const GENERATED_DATE = '2026-08-10';
 
 export const WEIGHTS = [
   { key: 'ai', label: 'Ai / Advanced Interaction Level', weight: "25%", reversed: false },
@@ -29,13 +29,13 @@ export const ROWS: RankedRow[] = [
   {
     rank: 1, manufacturer: 'Loona', product: 'Robot Pet Dog',
     priceCategory: 'Premium', animal: 'Dog', price: '$499.00',
-    rating: '4.2', reviews: '1,199', overall: '3.95',
+    rating: '4.1', reviews: '1,231', overall: '3.95',
     scores: { ai: 5, brand: 4, charging: 5, customizatio: 5, privacy: 1, touch: 4, voice: 4, fallrisk: 2, emotional: 3 },
   },
   {
     rank: 2, manufacturer: 'Ropet', product: 'KAMOMO',
     priceCategory: 'Premium', animal: 'Robot', price: '$349.00',
-    rating: '4.3', reviews: '17', overall: '3.9',
+    rating: '4.1', reviews: '47', overall: '3.9',
     scores: { ai: 4, brand: 3, charging: 5, customizatio: 4, privacy: 3, touch: 4, voice: 3, fallrisk: 5, emotional: 4 },
   },
   {
@@ -46,14 +46,14 @@ export const ROWS: RankedRow[] = [
   },
   {
     rank: 4, manufacturer: 'Chongker', product: 'Percy 1.1 Robotic Companion Dog',
-    priceCategory: 'Budget Friendly', animal: 'Dog', price: '$89.00',
-    rating: '5.0', reviews: '5', overall: '3.8',
+    priceCategory: 'Budget Friendly', animal: 'Dog', price: '$99.00',
+    rating: '4.8', reviews: '13', overall: '3.8',
     scores: { ai: 3, brand: 4, charging: 3, customizatio: 3, privacy: 5, touch: 5, voice: 4, fallrisk: 5, emotional: 5 },
   },
   {
     rank: 5, manufacturer: 'Chongker', product: 'Percy Robot Cat',
-    priceCategory: 'Budget Friendly', animal: 'Cat', price: '$89.00',
-    rating: '5.0', reviews: '16', overall: '3.75',
+    priceCategory: 'Budget Friendly', animal: 'Cat', price: '$99.00',
+    rating: '5.0', reviews: '20', overall: '3.75',
     scores: { ai: 3, brand: 4, charging: 3, customizatio: 3, privacy: 5, touch: 4, voice: 4, fallrisk: 5, emotional: 5 },
   },
 ];

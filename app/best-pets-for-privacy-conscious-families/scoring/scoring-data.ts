@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Privacy Conscious Families"
-// Generated: 2026-07-16
+// Generated: 2026-08-10
 
-export const GENERATED_DATE = '2026-07-16';
+export const GENERATED_DATE = '2026-08-10';
 
 export const WEIGHTS = [
   { key: 'ai', label: 'Ai / Advanced Interaction Level', weight: "10%", reversed: false },
@@ -27,8 +27,8 @@ export type RankedRow = {
 export const ROWS: RankedRow[] = [
   {
     rank: 1, manufacturer: 'Chongker', product: 'Percy Robot Cat',
-    priceCategory: 'Budget Friendly', animal: 'Cat', price: '$89.00',
-    rating: '5.0', reviews: '16', overall: '4.1',
+    priceCategory: 'Budget Friendly', animal: 'Cat', price: '$99.00',
+    rating: '5.0', reviews: '20', overall: '4.1',
     scores: { ai: 3, autonomous: 3, brand: 4, maintenance: 4, privacy: 5, safety: 5, simplicity: 4, value: 4 },
   },
   {
@@ -39,20 +39,20 @@ export const ROWS: RankedRow[] = [
   },
   {
     rank: 3, manufacturer: 'Chongker', product: 'Percy 1.1 Robotic Companion Dog',
-    priceCategory: 'Budget Friendly', animal: 'Dog', price: '$89.00',
-    rating: '5.0', reviews: '5', overall: '4.1',
+    priceCategory: 'Budget Friendly', animal: 'Dog', price: '$99.00',
+    rating: '4.8', reviews: '13', overall: '4.1',
     scores: { ai: 3, autonomous: 3, brand: 4, maintenance: 4, privacy: 5, safety: 5, simplicity: 4, value: 4 },
   },
   {
     rank: 4, manufacturer: 'Furby', product: 'DJ Furby',
-    priceCategory: 'Budget Friendly', animal: 'Other', price: '$50.11',
-    rating: '4.8', reviews: '772', overall: '3.9',
+    priceCategory: 'Budget Friendly', animal: 'Other', price: '$69.99',
+    rating: '4.8', reviews: '1,132', overall: '3.9',
     scores: { ai: 2, autonomous: 2, brand: 5, maintenance: 4, privacy: 5, safety: 5, simplicity: 4, value: 4 },
   },
   {
-    rank: 5, manufacturer: 'Perfect Petzzz', product: 'Grey Tabby Cat',
-    priceCategory: 'Budget Friendly', animal: 'Cat', price: '$44.45',
-    rating: '4.3', reviews: '848', overall: '3.9',
+    rank: 5, manufacturer: 'Perfect Petzzz', product: 'Original Border Collie',
+    priceCategory: 'Budget Friendly', animal: 'Dog', price: '$44.45',
+    rating: '4.4', reviews: '441', overall: '3.9',
     scores: { ai: 1, autonomous: 3, brand: 3, maintenance: 5, privacy: 5, safety: 5, simplicity: 5, value: 3 },
   },
 ];

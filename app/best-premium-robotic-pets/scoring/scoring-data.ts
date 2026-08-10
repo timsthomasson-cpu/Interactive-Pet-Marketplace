@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Premium Robotic Pets"
-// Generated: 2026-07-07
+// Generated: 2026-08-10
 
-export const GENERATED_DATE = '2026-07-07';
+export const GENERATED_DATE = '2026-08-10';
 
 export const WEIGHTS = [
   { key: 'ai', label: 'Ai / Advanced Interaction Level', weight: "20%", reversed: false },
@@ -30,19 +30,19 @@ export const ROWS: RankedRow[] = [
   {
     rank: 1, manufacturer: 'Loona', product: 'Robot Pet Dog',
     priceCategory: 'Premium', animal: 'Dog', price: '$499.00',
-    rating: '4.2', reviews: '1,199', overall: '4.1',
+    rating: '4.1', reviews: '1,231', overall: '4.1',
     scores: { ai: 5, autonomous: 4, brand: 4, charging: 5, customizatio: 5, movement: 5, privacy: 1, realism: 2, touch: 4, value: 3 },
   },
   {
     rank: 2, manufacturer: 'Enabot', product: 'EBO Air 2 Plus FamilyBot',
-    priceCategory: 'Premium', animal: 'Robot', price: '$359.00',
+    priceCategory: 'Premium', animal: 'Robot', price: '$319.00',
     rating: '5.0', reviews: '42', overall: '3.2',
     scores: { ai: 4, autonomous: 3, brand: 4, charging: 5, customizatio: 4, movement: 4, privacy: 1, realism: 1, touch: 2, value: 3 },
   },
   {
     rank: 3, manufacturer: 'Ropet', product: 'KAMOMO',
     priceCategory: 'Premium', animal: 'Robot', price: '$349.00',
-    rating: '4.3', reviews: '17', overall: '3.0',
-    scores: { ai: 4, autonomous: 3, brand: 3, charging: 3, customizatio: 4, movement: 1, privacy: 3, realism: 2, touch: 4, value: 3 },
+    rating: '4.1', reviews: '47', overall: '3.1',
+    scores: { ai: 4, autonomous: 3, brand: 3, charging: 5, customizatio: 4, movement: 1, privacy: 3, realism: 2, touch: 4, value: 3 },
   },
 ];

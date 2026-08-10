@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Seniors in Memory Care Facilities"
-// Generated: 2026-07-16
+// Generated: 2026-08-10
 
-export const GENERATED_DATE = '2026-07-16';
+export const GENERATED_DATE = '2026-08-10';
 
 export const WEIGHTS = [
   { key: 'charging', label: 'Charging Convenience', weight: "10%", reversed: false },
@@ -26,8 +26,8 @@ export type RankedRow = {
 export const ROWS: RankedRow[] = [
   {
     rank: 1, manufacturer: 'Chongker', product: 'Percy Robot Cat',
-    priceCategory: 'Budget Friendly', animal: 'Cat', price: '$89.00',
-    rating: '5.0', reviews: '16', overall: '3.95',
+    priceCategory: 'Budget Friendly', animal: 'Cat', price: '$99.00',
+    rating: '5.0', reviews: '20', overall: '3.95',
     scores: { charging: 3, caregiver: 4, cleanability: 3, dementia: 4, durability: 4, privacy: 5, safety: 5 },
   },
   {
@@ -38,20 +38,20 @@ export const ROWS: RankedRow[] = [
   },
   {
     rank: 3, manufacturer: 'Chongker', product: 'Percy 1.1 Robotic Companion Dog',
-    priceCategory: 'Budget Friendly', animal: 'Dog', price: '$89.00',
-    rating: '5.0', reviews: '5', overall: '3.95',
+    priceCategory: 'Budget Friendly', animal: 'Dog', price: '$99.00',
+    rating: '4.8', reviews: '13', overall: '3.95',
     scores: { charging: 3, caregiver: 4, cleanability: 3, dementia: 4, durability: 4, privacy: 5, safety: 5 },
   },
   {
-    rank: 4, manufacturer: 'Perfect Petzzz', product: 'Grey Tabby Cat',
-    priceCategory: 'Budget Friendly', animal: 'Cat', price: '$44.45',
-    rating: '4.3', reviews: '848', overall: '3.9',
+    rank: 4, manufacturer: 'Perfect Petzzz', product: 'Original Border Collie',
+    priceCategory: 'Budget Friendly', animal: 'Dog', price: '$44.45',
+    rating: '4.4', reviews: '441', overall: '3.9',
     scores: { charging: 2, caregiver: 5, cleanability: 3, dementia: 3, durability: 4, privacy: 5, safety: 5 },
   },
   {
-    rank: 5, manufacturer: 'Perfect Petzzz', product: 'Original Chocolate Lab',
-    priceCategory: 'Budget Friendly', animal: 'Dog', price: '$44.45',
-    rating: '4.3', reviews: '553', overall: '3.9',
+    rank: 5, manufacturer: 'Perfect Petzzz', product: 'Original Plush White Cat',
+    priceCategory: 'Budget Friendly', animal: 'Cat', price: '$53.90',
+    rating: '4.2', reviews: '55', overall: '3.9',
     scores: { charging: 2, caregiver: 5, cleanability: 3, dementia: 3, durability: 4, privacy: 5, safety: 5 },
   },
 ];

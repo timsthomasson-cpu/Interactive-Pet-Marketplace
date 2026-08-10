@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-08-10T16:49:39.471Z
+// Generated: 2026-08-10T17:03:02.238Z
 
 export type ProductFlags = {
   gifts: boolean;
@@ -1332,7 +1332,7 @@ export const products: Product[] = [
       "30+ Interactive faces"
     ],
     "highlight": "Fun, affordable,  programmable robot puppy",
-    "rating": 4,
+    "rating": 4.5,
     "reviewCount": 346,
     "ratingSource": "Amazon",
     "ratingLastChecked": "2026-08-05",
@@ -1352,7 +1352,7 @@ export const products: Product[] = [
     },
     "stationary": "Mobile",
     "soundLevelControl": 2,
-    "minimumAge": "Sun Mar 08 2026 00:00:00 GMT-0600 (Central Standard Time)"
+    "minimumAge": "6+"
   }
 ];
 

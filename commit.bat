@@ -1,10 +1,10 @@
 call npm run generate:products
-if errorlevel 1 (
-    echo ERROR: Product data generation failed. Commit cancelled.
-    exit /b 1
-)
+if errorlevel 1 exit /b 1
 
-git pull
+python Documentation/generate_ranked_list.py all
+if errorlevel 1 exit /b 1
+
+git status
 git add -A
-git commit -m "Warm golden redesign, product images, layout cleanup"
-git push origin main
+git commit -m "Regenerate product and Best For data"
+git push
