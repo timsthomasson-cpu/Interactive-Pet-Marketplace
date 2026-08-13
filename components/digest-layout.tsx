@@ -187,7 +187,7 @@ export function ArticleProductCard({
             product={p}
             className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-2 text-sm font-semibold text-white hover:bg-trust-600"
           >
-            View Details
+            View at {p.manufacturer}
           </ViewDetailsLink>
         </div>
       </div>

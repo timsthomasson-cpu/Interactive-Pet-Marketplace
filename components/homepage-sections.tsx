@@ -393,7 +393,7 @@ export function PopularCategories() {
                       product={topPick}
                       className="relative z-20 mt-2 inline-flex w-full items-center justify-center rounded-full bg-trust-500 py-1.5 text-xs font-semibold text-white transition hover:bg-trust-600"
                     >
-                      View Details
+                      View at {topPick.manufacturer}
                     </ViewDetailsLink>
                   </div>
                 ) : (

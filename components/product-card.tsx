@@ -124,7 +124,7 @@ export function ProductCard({
             product={product}
             className="inline-flex items-center justify-center rounded-full bg-trust-500 px-3 py-2 sm:px-5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600"
           >
-            View Details
+            View at {product.manufacturer}
           </ViewDetailsLink>
         </div>
       </div>

@@ -200,7 +200,7 @@ function ResultCard({ p }: { p: (typeof products)[number] }) {
           product={p}
           className="inline-flex items-center justify-center rounded-full bg-trust-500 px-4 py-1.5 text-xs font-semibold text-white hover:bg-trust-600"
         >
-          View Details
+          View at {p.manufacturer}
         </ViewDetailsLink>
       </div>
     </div>

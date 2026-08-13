@@ -259,7 +259,7 @@ export default function AllBestForRankings() {
                             product={topPick}
                             className="relative z-20 inline-flex items-center justify-center rounded-full bg-trust-500 px-3 py-1 text-xs font-semibold text-white hover:bg-trust-600"
                           >
-                            View Details
+                            View at {topPick.manufacturer}
                           </ViewDetailsLink>
                         </div>
                       </div>

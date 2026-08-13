@@ -163,7 +163,7 @@ export function BestForCard({
             className={`inline-flex items-center justify-center rounded-full bg-trust-500 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600
               ${featured ? "px-10 py-3 sm:px-12 sm:py-4 text-base sm:text-xl" : "px-3 py-1 sm:px-5 sm:py-1.5 text-xs sm:text-sm"}`}
           >
-            View Details
+            View at {product.manufacturer}
           </ViewDetailsLink>
         </div>
       </div>

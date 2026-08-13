@@ -149,7 +149,7 @@ export default function BestForPage() {
                       product={topPick}
                       className="inline-flex items-center justify-center rounded-full bg-trust-500 px-8 py-3 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600"
                     >
-                      View Details
+                      View at {topPick.manufacturer}
                     </ViewDetailsLink>
                   </div>
                 </div>
