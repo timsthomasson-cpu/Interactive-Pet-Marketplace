@@ -1,3 +1,11 @@
+const { initOpenNextCloudflareForDev } = require("@opennextjs/cloudflare");
+
+// Lets local `next dev` resolve Cloudflare bindings (D1, KV, etc.) via
+// getCloudflareContext() the same way they'd resolve in production on
+// Workers. Without this, any route calling getCloudflareContext() (e.g.
+// app/api/track-click/route.ts) throws under plain `next dev`.
+initOpenNextCloudflareForDev();
+
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   // Dev-only: allows the ngrok tunnel host to hit the local dev server.

@@ -2,7 +2,7 @@
 // Run `npm run generate:products` to regenerate.
 // Source: Documentation/Product Matrix.xlsx (single source of truth)
 //
-// Generated: 2026-08-13T15:41:19.743Z
+// Generated: 2026-08-13T15:53:21.154Z
 
 export type ProductFlags = {
   gifts: boolean;
