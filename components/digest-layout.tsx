@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageShell } from "./layout";
 import { ViewDetailsLink } from "./view-details-link";
+import { getStoreName } from "./store-name";
 
 export type ArticleMeta = {
   tag: "Guide" | "Review" | "Research";
@@ -187,7 +188,7 @@ export function ArticleProductCard({
             product={p}
             className="inline-flex items-center justify-center rounded-full bg-trust-500 px-5 py-2 text-sm font-semibold text-white hover:bg-trust-600"
           >
-            View at {p.manufacturer}
+            View at {getStoreName(p.productUrl)}
           </ViewDetailsLink>
         </div>
       </div>

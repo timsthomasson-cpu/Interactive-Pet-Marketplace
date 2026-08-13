@@ -4,6 +4,7 @@ import { Product } from "./site-data";
 import { InfoPopover } from "./info-popover";
 import { RATING_LINK_REL } from "./link-rel";
 import { ViewDetailsLink } from "./view-details-link";
+import { getStoreName } from "./store-name";
 
 const PRICE_BUCKETS = [
   { label: "<$50", test: (n: number) => n < 50 },
@@ -179,7 +180,7 @@ export function DetailedCompareTable({ items }: { items: Product[] }) {
                     </span>
                   </td>
                   <td className="px-3 py-4">
-                    <ViewDetailsLink product={product} className="inline-flex items-center justify-center rounded-full bg-trust-500 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap">View</ViewDetailsLink>
+                    <ViewDetailsLink product={product} className="inline-flex items-center justify-center rounded-full bg-trust-500 px-4 py-2 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600 whitespace-nowrap">View at {getStoreName(product.productUrl)}</ViewDetailsLink>
                   </td>
                 </tr>
                 );

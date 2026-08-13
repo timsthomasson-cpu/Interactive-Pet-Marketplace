@@ -3,6 +3,7 @@ import { PlaceholderVisual } from "./ui";
 import { RATING_LINK_REL } from "./link-rel";
 import { featureIcon, StarRating } from "./best-for-icons";
 import { ViewDetailsLink } from "./view-details-link";
+import { getStoreName } from "./store-name";
 
 // Variant of ProductCard used on Best For ranking pages.
 // Differences from the standard card:
@@ -163,7 +164,7 @@ export function BestForCard({
             className={`inline-flex items-center justify-center rounded-full bg-trust-500 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600
               ${featured ? "px-10 py-3 sm:px-12 sm:py-4 text-base sm:text-xl" : "px-3 py-1 sm:px-5 sm:py-1.5 text-xs sm:text-sm"}`}
           >
-            View at {product.manufacturer}
+            View at {getStoreName(product.productUrl)}
           </ViewDetailsLink>
         </div>
       </div>

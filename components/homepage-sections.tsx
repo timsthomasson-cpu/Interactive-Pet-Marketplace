@@ -7,6 +7,7 @@ import { RANKED_SLUGS as _childrenFamilies } from "@/app/best-pets-for-children-
 import { products } from "./site-data";
 import { BestForCard } from "./best-for-card";
 import { ViewDetailsLink } from "./view-details-link";
+import { getStoreName } from "./store-name";
 
 // ── Icons ─────────────────────────────────────────────────────────────────────
 
@@ -393,7 +394,7 @@ export function PopularCategories() {
                       product={topPick}
                       className="relative z-20 mt-2 inline-flex w-full items-center justify-center rounded-full bg-trust-500 py-1.5 text-xs font-semibold text-white transition hover:bg-trust-600"
                     >
-                      View at {topPick.manufacturer}
+                      View at {getStoreName(topPick.productUrl)}
                     </ViewDetailsLink>
                   </div>
                 ) : (

@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { products } from "./site-data";
 import { ViewDetailsLink } from "./view-details-link";
+import { getStoreName } from "./store-name";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type State = {
@@ -200,7 +201,7 @@ function ResultCard({ p }: { p: (typeof products)[number] }) {
           product={p}
           className="inline-flex items-center justify-center rounded-full bg-trust-500 px-4 py-1.5 text-xs font-semibold text-white hover:bg-trust-600"
         >
-          View at {p.manufacturer}
+          View at {getStoreName(p.productUrl)}
         </ViewDetailsLink>
       </div>
     </div>

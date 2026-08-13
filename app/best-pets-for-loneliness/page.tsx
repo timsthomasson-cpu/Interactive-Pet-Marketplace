@@ -16,6 +16,7 @@ import {
   RANKED_SLUGS, SCORE_PERCENT, RUNNER_NOTES, TOP_PICK_CRITERIA_DATA, JSON_LD,
 } from "./page-data";
 import { SCORES } from "./scores";
+import { getStoreName } from "@/components/store-name";
 
 const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   "Autonomous Interaction": IconChat,
@@ -132,7 +133,7 @@ export default function BestForPage() {
                       product={topPick}
                       className="inline-flex items-center justify-center rounded-full bg-trust-500 px-8 py-3 text-base font-semibold text-white transition hover:-translate-y-0.5 hover:bg-trust-600"
                     >
-                      View at {topPick.manufacturer}
+                      View at {getStoreName(topPick.productUrl)}
                     </ViewDetailsLink>
                   </div>
                 </div>
