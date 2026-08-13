@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Privacy Conscious Families"
-// Generated: 2026-08-10
+// Generated: 2026-08-13
 
-export const GENERATED_DATE = '2026-08-10';
+export const GENERATED_DATE = '2026-08-13';
 
 export const WEIGHTS = [
   { key: 'ai', label: 'Ai / Advanced Interaction Level', weight: "10%", reversed: false },

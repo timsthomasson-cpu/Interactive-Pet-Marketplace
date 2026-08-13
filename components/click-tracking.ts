@@ -41,7 +41,8 @@ function getCookie(name: string): string | undefined {
 export function trackOutboundClick(
   productSlug: string,
   destinationUrl: string,
-  eventId: string
+  eventId: string,
+  value?: number
 ): void {
   if (typeof window === "undefined") return;
 
@@ -55,6 +56,12 @@ export function trackOutboundClick(
     eventId,
     fbp: getCookie("_fbp"),
     fbc: getCookie("_fbc"),
+    // Forwarded to the server-side Conversions API ViewContent event (see
+    // app/api/track-click/route.ts) so it carries the same value/currency
+    // as the browser-side Pixel event — Meta's diagnostics flag
+    // ViewContent events missing these as a high-priority issue.
+    value,
+    currency: value !== undefined ? "USD" : undefined,
   });
 
   // Fire-and-forget — never block or delay the outbound navigation.

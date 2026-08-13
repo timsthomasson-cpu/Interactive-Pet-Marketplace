@@ -1,10 +1,10 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Budget Friendly Pets"
-// Generated: 2026-08-10
+// Generated: 2026-08-13
 //
 // WHY_TOP_PICK_BULLETS lives in page.tsx — review manually when top pick changes.
 
-export const SPREADSHEET_UPDATED = 'August 10, 2026';
+export const SPREADSHEET_UPDATED = 'August 13, 2026';
 export const TOP_SCORE_IN_GROUP = 3.95;
 export const TOP_PICK_RAW_SCORE = 3.95;
 export const TOP_PICK_PERCENT = 100;

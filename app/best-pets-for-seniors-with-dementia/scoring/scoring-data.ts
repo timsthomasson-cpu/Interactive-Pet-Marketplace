@@ -1,8 +1,8 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Seniors with Dementia"
-// Generated: 2026-08-10
+// Generated: 2026-08-13
 
-export const GENERATED_DATE = '2026-08-10';
+export const GENERATED_DATE = '2026-08-13';
 
 export const WEIGHTS = [
   { key: 'caregiver', label: 'Caregiver Burden', weight: "10%", reversed: true },

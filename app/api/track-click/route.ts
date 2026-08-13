@@ -48,6 +48,8 @@ async function sendMetaCapiEvent(params: {
   userAgent: string | null;
   fbp: string | null;
   fbc: string | null;
+  value: number | null;
+  currency: string | null;
 }): Promise<void> {
   const accessToken = process.env.META_CAPI_ACCESS_TOKEN;
   if (!accessToken) {
@@ -71,6 +73,9 @@ async function sendMetaCapiEvent(params: {
     custom_data: {
       content_ids: [params.productSlug],
       content_type: "product",
+      ...(params.value !== null
+        ? { value: params.value, currency: params.currency ?? "USD" }
+        : {}),
     },
   };
 
@@ -118,9 +123,22 @@ export async function POST(request: NextRequest) {
       eventId?: unknown;
       fbp?: unknown;
       fbc?: unknown;
+      value?: unknown;
+      currency?: unknown;
     };
-    const { productSlug, destinationUrl, sourcePage, pageUrl, referrer, sessionId, eventId, fbp, fbc } =
-      body;
+    const {
+      productSlug,
+      destinationUrl,
+      sourcePage,
+      pageUrl,
+      referrer,
+      sessionId,
+      eventId,
+      fbp,
+      fbc,
+      value,
+      currency,
+    } = body;
 
     if (typeof productSlug !== "string" || typeof destinationUrl !== "string") {
       return NextResponse.json(
@@ -190,6 +208,8 @@ export async function POST(request: NextRequest) {
         userAgent: request.headers.get("user-agent"),
         fbp: typeof fbp === "string" ? fbp : null,
         fbc: typeof fbc === "string" ? fbc : null,
+        value: typeof value === "number" && Number.isFinite(value) ? value : null,
+        currency: typeof currency === "string" ? currency : null,
       });
     }
 

@@ -1,6 +1,6 @@
 // AUTO-GENERATED — do not edit by hand.
 // Run: python Documentation/generate_ranked_list.py "Best Pets for Privacy Conscious Families"
-// Generated: 2026-08-10
+// Generated: 2026-08-13
 
 export const TOP_SCORE_IN_GROUP = 4.1;
 

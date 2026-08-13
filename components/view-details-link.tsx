@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { PRODUCT_LINK_REL } from "./link-rel";
-import { trackViewContent, type TrackableProduct } from "./meta-pixel";
+import { trackViewContent, parseProductPrice, type TrackableProduct } from "./meta-pixel";
 import { trackOutboundClick } from "./click-tracking";
 
 // Isolated as its own client component so that ProductCard / BestForCard
@@ -25,7 +25,12 @@ export function ViewDetailsLink({
       onClick={() => {
         const eventId = crypto.randomUUID();
         trackViewContent(product, eventId);
-        trackOutboundClick(product.slug, product.productUrl ?? "#", eventId);
+        trackOutboundClick(
+          product.slug,
+          product.productUrl ?? "#",
+          eventId,
+          parseProductPrice(product.price)
+        );
       }}
       className={className}
     >
